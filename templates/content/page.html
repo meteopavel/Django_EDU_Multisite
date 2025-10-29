@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.template.title }} — {{ department.name }} ({{ site_type }})</title>
+</head>
+<body>
+    <header>
+        <h1>{{ page.template.title }}</h1>
+        <p><em>Подразделение: {{ department.name }}</em></p>
+    </header>
+
+    <nav>
+        {% for p in all_pages %}
+            <a href="/{{ p.slug }}/">{{ p.title }}</a>
+            {% if not forloop.last %} | {% endif %}
+        {% endfor %}
+    </nav>
+
+    <main>
+        {{ page.content|safe }}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 {{ department.name }}. Все права защищены. И защита сильна)</p>
+    </footer>
+</body>
+</html>
