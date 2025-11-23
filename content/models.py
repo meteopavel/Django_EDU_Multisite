@@ -15,36 +15,106 @@ class Department(models.Model):
         return self.name
 
 
-class PageTemplate(models.Model):
-    title = models.CharField('Название шаблона', max_length=100)
-    slug = models.SlugField('Slug шаблона', unique=True)
+class DepartmentDetails(models.Model):
+    department = models.OneToOneField(
+        Department,
+        on_delete=models.CASCADE,
+        related_name='details',
+        verbose_name='Подразделение'
+    )
+
+    address = models.TextField('Адрес', blank=True)
+    phone = models.CharField('Телефон', max_length=50, blank=True)
+    email = models.EmailField('Email', blank=True)
+    website = models.URLField('Сайт', blank=True)
+
+    inn = models.CharField('ИНН', max_length=12, blank=True)
+    kpp = models.CharField('КПП', max_length=15, blank=True)
+    legal_address = models.TextField('Юридический адрес', blank=True)
+
+    meta_title = models.CharField('SEO Title', max_length=100, blank=True)
+    meta_description = models.CharField('SEO Description', max_length=255, blank=True)
 
     class Meta:
-        verbose_name = 'Шаблон страницы'
-        verbose_name_plural = 'Шаблоны страниц'
+        verbose_name = 'Детали подразделения'
+        verbose_name_plural = 'Детали подразделений'
+
+    def __str__(self):
+        return f'Детали: {self.department.name}'
+
+
+class MenuItem(models.Model):
+    title = models.CharField('Название пункта', max_length=100)
+    url = models.CharField('URL (относительный)', max_length=200)
+    order = models.PositiveSmallIntegerField('Порядок', default=0)
+    is_active = models.BooleanField('Активен', default=True)
+
+    departments = models.ManyToManyField(
+        Department,
+        related_name='menu_items',
+        verbose_name='Подразделения',
+        blank=True,
+        help_text='Выберите, в каких подразделениях будет отображаться этот пункт. Оставьте пустым — чтобы показывать во всех.'
+    )
+
+    class Meta:
+        verbose_name = 'Пункт меню'
+        verbose_name_plural = 'Пункты меню'
+        ordering = ['order', 'title']
+
+    def __str__(self):
+        if self.departments.exists():
+            deps = ', '.join(d.name for d in self.departments.all())
+            return f'{self.title} ({deps})'
+        return f'{self.title} (все подразделения)'
+
+
+from django.db import models
+
+
+class NewsImage(models.Model):
+    news = models.ForeignKey(
+        'News',
+        on_delete=models.CASCADE,
+        related_name='gallery_images',
+        verbose_name='Новость'
+    )
+    image = models.ImageField('Изображение', upload_to='news/gallery/')
+    description = models.CharField('Описание', max_length=255, blank=True)
+    order = models.PositiveSmallIntegerField('Порядок', default=0)
+
+    class Meta:
+        ordering = ['order']
+        verbose_name = 'Изображение для галереи'
+        verbose_name_plural = 'Изображения для галереи'
+
+    def __str__(self):
+        return self.description or f'Изображение {self.pk}'
+
+
+class News(models.Model):
+    title = models.CharField('Заголовок', max_length=255)
+    slug = models.SlugField('URL', unique=True)
+    preview_text = models.TextField('Краткое описание', blank=True)
+    content = models.TextField('Текст новости')
+
+    main_image = models.ImageField('Главная картинка', upload_to='news/main/', blank=True, null=True)
+    video = models.FileField('Видео', upload_to='news/videos/', blank=True, null=True)
+
+    departments = models.ManyToManyField(
+        'Department',
+        related_name='news',
+        blank=True,
+        help_text='Оставьте пустым — будет отображаться во всех подразделениях'
+    )
+
+    is_active = models.BooleanField('Активна', default=True)
+    created_at = models.DateTimeField('Дата публикации', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+        ordering = ['-created_at']
 
     def __str__(self):
         return self.title
-
-
-class PageContent(models.Model):
-    department = models.ForeignKey(Department, on_delete=models.CASCADE, verbose_name='Подразделение')
-    template = models.ForeignKey(PageTemplate, on_delete=models.CASCADE, verbose_name='Шаблон')
-    content = models.TextField('Контент')
-    is_active = models.BooleanField('Активен', default=True)
-    created_at = models.DateTimeField('Создан', default=timezone.now)
-    updated_at = models.DateTimeField('Обновлён', default=timezone.now)
-
-    def save(self, *args, **kwargs):
-        if not self.pk:  # при создании
-            self.created_at = timezone.now()
-        self.updated_at = timezone.now()
-        super().save(*args, **kwargs)
-
-    class Meta:
-        verbose_name = 'Контент страницы'
-        verbose_name_plural = 'Контент страниц'
-        unique_together = ('department', 'template')
-
-    def __str__(self):
-        return f'{self.department} — {self.template}'

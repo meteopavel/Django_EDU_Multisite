@@ -41,6 +41,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'content.context_processors.menu_processor',
             ],
         },
     },
@@ -75,7 +76,15 @@ USE_TZ = True
 
 HOST_TO_DEPARTMENT_MAP = os.getenv('HOST_TO_DEPARTMENT_MAP', '')
 
-STATIC_URL = '/static/'
-STATIC_ROOT = '/home/c/cj82062/DjangoVOA/public_html/static'
+if DEBUG:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = '/home/c/cj82062/DjangoVOA/public_html/static'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = '/home/c/cj82062/DjangoVOA/public_html/media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты — {{ department.name }}</title>
+</head>
+<body>
+    <h1>Контакты</h1>
+    <p><strong>Адрес:</strong> {{ department.details.address }}</p>
+    <p><strong>Телефон:</strong> <a href="tel:{{ department.details.phone }}">{{ department.details.phone }}</a></p>
+    <p><strong>Email:</strong> <a href="mailto:{{ department.details.email }}">{{ department.details.email }}</a></p>
+
+    <nav>
+        {% for item in menu_items %}
+            <a href="{{ item.url }}">{{ item.title }}</a>
+            {% if not forloop.last %} | {% endif %}
+        {% endfor %}
+    </nav>
+</body>
+</html>

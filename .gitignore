@@ -1,6 +1,10 @@
 # MySQL data directory
 mysql-data/
 
+# Media and static directory
+media/
+/staticfiles/
+
 # Secrets
 .env
 deploy.sh

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ news.title }} — {{ department.name }}</title>
+</head>
+<body>
+    <h1>{{ news.title }}</h1>
+    <small>{{ news.created_at|date:"d.m.Y" }}</small>
+
+    {% if news.main_image %}
+        <img src="{{ news.main_image.url }}" alt="{{ news.title }}" style="width:100%; max-height:400px; object-fit:cover;">
+    {% endif %}
+
+    <!-- Текст: разбиваем по абзацам -->
+    {{ news.content|linebreaks }}
+
+    <!-- Галерея -->
+    {% if news.gallery_images.all %}
+        <h2>Фотогалерея</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            {% for img in news.gallery_images.all %}
+                <img src="{{ img.image.url }}" alt="{{ img.description }}" style="max-height:150px;">
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Видео -->
+    {% if news.video %}
+        <h2>Видео</h2>
+        <video controls width="25%">
+            <source src="{{ news.video.url }}" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    {% endif %}
+
+    <p><a href="/news/">← Все новости</a></p>
+
+    <nav>
+        {% for item in menu_items %}
+            <a href="{{ item.url }}">{{ item.title }}</a>
+            {% if not forloop.last %} | {% endif %}
+        {% endfor %}
+    </nav>
+</body>
+</html>
