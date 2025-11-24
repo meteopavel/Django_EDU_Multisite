@@ -41,3 +41,10 @@ static/
 .vscode/
 *.swp
 .DS_Store
+
+
+/joomla_data.sql
+/docker-compose.yml
+/prod_dump.sql
+/content/management/
+/mysql/

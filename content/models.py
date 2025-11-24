@@ -93,8 +93,9 @@ class NewsImage(models.Model):
 
 
 class News(models.Model):
+    joomla_id = models.IntegerField('ID из Joomla', unique=True, null=True, blank=True)
     title = models.CharField('Заголовок', max_length=255)
-    slug = models.SlugField('URL', unique=True)
+    slug = models.SlugField('URL', unique=True, max_length=255)
     preview_text = models.TextField('Краткое описание', blank=True)
     content = models.TextField('Текст новости')
 
@@ -109,7 +110,12 @@ class News(models.Model):
     )
 
     is_active = models.BooleanField('Активна', default=True)
-    created_at = models.DateTimeField('Дата публикации', auto_now_add=True)
+    created_at = models.DateTimeField('Дата публикации')
+
+    def save(self, *args, **kwargs):
+        if not self.created_at:
+            self.created_at = timezone.now()
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Новость'
