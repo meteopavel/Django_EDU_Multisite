@@ -137,6 +137,21 @@
   }
 },
 {
+  "model": "content.menuitem",
+  "pk": 4,
+  "fields": {
+    "title": "Документы",
+    "url": "/documents",
+    "order": 3,
+    "is_active": true,
+    "departments": [
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
   "model": "content.newsimage",
   "pk": 283,
   "fields": {
@@ -5649,6 +5664,2078 @@
     "departments": [
       1
     ]
+  }
+},
+{
+  "model": "content.documentcategory",
+  "pk": 1,
+  "fields": {
+    "name": "Основные документы",
+    "slug": "osnovnye-dokumenty",
+    "order": 1
+  }
+},
+{
+  "model": "content.documentcategory",
+  "pk": 2,
+  "fields": {
+    "name": "Нормативные документы",
+    "slug": "normativnye-dokumenty",
+    "order": 2
+  }
+},
+{
+  "model": "content.documentcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Структура и особенности",
+    "slug": "struktura_i_osobennosti",
+    "order": 3
+  }
+},
+{
+  "model": "content.documentcategory",
+  "pk": 5,
+  "fields": {
+    "name": "Сведения о проводимых проверках",
+    "slug": "proverki",
+    "order": 5
+  }
+},
+{
+  "model": "content.documentcategory",
+  "pk": 6,
+  "fields": {
+    "name": "Сканы документов",
+    "slug": "skany-dokumentov",
+    "order": 0
+  }
+},
+{
+  "model": "content.documentcategory",
+  "pk": 7,
+  "fields": {
+    "name": "Программы развития",
+    "slug": "programmy-razvitiya",
+    "order": 3
+  }
+},
+{
+  "model": "content.documentcategory",
+  "pk": 8,
+  "fields": {
+    "name": "Предписания контролирующих органов и отчёты по их исполнению",
+    "slug": "predpisaniya-i-otchety-ob-ispolnenii",
+    "order": 4
+  }
+},
+{
+  "model": "content.documentcategory",
+  "pk": 10,
+  "fields": {
+    "name": "Отчёты о самообследовании",
+    "slug": "otchety-samoobsledovaniya",
+    "order": 3
+  }
+},
+{
+  "model": "content.document",
+  "pk": 1,
+  "fields": {
+    "title": "Выписка из реестра лицензий",
+    "document_type": "file",
+    "file": "documents/irkutsk/Лицензия.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 1,
+    "department": 2,
+    "order": 1,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.480Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 2,
+  "fields": {
+    "title": "Договор об оказании платных образовательных услуг",
+    "document_type": "file",
+    "file": "documents/irkutsk/Договор_платных_услуг.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 1,
+    "department": 2,
+    "order": 2,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.504Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 3,
+  "fields": {
+    "title": "Образовательная программа профессиональной подготовки водителей транспортных средств категории \"A\"",
+    "document_type": "file",
+    "file": "documents/irkutsk/Программа_А.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 3,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.519Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 4,
+  "fields": {
+    "title": "Образовательная программа профессиональной подготовки водителей транспортных средств категории \"B\"",
+    "document_type": "file",
+    "file": "documents/irkutsk/Программа_В.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 4,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.531Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 5,
+  "fields": {
+    "title": "Приказ о стоимости обучения",
+    "document_type": "file",
+    "file": "documents/irkutsk/Приказ_стоимость.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 5,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.538Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 6,
+  "fields": {
+    "title": "Приказ о повышении стоимости обучения",
+    "document_type": "file",
+    "file": "documents/irkutsk/Приказ_повышение.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 6,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.545Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 7,
+  "fields": {
+    "title": "Порядок предоставления платных услуг",
+    "document_type": "file",
+    "file": "documents/irkutsk/Порядок_платных_услуг.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 7,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.551Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 8,
+  "fields": {
+    "title": "Калькуляция стоимости подготовки 1 курсанта категории \"В\"",
+    "document_type": "file",
+    "file": "documents/irkutsk/Калькуляция.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 8,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.557Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 9,
+  "fields": {
+    "title": "Правила приема, отчисления, восстановления обучающихся в автошколу",
+    "document_type": "file",
+    "file": "documents/irkutsk/Правила_приема.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 9,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.563Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 10,
+  "fields": {
+    "title": "Правила внутреннего трудового распорядка и распорядка учащихся",
+    "document_type": "file",
+    "file": "documents/irkutsk/Правила_распорядка.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 10,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.570Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 11,
+  "fields": {
+    "title": "Положение о проведении промежуточной аттестации",
+    "document_type": "file",
+    "file": "documents/irkutsk/Положение_промежуточной.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 11,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.577Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 12,
+  "fields": {
+    "title": "Положение о проведении итоговой аттестации",
+    "document_type": "file",
+    "file": "documents/irkutsk/Положение_итоговой.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 12,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.582Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 13,
+  "fields": {
+    "title": "Положение об официальном сайте в сети Интернет",
+    "document_type": "file",
+    "file": "documents/irkutsk/Положение_сайта.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 13,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.589Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 14,
+  "fields": {
+    "title": "Положение о комиссии по урегулированию споров",
+    "document_type": "file",
+    "file": "documents/irkutsk/Положение_споров.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 14,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.593Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 15,
+  "fields": {
+    "title": "Документы по организации охраны здоровья учащихся",
+    "document_type": "file",
+    "file": "documents/irkutsk/Охрана_здоровья.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 15,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.600Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 16,
+  "fields": {
+    "title": "Памятка о действиях при угрозе теракта",
+    "document_type": "file",
+    "file": "documents/irkutsk/Памятка_теракт.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 16,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.606Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 17,
+  "fields": {
+    "title": "Положение о нормах профессиональной этики педагогических работников",
+    "document_type": "file",
+    "file": "documents/irkutsk/Этические_нормы.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 3,
+    "department": 2,
+    "order": 17,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.612Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 18,
+  "fields": {
+    "title": "Методические рекомендации по организации образовательного процесса",
+    "document_type": "file",
+    "file": "documents/irkutsk/Методические_рекомендации.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 3,
+    "department": 2,
+    "order": 18,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.618Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 19,
+  "fields": {
+    "title": "Положение о педагогическом совете",
+    "document_type": "file",
+    "file": "documents/irkutsk/Педсовет.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 3,
+    "department": 2,
+    "order": 19,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.623Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 20,
+  "fields": {
+    "title": "Устав ЧПОУ \"Автошкола ИРО ОО ВОА\"",
+    "document_type": "file",
+    "file": "documents/irkutsk/Устав.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 3,
+    "department": 2,
+    "order": 20,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.629Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 21,
+  "fields": {
+    "title": "Отчет о самообследовании за 2017 год",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_2017.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 2,
+    "order": 21,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.637Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 22,
+  "fields": {
+    "title": "Отчет о самообследовании за 2018 год",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_2018.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 2,
+    "order": 22,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.645Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 23,
+  "fields": {
+    "title": "Отчет о самообследовании за 2019 год",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_2019.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 2,
+    "order": 23,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.651Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 24,
+  "fields": {
+    "title": "Отчет о самообследовании за 2020 год",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_2020.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 2,
+    "order": 24,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.659Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 25,
+  "fields": {
+    "title": "Отчет о самообследовании за 2021 год",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_2021.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 2,
+    "order": 25,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.666Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 26,
+  "fields": {
+    "title": "Отчет о самообследовании за 2022 год",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_2022.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 2,
+    "order": 26,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.672Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 27,
+  "fields": {
+    "title": "Отчет о самообследовании за 2023 год",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_2023.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 2,
+    "order": 27,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.678Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 28,
+  "fields": {
+    "title": "Отчет о самообследовании за 2024 год",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_2024.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 2,
+    "order": 28,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.683Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 29,
+  "fields": {
+    "title": "Отчет о самообследовании за 2025 год",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_2025.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 2,
+    "order": 29,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.689Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 30,
+  "fields": {
+    "title": "30.12.2015 Внеплановая проверка Службой по контролю и надзору в сфере образования",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_внеплановая_2015.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 5,
+    "department": 2,
+    "order": 8,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.693Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 31,
+  "fields": {
+    "title": "11.11.2019 Распоряжение о плановой проверке Службой по контролю в сфере образования",
+    "document_type": "file",
+    "file": "documents/irkutsk/Распоряжение_2019.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 5,
+    "department": 2,
+    "order": 9,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.701Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 32,
+  "fields": {
+    "title": "12.11.2019 Уведомление о плановой проверке Службой по контролю в сфере образования",
+    "document_type": "file",
+    "file": "documents/irkutsk/Уведомление_2019.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 5,
+    "department": 2,
+    "order": 10,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.706Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 33,
+  "fields": {
+    "title": "27.12.2019 Акт плановой проверки Службой по контролю в сфере образования",
+    "document_type": "file",
+    "file": "documents/irkutsk/Акт_проверки_2019.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 5,
+    "department": 2,
+    "order": 11,
+    "is_active": true,
+    "created_at": "2025-11-24T12:11:03.712Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 37,
+  "fields": {
+    "title": "Свидетельство о государственной регистрации (стр. 1)",
+    "document_type": "file",
+    "file": "documents/irkutsk_images/Svidetelstvo1.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 2,
+    "order": 4,
+    "is_active": true,
+    "created_at": "2025-11-24T12:20:13.905Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 38,
+  "fields": {
+    "title": "Свидетельство о государственной регистрации (стр. 2)",
+    "document_type": "file",
+    "file": "documents/irkutsk_images/Svidetelstvo2.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 2,
+    "order": 5,
+    "is_active": true,
+    "created_at": "2025-11-24T12:20:13.914Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 39,
+  "fields": {
+    "title": "Заключение о соответствии",
+    "document_type": "file",
+    "file": "documents/irkutsk_images/zaklyuchenie-new-new.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 2,
+    "order": 6,
+    "is_active": true,
+    "created_at": "2025-11-24T12:20:13.920Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 40,
+  "fields": {
+    "title": "Договор с несовершеннолетним об оказании платных образовательных услуг",
+    "document_type": "file",
+    "file": "documents/bratsk/Договор_с_несовершеннолетним.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 1,
+    "department": 3,
+    "order": 2,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.100Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 41,
+  "fields": {
+    "title": "Справка об обучении",
+    "document_type": "file",
+    "file": "documents/bratsk/Справка_об_обучении.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 1,
+    "department": 3,
+    "order": 3,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.106Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 42,
+  "fields": {
+    "title": "Федеральный закон \"О персональных данных\"",
+    "document_type": "file",
+    "file": "documents/bratsk/ФЗ_персональные_данные.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 1,
+    "department": 3,
+    "order": 5,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.116Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 43,
+  "fields": {
+    "title": "Положение о выдаче свидетельств",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_выдача_свидетельств.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 6,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.126Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 44,
+  "fields": {
+    "title": "Положение о промежуточной и итоговой аттестации",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_аттестация.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 7,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.134Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 45,
+  "fields": {
+    "title": "Постановление Правительства РФ от 15.09.2020 N 1441 Об утверждении Правил оказания платных образовательных услуг",
+    "document_type": "file",
+    "file": "documents/bratsk/Постановление_1441.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 8,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.142Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 46,
+  "fields": {
+    "title": "Положение о защите персональных данных",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_защита_ПД.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 9,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.148Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 47,
+  "fields": {
+    "title": "Положение о порядке обучения по индивидуальному учебному плану",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_индивидуальный_план.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 10,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.155Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 48,
+  "fields": {
+    "title": "Положение об организации учебного процесса",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_учебный_процесс.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 11,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.164Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 49,
+  "fields": {
+    "title": "Положение об организации практического вождения",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_практическое_вождение.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 12,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.169Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 50,
+  "fields": {
+    "title": "Правила внутреннего распорядка обучающихся",
+    "document_type": "file",
+    "file": "documents/bratsk/Правила_распорядка_обучающихся.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 14,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.180Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 51,
+  "fields": {
+    "title": "Инструкция по охране труда для обучающихся",
+    "document_type": "file",
+    "file": "documents/bratsk/Инструкция_ОТ.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 15,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.186Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 52,
+  "fields": {
+    "title": "Правила приёма",
+    "document_type": "file",
+    "file": "documents/bratsk/Правила_приема.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 17,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.197Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 53,
+  "fields": {
+    "title": "Правила отчисления",
+    "document_type": "file",
+    "file": "documents/bratsk/Правила_отчисления.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 18,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.202Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 54,
+  "fields": {
+    "title": "Порядок оформления возникновения, изменения и прекращения образовательных отношений",
+    "document_type": "file",
+    "file": "documents/bratsk/Порядок_образовательных_отношений.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 19,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.210Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 55,
+  "fields": {
+    "title": "Положение о правилах этики поведения педагогических работников",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_этика_педагогов.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 20,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.217Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 56,
+  "fields": {
+    "title": "Правила внутреннего трудового распорядка для работников БГО ОО ВОА",
+    "document_type": "file",
+    "file": "documents/bratsk/Правила_трудового_распорядка.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 21,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.223Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 57,
+  "fields": {
+    "title": "Устав",
+    "document_type": "file",
+    "file": "documents/bratsk/Устав.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 23,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.233Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 58,
+  "fields": {
+    "title": "Отчет о самообследовании за 2019 год",
+    "document_type": "file",
+    "file": "documents/bratsk/Самообследование_2019.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 3,
+    "order": 24,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.238Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 59,
+  "fields": {
+    "title": "Отчет о самообследовании за 2020 год",
+    "document_type": "file",
+    "file": "documents/bratsk/Самообследование_2020.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 3,
+    "order": 25,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.244Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 60,
+  "fields": {
+    "title": "Отчет о самообследовании за 2021 год",
+    "document_type": "file",
+    "file": "documents/bratsk/Самообследование_2021.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 3,
+    "order": 26,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.249Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 61,
+  "fields": {
+    "title": "Отчет о самообследовании за 2022 год",
+    "document_type": "file",
+    "file": "documents/bratsk/Самообследование_2022.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 3,
+    "order": 27,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.256Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 62,
+  "fields": {
+    "title": "Отчет о самообследовании за 2023 год",
+    "document_type": "file",
+    "file": "documents/bratsk/Самообследование_2023.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 3,
+    "order": 28,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.262Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 63,
+  "fields": {
+    "title": "Отчет о самообследовании за 2024 год",
+    "document_type": "file",
+    "file": "documents/bratsk/Самообследование_2024.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 3,
+    "order": 29,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.267Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 64,
+  "fields": {
+    "title": "Программа развития на 2021-2024 года",
+    "document_type": "file",
+    "file": "documents/bratsk/Программа_развития_2024.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 7,
+    "department": 3,
+    "order": 30,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.272Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 65,
+  "fields": {
+    "title": "Предписание об устранении выявленных нарушений требований законодательства об образовании 2021 год",
+    "document_type": "file",
+    "file": "documents/bratsk/Предписание_2021.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 8,
+    "department": 3,
+    "order": 31,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.278Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 66,
+  "fields": {
+    "title": "Результат рассмотрения отчёта об устранении выявленных нарушений за 2021 год",
+    "document_type": "file",
+    "file": "documents/bratsk/Результат_отчёта_2021.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 8,
+    "department": 3,
+    "order": 32,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.284Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 67,
+  "fields": {
+    "title": "Уведомление о проведении плановой проверки за 2023 год",
+    "document_type": "file",
+    "file": "documents/bratsk/Уведомление_проверка_2023.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 8,
+    "department": 3,
+    "order": 33,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.288Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 68,
+  "fields": {
+    "title": "Акт по результатам проверки за 2023 год 1 лист",
+    "document_type": "file",
+    "file": "documents/bratsk/Акт_проверки_2023_1.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 8,
+    "department": 3,
+    "order": 34,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.293Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 69,
+  "fields": {
+    "title": "Акт по результатам проверки за 2023 год 2 лист",
+    "document_type": "file",
+    "file": "documents/bratsk/Акт_проверки_2023_2.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 8,
+    "department": 3,
+    "order": 35,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:06.298Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 70,
+  "fields": {
+    "title": "Приложение к лицензии",
+    "document_type": "file",
+    "file": "documents/bratsk_images/Приложение_к_лицензии.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 3,
+    "order": 4,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:30Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 71,
+  "fields": {
+    "title": "Свидетельство о постановке на учет в налоговом органе",
+    "document_type": "file",
+    "file": "documents/bratsk_images/Свидетельство_налоговый_учет.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 3,
+    "order": 5,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:30.275Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 72,
+  "fields": {
+    "title": "Свидетельство о внесении в ЕГРЮЛ",
+    "document_type": "file",
+    "file": "documents/bratsk_images/Свидетельство_ЕГРЮЛ.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 3,
+    "order": 6,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:30.280Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 73,
+  "fields": {
+    "title": "Свидетельство о постановке на учет некоммерческой организации",
+    "document_type": "file",
+    "file": "documents/bratsk_images/Свидетельство_некоммерческая.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 3,
+    "order": 7,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:30.288Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 74,
+  "fields": {
+    "title": "Свидетельство о регистрации общественного объединения",
+    "document_type": "file",
+    "file": "documents/bratsk_images/Свидетельство_общественное.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 3,
+    "order": 8,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:30.294Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 75,
+  "fields": {
+    "title": "Санитарно-эпидемиологическое заключение",
+    "document_type": "file",
+    "file": "documents/bratsk_images/Санитарное_заключение.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 3,
+    "order": 9,
+    "is_active": true,
+    "created_at": "2025-11-24T12:33:30.300Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 76,
+  "fields": {
+    "title": "Образец договора об оказании платных образовательных услуг",
+    "document_type": "file",
+    "file": "documents/ustkut/Договор_образец.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 1,
+    "department": 4,
+    "order": 1,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.174Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 77,
+  "fields": {
+    "title": "Политика защиты и обработки персональных данных",
+    "document_type": "file",
+    "file": "documents/ustkut/Политика_ПД.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 2,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.184Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 78,
+  "fields": {
+    "title": "Положение о защите персональных данных работников",
+    "document_type": "file",
+    "file": "documents/ustkut/Положение_ПД_работников.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 3,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.190Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 79,
+  "fields": {
+    "title": "Приказ на утверждение формы бланка свидетельства о профессии водителя",
+    "document_type": "file",
+    "file": "documents/ustkut/Приказ_бланк_свидетельства.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 5,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.200Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 80,
+  "fields": {
+    "title": "Положение об оказании платных образовательных услуг",
+    "document_type": "file",
+    "file": "documents/ustkut/Положение_платные_услуги.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 9,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.225Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 81,
+  "fields": {
+    "title": "Положение об официальном сайте образовательной организации",
+    "document_type": "file",
+    "file": "documents/ustkut/Положение_сайт.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 11,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.234Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 82,
+  "fields": {
+    "title": "Приказ об утверждении справок",
+    "document_type": "file",
+    "file": "documents/ustkut/Приказ_справки.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 12,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.239Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 83,
+  "fields": {
+    "title": "Правила внутреннего трудового распорядка для работников Усть-Кутского городского отделения Общественной организации \"Всероссийское общество автомобилистов\"",
+    "document_type": "file",
+    "file": "documents/ustkut/Правила_трудового_распорядка.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 13,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.245Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 84,
+  "fields": {
+    "title": "Памятка о действиях при угрозе пожара",
+    "document_type": "file",
+    "file": "documents/ustkut/Памятка_пожар.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 18,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.267Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 85,
+  "fields": {
+    "title": "Положение о видеонаблюдении",
+    "document_type": "file",
+    "file": "documents/ustkut/Положение_видеонаблюдение.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 19,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.272Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 86,
+  "fields": {
+    "title": "Программа развития до 2027 года",
+    "document_type": "file",
+    "file": "documents/ustkut/Программа_развития_2027.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 7,
+    "department": 4,
+    "order": 21,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 87,
+  "fields": {
+    "title": "Отчет о самообследовании за 2018 год",
+    "document_type": "file",
+    "file": "documents/ustkut/Самообследование_2018.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 4,
+    "order": 22,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.290Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 88,
+  "fields": {
+    "title": "Предписания органов, осуществляющих государственный контроль в сфере образования",
+    "document_type": "file",
+    "file": "documents/ustkut/Предписания_контролирующих.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 8,
+    "department": 4,
+    "order": 29,
+    "is_active": true,
+    "created_at": "2025-11-24T12:50:14Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 89,
+  "fields": {
+    "title": "Отчеты об исполнении предписаний контролирующих органов",
+    "document_type": "file",
+    "file": "documents/ustkut/Отчет_исполнение_предписаний.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 8,
+    "department": 4,
+    "order": 30,
+    "is_active": true,
+    "created_at": "2025-11-24T12:50:14.214Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 90,
+  "fields": {
+    "title": "Лицензия на образовательную деятельность",
+    "document_type": "file",
+    "file": "documents/ustkut_images/Лицензия.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 4,
+    "order": 1,
+    "is_active": true,
+    "created_at": "2025-11-24T12:55:10.006Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 91,
+  "fields": {
+    "title": "Свидетельство о регистрации ВОА",
+    "document_type": "file",
+    "file": "documents/ustkut_images/Свидетельство_регистрация_ВОА.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 4,
+    "order": 4,
+    "is_active": true,
+    "created_at": "2025-11-24T12:55:10.022Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 92,
+  "fields": {
+    "title": "Свидетельство о постановке ВОА",
+    "document_type": "file",
+    "file": "documents/ustkut_images/Свидетельство_постановка_ВОА.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 4,
+    "order": 5,
+    "is_active": true,
+    "created_at": "2025-11-24T12:55:10.029Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 94,
+  "fields": {
+    "title": "Лицензия на образовательную деятельность (стр. 1)",
+    "document_type": "file",
+    "file": "documents/bratsk_images/Лицензия_1_страница.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-11-24T13:14:32Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 95,
+  "fields": {
+    "title": "Лицензия на образовательную деятельность (стр. 2)",
+    "document_type": "file",
+    "file": "documents/bratsk_images/Лицензия_2_страница.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 3,
+    "order": 1,
+    "is_active": true,
+    "created_at": "2025-11-24T13:45:09Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 96,
+  "fields": {
+    "title": "Лицензия на образовательную деятельность",
+    "document_type": "file",
+    "file": "documents/ustkut_images/Лицензия.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-11-24T13:56:57Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 97,
+  "fields": {
+    "title": "Приложение к лицензии",
+    "document_type": "file",
+    "file": "documents/ustkut_images/Приложение_к_лицензии.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-11-24T13:57:29Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 98,
+  "fields": {
+    "title": "Федеральный закон \"О персональных данных\"",
+    "document_type": "external",
+    "file": "",
+    "external_url": "http://www.consultant.ru/document/cons_doc_LAW_61801/",
+    "file_type": "",
+    "category": 1,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-11-24T14:37:11Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 99,
+  "fields": {
+    "title": "Заключение ГИБДД",
+    "document_type": "file",
+    "file": "documents/bratsk_images/Заключение_ГИБДД.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 3,
+    "order": 4,
+    "is_active": true,
+    "created_at": "2025-11-24T14:42:16Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 100,
+  "fields": {
+    "title": "Отчет о самообследовании за 2019 год",
+    "document_type": "file",
+    "file": "documents/ustkut/Самообследование_2019.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 4,
+    "order": 22,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.290Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 101,
+  "fields": {
+    "title": "Отчет о самообследовании за 2020 год",
+    "document_type": "file",
+    "file": "documents/ustkut/Самообследование_2020.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 4,
+    "order": 22,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.290Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 102,
+  "fields": {
+    "title": "Отчет о самообследовании за 2021 год",
+    "document_type": "file",
+    "file": "documents/ustkut/Самообследование_2021.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 4,
+    "order": 22,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.290Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 103,
+  "fields": {
+    "title": "Отчет о самообследовании за 2022 год",
+    "document_type": "file",
+    "file": "documents/ustkut/Самообследование_2022.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 4,
+    "order": 22,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.290Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 104,
+  "fields": {
+    "title": "Отчет о самообследовании за 2023 год",
+    "document_type": "file",
+    "file": "documents/ustkut/Самообследование_2023.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 4,
+    "order": 22,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.290Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 105,
+  "fields": {
+    "title": "Отчет о самообследовании за 2024 год",
+    "document_type": "file",
+    "file": "documents/ustkut/Самообследование_2024.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 4,
+    "order": 22,
+    "is_active": true,
+    "created_at": "2025-11-24T12:49:47.290Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 106,
+  "fields": {
+    "title": "27.05.2015 Прокуратура Октябрьского района г. Иркутска, проверка исполнения законодательства при подготовке водителей транспортных средств",
+    "document_type": "info",
+    "file": "",
+    "external_url": "",
+    "file_type": "",
+    "category": 5,
+    "department": 2,
+    "order": 7,
+    "is_active": true,
+    "created_at": "2025-11-24T15:03:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 107,
+  "fields": {
+    "title": "19.03.2015 Плановая проверка Государственной инспекцией труда по Иркутской области",
+    "document_type": "info",
+    "file": "",
+    "external_url": "",
+    "file_type": "",
+    "category": 5,
+    "department": 2,
+    "order": 6,
+    "is_active": true,
+    "created_at": "2025-11-24T15:03:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 108,
+  "fields": {
+    "title": "19.03.2015 Плановая проверка Управлением Роспотребнадзора по Иркутской области",
+    "document_type": "info",
+    "file": "",
+    "external_url": "",
+    "file_type": "",
+    "category": 5,
+    "department": 2,
+    "order": 5,
+    "is_active": true,
+    "created_at": "2025-11-24T15:03:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 109,
+  "fields": {
+    "title": "16.03.2015 Плановая проверка Службой по контролю в сфере образования",
+    "document_type": "info",
+    "file": "",
+    "external_url": "",
+    "file_type": "",
+    "category": 5,
+    "department": 2,
+    "order": 4,
+    "is_active": true,
+    "created_at": "2025-11-24T15:03:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 110,
+  "fields": {
+    "title": "01.08.2014 Плановая проверка Иркутским региональным отделением Общественной организацией ВОА",
+    "document_type": "info",
+    "file": "",
+    "external_url": "",
+    "file_type": "",
+    "category": 5,
+    "department": 2,
+    "order": 3,
+    "is_active": true,
+    "created_at": "2025-11-24T15:03:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 111,
+  "fields": {
+    "title": "05.05.2014 Плановая проверка Управлением надзорной деятельности ГУ МЧС России по Иркутской области",
+    "document_type": "info",
+    "file": "",
+    "external_url": "",
+    "file_type": "",
+    "category": 5,
+    "department": 2,
+    "order": 2,
+    "is_active": true,
+    "created_at": "2025-11-24T15:03:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 112,
+  "fields": {
+    "title": "07.04.2014 Плановая проверка Службой по контролю в сфере образования",
+    "document_type": "info",
+    "file": "",
+    "external_url": "",
+    "file_type": "",
+    "category": 5,
+    "department": 2,
+    "order": 1,
+    "is_active": true,
+    "created_at": "2025-11-24T15:03:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 113,
+  "fields": {
+    "title": "Договор об оказании платных образовательных услуг",
+    "document_type": "file",
+    "file": "documents/bratsk/Договор_платных_услуг.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 1,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-11-24T15:10:13Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 114,
+  "fields": {
+    "title": "Приказ о стоимости обучения",
+    "document_type": "file",
+    "file": "documents/bratsk/Приказ_стоимость.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 1,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-11-24T15:12:22Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 115,
+  "fields": {
+    "title": "Положение о педагогическом совете",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_педсовет.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 9,
+    "is_active": true,
+    "created_at": "2025-11-24T15:14:42Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 116,
+  "fields": {
+    "title": "Памятка о действиях при угрозе теракта",
+    "document_type": "file",
+    "file": "documents/bratsk/Памятка_теракт.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 10,
+    "is_active": true,
+    "created_at": "2025-11-24T15:15:50Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 117,
+  "fields": {
+    "title": "Положение о комиссии по урегулированию споров",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_споров.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 11,
+    "is_active": true,
+    "created_at": "2025-11-24T15:16:46Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 118,
+  "fields": {
+    "title": "Положение о защите персональных данных",
+    "document_type": "file",
+    "file": "documents/bratsk/Положение_защита_ПД.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 8,
+    "is_active": true,
+    "created_at": "2025-11-24T15:18:22Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 119,
+  "fields": {
+    "title": "Федеральный закон \"О персональных данных\"",
+    "document_type": "external",
+    "file": "",
+    "external_url": "http://www.consultant.ru/document/cons_doc_LAW_61801/",
+    "file_type": "",
+    "category": 1,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-11-24T15:26:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 120,
+  "fields": {
+    "title": "Положение о выдаче свидетельств",
+    "document_type": "file",
+    "file": "documents/ustkut/Положение_выдача_свидетельств.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 3,
+    "is_active": true,
+    "created_at": "2025-11-24T15:27:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 121,
+  "fields": {
+    "title": "Положение о промежуточной и итоговой аттестации",
+    "document_type": "file",
+    "file": "documents/ustkut/Положение_аттестация.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 5,
+    "is_active": true,
+    "created_at": "2025-11-24T15:28:19Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 122,
+  "fields": {
+    "title": "Положение об организации практического вождения",
+    "document_type": "file",
+    "file": "documents/ustkut/Положение_практическое_вождение.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 6,
+    "is_active": true,
+    "created_at": "2025-11-24T15:29:15Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 123,
+  "fields": {
+    "title": "Приказ о стоимости обучения",
+    "document_type": "file",
+    "file": "documents/ustkut/Приказ_стоимость.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 7,
+    "is_active": true,
+    "created_at": "2025-11-24T15:29:38Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 124,
+  "fields": {
+    "title": "Положение о комиссии по урегулированию споров",
+    "document_type": "file",
+    "file": "documents/ustkut/Положение_споров.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 9,
+    "is_active": true,
+    "created_at": "2025-11-24T15:31:03Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 125,
+  "fields": {
+    "title": "Правила внутреннего распорядка обучающихся",
+    "document_type": "file",
+    "file": "documents/ustkut/Правила_распорядка_обучающихся.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 10,
+    "is_active": true,
+    "created_at": "2025-11-24T15:31:48Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 126,
+  "fields": {
+    "title": "Положение о правилах этики поведения педагогических работников",
+    "document_type": "file",
+    "file": "documents/ustkut/Положение_ПД_работников.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 11,
+    "is_active": true,
+    "created_at": "2025-11-24T15:33:06Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 127,
+  "fields": {
+    "title": "Устав",
+    "document_type": "file",
+    "file": "documents/ustkut/Устав.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 18,
+    "is_active": true,
+    "created_at": "2025-11-24T15:34:07Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 128,
+  "fields": {
+    "title": "Памятка о действиях при угрозе теракта",
+    "document_type": "file",
+    "file": "documents/ustkut/Памятка_теракт.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 17,
+    "is_active": true,
+    "created_at": "2025-11-24T15:34:46Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 129,
+  "fields": {
+    "title": "Документы по организации охраны здоровья учащихся",
+    "document_type": "file",
+    "file": "documents/ustkut/Охрана_здоровья.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 16,
+    "is_active": true,
+    "created_at": "2025-11-24T15:35:31Z"
   }
 }
 ]
