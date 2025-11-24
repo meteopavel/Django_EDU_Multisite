@@ -1,7 +1,8 @@
 from django.db import models
+from django.db.models import Prefetch
 from django.shortcuts import render, get_object_or_404
 
-from .models import Department, News
+from .models import Department, News, DocumentCategory, Document
 from .utils import get_host_map
 
 
@@ -53,4 +54,29 @@ def news_detail_view(request, slug):
     return render(request, 'content/news_detail.html', {
         'news': news_item,
         'department': department
+    })
+
+
+def document_list(request):
+    host = request.get_host().lower()
+    dept_slug = get_host_map().get(host, 'bratsk')
+    department = get_object_or_404(Department, slug=dept_slug, is_active=True)
+
+    categories = DocumentCategory.objects.filter(
+        documents__department=department,
+        documents__is_active=True
+    ).distinct().prefetch_related(
+        Prefetch(
+            'documents',
+            queryset=Document.objects.filter(
+                department=department,
+                is_active=True
+            ).order_by('order', 'title'),
+            to_attr='filtered_docs'
+        )
+    ).order_by('order', 'name')
+
+    return render(request, 'content/document_list.html', {
+        'department': department,
+        'categories': categories,
     })

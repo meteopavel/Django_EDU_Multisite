@@ -124,3 +124,103 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class DocumentCategory(models.Model):
+    name = models.CharField('Название категории', max_length=200, unique=True)
+    slug = models.SlugField('Slug', max_length=200, unique=True)
+    order = models.PositiveSmallIntegerField('Порядок', default=0)
+
+    class Meta:
+        verbose_name = 'Категория документа'
+        verbose_name_plural = 'Категории документов'
+        ordering = ['order', 'name']
+
+    def __str__(self):
+        return self.name
+
+
+class Document(models.Model):
+    DOCUMENT_TYPE_CHOICES = [
+        ('file', 'Файл (PDF/изображение)'),
+        ('external', 'Внешняя ссылка'),
+        ('info', 'Информационный пункт (без файла)'),
+    ]
+
+    title = models.CharField('Название документа', max_length=255)
+
+    # Тип документа
+    document_type = models.CharField(
+        'Тип документа',
+        max_length=10,
+        choices=DOCUMENT_TYPE_CHOICES,
+        default='file'
+    )
+
+    # Для типа "file"
+    file = models.FileField('Файл', upload_to='documents/', blank=True, null=True)
+
+    # Для типа "external"
+    external_url = models.URLField('Внешняя ссылка', blank=True)
+
+    # Тип файла (только для file)
+    file_type = models.CharField('Тип файла', max_length=10, choices=[
+        ('pdf', 'PDF'),
+        ('image', 'Изображение'),
+    ], blank=True)
+
+    # Связи
+    category = models.ForeignKey(
+        DocumentCategory,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='documents',
+        verbose_name='Категория'
+    )
+    department = models.ForeignKey(
+        'Department',
+        on_delete=models.CASCADE,
+        related_name='documents',
+        verbose_name='Подразделение'
+    )
+
+    order = models.PositiveSmallIntegerField('Порядок в категории', default=0)
+    is_active = models.BooleanField('Активен', default=True)
+    created_at = models.DateTimeField('Дата добавления', default=timezone.now)
+
+    class Meta:
+        verbose_name = 'Документ'
+        verbose_name_plural = 'Документы'
+        ordering = ['department', 'category__order', 'order', 'title']
+
+    def __str__(self):
+        return f"{self.title} ({self.department.name})"
+
+    def get_display_url(self):
+        """Возвращает URL для отображения в шаблоне."""
+        if self.document_type == 'file' and self.file:
+            return self.file.url
+        elif self.document_type == 'external' and self.external_url:
+            return self.external_url
+        return None
+
+    def is_external(self):
+        return self.document_type == 'external'
+
+    def is_info_only(self):
+        return self.document_type == 'info'
+
+    def save(self, *args, **kwargs):
+        # Автоопределение file_type для файлов
+        if self.document_type == 'file' and self.file:
+            ext = self.file.name.lower().split('.')[-1]
+            if ext in ['jpg', 'jpeg', 'png', 'gif', 'webp']:
+                self.file_type = 'image'
+            elif ext == 'pdf':
+                self.file_type = 'pdf'
+            else:
+                self.file_type = ''
+        else:
+            self.file_type = ''
+        super().save(*args, **kwargs)
