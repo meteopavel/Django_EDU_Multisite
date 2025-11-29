@@ -8,42 +8,45 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout (if needed)
-        uses: actions/checkout@v4
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: Deploy via SSH with retries
+      - name: Deploy via SSH with password and retries
         env:
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
-          SSH_KEY: ${{ secrets.PASSWORD }}
+          PASSWORD: ${{ secrets.PASSWORD }}
           PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
           DEPLOY_SCRIPT: ${{ secrets.DEPLOY_SCRIPT }}
         run: |
-          # Настройка SSH-ключа
+          rm -rf ~/.ssh
           mkdir -p ~/.ssh
-          echo "$SSH_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan "$HOST" >> ~/.ssh/known_hosts
+          chmod 700 ~/.ssh
 
-          # Функция деплоя
-          run_deploy() {
-            ssh -i ~/.ssh/deploy_key -o ConnectTimeout=10 -o StrictHostKeyChecking=yes \
-                "${USERNAME}@${HOST}" \
-                "cd ${PROJECT_PATH} && ${DEPLOY_SCRIPT}"
+          export SSH_AUTH_SOCK=
+
+          try_deploy() {
+            sshpass -p "$PASSWORD" \
+              ssh -o ConnectTimeout=10 \
+                  -o StrictHostKeyChecking=no \
+                  -o UserKnownHostsFile=/dev/null \
+                  -o PubkeyAuthentication=no \
+                  -o PreferredAuthentications=password \
+                  -o PasswordAuthentication=yes \
+                  -o IdentitiesOnly=no \
+                  "${USERNAME}@${HOST}" \
+                  "cd '${PROJECT_PATH}' && ${DEPLOY_SCRIPT}"
           }
 
-          # Повторы
           max_attempts=3
           attempt=1
-          until run_deploy || [ $attempt -eq $max_attempts ]; do
-            echo "⚠️ Deploy failed (attempt $attempt/$max_attempts). Retrying in 10s..."
+          until try_deploy || [ $attempt -eq $max_attempts ]; do
+            echo "⚠️ Attempt $attempt failed. Retrying in 10s..."
             sleep 10
             attempt=$((attempt + 1))
           done
 
           if [ $attempt -gt $max_attempts ]; then
-            echo "❌ Deploy failed after $max_attempts attempts."
+            echo "❌ All attempts failed."
             exit 1
-          else
-            echo "✅ Deploy succeeded."
           fi
