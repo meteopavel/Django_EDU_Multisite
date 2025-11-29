@@ -8,45 +8,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Install sshpass
-        run: sudo apt-get update && sudo apt-get install -y sshpass
-
-      - name: Deploy via SSH with password and retries
-        env:
-          HOST: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
-          DEPLOY_SCRIPT: ${{ secrets.DEPLOY_SCRIPT }}
-        run: |
-          rm -rf ~/.ssh
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-
-          export SSH_AUTH_SOCK=
-
-          try_deploy() {
-            sshpass -p "$PASSWORD" \
-              ssh -o ConnectTimeout=10 \
-                  -o StrictHostKeyChecking=no \
-                  -o UserKnownHostsFile=/dev/null \
-                  -o PubkeyAuthentication=no \
-                  -o PreferredAuthentications=password \
-                  -o PasswordAuthentication=yes \
-                  -o IdentitiesOnly=no \
-                  "${USERNAME}@${HOST}" \
-                  "cd '${PROJECT_PATH}' && ${DEPLOY_SCRIPT}"
-          }
-
-          max_attempts=10
-          attempt=1
-          until try_deploy || [ $attempt -eq $max_attempts ]; do
-            echo "⚠️ Attempt $attempt failed. Retrying in 10s..."
-            sleep 10
-            attempt=$((attempt + 1))
-          done
-
-          if [ $attempt -gt $max_attempts ]; then
-            echo "❌ All attempts failed."
-            exit 1
-          fi
+      - name: Trigger deploy script via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd ${{ secrets.PROJECT_PATH }} 
+            ${{ secrets.DEPLOY_SCRIPT }}
