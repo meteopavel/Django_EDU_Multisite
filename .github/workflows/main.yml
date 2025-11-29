@@ -38,7 +38,7 @@ jobs:
                   "cd '${PROJECT_PATH}' && ${DEPLOY_SCRIPT}"
           }
 
-          max_attempts=3
+          max_attempts=10
           attempt=1
           until try_deploy || [ $attempt -eq $max_attempts ]; do
             echo "⚠️ Attempt $attempt failed. Retrying in 10s..."
