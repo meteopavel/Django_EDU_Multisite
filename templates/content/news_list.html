@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Новости — {{ department.name }}</title>
-</head>
-<body>
-    <h1>Новости</h1>
-
+{% extends "base.html" %}
+{% block content %}
     {% for item in news_items %}
         <article>
             {% if item.main_image %}
@@ -20,12 +13,4 @@
     {% empty %}
         <p>Новостей пока нет.</p>
     {% endfor %}
-
-    <nav>
-        {% for item in menu_items %}
-            <a href="{{ item.url }}">{{ item.title }}</a>
-            {% if not forloop.last %} | {% endif %}
-        {% endfor %}
-    </nav>
-</body>
-</html>
+{% endblock %}

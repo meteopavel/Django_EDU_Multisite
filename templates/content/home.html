@@ -1,22 +1,2 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ department.details.meta_title|default:department.name }}</title>
-    {% if department.details.meta_description %}
-        <meta name="description" content="{{ department.details.meta_description }}">
-    {% endif %}
-</head>
-<body>
-    <h1>{{ department.name }}</h1>
-    {% if department.details.meta_description %}
-        <p>{{ department.details.meta_description }}</p>
-    {% endif %}
-    <nav>
-        {% for item in menu_items %}
-            <a href="{{ item.url }}">{{ item.title }}</a>
-            {% if not forloop.last %} | {% endif %}
-        {% endfor %}
-    </nav>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}{{ department.details.meta_description }}{% endblock %}

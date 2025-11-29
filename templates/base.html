@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ department.details.meta_title|default:department.name }}</title>
+    {% if department.details.meta_description %}
+        <meta name="description" content="{{ department.details.meta_description }}">
+    {% endif %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% block navigation %}{% include "content/inc/nav.inc.html" %}{% endblock %}
+    {% block header %}<h1>{{ page_name }} — {{ department.name }}</h1>{% endblock %}
+    {% block content %}{% endblock %}
+    {% block footer %}{% endblock %}
+</body>
+</html>

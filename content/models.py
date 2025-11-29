@@ -69,9 +69,6 @@ class MenuItem(models.Model):
         return f'{self.title} (все подразделения)'
 
 
-from django.db import models
-
-
 class NewsImage(models.Model):
     news = models.ForeignKey(
         'News',
@@ -148,28 +145,18 @@ class Document(models.Model):
     ]
 
     title = models.CharField('Название документа', max_length=255)
-
-    # Тип документа
     document_type = models.CharField(
         'Тип документа',
         max_length=10,
         choices=DOCUMENT_TYPE_CHOICES,
         default='file'
     )
-
-    # Для типа "file"
     file = models.FileField('Файл', upload_to='documents/', blank=True, null=True)
-
-    # Для типа "external"
     external_url = models.URLField('Внешняя ссылка', blank=True)
-
-    # Тип файла (только для file)
     file_type = models.CharField('Тип файла', max_length=10, choices=[
         ('pdf', 'PDF'),
         ('image', 'Изображение'),
     ], blank=True)
-
-    # Связи
     category = models.ForeignKey(
         DocumentCategory,
         on_delete=models.SET_NULL,
@@ -212,7 +199,6 @@ class Document(models.Model):
         return self.document_type == 'info'
 
     def save(self, *args, **kwargs):
-        # Автоопределение file_type для файлов
         if self.document_type == 'file' and self.file:
             ext = self.file.name.lower().split('.')[-1]
             if ext in ['jpg', 'jpeg', 'png', 'gif', 'webp']:
