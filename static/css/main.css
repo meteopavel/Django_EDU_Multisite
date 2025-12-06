@@ -1,0 +1,15 @@
+body {
+	font-family: var(--font-family-regular);
+	font-weight: var(--font-weight-regular);
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+
+
+:root {
+    --font-family-regular: "RobotoCondensed-Regular", sans-serif;
+    --font-weight-regular: 400;
+    --background-color: #F6FBFF;
+    --text-color: #001B4C;
+}

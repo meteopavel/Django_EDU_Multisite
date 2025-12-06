@@ -1,7 +1,10 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
     <title>{{ department.details.meta_title|default:department.name }}</title>
     {% if department.details.meta_description %}
         <meta name="description" content="{{ department.details.meta_description }}">
