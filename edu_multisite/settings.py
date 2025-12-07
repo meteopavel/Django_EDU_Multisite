@@ -82,6 +82,12 @@ if DEBUG:
     STATICFILES_DIRS = [BASE_DIR / 'static']
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'media'
+    INSTALLED_APPS += ['livereload']
+    INTERNAL_IPS = [
+        '127.0.0.1',
+        'localhost',
+        '::1',
+    ]
 else:
     STATIC_URL = '/static/'
     STATIC_ROOT = '/home/c/cj82062/DjangoVOA/public_html/static'

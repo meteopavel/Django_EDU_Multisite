@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Q
 from django.shortcuts import render, get_object_or_404
 
 from .decorators import page_name
@@ -16,8 +16,14 @@ def _get_department_by_host(request):
 @page_name('Главная', 'content/home.html')
 def home_view(request):
     department = _get_department_by_host(request)
+    news_items = News.objects.filter(
+        is_active=True
+    ).filter(
+        Q(departments__isnull=True) | Q(departments=department)
+    ).distinct().order_by('-created_at')[:3]
     return {
         'department': department,
+        'latest_news': news_items,
     }
 
 
@@ -32,14 +38,40 @@ def contacts_view(request):
 @page_name('Новости', 'content/news_list.html')
 def news_list_view(request):
     department = _get_department_by_host(request)
-    news_items = News.objects.filter(
+    base_news = News.objects.filter(
         is_active=True
     ).filter(
         models.Q(departments__isnull=True) | models.Q(departments=department)
-    ).distinct().order_by('-created_at')
+    ).distinct()
+    all_years = list(
+        base_news.dates('created_at', 'year', order='DESC')
+        .values_list('created_at__year', flat=True)
+    )
+    selected_year = request.GET.get('year')
+    if selected_year and selected_year.isdigit():
+        selected_year = int(selected_year)
+    else:
+        selected_year = all_years[0] if all_years else None
+    news_items = base_news.filter(created_at__year=selected_year).order_by(
+        '-created_at') if selected_year else base_news.none()
+    if selected_year == (all_years[0] if all_years else None):
+        if len(all_years) <= 4:
+            year_display_groups = [('year', y) for y in all_years]
+        else:
+            year_display_groups = [
+                ('year', all_years[0]),
+                ('year', all_years[1]),
+                ('ellipsis', None),
+                ('year', all_years[-2]),
+                ('year', all_years[-1]),
+            ]
+    else:
+        year_display_groups = [('year', y) for y in all_years]
     return {
         'news_items': news_items,
-        'department': department
+        'department': department,
+        'selected_year': selected_year,
+        'year_display_groups': year_display_groups,
     }
 
 

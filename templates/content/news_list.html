@@ -1,16 +1,44 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
-    {% for item in news_items %}
-        <article>
-            {% if item.main_image %}
-                <img src="{{ item.main_image.url }}" alt="{{ item.title }}" style="max-height:200px; width:auto;">
-            {% endif %}
-            <h2><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h2>
-            <p>{{ item.preview_text|default:item.content|truncatewords:30 }}</p>
-            <small>{{ item.created_at|date:"d.m.Y" }}</small>
-        </article>
-        <hr>
-    {% empty %}
-        <p>Новостей пока нет.</p>
-    {% endfor %}
+    <section class="news-list screen_width_container">
+        <div class="section__header">
+            <h2 class="section__title">Новости</h2>
+            <div class="year-filter">
+                {% for item_type, year_val in year_display_groups %}
+                    {% if item_type == 'year' %}
+                        <a href="?year={{ year_val }}" class="year-btn {% if selected_year == year_val %}active{% endif %}">
+                            {{ year_val }}
+                        </a>
+                    {% elif item_type == 'ellipsis' %}
+                        <span class="year-btn more">...</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% if news_items %}
+            <div class="news-grid">
+                {% for news in news_items %}
+                    <a href="/news/{{ news.slug }}/">
+                        <article class="news-card">
+                            <div class="news-card__image">
+                                {% if news.main_image %}
+                                    <img src="{{ news.main_image.url }}" alt="{{ news.title }}">
+                                {% else %}
+                                    <img src="{% static 'img/placeholder.jpg' %}" alt="Без изображения">
+                                {% endif %}
+                            </div>
+                            <div class="news-card__content">
+                                <h3 class="news-card__title">{{ news.title }}</h3>
+                                <p class="news-card__date">{{ news.created_at|date:"d M. Y" }}</p>
+                            </div>
+                        </article>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Новостей пока нет.</p>
+        {% endif %}
+    </section>
 {% endblock %}

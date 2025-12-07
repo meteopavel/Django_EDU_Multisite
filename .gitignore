@@ -40,3 +40,5 @@ htmlcov/
 /prod_dump.sql
 /content/management/
 /mysql/
+/bs.js
+/node_modules/

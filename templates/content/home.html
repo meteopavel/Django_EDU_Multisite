@@ -1,2 +1,64 @@
 {% extends "base.html" %}
-{% block content %}{{ department.details.meta_description }}{% endblock %}
+{% load static %}
+
+{% block latest_news %}
+    <section class="latest_news screen_width_container">
+        <div class="latest_news__decor">
+            <img src="{% static 'img/protector.png' %}" class="latest_news__decor-image">
+        </div>
+        <h2 class="section__title">Последние новости</h2>
+        <div class="news-grid">
+            {% for news in latest_news %}
+                <a href="/news/{{ news.slug }}/">
+                    <article class="news-card">
+                        <div class="news-card__image">
+                            <img src="{{ news.main_image.url }}" alt="{{ news.title }}">
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title">{{ news.title }}</h3>
+                            <p class="news-card__date">{{ news.created_at|date:"d M. Y" }}</p>
+                        </div>
+                    </article>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+{% block services %}
+    <section class="services screen_width_container">
+        <div class="services__decor decor-flippedX">
+            <img src="{% static 'img/protector.png' %}" class="services__decor-image">
+        </div>
+        <h2 class="section__title">Услуги</h2>
+    </section>
+{% endblock %}
+{% block partners %}
+    <section class="partners screen_width_container">
+        <h2 class="section__title">Наши партнёры</h2>
+    </section>
+{% endblock %}
+{% block contacts %}
+    <section class="contacts screen_width_container">
+        <div class="contacts__content">
+            <h2 class="section__title">Контакты</h2>
+            <div class="contacts__info">
+                <h3 class="section__subtitle">Общероссийская общественная организация «Всероссийское общество автомобилистов»<br>Иркутское региональное отделение</h3>
+                <p><span class="section__subsubtitle">Адрес главного офиса:</span> г. Иркутск, ул. Байкальская, д. 105-а, оф. 403</p>
+                <p><span class="section__subsubtitle">Телефон:</span> 8 (3952) 23-22-20</p>
+                <p><span class="section__subsubtitle">Эл. почта:</span> 38@voa.ru</p>
+                <br>
+                <p><span class="section__subsubtitle">Реквизиты для оплаты услуг автостоянки:</span></p>
+                <p>Наименование получателя: ИРО ООО ВОА<br>
+                   ИНН 3808016455; КПП 381101001<br>
+                   Банк получателя: Байкальский банк ПАО Сбербанк России г. Иркутск<br>
+                   БИК: 042520607<br>
+                   Корр.счет: 30101810900000000607<br>
+                   Расч.счет: 40703810318350100524<br>
+                   В назначении платежа обязательно указывать "за услуги автостоянки №__, место __, месяц ____"</p>
+            </div>
+        </div>
+        <div class="contacts__decor decor-flippedY">
+            <img src="{% static 'img/tyre.png' %}" class="contacts__decor-image">
+        </div>
+    </section>
+{% endblock %}
