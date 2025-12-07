@@ -47,7 +47,7 @@
     "inn": "3808016455",
     "kpp": "381101001",
     "legal_address": "г. Иркутск, ул. Байкальская, д. 105А, оф. 403",
-    "meta_title": "ВОА",
+    "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Иркутское региональное отделение"
   }
 },
@@ -63,7 +63,7 @@
     "inn": "3808105715",
     "kpp": "381101001",
     "legal_address": "Ул.Байкальская, д. 105-а каб. № 403",
-    "meta_title": "ВОА",
+    "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Автошкола Иркутск"
   }
 },
@@ -79,7 +79,7 @@
     "inn": "3803200080",
     "kpp": "380401001",
     "legal_address": "665717, Иркутская область, г.Братск, ул.Курчатова, д.30а",
-    "meta_title": "ВОА",
+    "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Братское региональное отделение"
   }
 },
@@ -95,7 +95,7 @@
     "inn": "3818005131",
     "kpp": "381801001",
     "legal_address": "666780, Иркутская область, г.Усть-Кут, ул.Речников д.39 кв.23",
-    "meta_title": "ВОА",
+    "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Усть-кутское региональное отделение"
   }
 },
@@ -107,7 +107,11 @@
     "url": "/",
     "order": 0,
     "is_active": true,
-    "departments": []
+    "departments": [
+      2,
+      3,
+      4
+    ]
   }
 },
 {
@@ -116,7 +120,7 @@
   "fields": {
     "title": "Контакты",
     "url": "/contacts",
-    "order": 1,
+    "order": 3,
     "is_active": true,
     "departments": []
   }
@@ -127,7 +131,7 @@
   "fields": {
     "title": "Новости",
     "url": "/news",
-    "order": 2,
+    "order": 1,
     "is_active": true,
     "departments": [
       1,
@@ -142,11 +146,25 @@
   "fields": {
     "title": "Документы",
     "url": "/documents",
-    "order": 3,
+    "order": 4,
     "is_active": true,
     "departments": [
       2,
       3,
+      4
+    ]
+  }
+},
+{
+  "model": "content.menuitem",
+  "pk": 5,
+  "fields": {
+    "title": "Услуги",
+    "url": "/services",
+    "order": 2,
+    "is_active": true,
+    "departments": [
+      1,
       4
     ]
   }
