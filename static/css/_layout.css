@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-family-regular);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.page-wrapper {
+    flex: 1 0 auto;
+}
+
+.screen_width_container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.section__header {
+    display: flex;
+    justify-content: space-between;
+}

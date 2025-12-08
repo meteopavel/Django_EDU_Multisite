@@ -1,0 +1,27 @@
+h1 {
+    font-family: var(--font-family-h1);
+    font-size: var(--font-size-h1);
+}
+
+p {
+    line-height: 1.25;
+}
+
+.section__title {
+    text-transform: uppercase;
+    font-family: var(--font-family-h2);
+    margin-bottom: 60px;
+}
+
+.section__subtitle {
+    margin-bottom: 32px;
+    font-family: var(--font-family-h3);
+    font-size: var(--font-size-h3);
+}
+
+.section__subsubtitle {
+    font-family: var(--font-family-h4);
+    font-size: var(--font-size-h4);
+    font-weight: 500;
+    line-height: 32px;
+}

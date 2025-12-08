@@ -1,0 +1,18 @@
+.contacts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 711px;
+    font-size: 20px;
+}
+
+.contacts__decor {
+    width: 492px;
+    height: 711px;
+    opacity: 0.4;
+}
+
+.contacts__decor-image {
+    width: 100%;
+    height: auto;
+}

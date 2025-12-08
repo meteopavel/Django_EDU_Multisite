@@ -1,0 +1,16 @@
+:root {
+    --font-family-regular: "RobotoCondensed-Regular";
+    --font-family-h1: "Oswald-SemiBold";
+    --font-family-h2: "RobotoCondensed-Bold";
+    --font-family-h3: "RobotoCondensed-Bold";
+    --font-family-h4: "RobotoCondensed-Regular";
+
+    --font-size-h1: 26px;
+    --font-size-h3: 24px;
+    --font-size-h4: 16px;
+
+    --background-color: #F6FBFF;
+    --background-color-blue: #3A48E8;
+    --text-color: #001B4C;
+    --red-acent-color: #C30027;
+}

@@ -1,0 +1,9 @@
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    background-color: var(--background-color-blue);
+    color: #FFFFFF;
+    padding: 16px;
+    font-size: 24px;
+}

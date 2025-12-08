@@ -1,0 +1,20 @@
+{% load static %}
+<div class="news-grid">
+    {% for news in news_items %}
+        <a href="{% url 'news_detail' news.slug %}" class="news-card-link">
+            <article class="news-card">
+                <div class="news-card__image">
+                    {% if news.main_image %}
+                        <img src="{{ news.main_image.url }}" alt="{{ news.title }}">
+                    {% else %}
+                        <img src="{% static 'img/placeholder.jpg' %}" alt="Без изображения">
+                    {% endif %}
+                </div>
+                <div class="news-card__content">
+                    <h3 class="news-card__title">{{ news.title }}</h3>
+                    <p class="news-card__date">{{ news.created_at|date:"d M. Y" }}</p>
+                </div>
+            </article>
+        </a>
+    {% endfor %}
+</div>
