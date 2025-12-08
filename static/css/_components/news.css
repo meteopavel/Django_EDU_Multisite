@@ -65,7 +65,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 20px;
-    background: linear-gradient(to bottom, rgba(93, 176, 253, 0.8), rgba(58, 72, 232, 0.8));
+    background: linear-gradient(to bottom, rgba(93, 176, 253, 0.9), rgba(58, 72, 232, 0.9));
     color: white;
     min-height: 100px;
     z-index: 1;
