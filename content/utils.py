@@ -29,13 +29,20 @@ def get_department_by_host(request):
     return get_object_or_404(Department, slug=department_slug, is_active=True)
 
 
-def get_news_for_department(department, limit=None, year=None):
-    qs = News.objects.filter(
-        is_active=True
-    ).filter(
-        Q(departments__isnull=True) | Q(departments=department)
-    ).distinct()
-    if year:
+def get_news_for_department(department, limit=None, year=None, partner_only=False):
+    if partner_only:
+        qs = News.objects.filter(
+            is_active=True,
+            is_partner_news=True
+        )
+    else:
+        qs = News.objects.filter(
+            is_active=True,
+            is_partner_news=False
+        ).filter(
+            Q(departments__isnull=True) | Q(departments=department)
+        ).distinct()
+    if year and not partner_only:
         qs = qs.filter(created_at__year=year)
     qs = qs.order_by('-created_at')
     if limit:

@@ -24,6 +24,7 @@ class DepartmentDetails(models.Model):
     )
 
     address = models.TextField('Адрес', blank=True)
+    short_address = models.CharField('Короткий адрес', max_length=200, blank=True)
     phone = models.CharField('Телефон', max_length=50, blank=True)
     email = models.EmailField('Email', blank=True)
     website = models.URLField('Сайт', blank=True)
@@ -31,9 +32,38 @@ class DepartmentDetails(models.Model):
     inn = models.CharField('ИНН', max_length=12, blank=True)
     kpp = models.CharField('КПП', max_length=15, blank=True)
     legal_address = models.TextField('Юридический адрес', blank=True)
+    recipient_name = models.CharField('Наименование получателя', max_length=200, blank=True)
+    bank = models.TextField('Банк получателя', blank=True)
+    bik = models.CharField('БИК', max_length=9, blank=True)
+    corr_account = models.CharField('Корр. счёт', max_length=20, blank=True)
+    settlement_account = models.CharField('Расч. счёт', max_length=20, blank=True)
+    payment_purpose = models.CharField('Назначение платежа', max_length=300, blank=True)
+
+    schedule = models.JSONField('Режим работы', default=list, blank=True)
+
+    map_center = models.JSONField(
+        'Координаты центра (широта, долгота)',
+        default=list,
+        blank=True,
+        help_text='Пример: [52.267482, 104.310026]'
+    )
+    map_iframes = models.JSONField('Ссылки на карты (Google Embed)', default=list, blank=True)
+
+    show_latest_news = models.BooleanField('Показывать последние новости', default=True)
+    show_services = models.BooleanField('Показывать услуги', default=False)
+    show_partners = models.BooleanField('Показывать партнёров', default=False)
+    show_documents = models.BooleanField('Показывать документы', default=True)
+    show_contacts = models.BooleanField('Показывать контакты', default=True)
 
     meta_title = models.CharField('SEO Title', max_length=100, blank=True)
     meta_description = models.CharField('SEO Description', max_length=255, blank=True)
+
+    def get_section_flags(self):
+        return {
+            field.name: getattr(self, field.name)
+            for field in self._meta.fields
+            if field.name.startswith('show_')
+        }
 
     class Meta:
         verbose_name = 'Детали подразделения'
@@ -41,6 +71,65 @@ class DepartmentDetails(models.Model):
 
     def __str__(self):
         return f'Детали: {self.department.name}'
+
+
+class Service(models.Model):
+    SERVICE_TYPES = [
+        ('parking', 'Автостоянка'),
+        ('info_card', 'Информационная карточка (с описанием)'),
+        ('custom', 'Произвольная услуга'),
+    ]
+    department = models.ForeignKey(
+        Department,
+        on_delete=models.CASCADE,
+        related_name='services',
+        verbose_name='Подразделение'
+    )
+    name = models.CharField('Название услуги', max_length=200)
+    points = models.JSONField(
+        'Пункты (список строк)',
+        default=list,
+        blank=True,
+        help_text='Пример: ["Автостраховка ОСАГО", "Автостраховка КАСКО"]'
+    )
+    slug = models.SlugField('URL-часть', max_length=200, blank=True)
+    service_type = models.CharField(
+        'Тип услуги',
+        max_length=20,
+        choices=SERVICE_TYPES,
+        default='info_card'
+    )
+    icon_name = models.CharField(
+        'Имя иконки (без расширения)',
+        max_length=50,
+        blank=True,
+        help_text='Например: "taxi", "insurance", "appraisal"'
+    )
+
+    address = models.CharField('Адрес', max_length=300, blank=True)
+    phone = models.CharField('Телефон', max_length=50, blank=True)
+    map_center = models.JSONField('Координаты', default=list, blank=True)
+
+    description_material = models.ForeignKey(
+        'Material',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='used_in_services',
+        verbose_name='Материал с описанием'
+    )
+
+    order = models.PositiveSmallIntegerField('Порядок', default=0)
+    is_active = models.BooleanField('Активна', default=True)
+
+    class Meta:
+        verbose_name = 'Услуга'
+        verbose_name_plural = 'Услуги'
+        ordering = ['department', 'order', 'name']
+
+    def __str__(self):
+        return f'{self.name} ({self.department.name})'
+
 
 
 class MenuItem(models.Model):
@@ -94,10 +183,17 @@ class News(models.Model):
     title = models.CharField('Заголовок', max_length=255)
     slug = models.SlugField('URL', unique=True, max_length=255)
     preview_text = models.TextField('Краткое описание', blank=True)
-    content = models.TextField('Текст новости')
+    content = models.TextField('Текст новости', blank=True)
 
     main_image = models.ImageField('Главная картинка', upload_to='news/main/', blank=True, null=True)
     video = models.FileField('Видео', upload_to='news/videos/', blank=True, null=True)
+
+    is_partner_news = models.BooleanField(
+        'Партнёрская новость (отображается в секции "Партнёры")',
+        default=False,
+        help_text='Если отмечено — новость НЕ будет показываться в ленте новостей, '
+                  'а только в блоке "Наши партнёры".'
+    )
 
     departments = models.ManyToManyField(
         'Department',
@@ -144,12 +240,28 @@ class Document(models.Model):
         ('info', 'Информационный пункт (без файла)'),
     ]
 
+    SECTIONS = [
+        ('education', 'Образование'),
+        ('paid_services', 'Платные образовательные услуги'),
+        ('finance', 'Финансово-хозяйственная деятельность'),
+        ('mtob', 'Материально-техническое обеспечение'),
+        ('structure', 'Структура и управление'),
+        ('basic_info', 'Основные сведения'),
+        ('other', 'Прочее'),
+    ]
+
     title = models.CharField('Название документа', max_length=255)
     document_type = models.CharField(
         'Тип документа',
         max_length=10,
         choices=DOCUMENT_TYPE_CHOICES,
         default='file'
+    )
+    display_in_sections = models.JSONField(
+        'Отображать в разделах',
+        default=list,
+        blank=True,
+        help_text='Выберите разделы, где документ будет отображаться'
     )
     file = models.FileField('Файл', upload_to='documents/', blank=True, null=True)
     external_url = models.URLField('Внешняя ссылка', blank=True)
@@ -210,3 +322,47 @@ class Document(models.Model):
         else:
             self.file_type = ''
         super().save(*args, **kwargs)
+
+
+class Material(models.Model):
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    title = models.CharField('Заголовок', max_length=255)
+    slug = models.SlugField(max_length=255, unique=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Материал'
+        verbose_name_plural = 'Материалы'
+
+    def __str__(self):
+        return self.title
+
+
+class ContentBlock(models.Model):
+    BLOCK_TYPES = [
+        ('heading', 'Заголовок'),
+        ('paragraph', 'Абзац'),
+        ('list', 'Список'),
+        ('image', 'Изображение'),
+        ('video', 'Видео'),
+        ('quote', 'Цитата'),
+    ]
+
+    material = models.ForeignKey(Material, on_delete=models.CASCADE, related_name='blocks')
+    block_type = models.CharField('Тип блока', max_length=20, choices=BLOCK_TYPES)
+    order = models.PositiveSmallIntegerField('Порядок', default=0)
+
+    # Для текстовых блоков
+    text = models.TextField('Текст', blank=True)
+
+    # Для списка
+    items = models.JSONField('Элементы списка', default=list, blank=True)
+
+    # Для медиа
+    image = models.ImageField('Изображение', upload_to='materials/images/', blank=True)
+    video = models.FileField('Видео', upload_to='materials/videos/', blank=True)
+    video_url = models.URLField('Ссылка на видео (YouTube/Vimeo)', blank=True)
+
+    class Meta:
+        ordering = ['order']

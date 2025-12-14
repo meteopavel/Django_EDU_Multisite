@@ -1,33 +1,15 @@
 .footer {
-    background: linear-gradient(180deg, #3A48E8 0%, #202982 100%);
-    min-height: 287px;
-    width: 100%;
-    padding: 16px;
-    font-size: 14px;
+    background: var(--footer-gradient);
 }
 
-.footer__content {
-    display: flex;
+.footer .content__layout {
     gap: 100px;
-    justify-content: center;
-    color: #FFFFFF;
 }
 
-.footer__column-title {
-    font-size: 20px;
-    margin-bottom: 16px;
-}
-
-.footer__column {
-    max-width: 268px;
-    line-height: 28px;
-}
-
-.footer_img {
-    width: 100px;
-    height: 100px;
+.footer__links li {
+    margin-bottom: 12px;
 }
 
 .footer__contacts svg {
-    color: #FFFFFF;
+    color: var(--text-color-contrast);
 }

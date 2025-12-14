@@ -1,11 +1,16 @@
 @import '_variables.css';
 @import '_reset.css';
 @import '_layout.css';
+@import '_sections.css';
 @import '_typography.css';
 @import '_decor.css';
 
+@import '_components/common.css';
 @import '_components/header.css';
 @import '_components/nav.css';
 @import '_components/news.css';
+@import '_components/services.css';
 @import '_components/contacts.css';
+@import '_components/partners.css';
 @import '_components/footer.css';
+@import '_components/modal.css';

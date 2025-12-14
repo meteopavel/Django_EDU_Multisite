@@ -1,0 +1,45 @@
+.partners-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    grid-template-rows: auto auto;
+}
+
+.partner-card {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+}
+
+.partner-card:last-child {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+}
+
+.partner-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+    background: var(--card-gradient-red);
+    color: var(--text-color-contrast);
+    min-height: 80px;
+    z-index: 1;
+}
+
+.partner-card__image img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+

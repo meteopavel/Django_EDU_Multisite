@@ -1,23 +1,23 @@
 @font-face {
-    font-family: 'RobotoCondensed-Regular';
-    src: url('../fonts/RobotoCondensed-Regular.woff2') format('woff2'),
-         url('../fonts/RobotoCondensed-Regular.woff') format('woff'),
-         url('../fonts/RobotoCondensed-Regular.ttf') format('truetype');
+    font-family: 'RobotoCondensed';
+    src: url('../fonts/RobotoCondensed-Variable.woff2') format('woff2');
+    font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: 'RobotoCondensed-Bold';
-    src: url('../fonts/RobotoCondensed-Bold.woff2') format('woff2'),
-         url('../fonts/RobotoCondensed-Bold.woff') format('woff'),
-         url('../fonts/RobotoCondensed-Bold.ttf') format('truetype');
-    font-style: normal;
+    font-family: 'RobotoCondensed';
+    src: url('../fonts/RobotoCondensed-Italic-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: 'Oswald-SemiBold';
-    src: url('../fonts/Oswald-SemiBold.woff2') format('woff2'),
-         url('../fonts/Oswald-SemiBold.woff') format('woff'),
-         url('../fonts/Oswald-SemiBold.ttf') format('truetype');
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-Variable.woff2') format('woff2');
+    font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
 }

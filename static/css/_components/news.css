@@ -1,8 +1,21 @@
+.show-all-news-btn, .show-all-partner-news-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px;
+    border: var(--red-accent-border);
+    border-radius: var(--border-radius);
+    max-height: 44px;
+    font-size: var(--font-size-small);
+}
+
 .year-filter {
     display: flex;
+    justify-content: flex-end;
     gap: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
+    font-size: var(--font-size-small);
 }
 
 .year-btn {
@@ -11,17 +24,21 @@
     justify-content: center;
     width: 48px;
     height: 48px;
-    border: 2px solid var(--text-color);
+    border: var(--text-color-border);
     color: var(--text-color);
     text-decoration: none;
-    border-radius: 20px;
-    font-weight: 600;
+    border-radius: var(--border-radius);
     transition: all 0.2s ease;
 }
 
 .year-btn.active {
-    border: 2px solid var(--red-acent-color);
-    color: var(--red-acent-color);
+    border: var(--red-accent-border);
+    color: var(--red-accent-color);
+}
+
+.ellipsis {
+    display: flex;
+    align-items: end;
 }
 
 .news-grid {
@@ -32,12 +49,11 @@
 
 .news-card {
     position: relative;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: white;
     transition: transform 0.2s ease;
     min-height: 384px;
+    color: var(--text-color-contrast);
 }
 
 .news-card:hover {
@@ -65,25 +81,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 20px;
-    background: linear-gradient(to bottom, rgba(93, 176, 253, 0.9), rgba(58, 72, 232, 0.9));
-    color: white;
+    background: var(--card-gradient-blue);
     min-height: 100px;
     z-index: 1;
-}
-
-.news-card__title {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 10px 0;
-    line-height: 1.4;
-}
-
-.news-card__date {
-    font-size: 14px;
-    opacity: 0.8;
-    margin: 0;
-}
-
-.news-list {
-    padding: 100px 0;
 }

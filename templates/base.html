@@ -19,12 +19,22 @@
     <div class="page-wrapper">
         {% block header %}{% include "content/inc/header.inc.html" %}{% endblock %}
         {% block navigation %}{% include "content/inc/nav.inc.html" %}{% endblock %}
-        {% block latest_news %}{% endblock %}
         {% block content %}{% endblock %}
-        {% block services %}{% endblock %}
-        {% block partners %}{% endblock %}
-        {% block contacts %}{% endblock %}
     </div>
     {% block footer %}{% include "content/inc/footer.inc.html" %}{% endblock %}
+
+    <div id="image-modal" class="modal" style="display: none;">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div class="modal-caption" id="modal-caption"></div>
+    </div>
+
+    <script src="{% static 'js/news-accordion.js' %}"></script>
+    <script src="{% static 'js/partner-news-accordion.js' %}"></script>
+    <script src="{% static 'js/services-map.js' %}"></script>
+    <script src="{% static 'js/contacts-map.js' %}"></script>
+    <script src="{% static 'js/accordion.js' %}"></script>
+    <script src="{% static 'js/service-description.js' %}"></script>
+
 </body>
 </html>

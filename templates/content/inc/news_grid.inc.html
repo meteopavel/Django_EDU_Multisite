@@ -1,7 +1,22 @@
 {% load static %}
+
+{% if year_display_groups %}
+    <div class="year-filter">
+        {% for item_type, year_val in year_display_groups %}
+            {% if item_type == 'year' %}
+                <a href="#" data-year="{{ year_val }}" class="year-btn {% if selected_year == year_val %}active{% endif %}">
+                    {{ year_val }}
+                </a>
+            {% elif item_type == 'ellipsis' %}
+                <span class="ellipsis">. . .</span>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
 <div class="news-grid">
     {% for news in news_items %}
-        <a href="{% url 'news_detail' news.slug %}" class="news-card-link">
+        <a href="#" class="news-card-link" data-slug="{{ news.slug }}">
             <article class="news-card">
                 <div class="news-card__image">
                     {% if news.main_image %}
@@ -11,7 +26,7 @@
                     {% endif %}
                 </div>
                 <div class="news-card__content">
-                    <h3 class="news-card__title">{{ news.title }}</h3>
+                    <h3 class="section__card_title">{{ news.title }}</h3>
                     <p class="news-card__date">{{ news.created_at|date:"d M. Y" }}</p>
                 </div>
             </article>

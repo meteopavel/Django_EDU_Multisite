@@ -1,0 +1,32 @@
+.section {
+    padding-top: 100px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.section:last-child {
+    padding-bottom: 100px;
+}
+
+.section__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section__title {
+    margin-bottom: 60px;
+}
+
+.section__subtitle {
+    margin-bottom: 32px;
+}
+
+.section__card_title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+
+
+

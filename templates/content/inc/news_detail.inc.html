@@ -1,0 +1,29 @@
+<div class="news-detail">
+    <h2 style="display: none">{{ news.title }}</h2>
+    <p class="news-card__date">{{ news.created_at|date:"d.m.Y" }}</p>
+    {% if news.main_image and news.content|striptags|length > 0 %}
+        <img src="{{ news.main_image.url }}"
+             alt="{{ news.title }}"
+             style="width:50%; max-height:400px; object-fit:cover; cursor: pointer;">
+    {% endif %}
+    {{ news.content|linebreaks }}
+    {% if news.gallery_images.all %}
+        <h3>Фотогалерея</h3>
+        <div class="media__container">
+            {% for img in news.gallery_images.all %}
+                <img src="{{ img.image.url }}"
+                     alt="{{ img.description }}"
+                     style="max-height:150px; cursor: pointer;">
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if news.video %}
+        <h3>Видео</h3>
+        <div class="media__container">
+            <video controls>
+                <source src="{{ news.video.url }}" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+    {% endif %}
+</div>

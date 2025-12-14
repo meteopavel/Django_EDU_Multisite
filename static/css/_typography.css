@@ -1,27 +1,62 @@
-h1 {
-    font-family: var(--font-family-h1);
-    font-size: var(--font-size-h1);
+body {
+    font-family: var(--font-family-default), var(--font-family-fallback);
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-regular);
+    line-height: 130%;
 }
 
-p {
-    line-height: 1.25;
+.header__title {
+    font-family: var(--font-family-accent), var(--font-family-fallback);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-semibold);
+    line-height: 110%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.nav {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-medium);
+    line-height: 110%;
 }
 
 .section__title {
     text-transform: uppercase;
-    font-family: var(--font-family-h2);
-    margin-bottom: 60px;
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    line-height: 110%;
 }
 
 .section__subtitle {
-    margin-bottom: 32px;
-    font-family: var(--font-family-h3);
     font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-medium);
+    line-height: 110%;
 }
 
-.section__subsubtitle {
-    font-family: var(--font-family-h4);
-    font-size: var(--font-size-h4);
-    font-weight: 500;
-    line-height: 32px;
+.section__card_title {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+}
+
+.news-card__date {
+    font-style: italic;
+    font-size: var(--font-size-small);
+    opacity: 0.8;
+}
+
+.service-card-info li {
+    font-weight: var(--font-weight-light);
+}
+
+.contacts__info-card p, .schedule li, .bank-details li, .footer__links li {
+    font-weight: var(--font-weight-light);
+    font-size: var(--font-size-small);
+}
+
+.footer__links {
+    font-size: var(--font-size-small);
+}
+
+.footer__links li {
+    line-height: 110%;
 }

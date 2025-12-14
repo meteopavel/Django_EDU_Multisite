@@ -1,0 +1,9 @@
+{% load document_tags %}
+
+{% block content %}
+    <section class="material screen_width_container">
+        <h2>Образование</h2>
+        <p>Автошкола предоставляет обучение по программе...</p>
+        {% documents_for_section department 'education' %}
+    </section>
+{% endblock %}

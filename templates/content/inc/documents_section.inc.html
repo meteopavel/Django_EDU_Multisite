@@ -1,0 +1,22 @@
+<div class="section-documents">
+    {% for category in categories %}
+        <h4>{{ category.name }}</h4>
+        <ul class="document-list">
+            {% for doc in category.filtered_docs %}
+                <li>
+                    {% if doc.is_info_only %}
+                        {{ doc.title }} — (информационный пункт)
+                    {% elif doc.is_external %}
+                        <a href="{{ doc.external_url }}" target="_blank" rel="noopener">{{ doc.title }}</a> (внешний ресурс)
+                    {% elif doc.file_type == 'pdf' %}
+                        <a href="{{ doc.file.url }}" target="_blank">{{ doc.title }}</a> (PDF)
+                    {% elif doc.file_type == 'image' %}
+                          <a href="{{ doc.file.url }}" target="_blank">{{ doc.title }}</a>
+                          <br>
+                          <img src="{{ doc.file.url }}" alt="{{ doc.title }}" style="max-width: 200px; margin: 8px 0; border: 1px solid #eee;">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>

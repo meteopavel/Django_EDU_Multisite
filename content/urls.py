@@ -3,8 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home_view, name='home'),
-    path('contacts/', views.contacts_view, name='contacts'),
-    path('news/', views.news_list_view, name='news_list'),
-    path('news/<slug:slug>/', views.news_detail_view, name='news_detail'),
-    path('documents/', views.document_list, name='document_list'),
+    path('ajax/news-detail/', views.ajax_news_detail, name='ajax_news_detail'),
+    path('ajax/all-news/', views.ajax_all_news, name='ajax_all_news'),
+    path('ajax/service-description/<int:service_id>/', views.ajax_service_description, name='ajax_service_description'),
 ]

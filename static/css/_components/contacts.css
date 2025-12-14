@@ -1,18 +1,46 @@
-.contacts {
+.contacts__content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 711px;
-    font-size: 20px;
+    gap: 24px;
 }
 
-.contacts__decor {
-    width: 492px;
-    height: 711px;
-    opacity: 0.4;
+.contacts__content:last-child {
+    margin-top: 24px;
 }
 
-.contacts__decor-image {
-    width: 100%;
-    height: auto;
+.contacts__map {
+    width: 50%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.contacts__info {
+    display: flex;
+    width: 50%;
+    gap: 24px;
+    flex-direction: column;
+}
+
+.contacts__iframe {
+    width: 50%;
+    min-height: 400px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.contacts__info-card {
+    background-color: var(--background-color-white);
+    border-radius: var(--border-radius);
+    padding: 8px 16px;
+}
+
+.contacts__info-card p, .schedule, .bank-details li {
+    margin-bottom: 12px;
+}
+
+.contacts__info-card svg {
+    color: var(--background-color-blue);
+}
+
+.bank-details {
+    margin-top: 16px;
 }

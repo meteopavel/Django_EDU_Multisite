@@ -1,16 +1,39 @@
 :root {
-    --font-family-regular: "RobotoCondensed-Regular";
-    --font-family-h1: "Oswald-SemiBold";
-    --font-family-h2: "RobotoCondensed-Bold";
-    --font-family-h3: "RobotoCondensed-Bold";
-    --font-family-h4: "RobotoCondensed-Regular";
+    --font-family-accent: "Oswald";
+    --font-family-default: "RobotoCondensed";
+    --font-family-fallback: 'Helvetica Neue', Arial, sans-serif;
 
     --font-size-h1: 26px;
+    --font-size-h2: 26px;
     --font-size-h3: 24px;
-    --font-size-h4: 16px;
+    --font-size-h4: 20px;
+    --font-size-default: 20px;
+    --font-size-small: 16px;
 
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --background-color-white: #FFF;
     --background-color: #F6FBFF;
     --background-color-blue: #3A48E8;
+    --background-color-dark-blue: #202982;
     --text-color: #001B4C;
-    --red-acent-color: #C30027;
+    --text-color-contrast: #FFF;
+    --red-accent-color: #C30027;
+
+    --red-accent-border: 1px solid var(--red-accent-color);
+    --text-color-border: 1px solid var(--text-color);
+    --blue-color-border: 1px solid var(--background-color-blue);
+    --border-radius: 8px;
+
+    --card-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    --horizontal__decor-gradient-left: linear-gradient(to left, var(--background-color), transparent);
+    --horizontal__decor-gradient-right: linear-gradient(to right, var(--background-color), transparent);
+    --card-gradient-blue: linear-gradient(to bottom, rgba(93, 176, 253, 0.9), rgba(52, 72, 232, 0.9));
+    --card-gradient-red: linear-gradient(to bottom, rgba(229, 184, 193, 0.9), rgba(195, 0, 39, 0.9));
+    --footer-gradient: linear-gradient(180deg, var(--background-color-blue) 0%, var(--background-color-dark-blue) 100%);
 }

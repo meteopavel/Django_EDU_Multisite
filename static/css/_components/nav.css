@@ -1,9 +1,11 @@
-nav {
-    display: flex;
+.nav {
+    background-color: var(--background-color-blue);
+}
+
+nav .content__layout {
+    font-family: var(--font-family-h3);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-h3);
     justify-content: center;
     gap: 48px;
-    background-color: var(--background-color-blue);
-    color: #FFFFFF;
-    padding: 16px;
-    font-size: 24px;
 }

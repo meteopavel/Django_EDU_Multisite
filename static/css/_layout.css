@@ -3,6 +3,8 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -17,12 +19,9 @@ body {
     flex: 1 0 auto;
 }
 
-.screen_width_container {
+.content__layout {
     max-width: 1440px;
+    min-width: 1150px;
     margin: 0 auto;
-}
-
-.section__header {
-    display: flex;
-    justify-content: space-between;
+    padding: 0 120px;
 }

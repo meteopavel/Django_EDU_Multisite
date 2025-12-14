@@ -1,0 +1,22 @@
+{% for block in material.blocks.all %}
+    {% if block.block_type == 'heading' %}
+        <h3 class="section__subtitle">{{ block.text }}</h3>
+    {% elif block.block_type == 'paragraph' %}
+        <p style="margin-bottom: 20px">{{ block.text|linebreaksbr }}</p>
+    {% elif block.block_type == 'list' %}
+        <ul style="margin-bottom: 30px">
+            {% for item in block.items %}
+                <li style="margin-bottom: 8px; margin-left: 20px; list-style-type: disc">{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% elif block.block_type == 'image' and block.image %}
+        <figure>
+            <img src="{{ block.image.url }}" alt="{{ block.text }}">
+            {% if block.text %}<figcaption>{{ block.text }}</figcaption>{% endif %}
+        </figure>
+    {% elif block.block_type == 'video' %}
+        {% if block.video %}
+            <video controls width="100%"><source src="{{ block.video.url }}" type="video/mp4"></video>
+        {% endif %}
+    {% endif %}
+{% endfor %}

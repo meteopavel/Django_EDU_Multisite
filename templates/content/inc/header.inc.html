@@ -1,21 +1,22 @@
 {% load static %}
 
-<header class="header screen_width_container">
-    <a href="/"><img class="header_img" src="{% static 'img/logo.png' %}" /></a>
-    <div class="header_main_part">
-        <a href="/"><h1 class="header_main_text">{{ department.details.meta_title }}<br>{{ department.details.meta_description }}</h1></a>
-        <div class="header_department_links">
-            <a class="img_link" href="https://voa-irk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Иркутская автошкола</a>
-            <a class="img_link" href="https://воа-утькут.рф"><img src="{% static 'img/icon_ustkut.png' %}" />Усть-Кутское отделение</a>
-            <a class="img_link" href="https://воа-братск.рф"><img src="{% static 'img/icon_bratsk.png' %}" />Братское отделение</a>
+<header class="header">
+    <div class="content__layout">
+        <a href="/"><img class="header_img" src="{% static 'img/logo.png' %}" /></a>
+        <div class="header_main_part">
+            <a href="/"><h1 class="header__title">{{ department.details.meta_title }}<br>{{ department.details.meta_description }}</h1></a>
+            <div class="header_department_links">
+                {% if not department.slug == "region" %}<a class="img_link" href="https://voa-irkutsk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Региональное отделение</a>{% endif %}
+                {% if not department.slug == "irkutsk" %}<a class="img_link" href="https://voa-irk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Иркутская автошкола</a>{% endif %}
+                {% if not department.slug == "ustkut" %}<a class="img_link" href="https://xn----7sbf8ar0abfc2g.xn--p1ai"><img src="{% static 'img/icon_ustkut.png' %}" />Усть-Кутское отделение</a>{% endif %}
+                {% if not department.slug == "bratsk" %}<a class="img_link" href="https://xn----7sbbdc6cxatkj.xn--p1ai"><img src="{% static 'img/icon_bratsk.png' %}" />Братское отделение</a>{% endif %}
+            </div>
         </div>
-    </div>
-    <div class="header__contacts">
-        <a class="img_link" href="#">{% include "icons/icon_address.svg" %}ул. Байкальская, 105-а, каб. 403</a>
-        <a class="img_link" href="#">{% include "icons/icon_phone.svg" %}8(3952) 23-22-20</a>
-        <a class="img_link" href="#">{% include "icons/icon_mail.svg" %}38@voa.ru</a>
-    </div>
-    <div class="accessibility">
-        <a class="img_link" href="#">{% include "icons/icon_eye.svg" %}</a>
+        <div class="header__contacts">
+            {% include "content/inc/contacts.inc.html" %}
+        </div>
+        <div class="accessibility">
+            <a class="img_link" href="#">{% include "icons/icon_eye.svg" %}</a>
+        </div>
     </div>
 </header>

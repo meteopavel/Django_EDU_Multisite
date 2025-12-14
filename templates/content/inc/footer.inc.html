@@ -1,38 +1,29 @@
 {% load static %}
 
 <footer class="footer">
-    <div class="footer__content screen_width_container">
+    <div class="content__layout">
+        <a href="/"><img class="footer_img" src="{% static 'img/logo.png' %}" /></a>
         <div class="footer__column">
-            <img class="footer_img" src="{% static 'img/logo.png' %}" />
-        </div>
-        <div class="footer__column">
-            <h3 class="footer__column-title">Полезные ссылки</h3>
             <ul class="footer__links">
-                <li><a href="#">Управление ГИБДД ГУ МВД России по Иркутской области</a></li>
-                <li><a href="#">Управление ГИБДД ГУ МВД России</a></li>
-                <li><a href="#">ВОА</a></li>
-                <li><a href="#">Российский Союз Автостраховщиков</a></li>
-                <li><a href="#">Автомобильные новости</a></li>
-                <li><a href="#">Автомобиль года</a></li>
-                <li><a href="#">Расчёт транспортного налога</a></li>
-                <li><a href="#">Поиск штрафов по гос. номеру</a></li>
+                <li><a href="https://госавтоинспекция.рф/r/38" target="_blank" rel="noopener noreferrer">Управление ГИБДД ГУ МВД России по Иркутской области</a></li>
+                <li><a href="https://госавтоинспекция.рф/" target="_blank" rel="noopener noreferrer">Управление ГИБДД ГУ МВД России</a></li>
+                <li><a href="https://obrnadzor.gov.ru/" target="_blank" rel="noopener noreferrer">Федеральная служба по надзору в сфере образования и науки</a></li>
+                <li><a href="https://edu.gov.ru/" target="_blank" rel="noopener noreferrer">Министерство просвещения Российской Федерации</a></li>
+                <li><a href="https://minobrnauki.gov.ru/" target="_blank" rel="noopener noreferrer">Министерство науки и высшего образования Российской Федерации</a></li>
             </ul>
         </div>
         <div class="footer__column">
-            <h3 class="footer__column-title">Полезные документы</h3>
             <ul class="footer__links">
-                <li><a href="#">Устав</a></li>
-                <li><a href="#">Закон о защите прав потребителей</a></li>
-                <li><a href="#">Санитарные правила</a></li>
-                <li><a href="#">Об утверждении правил пользования автостоянок</a></li>
-                <li><a href="#">Постановление Правительства РФ от 10 сентября 2009 г. № 720</a></li>
-                <li><a href="#">Правила проведения технического осмотра транспортных средств</a></li>
+                <li><a href="https://voa.ru/" target="_blank" rel="noopener noreferrer">Всероссийское общество автомобилистов</a></li>
+                <li><a href="https://autoins.ru/" target="_blank" rel="noopener noreferrer">Российский Союз Автостраховщиков</a></li>
+                <li><a href="https://moymotor.ru/" target="_blank" rel="noopener noreferrer">Автомобильные новости</a></li>
+                <li><a href="https://www.autogoda.ru/" target="_blank" rel="noopener noreferrer">Автомобиль года</a></li>
+                <li><a href="https://www.nalog.ru/rn38/service/calc_transport/" target="_blank" rel="noopener noreferrer">Расчёт транспортного налога</a></li>
+                <li><a href="https://госавтоинспекция.рф/check/fines" target="_blank" rel="noopener noreferrer">Поиск штрафов по гос. номеру</a></li>
             </ul>
         </div>
         <div class="footer__column footer__contacts">
-            <a class="img_link" href="#">{% include "icons/icon_address.svg" %}ул. Байкальская, 105-а, каб. 403</a>
-            <a class="img_link" href="#">{% include "icons/icon_phone.svg" %}8(3952) 23-22-20</a>
-            <a class="img_link" href="#">{% include "icons/icon_mail.svg" %}38@voa.ru</a>
+          {% include "content/inc/contacts.inc.html" %}
         </div>
     </div>
 </footer>
