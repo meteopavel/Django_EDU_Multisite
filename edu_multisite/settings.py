@@ -26,7 +26,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'edu_multisite.middleware.StaticCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'edu_multisite.urls'
