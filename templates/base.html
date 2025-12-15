@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <link href="{% static 'css/fonts.css' %}" rel="stylesheet">
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon" type="image/x-icon">
     <title>{{ department.details.meta_title|default:department.name }}</title>
     {% if department.details.meta_description %}
         <meta name="description" content="{{ department.details.meta_description }}">
@@ -31,8 +32,7 @@
 
     <script src="{% static 'js/news-accordion.js' %}"></script>
     <script src="{% static 'js/partner-news-accordion.js' %}"></script>
-    <script src="{% static 'js/services-map.js' %}"></script>
-    <script src="{% static 'js/contacts-map.js' %}"></script>
+    <script src="{% static 'js/maps-init.js' %}"></script>
     <script src="{% static 'js/accordion.js' %}"></script>
     <script src="{% static 'js/service-description.js' %}"></script>
 
