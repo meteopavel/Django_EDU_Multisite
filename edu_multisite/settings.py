@@ -93,5 +93,6 @@ else:
     STATIC_ROOT = '/home/c/cj82062/DjangoVOA/public_html/static'
     MEDIA_URL = '/media/'
     MEDIA_ROOT = '/home/c/cj82062/DjangoVOA/public_html/media'
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
