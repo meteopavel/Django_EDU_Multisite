@@ -93,9 +93,5 @@ else:
     STATIC_ROOT = '/home/c/cj82062/DjangoVOA/public_html/static'
     MEDIA_URL = '/media/'
     MEDIA_ROOT = '/home/c/cj82062/DjangoVOA/public_html/media'
-    MIDDLEWARE = [
-                     'whitenoise.middleware.WhiteNoiseMiddleware',
-                 ] + MIDDLEWARE
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
