@@ -1,6 +1,20 @@
 Options +ExecCGI
 AddDefaultCharset utf-8
 AddHandler wsgi-script .py
+
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2)$">
+    <If "%{REQUEST_URI} =~ /[a-f0-9]{8,}\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2)$/i">
+        ExpiresActive On
+        ExpiresDefault "access plus 1 year"
+        Header append Cache-Control "public, immutable"
+    </If>
+    <Else>
+        ExpiresActive On
+        ExpiresDefault "access plus 1 day"
+        Header append Cache-Control "public"
+    </Else>
+</FilesMatch>
+
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ edu_multisite/wsgi.py/$1 [QSA,L]
