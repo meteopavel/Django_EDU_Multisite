@@ -91,7 +91,7 @@ if DEBUG:
 else:
     STATIC_URL = '/static/'
     STATIC_ROOT = '/home/c/cj82062/DjangoVOA/public_html/static'
-    STATICFILES_DIRS = [BASE_DIR / 'static']
+    STATICFILES_DIRS = ['/home/c/cj82062/DjangoVOA/public_html/static',]
     MEDIA_URL = '/media/'
     MEDIA_ROOT = '/home/c/cj82062/DjangoVOA/public_html/media'
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
