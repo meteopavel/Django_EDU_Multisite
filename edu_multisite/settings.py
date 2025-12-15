@@ -14,6 +14,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',
     'content',
 ]
 
@@ -76,6 +77,12 @@ USE_TZ = True
 
 HOST_TO_DEPARTMENT_MAP = os.getenv('HOST_TO_DEPARTMENT_MAP', '')
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
 if DEBUG:
     STATIC_URL = '/static/'
     STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -88,10 +95,14 @@ if DEBUG:
         'localhost',
         '::1',
     ]
+    COMPRESS_ENABLED = False
+    COMPRESS_OFFLINE = False
 else:
     STATIC_URL = '/static/'
     STATIC_ROOT = '/home/c/cj82062/DjangoVOA/public_html/static'
     MEDIA_URL = '/media/'
     MEDIA_ROOT = '/home/c/cj82062/DjangoVOA/public_html/media'
+    COMPRESS_ENABLED = True
+    COMPRESS_OFFLINE = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
