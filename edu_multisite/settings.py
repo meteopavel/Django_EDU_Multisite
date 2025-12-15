@@ -91,9 +91,11 @@ if DEBUG:
 else:
     STATIC_URL = '/static/'
     STATIC_ROOT = '/home/c/cj82062/DjangoVOA/public_html/static'
-    STATICFILES_DIRS = [BASE_DIR / 'static']
     MEDIA_URL = '/media/'
     MEDIA_ROOT = '/home/c/cj82062/DjangoVOA/public_html/media'
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+    MIDDLEWARE = [
+                     'whitenoise.middleware.WhiteNoiseMiddleware',
+                 ] + MIDDLEWARE
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
