@@ -91,6 +91,8 @@
     "show_partners": true,
     "show_documents": true,
     "show_contacts": true,
+    "show_header_banner": false,
+    "show_exam_info": false,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Иркутское региональное отделение"
   }
@@ -108,12 +110,12 @@
     "inn": "3808105715",
     "kpp": "381101001",
     "legal_address": "Ул.Байкальская, д. 105-а каб. № 403",
-    "recipient_name": "",
-    "bank": "",
-    "bik": "",
-    "corr_account": "",
-    "settlement_account": "",
-    "payment_purpose": "",
+    "recipient_name": "ЧПОУ «Автошкола ИРО ООО ВОА»",
+    "bank": "Байкальский банк Сбербанка России г. Иркутск",
+    "bik": "042520607",
+    "corr_account": "30101810900000000607",
+    "settlement_account": "40703810718350030074",
+    "payment_purpose": "Оплата (Ф.И.О. учащегося) теория:____вождение:____",
     "schedule": [
       {
         "days": [
@@ -156,6 +158,8 @@
     "show_partners": true,
     "show_documents": false,
     "show_contacts": true,
+    "show_header_banner": true,
+    "show_exam_info": true,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Автошкола Иркутск"
   }
@@ -173,12 +177,12 @@
     "inn": "3803200080",
     "kpp": "380401001",
     "legal_address": "665717, Иркутская область, г.Братск, ул.Курчатова, д.30а",
-    "recipient_name": "",
-    "bank": "",
-    "bik": "",
-    "corr_account": "",
-    "settlement_account": "",
-    "payment_purpose": "",
+    "recipient_name": "БГО ООО «ВОА»",
+    "bank": "Иркутское ОСБ 8596 Байкальский банк СБ\r\nРФ г.Иркутск",
+    "bik": "042520607",
+    "corr_account": "30101810900000000607",
+    "settlement_account": "40703810918090100022",
+    "payment_purpose": "Оплата (Ф.И.О. учащегося) теория:____вождение:____",
     "schedule": [
       {
         "days": [
@@ -216,6 +220,8 @@
     "show_partners": true,
     "show_documents": false,
     "show_contacts": true,
+    "show_header_banner": false,
+    "show_exam_info": false,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Братское городское отделение"
   }
@@ -233,12 +239,12 @@
     "inn": "3818005131",
     "kpp": "381801001",
     "legal_address": "666780, Иркутская область, г.Усть-Кут, ул.Речников д.39 кв.23",
-    "recipient_name": "",
-    "bank": "",
-    "bik": "",
-    "corr_account": "",
-    "settlement_account": "",
-    "payment_purpose": "",
+    "recipient_name": "УКГО ООО «ВОА»",
+    "bank": "Байкальский банк ПАО Сбербанк",
+    "bik": "042520607",
+    "corr_account": "30101810600000000607",
+    "settlement_account": "40703810518090000742",
+    "payment_purpose": "Оплата (Ф.И.О. учащегося) теория:____вождение:____",
     "schedule": [
       {
         "days": [
@@ -276,6 +282,8 @@
     "show_partners": true,
     "show_documents": false,
     "show_contacts": true,
+    "show_header_banner": false,
+    "show_exam_info": false,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Усть-кутское городское отделение"
   }
@@ -389,14 +397,12 @@
   "model": "content.menuitem",
   "pk": 1,
   "fields": {
-    "title": "Главная",
-    "url": "/",
+    "title": "Главное",
+    "url": "#exam-info",
     "order": 0,
-    "is_active": false,
+    "is_active": true,
     "departments": [
-      2,
-      3,
-      4
+      2
     ]
   }
 },
@@ -3940,6 +3946,156 @@
   }
 },
 {
+  "model": "content.newsimage",
+  "pk": 630,
+  "fields": {
+    "news": 179,
+    "image": "news/gallery/mamy-rulyat-2025-2.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 631,
+  "fields": {
+    "news": 179,
+    "image": "news/gallery/mamy-rulyat-2025-3.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 632,
+  "fields": {
+    "news": 179,
+    "image": "news/gallery/mamy-rulyat-2025-4.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 633,
+  "fields": {
+    "news": 179,
+    "image": "news/gallery/mamy-rulyat-2025-5.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 634,
+  "fields": {
+    "news": 179,
+    "image": "news/gallery/mamy-rulyat-2025-6.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 635,
+  "fields": {
+    "news": 179,
+    "image": "news/gallery/mamy-rulyat-2025-7.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 636,
+  "fields": {
+    "news": 180,
+    "image": "news/gallery/dor_bezop_2025-2.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 637,
+  "fields": {
+    "news": 180,
+    "image": "news/gallery/dor_bezop_2025-3.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 638,
+  "fields": {
+    "news": 180,
+    "image": "news/gallery/dor_bezop_2025-4.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 639,
+  "fields": {
+    "news": 180,
+    "image": "news/gallery/dor_bezop_2025-5.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 640,
+  "fields": {
+    "news": 180,
+    "image": "news/gallery/dor_bezop_2025-6.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 641,
+  "fields": {
+    "news": 180,
+    "image": "news/gallery/dor_bezop_2025-7.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 642,
+  "fields": {
+    "news": 180,
+    "image": "news/gallery/dor_bezop_2025-8.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 643,
+  "fields": {
+    "news": 180,
+    "image": "news/gallery/dor_bezop_2025-9.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 644,
+  "fields": {
+    "news": 180,
+    "image": "news/gallery/dor_bezop_2025-10.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
   "model": "content.news",
   "pk": 66,
   "fields": {
@@ -6092,6 +6248,44 @@
     "is_partner_news": false,
     "is_active": true,
     "created_at": "2017-02-13T20:25:42Z",
+    "departments": [
+      1
+    ]
+  }
+},
+{
+  "model": "content.news",
+  "pk": 179,
+  "fields": {
+    "joomla_id": null,
+    "title": "Мамы рулят - соблюдая ПДД",
+    "slug": "mamy-rulyat-soblyudaya-pdd",
+    "preview_text": "Иркутское региональное отделение ВОА накануне дня Матери приняло участие в автопробеге «Мамы рулят - соблюдая ПДД»",
+    "content": "Накануне дня Матери в городе Ангарск Иркутской области прошел автопробег «Мамы рулят, соблюдая ПДД», посвященный Всероссийскому Дню Матери. Целью данного мероприятия было привлечение внимания водителей к соблюдению правил дорожного движения при перевозке детей в автомобиле, обязательному использованию ремней безопасности и детских удерживающих устройств.\r\n\r\nКолонна автомобилей, за рулем которых были мамы, проехала по главным улицам города в сопровождении экипажей ДПС.\r\n\r\nУчастницы автопробега - депутат Светлана Токовенко, председатель общественного совета при УМВД по АГО Людмила Чурилова, Всероссийское общество автомобилистов, представители общественных организаций города Ангарска, советники директоров по воспитанию и педагоги ЦРТДиЮ «Гармония».",
+    "main_image": "news/main/mamy-rulyat-2025-1.jpg",
+    "video": "news/videos/mamy-rulyat-2025.mp4",
+    "is_partner_news": false,
+    "is_active": true,
+    "created_at": "2025-12-01T04:00:00Z",
+    "departments": [
+      1
+    ]
+  }
+},
+{
+  "model": "content.news",
+  "pk": 180,
+  "fields": {
+    "joomla_id": null,
+    "title": "Урок «Дорожной безопасности»",
+    "slug": "urok-dorozhnoj-bezopasnosti",
+    "preview_text": "",
+    "content": "Иркутское региональное отделение Всероссийского общества автомобилистов, в рамках совместного проекта компании «ЛЛК Лукойл» и Всероссийского общества автомобилистов, провели урок «Дорожной безопасности» для воспитанников детского сада \"Пивоваровский детский сад\". Во время урока ребята повторили правила безопасности пешехода и пассажира, поучаствовали в викторине по ПДД, посмотрели мультик о правилах безопасного поведения на дороге «Лукоша». По окончании мероприятия детям вручили тематические подарки и сладкие призы.",
+    "main_image": "news/main/dor_bezop_2025-1.jpg",
+    "video": "",
+    "is_partner_news": false,
+    "is_active": true,
+    "created_at": "2025-12-18T04:00:00Z",
     "departments": [
       1
     ]
@@ -8442,6 +8636,17 @@
   }
 },
 {
+  "model": "content.material",
+  "pk": 5,
+  "fields": {
+    "department": 2,
+    "title": "Экзамены",
+    "slug": "exameny",
+    "is_active": true,
+    "created_at": "2025-12-20T06:09:13.176Z"
+  }
+},
+{
   "model": "content.contentblock",
   "pk": 1,
   "fields": {
@@ -9296,6 +9501,384 @@
     "block_type": "heading",
     "order": 0,
     "text": "Автострахование",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 57,
+  "fields": {
+    "material": 5,
+    "block_type": "heading",
+    "order": 0,
+    "text": "ГРАФИК контрольных мероприятий на ЯНВАРЬ 2026 г.  Группа №200",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 58,
+  "fields": {
+    "material": 5,
+    "block_type": "heading",
+    "order": 1,
+    "text": "Квалификационный экзамен (теоретический):",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 59,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 2,
+    "text": "20.01.2025 г.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 60,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 3,
+    "text": "На экзамен необходимо записываться по телефону 22-40-50 в часы работы администрации.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 61,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 4,
+    "text": "До квалификационного экзамена Всем ученикам необходимо в течение 7 - 10 дней сдать промежуточный экзамен:",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 62,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 5,
+    "text": "На промежуточный экзамен по теории записываться за 7-10 дней до квалификационного экзамена по тел. 22-40-50 и подойти в назначенное время в офис Автошколы.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 63,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 6,
+    "text": "Без промежуточного (теоретического) экзамена обучающиеся к сдаче квалификационного экзамена не допускаются. На квалификационном экзамене по теории необходимо при себе иметь книжку обучающегося вождению (с отметкой часов), крайнее занятие по вождению автомобиля должно быть не позже чем за 7 дней до теоретического экзамена.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 64,
+  "fields": {
+    "material": 5,
+    "block_type": "heading",
+    "order": 7,
+    "text": "Квалификационный экзамен (практический) по вождению автомобиля:",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 65,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 8,
+    "text": "21.01.2026 г.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 66,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 9,
+    "text": "08.00 - начало экзамена",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 67,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 10,
+    "text": "Допускаются только обучающиеся, сдавшие квалификационный (теоретический) экзамен - 20.01.2026 г.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 68,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 11,
+    "text": "Все обязательные часы по программе «Вождение автомобиля» должны быть откатаны.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 69,
+  "fields": {
+    "material": 5,
+    "block_type": "heading",
+    "order": 12,
+    "text": "Экзамен в ГИБДД:",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 70,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 13,
+    "text": "28.01.2026 г. – в 8:45 по адресу:",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 71,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 14,
+    "text": "пос. Дзержинск, ул. Садовая, 2",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 72,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 15,
+    "text": "(сбор учащихся без опозданий в автошколе в 07:45)",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 73,
+  "fields": {
+    "material": 5,
+    "block_type": "heading",
+    "order": 16,
+    "text": "",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 91,
+  "fields": {
+    "material": 5,
+    "block_type": "heading",
+    "order": 34,
+    "text": "Выписка из Административного регламента МВД РФ (приказ №80)",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 92,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 35,
+    "text": "-П.174.2. Проведение практического экзамена на право управления транспортными средствами категорий «B» – в срок не более 30 минут.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 93,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 36,
+    "text": "-П.184.Экзамен оценивается по следующей системе: положительная оценка – «СДАЛ», отрицательная – «НЕ СДАЛ».",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 94,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 37,
+    "text": "-П.185.За совершение каждой ошибки кандидату в водители начисляются штрафные баллы: за ошибки (нарушения), предусмотренные пунктами 3.1–3.14 экзаменационного листа – 3 балла, пунктами 4.1 – 4.5 экзаменационного листа – 2 балла, пунктами 5.1–5.4 экзаменационного листа – 1 балл.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 95,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 38,
+    "text": "-П.186. Проведение экзамена прекращается и выставляется оценка «НЕ СДАЛ», если кандидат в водители:",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 96,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 39,
+    "text": "-П.186.1.Допустил 1 нарушение, предусмотренное одним из пунктов 2.1–2.15 экзаменационного листа.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 97,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 40,
+    "text": "-П.186.2.Допустил ошибки (нарушения), предусмотренные пунктами 3.1–5.4 экзаменационного листа, сумма штрафных баллов которых составляет 5 и более баллов.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 98,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 41,
+    "text": "-П.192.Общее время выполнения административной процедуры в отношении одного кандидата в водители при проведении экзамена на право управления транспортными средствами категорий «B» – до 60 минут.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 99,
+  "fields": {
+    "material": 5,
+    "block_type": "paragraph",
+    "order": 42,
+    "text": "-П.193.Критериями принятия решения по данной административной процедуре является наличие (отсутствие) ошибок, предусмотренных пунктом 186 Административного регламента.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 100,
+  "fields": {
+    "material": 5,
+    "block_type": "heading",
+    "order": 43,
+    "text": "Экзаменационный лист",
     "items": [],
     "image": "",
     "video": "",
