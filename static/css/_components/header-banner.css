@@ -1,0 +1,60 @@
+.header-banner {
+    padding-top: 100px;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-banner::before, .header-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-size: auto 100%;
+    z-index: -1;
+}
+
+.header-banner::before {
+    left: 0;
+    width: 20%;
+    background: url('../../img/main_decor_l.jpg') no-repeat left center;
+    background-size: contain;
+}
+
+.header-banner::after {
+    right: 0;
+    width: 100%;
+    background: url('../../img/main_decor_r.jpg') no-repeat right center;
+    background-size: contain;
+}
+
+.header-banner__title {
+    margin-bottom: 20px;
+}
+
+.header-banner__subtitle {
+    margin-top: 40px;
+}
+
+.header-banner__list {
+    list-style: disc;
+}
+
+.header-banner__list-item {
+    margin-top: 12px;
+    margin-left: 20px;
+}
+
+@media (max-width: 1500px) {
+  .header-banner {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-banner::before, .header-banner::after {
+    background: none;
+  }
+}
+
+

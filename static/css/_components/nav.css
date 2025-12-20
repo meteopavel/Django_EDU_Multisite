@@ -3,7 +3,7 @@
 }
 
 nav .content__layout {
-    font-family: var(--font-family-h3);
+    font-family: var(--font-family-default);
     font-weight: var(--font-weight-medium);
     font-size: var(--font-size-h3);
     justify-content: center;

@@ -88,20 +88,3 @@
     width: 70px;
     height: 70px;
 }
-
-.service-description-block {
-    margin-top: 24px;
-    padding: 24px;
-    background-color: var(--background-color-white);
-    border-radius: var(--border-radius);
-    border: var(--blue-color-border);
-}
-
-.service-description-content h4 {
-    margin-top: 0;
-    color: var(--text-color);
-    font-weight: 600;
-}
-
-
-

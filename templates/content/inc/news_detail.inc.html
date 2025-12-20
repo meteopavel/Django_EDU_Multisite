@@ -6,6 +6,7 @@
              alt="{{ news.title }}"
              style="width:50%; max-height:400px; object-fit:cover; cursor: pointer;">
     {% endif %}
+    {{ news.preview_text|linebreaks }}
     {{ news.content|linebreaks }}
     {% if news.gallery_images.all %}
         <h3>Фотогалерея</h3>

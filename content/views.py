@@ -2,7 +2,7 @@ from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404
 
 from .decorators import page_name, ajax_view
-from .models import News, DocumentCategory, Document, Service
+from .models import News, DocumentCategory, Document, Service, Material
 from .utils import get_news_for_department, get_news_years
 
 
@@ -117,13 +117,13 @@ def ajax_documents(request, department):
     return {'categories': categories,}
 
 
-@ajax_view('Описание услуги', 'content/inc/material_description.html')
-def ajax_service_description(request, department, **kwargs):
-    service_id = kwargs.get('service_id')
-    service = get_object_or_404(Service, id=service_id, is_active=True)
-    if not service.description_material:
-        return {'error': 'Описание не назначено'}
-    return {'material': service.description_material}
+@ajax_view('Описание материала', 'content/inc/material_description.html')
+def ajax_material_description(request, department, **kwargs):
+    material_slug = kwargs.get('material_slug')
+    print(material_slug)
+    material = get_object_or_404(Material, slug=material_slug, is_active=True)
+    return {'material': material}
+
 
 @ajax_view('Новость', 'content/inc/news_detail.inc.html')
 def ajax_news_detail(request, department):

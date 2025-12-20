@@ -1,0 +1,42 @@
+.material-description-block {
+    margin-top: 24px;
+    padding: 24px;
+    background-color: var(--background-color-white);
+    border-radius: var(--border-radius);
+    border: var(--blue-color-border);
+}
+
+.material-description-content h4 {
+    margin-top: 0;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.exam-cards .material-description-block {
+    grid-column: 1 / span 3;
+    margin-top: 0;
+    border: var(--red-accent-border);
+}
+
+.material-close-button {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.material-close-button:hover {
+    background-color: #c82333;
+}
+
+.material-close-button:focus {
+    outline: 2px solid #a71e2f;
+    outline-offset: 2px;
+}

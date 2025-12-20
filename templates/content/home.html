@@ -2,24 +2,120 @@
 {% load static %}
 
 {% block content %}
-    {% if show_latest_news %}
-        {% block latest_news %}
-            <section id="latest_news" class="section latest_news">
-                <div class="content__layout">
-                    <div class="section__header">
-                        <h2 id="news-section-title"  class="section__title">{{ latest_news_title|default:"Новости" }}</h2>
-                        <a href="#" class="show-all-news-btn show-more-news" data-department="{{ department.slug }}">
-                            Показать все новости
-                            {% include "icons/show_all.svg" %}
-                        </a>
-                        <div id="svg-show-all-template" style="display: none;">{% include "icons/show_all.svg" %}</div>
+    {% if show_header_banner %}
+        <section id="header-banner" class="header-banner">
+            <div class="content__layout">
+                <div class="header-banner__content">
+                    <h1 class="header-banner__title">Иркутская автошкола Всероссийского общества автомобилистов</h1>
+                    <h1 class="header-banner__title">Более полувека на дорогах России</h1>
+                    <h3 class="header-banner__subtitle">Научим вождению за 3 месяца!</h3>
+                    <ul class="header-banner__list">
+                        <li class="header-banner__list-item">Индивидуальный подход к каждому</li>
+                        <li class="header-banner__list-item">Безопасное и уверенное вождение</li>
+                        <li class="header-banner__list-item">Много практики</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    {% if show_exam_info %}
+        <section id="exam-info" class="section exam-info">
+            <div class="content__layout">
+                <!-- Карточки -->
+                <div class="exam-cards" data-accordion-group="material-cards">
+                    <!-- Акция! -->
+                    <div class="exam-card">
+                        <div class="exam-card-header">
+                            <div class="exam-card-icon">
+                                {% include "icons/icon_sales.svg" %}
+                            </div>
+                            <h1 class="header__title">Режим работы автошколы в новогодние каникулы</h1>
+                        </div>
+                        <div class="exam-card-content">
+                            <p>Администрация (офис) – с 31 декабря 2025г. до 11 января 2026. - выходные дни. С 12 января 2026 г. работаем по расписанию.</p>
+                            <p>Инструктора по вождению работают в соответствии с графиком записи на вождение.</p>
+                            <p>Лекции по теории начнутся с 17 января 2026.</p>
+                            <p><strong>Для желающих записаться на вождение в новогодние праздники просьба  проверить наличие баланса в личном кабинете, при необходимости произвести оплату до 28 декабря.</strong></p>
+                        </div>
                     </div>
-                    <div id="news-content-container">
-                        {% include "content/inc/news_grid.inc.html" with news_items=latest_news only %}
+
+                    <!-- Внимание! -->
+                    <div class="exam-card">
+                        <div class="exam-card-header">
+                            <div class="exam-card-icon">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="section__subtitle">Внимание!</h3>
+                        </div>
+                        <div class="exam-card-content">
+                            <p>11 декабря с 17:00 до 20:00 в Автошколе будут проводиться занятия по <strong>Медицине</strong></p>
+                            <p>21 декабря с 9:00 до 12:00 в Автошколе будут проводиться занятия по <strong>Психологии</strong></p>
+                            <p>Запись на занятия по телефону <strong>22-40-50</strong> либо при посещении офиса Автошколы</p>
+                        </div>
+                    </div>
+
+                    <!-- Информация об экзамене! -->
+                    <div class="exam-card exam-card-accordion"
+                         data-material-slug="exameny">
+                        <div class="exam-card-header">
+                            <div class="exam-card-icon">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="section__subtitle">Информация об экзаменах!</h3>
+                        </div>
+                        <div class="exam-card-content">
+                            <p>График контрольных мероприятий для группы <strong>200</strong></p>
+                            <p>Квалификационный экзамен (теоретический): <strong>20.01.2025 г.</strong></p>
+                            <p>Квалификационный экзамен (практический) по вождению автомобиля: <strong>20.01.2025 г.</strong></p>
+                            <p>Экзамен в ГИБДД: <strong>28.01.2026 г. – в 8:45</strong></p>
+                            <p><strong>Кликните по карточке для подробностей</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Для учеников других автошкол -->
+                    <div class="exam-card">
+                        <div class="exam-card-header">
+                            <div class="exam-card-icon">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="section__subtitle">Для учеников других автошкол!</h3>
+                        </div>
+                        <div class="exam-card-content">
+                            <p>Вы можете сдавать экзамен в ГИБДД через автошколу ВОА</p>
+                            <p><strong>ТАК БЫСТРЕЕ!</strong></p>
+                        </div>
+                    </div>
+                    <div class="material-description-block" style="display: none;">
+                        <div class="material-description-content"></div>
                     </div>
                 </div>
-            </section>
-        {% endblock %}
+            </div>
+        </section>
+    {% endif %}
+
+    {% if show_latest_news %}
+        <section id="latest_news" class="section latest_news">
+            <div class="content__layout">
+                <div class="section__header">
+                    <h2 id="news-section-title"  class="section__title">{{ latest_news_title|default:"Новости" }}</h2>
+                    <a href="#" class="show-all-news-btn show-more-news" data-department="{{ department.slug }}">
+                        Показать все новости
+                        {% include "icons/show_all.svg" %}
+                    </a>
+                    <div id="svg-show-all-template" style="display: none;">{% include "icons/show_all.svg" %}</div>
+                </div>
+                <div id="news-content-container">
+                    {% include "content/inc/news_grid.inc.html" with news_items=latest_news only %}
+                </div>
+            </div>
+        </section>
     {% endif %}
 
     {% if show_services %}
@@ -50,12 +146,11 @@
 
                 {% elif department.slug == 'ustkut' %}
                     <!-- Усть-Кут: карточки + блок описания -->
-                    <div class="services-cards" data-accordion-group="ustkut-services">
+                    <div class="services-cards" data-accordion-group="material-cards">
                         <div class="services-grid-info_card">
                            {% for service in services %}
                                 <div class="service-card-info_card"
-                                     data-service-id="{{ service.id }}"
-                                     data-service-name="{{ service.name }}">
+                                     data-material-slug={{ service.description_material.slug }}>
                                     <div class="service-card-header">
                                         <div class="service-card-icon">
                                             {% if service.icon_name %}
@@ -82,8 +177,8 @@
                         </div>
 
                         <!-- Блок описания — появляется ниже -->
-                        <div class="service-description-block" data-for="{{ service.id }}" style="display: none;">
-                            <div class="service-description-content"></div>
+                        <div class="material-description-block" style="display: none;">
+                            <div class="material-description-content"></div>
                         </div>
                     </div>
 

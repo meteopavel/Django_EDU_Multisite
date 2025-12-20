@@ -1,0 +1,78 @@
+/* Общие стили секции */
+
+
+.exam-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.exam-card:first-child {
+    grid-column: 1 / span 3;
+}
+
+/* Карточка */
+.exam-card {
+    background: white;
+    border: var(--red-accent-border);
+    border-radius: var(--border-radius);
+    padding: 8px;
+}
+
+
+.exam-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.exam-card-icon {
+    width: 24px;
+    height: 24px;
+    color: #dc3545;
+}
+
+.exam-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #dc3545;
+    margin: 0;
+}
+
+.exam-card-content {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.exam-card-content p,
+.exam-card-content ol,
+.exam-card-content ul {
+    margin: 10px 0;
+}
+
+.exam-card-content ol {
+    padding-left: 20px;
+}
+
+.exam-card-content li {
+    margin-bottom: 5px;
+}
+
+/* Интерактивная карточка */
+.exam-card-accordion {
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.exam-card-accordion:hover {
+    transform: translateY(-5px);
+}
+
+
+.exam-card-accordion .exam-link {
+    color: #007bff;
+    text-decoration: underline;
+    font-weight: 600;
+}

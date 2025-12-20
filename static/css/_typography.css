@@ -5,13 +5,24 @@ body {
     line-height: 130%;
 }
 
-.header__title {
+.header__title, .header-banner__title {
     font-family: var(--font-family-accent), var(--font-family-fallback);
     font-size: var(--font-size-h1);
     font-weight: var(--font-weight-semibold);
     line-height: 110%;
-    text-align: center;
     text-transform: uppercase;
+}
+
+.header__title {
+    text-align: center;
+}
+
+.exam-card .header__title {
+    color: var(--red-accent-color);
+}
+
+.exam-card .section__subtitle {
+    color: var(--red-accent-color);
 }
 
 .nav {

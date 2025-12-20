@@ -1,20 +1,30 @@
 {% load static %}
 
 <header class="header">
-    <div class="content__layout">
+    <div class="content__layout {% if department.slug == "irkutsk" %}header-special{% endif %}">
         <a href="/"><img class="header_img" src="{% static 'img/logo.png' %}" /></a>
-        <div class="header_main_part">
-            <a href="/"><h1 class="header__title">{{ department.details.meta_title }}<br>{{ department.details.meta_description }}</h1></a>
-            <div class="header_department_links">
-                {% if not department.slug == "region" %}<a class="img_link" href="https://voa-irkutsk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Региональное отделение</a>{% endif %}
-                {% if not department.slug == "irkutsk" %}<a class="img_link" href="https://voa-irk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Иркутская автошкола</a>{% endif %}
-                {% if not department.slug == "ustkut" %}<a class="img_link" href="https://xn----7sbf8ar0abfc2g.xn--p1ai"><img src="{% static 'img/icon_ustkut.png' %}" />Усть-Кутское отделение</a>{% endif %}
-                {% if not department.slug == "bratsk" %}<a class="img_link" href="https://xn----7sbbdc6cxatkj.xn--p1ai"><img src="{% static 'img/icon_bratsk.png' %}" />Братское отделение</a>{% endif %}
+        {% if department.slug == "irkutsk" %}
+            <div class="header__contacts_special">
+                {% include "content/inc/contacts.inc.html" %}
             </div>
-        </div>
-        <div class="header__contacts">
-            {% include "content/inc/contacts.inc.html" %}
-        </div>
+            <div class="header__social_special">
+                <a href="https://vk.com/voairk">{% include "icons/icon_vk.svg" %}</a>
+                <a href="https://t.me/voairk">{% include "icons/icon_telegram.svg" %}</a>
+            </div>
+        {% else %}
+            <div class="header_main_part">
+                <a href="/"><h1 class="header__title">{{ department.details.meta_title }}<br>{{ department.details.meta_description }}</h1></a>
+                <div class="header_department_links">
+                    {% if not department.slug == "region" %}<a class="img_link" href="https://voa-irkutsk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Региональное отделение</a>{% endif %}
+                    {% if not department.slug == "irkutsk" %}<a class="img_link" href="https://voa-irk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Иркутская автошкола</a>{% endif %}
+                    {% if not department.slug == "ustkut" %}<a class="img_link" href="https://xn----7sbf8ar0abfc2g.xn--p1ai"><img src="{% static 'img/icon_ustkut.png' %}" />Усть-Кутское отделение</a>{% endif %}
+                    {% if not department.slug == "bratsk" %}<a class="img_link" href="https://xn----7sbbdc6cxatkj.xn--p1ai"><img src="{% static 'img/icon_bratsk.png' %}" />Братское отделение</a>{% endif %}
+                </div>
+            </div>
+            <div class="header__contacts">
+                {% include "content/inc/contacts.inc.html" %}
+            </div>
+        {% endif %}
         <div class="accessibility">
             <a class="img_link" href="#">{% include "icons/icon_eye.svg" %}</a>
         </div>

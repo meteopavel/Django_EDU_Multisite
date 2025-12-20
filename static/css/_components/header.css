@@ -1,3 +1,14 @@
+.header-special {
+    display: flex;
+    padding-bottom: 0 !important;
+    align-items: center;
+}
+
+.header-special .header_img{
+    max-width: 70px;
+    max-height: 70px;
+}
+
 .header_main_part {
     display: flex;
     flex-direction: column;
@@ -5,18 +16,29 @@
     min-width: 720px;
 }
 
+.header__contacts_special {
+    display: flex;
+    justify-content: space-between;
+    min-width: 720px;
+    align-items: center;
+}
+
+.header__social_special {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 .footer .content__layout {
     gap: 16px;
 }
-
-
 
 .header_department_links {
     display: flex;
     justify-content: space-between;
 }
 
-.header__contacts svg, .accessibility svg {
+.header__contacts svg, .accessibility svg, .header__contacts_special svg {
     color: var(--background-color-blue);
 }
 

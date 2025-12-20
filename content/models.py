@@ -54,6 +54,8 @@ class DepartmentDetails(models.Model):
     show_partners = models.BooleanField('Показывать партнёров', default=False)
     show_documents = models.BooleanField('Показывать документы', default=True)
     show_contacts = models.BooleanField('Показывать контакты', default=True)
+    show_header_banner = models.BooleanField('Показывать главный баннер', default=False)
+    show_exam_info = models.BooleanField('Показывать акции и экзамены', default=False)
 
     meta_title = models.CharField('SEO Title', max_length=100, blank=True)
     meta_description = models.CharField('SEO Description', max_length=255, blank=True)

@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    font-family: var(--font-family-regular);
+    font-family: var(--font-family-default);
     background-color: var(--background-color);
     color: var(--text-color);
     display: flex;
