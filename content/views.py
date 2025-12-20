@@ -71,6 +71,38 @@ def home_view(request, department):
             context['load_documents_on_page'] = True
         else:
             context['load_documents_on_page'] = False
+
+    if details.show_education_info:
+        EDUCATION_SECTIONS = [
+            ('Основные сведения', 'osnovnye-svedeniya'),
+            ('Структура и органы управления', 'struktura-upravleniya'),
+            ('Документы', 'dokumenty'),
+            ('Образование', 'obrazovanie'),
+            ('Администрация', 'administratsiya'),
+            ('Преподаватели', 'prepodavateli'),
+            ('Мастера производственного обучения', 'mastera-po'),
+            ('Материально-техническое обеспечение', 'materialno-tehnicheskoe-obespechenie'),
+            ('Платные образовательные услуги', 'platnye-obr-uslugi'),
+            ('Финансово-хозяйственная деятельность', 'finansovo-hozyaystvennaya-deyatelnost'),
+            ('Вакантные места для приёма (перевода)', 'vakantnye-mesta'),
+        ]
+
+        accordion_items = []
+        for title, base_slug in EDUCATION_SECTIONS:
+            full_slug = f"{department.slug}-{base_slug}"
+            if Material.objects.filter(
+                    department=department,
+                    slug=full_slug,
+                    is_active=True
+            ).exists():
+                accordion_items.append({
+                    'title': title,
+                    'material_slug': full_slug
+                })
+
+        context['education_accordion_items'] = accordion_items
+        print(accordion_items)
+        context['show_education_accordion'] = bool(accordion_items)
     return context
 
 
@@ -117,7 +149,7 @@ def ajax_documents(request, department):
     return {'categories': categories,}
 
 
-@ajax_view('Описание материала', 'content/inc/material_description.html')
+@ajax_view('Описание материала', 'content/inc/material_description.inc.html')
 def ajax_material_description(request, department, **kwargs):
     material_slug = kwargs.get('material_slug')
     print(material_slug)

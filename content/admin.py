@@ -240,3 +240,5 @@ class ContentBlockInline(admin.TabularInline):
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
     inlines = [ContentBlockInline]
+    list_display = ['title', 'department']
+    list_filter = ['department']

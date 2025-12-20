@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load document_tags %}
 {% load static %}
 
 {% block content %}
@@ -113,6 +114,31 @@
                 </div>
                 <div id="news-content-container">
                     {% include "content/inc/news_grid.inc.html" with news_items=latest_news only %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    {% if show_education_info %}
+        <section id="education-info" class="section education-info">
+            <div class="content__layout">
+                <div class="section__header">
+                    <h2 class="section__title">Сведения об образовательной организации</h2>
+                </div>
+
+                <!-- Аккордеон -->
+                <div class="accordion-group" data-accordion-group="education-accordion">
+                    {% for item in education_accordion_items %}
+                        <div class="accordion-item" data-material-slug="{{ item.material_slug }}">
+                            <button class="accordion-header">
+                                {{ item.title }}
+                                <span class="accordion-toggle">+</span>
+                            </button>
+                            <div class="accordion-content" style="display: none;">
+                                <p>Загрузка...</p>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
