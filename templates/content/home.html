@@ -119,17 +119,71 @@
         </section>
     {% endif %}
 
+    {% if show_pricing %}
+        <section id="pricing" class="section pricing">
+            <div class="content__layout">
+                <h2 class="section__title">Стоимость обучения</h2>
+
+                <div class="pricing-grid">
+                    <!-- Карточка 1: Категория В -->
+                    <div class="pricing-card">
+                        <div class="pricing-card-image">
+                            <img src="{% static 'img/red_car.png' %}" />
+                        </div>
+                        <div class="pricing-card-content">
+                            <h3>КАТЕГОРИЯ В</h3>
+                            {%  if department.slug == 'irkutsk' %}
+                                <p><strong>Теория — 8000 ₽</strong></p>
+                                <p><strong>Практика — 1150 ₽ / час</strong></p>
+                                <ul>
+                                    <li>56 часов на МКПП - <strong>64 400 ₽</strong></li>
+                                    <li>54 часа на АКПП - <strong>62 100 ₽</strong></li>
+                                </ul>
+                                <p class="pricing-note">Возможна рассрочка платежа</p>
+                            {% elif department.slug == 'bratsk' %}
+                                <p><strong>Срок обучения — 3 месяца</strong></p>
+                                <p><strong>Полная стоимость — 60000 ₽</strong></p>
+                                <p class="pricing-note">Возможна рассрочка платежа</p>
+                            {% elif department.slug == 'ustkut' %}
+                                <p><strong>Теория — 30000 ₽</strong></p>
+                                <p><strong>Практика — 44000 ₽</strong></p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Карточка 2: Дополнительные услуги -->
+                    {% if department.slug != 'bratsk' %}
+                        <div class="pricing-card">
+                            <div class="pricing-card-image">
+                                <img src="{% static 'img/ring_sing.png' %}" />
+                            </div>
+                            <div class="pricing-card-content">
+                                <h3>ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h3>
+                                {%  if department.slug == 'irkutsk' %}
+                                    <p>Восстановление навыков вождения — <strong>12000 ₽</strong></p>
+                                    <p>Предоставление автомобиля для сдачи практики в ГИБДД для учеников других автошкол — <strong>15000 ₽</strong></p>
+                                {% elif department.slug == 'ustkut' %}
+                                    <p>Восстановление навыков вождения — <strong>2200 ₽ / час</strong></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
     {% if show_education_info %}
         <section id="education-info" class="section education-info">
             <div class="content__layout">
                 <div class="section__header">
                     <h2 class="section__title">Сведения об образовательной организации</h2>
                 </div>
-
-                <!-- Аккордеон -->
                 <div class="accordion-group" data-accordion-group="education-accordion">
                     {% for item in education_accordion_items %}
-                        <div class="accordion-item" data-material-slug="{{ item.material_slug }}">
+                        <div class="accordion-item"
+                             {% if item.type == 'material' %}data-material-slug="{{ item.material_slug }}"{% endif %}
+                             {% if item.type == 'documents' %}data-documents="true"{% endif %}>
                             <button class="accordion-header">
                                 {{ item.title }}
                                 <span class="accordion-toggle">+</span>
@@ -214,19 +268,12 @@
     {% endif %}
 
     {% if show_documents %}
-        {% block documents %}
-            <section id="documents" class="section screen_width_container">
-                <div class="content__layout">
-                    <h2 class="section__title">Документы</h2>
-                    {% if load_documents_on_page %}
-                        {% include "content/inc/documents_section.inc.html" with categories=document_categories %}
-                    {% else %}
-                        <div class="accordion-content" id="documents-container" style="display: none;"></div>
-                        <!-- Кнопка для подгрузки (или автоматическая загрузка при раскрытии) -->
-                    {% endif %}
-                </div>
-            </section>
-        {% endblock %}
+        <section id="documents" class="section screen_width_container">
+            <div class="content__layout">
+                <h2 class="section__title">Документы</h2>
+                {% documents_for_section department 'documents' %}
+            </div>
+        </section>
     {% endif %}
 
     {% if show_partners %}

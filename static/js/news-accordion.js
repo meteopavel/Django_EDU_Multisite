@@ -177,46 +177,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 newsContainer.innerHTML = '<p>Ошибка загрузки новости.</p>';
             });
     }
-
-    const modal = document.getElementById('image-modal');
-    const modalImg = document.getElementById('modal-image');
-    const modalCaption = document.getElementById('modal-caption');
-    const modalClose = document.getElementById('modal-close');
-
-    // Делегирование кликов по контейнеру новостей
-    newsContainer.addEventListener('click', function(e) {
-        const img = e.target.closest('img');
-        if (!img) return;
-
-        // Только для изображений внутри новости (можно уточнить селектор)
-        const newsDetail = img.closest('.news-detail');
-        if (!newsDetail) return;
-
-        // Открываем модальное окно
-        modal.style.display = 'block';
-        modalImg.src = img.src;
-        modalImg.alt = img.alt || '';
-        modalCaption.textContent = img.alt || '';
-    });
-
-    // Закрыть по крестику
-    modalClose.addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
-
-    // Закрыть по клику вне изображения
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Закрыть по Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            modal.style.display = 'none';
-        }
-    });
 });
 
 

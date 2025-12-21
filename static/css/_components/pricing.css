@@ -1,0 +1,79 @@
+/* Общие стили */
+
+
+/* Сетка карточек */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* Карточка */
+.pricing-card {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pricing-card-image {
+    display: flex;
+    align-items: center;
+}
+
+.pricing-card-image img {
+    max-width: 250px;
+    height: auto;
+}
+
+/* Контент */
+.pricing-card-content {
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.pricing-card-content h3 {
+    font-size: 24px;
+    color: #1a2b52;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.pricing-card-content p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.pricing-card-content ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.pricing-card-content li {
+    margin-bottom: 5px;
+}
+
+/* Примечание о рассрочке */
+.pricing-note {
+    color: #dc3545;
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .pricing {
+        padding: 40px 0;
+    }
+
+    .pricing-grid {
+        gap: 20px;
+    }
+
+    .pricing-card-image {
+        height: 150px;
+    }
+}

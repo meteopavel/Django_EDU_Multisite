@@ -1,14 +1,7 @@
 
-
-/* Аккордеон */
-.accordion-group {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 .accordion-item {
-    border-bottom: 1px solid #dee2e6;
-    margin-bottom: 10px;
+    border-bottom: var(--blue-color-border-40);
+
 }
 
 .accordion-header {
@@ -16,44 +9,36 @@
     text-align: left;
     background: transparent;
     border: none;
-    padding: 15px 20px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #1a2b52;
+    padding: 16px 16px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: background-color 0.2s ease;
+    font-size: var(--font-size-h3);
 }
 
 .accordion-header:hover {
     background-color: #e9ecef;
 }
 
-.accordion-header:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-}
-
 .accordion-toggle {
-    font-size: 24px;
-    line-height: 1;
-    color: #6c757d;
+    color: var(--background-color-blue);
+    font-size: var(--font-size-h1);
 }
 
 /* Открытый элемент */
 .accordion-item.open .accordion-header .accordion-toggle {
     content: '−';
-    color: #007bff;
+    color: var(--background-color-blue);
+    font-size: var(--font-size-h1);
 }
 
 .accordion-content {
-    padding: 20px;
-    background: white;
+    padding: 16px;
+    background: var(--background-color-white);
     border-top: 1px solid #dee2e6;
-    font-size: 16px;
-    color: #333;
+    font-size: var(--font-size-default);
     line-height: 1.6;
 }
 

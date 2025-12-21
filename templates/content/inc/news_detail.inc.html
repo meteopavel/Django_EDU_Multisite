@@ -4,6 +4,7 @@
     {% if news.main_image and news.content|striptags|length > 0 %}
         <img src="{{ news.main_image.url }}"
              alt="{{ news.title }}"
+             class="modal-image"
              style="width:50%; max-height:400px; object-fit:cover; cursor: pointer;">
     {% endif %}
     {{ news.preview_text|linebreaks }}
@@ -14,6 +15,7 @@
             {% for img in news.gallery_images.all %}
                 <img src="{{ img.image.url }}"
                      alt="{{ img.description }}"
+                     class="modal-image"
                      style="max-height:150px; cursor: pointer;">
             {% endfor %}
         </div>

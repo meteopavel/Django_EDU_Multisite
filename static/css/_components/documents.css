@@ -1,0 +1,43 @@
+.document-images-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.document-image-item {
+    flex: 1 1 calc(33.333% - 16px); /* 3 в строке на десктопе */
+    min-width: 150px; /* не сужать слишком сильно на мобилках */
+    text-align: center;
+}
+
+.document-image-item img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    transition: box-shadow 0.2s;
+}
+
+.document-image-item img:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.document-image-caption {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .document-image-item {
+        flex: 1 1 calc(50% - 12px); /* 2 в строке */
+    }
+}
+
+@media (max-width: 480px) {
+    .document-image-item {
+        flex: 1 1 100%; /* 1 в строке */
+    }
+}

@@ -1,8 +1,7 @@
-from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404
 
 from .decorators import page_name, ajax_view
-from .models import News, DocumentCategory, Document, Service, Material
+from .models import News, Document, Service, Material, EDUCATION_SECTION_CHOICES
 from .utils import get_news_for_department, get_news_years
 
 
@@ -53,55 +52,38 @@ def home_view(request, department):
         context['latest_news'] = get_news_for_department(department, limit=3)
 
     if details.show_documents:
-        if department.slug == 'region':
-            categories = DocumentCategory.objects.filter(
-                documents__department=department,
-                documents__is_active=True
-            ).distinct().prefetch_related(
-                Prefetch(
-                    'documents',
-                    queryset=Document.objects.filter(
-                        department=department,
-                        is_active=True
-                    ).order_by('order', 'title'),
-                    to_attr='filtered_docs'
-                )
-            ).order_by('order', 'name')
-            context['document_categories'] = categories
-            context['load_documents_on_page'] = True
-        else:
-            context['load_documents_on_page'] = False
+        context['show_documents'] = details.show_documents
 
     if details.show_education_info:
-        EDUCATION_SECTIONS = [
-            ('Основные сведения', 'osnovnye-svedeniya'),
-            ('Структура и органы управления', 'struktura-upravleniya'),
-            ('Документы', 'dokumenty'),
-            ('Образование', 'obrazovanie'),
-            ('Администрация', 'administratsiya'),
-            ('Преподаватели', 'prepodavateli'),
-            ('Мастера производственного обучения', 'mastera-po'),
-            ('Материально-техническое обеспечение', 'materialno-tehnicheskoe-obespechenie'),
-            ('Платные образовательные услуги', 'platnye-obr-uslugi'),
-            ('Финансово-хозяйственная деятельность', 'finansovo-hozyaystvennaya-deyatelnost'),
-            ('Вакантные места для приёма (перевода)', 'vakantnye-mesta'),
-        ]
+        EDUCATION_SECTIONS = []
+        for slug, title in EDUCATION_SECTION_CHOICES:
+            if slug == 'documents':
+                item_type = 'documents'
+            else:
+                item_type = 'material'
+            EDUCATION_SECTIONS.append((title, slug, item_type))
 
         accordion_items = []
-        for title, base_slug in EDUCATION_SECTIONS:
-            full_slug = f"{department.slug}-{base_slug}"
-            if Material.objects.filter(
-                    department=department,
-                    slug=full_slug,
-                    is_active=True
-            ).exists():
+        for title, base_slug, item_type in EDUCATION_SECTIONS:
+            if item_type == 'documents':
                 accordion_items.append({
                     'title': title,
-                    'material_slug': full_slug
+                    'type': 'documents'
                 })
+            elif item_type == 'material':
+                full_slug = f'{department.slug}-{base_slug}'
+                if Material.objects.filter(
+                        department=department,
+                        slug=full_slug,
+                        is_active=True
+                ).exists():
+                    accordion_items.append({
+                        'title': title,
+                        'type': 'material',
+                        'material_slug': full_slug
+                    })
 
         context['education_accordion_items'] = accordion_items
-        print(accordion_items)
         context['show_education_accordion'] = bool(accordion_items)
     return context
 
@@ -133,28 +115,67 @@ def ajax_all_news(request, department):
 
 @ajax_view('Документы', 'content/inc/documents_section.inc.html')
 def ajax_documents(request, department):
-    categories = DocumentCategory.objects.filter(
-        documents__department=department,
-        documents__is_active=True
-    ).distinct().prefetch_related(
-        Prefetch(
-            'documents',
-            queryset=Document.objects.filter(
-                department=department,
-                is_active=True
-            ).order_by('order', 'title'),
-            to_attr='filtered_docs'
-        )
-    ).order_by('order', 'name')
-    return {'categories': categories,}
+    all_docs = Document.objects.filter(
+        department=department,
+        is_active=True,
+        display_in_sections__contains='documents'
+    ).select_related('category').order_by('order', 'title')
+    image_docs = []
+    other_docs = []
+    for doc in all_docs:
+        if doc.file_type == 'image':
+            image_docs.append(doc)
+        else:
+            other_docs.append(doc)
+    categories_dict = {}
+    for doc in other_docs:
+        cat = doc.category
+        if cat not in categories_dict:
+            categories_dict[cat] = []
+        categories_dict[cat].append(doc)
+    sorted_categories = sorted(categories_dict.items(), key=lambda x: (x[0].order, x[0].name))
+    return {
+        'image_documents': image_docs,
+        'other_documents_by_category': sorted_categories,
+    }
 
 
 @ajax_view('Описание материала', 'content/inc/material_description.inc.html')
 def ajax_material_description(request, department, **kwargs):
     material_slug = kwargs.get('material_slug')
-    print(material_slug)
     material = get_object_or_404(Material, slug=material_slug, is_active=True)
-    return {'material': material}
+    base_slug = material_slug
+    if '-' in material_slug:
+        base_slug = material_slug.split('-', 1)[1]
+    valid_sections = {slug for slug, _ in EDUCATION_SECTION_CHOICES}
+    section_slug = base_slug if base_slug in valid_sections else None
+    documents_context = {}
+    if section_slug and section_slug != 'documents':  # 'documents' — отдельная секция
+        documents = Document.objects.filter(
+            department=department,
+            is_active=True,
+            display_in_sections__contains=section_slug
+        ).select_related('category').order_by('category__order', 'order', 'title')
+        image_docs = [d for d in documents if d.file_type == 'image']
+        other_docs = [d for d in documents if d.file_type != 'image']
+        categories_dict = {}
+        for doc in other_docs:
+            cat = doc.category or type('', (), {'name': 'Прочее', 'order': 999})()
+            if cat not in categories_dict:
+                categories_dict[cat] = []
+            categories_dict[cat].append(doc)
+        sorted_categories = sorted(
+            categories_dict.items(),
+            key=lambda x: (getattr(x[0], 'order', 999), getattr(x[0], 'name', ''))
+        )
+        documents_context = {
+            'image_documents': image_docs,
+            'other_documents_by_category': sorted_categories,
+        }
+    return {
+        'material': material,
+        **documents_context
+    }
 
 
 @ajax_view('Новость', 'content/inc/news_detail.inc.html')

@@ -11,12 +11,16 @@
         </ul>
     {% elif block.block_type == 'image' and block.image %}
         <figure>
-            <img src="{{ block.image.url }}" alt="{{ block.text }}">
+            <img src="{{ block.image.url }}" alt="{{ block.text }}" class="modal-image">
             {% if block.text %}<figcaption>{{ block.text }}</figcaption>{% endif %}
         </figure>
-    {% elif block.block_type == 'video' %}
-        {% if block.video %}
-            <video controls width="100%"><source src="{{ block.video.url }}" type="video/mp4"></video>
-        {% endif %}
+    {% elif block.block_type == 'video' and block.video %}
+        <video controls width="100%">
+            <source src="{{ block.video.url }}" type="video/mp4">
+        </video>
     {% endif %}
 {% endfor %}
+
+{% if image_documents or other_documents_by_category %}
+    {% include "content/inc/documents_section.inc.html" %}
+{% endif %}

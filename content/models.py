@@ -2,6 +2,22 @@ from django.db import models
 from django.utils import timezone
 
 
+EDUCATION_SECTION_CHOICES = [
+    ('osnovnye-svedeniya', 'Основные сведения'),
+    ('struktura-upravleniya', 'Структура и органы управления'),
+    ('documents', 'Документы'),
+    ('obrazovanie', 'Образование'),
+    ('administratsiya', 'Администрация'),
+    ('prepodavateli', 'Преподаватели'),
+    ('mastera-po', 'Мастера производственного обучения'),
+    ('materialno-tehnicheskoe-obespechenie', 'Материально-техническое обеспечение'),
+    ('platnye-obr-uslugi', 'Платные образовательные услуги'),
+    ('finansovo-hozyaystvennaya-deyatelnost', 'Финансово-хозяйственная деятельность'),
+    ('vakantnye-mesta', 'Вакантные места для приёма (перевода)'),
+    ('other', 'Прочее'),
+]
+
+
 class Department(models.Model):
     name = models.CharField('Подразделение', max_length=100)
     slug = models.SlugField('URL-часть', unique=True)
@@ -57,6 +73,7 @@ class DepartmentDetails(models.Model):
     show_header_banner = models.BooleanField('Показывать главный баннер', default=False)
     show_exam_info = models.BooleanField('Показывать акции и экзамены', default=False)
     show_education_info = models.BooleanField('Показывать сведения об образовательной организации', default=False)
+    show_pricing = models.BooleanField('Показывать стоимость', default=False)
 
     meta_title = models.CharField('SEO Title', max_length=100, blank=True)
     meta_description = models.CharField('SEO Description', max_length=255, blank=True)
@@ -243,15 +260,7 @@ class Document(models.Model):
         ('info', 'Информационный пункт (без файла)'),
     ]
 
-    SECTIONS = [
-        ('education', 'Образование'),
-        ('paid_services', 'Платные образовательные услуги'),
-        ('finance', 'Финансово-хозяйственная деятельность'),
-        ('mtob', 'Материально-техническое обеспечение'),
-        ('structure', 'Структура и управление'),
-        ('basic_info', 'Основные сведения'),
-        ('other', 'Прочее'),
-    ]
+    SECTIONS = EDUCATION_SECTION_CHOICES
 
     title = models.CharField('Название документа', max_length=255)
     document_type = models.CharField(
@@ -350,6 +359,7 @@ class ContentBlock(models.Model):
         ('image', 'Изображение'),
         ('video', 'Видео'),
         ('quote', 'Цитата'),
+        ('documents', 'Документы'),
     ]
 
     material = models.ForeignKey(Material, on_delete=models.CASCADE, related_name='blocks')
@@ -366,6 +376,14 @@ class ContentBlock(models.Model):
     image = models.ImageField('Изображение', upload_to='materials/images/', blank=True)
     video = models.FileField('Видео', upload_to='materials/videos/', blank=True)
     video_url = models.URLField('Ссылка на видео (YouTube/Vimeo)', blank=True)
+
+    # Для документов
+    documents_section = models.CharField(
+        'Раздел документов',
+        max_length=50,
+        blank=True,
+        help_text='Например: mtob, basic_info и т.д. Должен совпадать со значениями в Document.SECTIONS'
+    )
 
     class Meta:
         ordering = ['order']

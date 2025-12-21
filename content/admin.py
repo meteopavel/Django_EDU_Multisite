@@ -233,9 +233,35 @@ class ServiceAdmin(admin.ModelAdmin):
     ordering = ['department', 'order']
 
 
+class ContentBlockAdminForm(forms.ModelForm):
+    documents_section = forms.ChoiceField(
+        choices=[('', '---')] + list(Document.SECTIONS),  # добавляем пустой вариант
+        required=False,
+        label='Раздел для документов',
+        help_text='Выберите, какие документы отобразить (только для блока "Документы")'
+    )
+
+    class Meta:
+        model = ContentBlock
+        fields = '__all__'
+
+    def clean(self):
+        cleaned_data = super().clean()
+        block_type = cleaned_data.get('block_type')
+        documents_section = cleaned_data.get('documents_section')
+
+        if block_type == 'documents' and not documents_section:
+            raise forms.ValidationError({
+                'documents_section': 'Для блока "Документы" обязательно выберите раздел.'
+            })
+        return cleaned_data
+
+
 class ContentBlockInline(admin.TabularInline):
     model = ContentBlock
+    form = ContentBlockAdminForm
     extra = 1
+    fields = ('block_type', 'order', 'text', 'items', 'image', 'video', 'video_url', 'documents_section')
 
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):

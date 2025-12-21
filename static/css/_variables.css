@@ -27,6 +27,7 @@
     --red-accent-border: 1px solid var(--red-accent-color);
     --text-color-border: 1px solid var(--text-color);
     --blue-color-border: 1px solid var(--background-color-blue);
+    --blue-color-border-40: 1px solid #20298266;
     --border-radius: 8px;
 
     --card-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
