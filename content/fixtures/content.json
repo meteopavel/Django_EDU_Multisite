@@ -94,6 +94,7 @@
     "show_header_banner": false,
     "show_exam_info": false,
     "show_education_info": false,
+    "show_pricing": false,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Иркутское региональное отделение"
   }
@@ -162,6 +163,7 @@
     "show_header_banner": true,
     "show_exam_info": true,
     "show_education_info": true,
+    "show_pricing": true,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Автошкола Иркутск"
   }
@@ -225,6 +227,7 @@
     "show_header_banner": false,
     "show_exam_info": false,
     "show_education_info": true,
+    "show_pricing": true,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Братское городское отделение"
   }
@@ -288,6 +291,7 @@
     "show_header_banner": false,
     "show_exam_info": false,
     "show_education_info": true,
+    "show_pricing": true,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Усть-кутское городское отделение"
   }
@@ -473,6 +477,21 @@
     "is_active": true,
     "departments": [
       1,
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "content.menuitem",
+  "pk": 7,
+  "fields": {
+    "title": "Сведения об ОО",
+    "url": "#education-info",
+    "order": 1,
+    "is_active": true,
+    "departments": [
       2,
       3,
       4
@@ -6319,7 +6338,7 @@
   "fields": {
     "name": "Структура и особенности",
     "slug": "struktura_i_osobennosti",
-    "order": 3
+    "order": 5
   }
 },
 {
@@ -6328,7 +6347,7 @@
   "fields": {
     "name": "Сведения о проводимых проверках",
     "slug": "proverki",
-    "order": 5
+    "order": 7
   }
 },
 {
@@ -6346,7 +6365,7 @@
   "fields": {
     "name": "Программы развития",
     "slug": "programmy-razvitiya",
-    "order": 3
+    "order": 4
   }
 },
 {
@@ -6355,7 +6374,7 @@
   "fields": {
     "name": "Предписания контролирующих органов и отчёты по их исполнению",
     "slug": "predpisaniya-i-otchety-ob-ispolnenii",
-    "order": 4
+    "order": 6
   }
 },
 {
@@ -6368,12 +6387,23 @@
   }
 },
 {
+  "model": "content.documentcategory",
+  "pk": 13,
+  "fields": {
+    "name": "Рабочие программы",
+    "slug": "rabochie-programmy",
+    "order": 8
+  }
+},
+{
   "model": "content.document",
   "pk": 1,
   "fields": {
     "title": "Выписка из реестра лицензий",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Лицензия.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6390,7 +6420,10 @@
   "fields": {
     "title": "Договор об оказании платных образовательных услуг",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
     "file": "documents/irkutsk/Договор_платных_услуг.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6398,7 +6431,7 @@
     "department": 2,
     "order": 2,
     "is_active": true,
-    "created_at": "2025-11-24T12:11:03.504Z"
+    "created_at": "2025-11-24T12:11:03Z"
   }
 },
 {
@@ -6407,7 +6440,10 @@
   "fields": {
     "title": "Образовательная программа профессиональной подготовки водителей транспортных средств категории \"A\"",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "obrazovanie"
+    ],
     "file": "documents/irkutsk/Программа_А.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6415,7 +6451,7 @@
     "department": 2,
     "order": 3,
     "is_active": true,
-    "created_at": "2025-11-24T12:11:03.519Z"
+    "created_at": "2025-11-24T12:11:03Z"
   }
 },
 {
@@ -6424,7 +6460,10 @@
   "fields": {
     "title": "Образовательная программа профессиональной подготовки водителей транспортных средств категории \"B\"",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "obrazovanie"
+    ],
     "file": "documents/irkutsk/Программа_В.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6441,7 +6480,10 @@
   "fields": {
     "title": "Приказ о стоимости обучения",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
     "file": "documents/irkutsk/Приказ_стоимость.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6449,7 +6491,7 @@
     "department": 2,
     "order": 5,
     "is_active": true,
-    "created_at": "2025-11-24T12:11:03.538Z"
+    "created_at": "2025-11-24T12:11:03Z"
   }
 },
 {
@@ -6458,7 +6500,10 @@
   "fields": {
     "title": "Приказ о повышении стоимости обучения",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
     "file": "documents/irkutsk/Приказ_повышение.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6466,7 +6511,7 @@
     "department": 2,
     "order": 6,
     "is_active": true,
-    "created_at": "2025-11-24T12:11:03.545Z"
+    "created_at": "2025-11-24T12:11:03Z"
   }
 },
 {
@@ -6475,7 +6520,10 @@
   "fields": {
     "title": "Порядок предоставления платных услуг",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
     "file": "documents/irkutsk/Порядок_платных_услуг.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6483,7 +6531,7 @@
     "department": 2,
     "order": 7,
     "is_active": true,
-    "created_at": "2025-11-24T12:11:03.551Z"
+    "created_at": "2025-11-24T12:11:03Z"
   }
 },
 {
@@ -6492,7 +6540,10 @@
   "fields": {
     "title": "Калькуляция стоимости подготовки 1 курсанта категории \"В\"",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
     "file": "documents/irkutsk/Калькуляция.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6500,7 +6551,7 @@
     "department": 2,
     "order": 8,
     "is_active": true,
-    "created_at": "2025-11-24T12:11:03.557Z"
+    "created_at": "2025-11-24T12:11:03Z"
   }
 },
 {
@@ -6509,7 +6560,9 @@
   "fields": {
     "title": "Правила приема, отчисления, восстановления обучающихся в автошколу",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Правила_приема.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6526,7 +6579,9 @@
   "fields": {
     "title": "Правила внутреннего трудового распорядка и распорядка учащихся",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Правила_распорядка.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6543,7 +6598,9 @@
   "fields": {
     "title": "Положение о проведении промежуточной аттестации",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Положение_промежуточной.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6560,7 +6617,9 @@
   "fields": {
     "title": "Положение о проведении итоговой аттестации",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Положение_итоговой.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6577,7 +6636,9 @@
   "fields": {
     "title": "Положение об официальном сайте в сети Интернет",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Положение_сайта.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6594,7 +6655,9 @@
   "fields": {
     "title": "Положение о комиссии по урегулированию споров",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Положение_споров.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6611,7 +6674,10 @@
   "fields": {
     "title": "Документы по организации охраны здоровья учащихся",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "materialno-tehnicheskoe-obespechenie"
+    ],
     "file": "documents/irkutsk/Охрана_здоровья.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6619,7 +6685,7 @@
     "department": 2,
     "order": 15,
     "is_active": true,
-    "created_at": "2025-11-24T12:11:03.600Z"
+    "created_at": "2025-11-24T12:11:03Z"
   }
 },
 {
@@ -6628,7 +6694,9 @@
   "fields": {
     "title": "Памятка о действиях при угрозе теракта",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Памятка_теракт.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6645,7 +6713,9 @@
   "fields": {
     "title": "Положение о нормах профессиональной этики педагогических работников",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Этические_нормы.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6662,7 +6732,9 @@
   "fields": {
     "title": "Методические рекомендации по организации образовательного процесса",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Методические_рекомендации.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6679,7 +6751,10 @@
   "fields": {
     "title": "Положение о педагогическом совете",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "struktura-upravleniya",
+      "documents"
+    ],
     "file": "documents/irkutsk/Педсовет.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6687,7 +6762,7 @@
     "department": 2,
     "order": 19,
     "is_active": true,
-    "created_at": "2025-11-24T12:11:03.623Z"
+    "created_at": "2025-11-24T12:11:03Z"
   }
 },
 {
@@ -6696,7 +6771,9 @@
   "fields": {
     "title": "Устав ЧПОУ \"Автошкола ИРО ОО ВОА\"",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Устав.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6713,7 +6790,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2017 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_2017.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6730,7 +6809,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2018 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_2018.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6747,7 +6828,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2019 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_2019.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6764,7 +6847,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2020 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_2020.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6781,7 +6866,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2021 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_2021.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6798,7 +6885,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2022 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_2022.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6815,7 +6904,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2023 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_2023.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6832,7 +6923,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2024 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_2024.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6849,7 +6942,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2025 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_2025.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6866,7 +6961,9 @@
   "fields": {
     "title": "30.12.2015 Внеплановая проверка Службой по контролю и надзору в сфере образования",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_внеплановая_2015.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6883,7 +6980,9 @@
   "fields": {
     "title": "11.11.2019 Распоряжение о плановой проверке Службой по контролю в сфере образования",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Распоряжение_2019.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6900,7 +6999,9 @@
   "fields": {
     "title": "12.11.2019 Уведомление о плановой проверке Службой по контролю в сфере образования",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Уведомление_2019.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6917,7 +7018,9 @@
   "fields": {
     "title": "27.12.2019 Акт плановой проверки Службой по контролю в сфере образования",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk/Акт_проверки_2019.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -6934,7 +7037,9 @@
   "fields": {
     "title": "Свидетельство о государственной регистрации (стр. 1)",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk_images/Svidetelstvo1.jpg",
     "external_url": "",
     "file_type": "image",
@@ -6951,7 +7056,9 @@
   "fields": {
     "title": "Свидетельство о государственной регистрации (стр. 2)",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk_images/Svidetelstvo2.jpg",
     "external_url": "",
     "file_type": "image",
@@ -6968,7 +7075,9 @@
   "fields": {
     "title": "Заключение о соответствии",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/irkutsk_images/zaklyuchenie-new-new.jpg",
     "external_url": "",
     "file_type": "image",
@@ -6985,15 +7094,18 @@
   "fields": {
     "title": "Договор с несовершеннолетним об оказании платных образовательных услуг",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
     "file": "documents/bratsk/Договор_с_несовершеннолетним.pdf",
     "external_url": "",
     "file_type": "pdf",
     "category": 1,
     "department": 3,
-    "order": 2,
+    "order": 1,
     "is_active": true,
-    "created_at": "2025-11-24T12:33:06.100Z"
+    "created_at": "2025-11-24T12:33:06Z"
   }
 },
 {
@@ -7002,13 +7114,15 @@
   "fields": {
     "title": "Справка об обучении",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Справка_об_обучении.pdf",
     "external_url": "",
     "file_type": "pdf",
     "category": 1,
     "department": 3,
-    "order": 3,
+    "order": 4,
     "is_active": true,
     "created_at": "2025-11-24T12:33:06.106Z"
   }
@@ -7019,7 +7133,9 @@
   "fields": {
     "title": "Федеральный закон \"О персональных данных\"",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/ФЗ_персональные_данные.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7036,7 +7152,9 @@
   "fields": {
     "title": "Положение о выдаче свидетельств",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Положение_выдача_свидетельств.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7053,7 +7171,9 @@
   "fields": {
     "title": "Положение о промежуточной и итоговой аттестации",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Положение_аттестация.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7070,7 +7190,10 @@
   "fields": {
     "title": "Постановление Правительства РФ от 15.09.2020 N 1441 Об утверждении Правил оказания платных образовательных услуг",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
     "file": "documents/bratsk/Постановление_1441.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7078,7 +7201,7 @@
     "department": 3,
     "order": 8,
     "is_active": true,
-    "created_at": "2025-11-24T12:33:06.142Z"
+    "created_at": "2025-11-24T12:33:06Z"
   }
 },
 {
@@ -7087,7 +7210,9 @@
   "fields": {
     "title": "Положение о защите персональных данных",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Положение_защита_ПД.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7104,7 +7229,10 @@
   "fields": {
     "title": "Положение о порядке обучения по индивидуальному учебному плану",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "obrazovanie"
+    ],
     "file": "documents/bratsk/Положение_индивидуальный_план.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7112,7 +7240,7 @@
     "department": 3,
     "order": 10,
     "is_active": true,
-    "created_at": "2025-11-24T12:33:06.155Z"
+    "created_at": "2025-11-24T12:33:06Z"
   }
 },
 {
@@ -7121,7 +7249,9 @@
   "fields": {
     "title": "Положение об организации учебного процесса",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Положение_учебный_процесс.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7138,7 +7268,9 @@
   "fields": {
     "title": "Положение об организации практического вождения",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Положение_практическое_вождение.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7155,7 +7287,9 @@
   "fields": {
     "title": "Правила внутреннего распорядка обучающихся",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Правила_распорядка_обучающихся.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7172,7 +7306,9 @@
   "fields": {
     "title": "Инструкция по охране труда для обучающихся",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Инструкция_ОТ.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7189,7 +7325,10 @@
   "fields": {
     "title": "Правила приёма",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "obrazovanie"
+    ],
     "file": "documents/bratsk/Правила_приема.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7197,7 +7336,7 @@
     "department": 3,
     "order": 17,
     "is_active": true,
-    "created_at": "2025-11-24T12:33:06.197Z"
+    "created_at": "2025-11-24T12:33:06Z"
   }
 },
 {
@@ -7206,7 +7345,10 @@
   "fields": {
     "title": "Правила отчисления",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "obrazovanie"
+    ],
     "file": "documents/bratsk/Правила_отчисления.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7214,7 +7356,7 @@
     "department": 3,
     "order": 18,
     "is_active": true,
-    "created_at": "2025-11-24T12:33:06.202Z"
+    "created_at": "2025-11-24T12:33:06Z"
   }
 },
 {
@@ -7223,7 +7365,10 @@
   "fields": {
     "title": "Порядок оформления возникновения, изменения и прекращения образовательных отношений",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "obrazovanie"
+    ],
     "file": "documents/bratsk/Порядок_образовательных_отношений.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7231,7 +7376,7 @@
     "department": 3,
     "order": 19,
     "is_active": true,
-    "created_at": "2025-11-24T12:33:06.210Z"
+    "created_at": "2025-11-24T12:33:06Z"
   }
 },
 {
@@ -7240,7 +7385,9 @@
   "fields": {
     "title": "Положение о правилах этики поведения педагогических работников",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Положение_этика_педагогов.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7257,7 +7404,9 @@
   "fields": {
     "title": "Правила внутреннего трудового распорядка для работников БГО ОО ВОА",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Правила_трудового_распорядка.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7274,7 +7423,9 @@
   "fields": {
     "title": "Устав",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Устав.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7291,7 +7442,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2019 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Самообследование_2019.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7308,7 +7461,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2020 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Самообследование_2020.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7325,7 +7480,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2021 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Самообследование_2021.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7342,7 +7499,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2022 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Самообследование_2022.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7359,7 +7518,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2023 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Самообследование_2023.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7376,7 +7537,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2024 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Самообследование_2024.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7393,7 +7556,9 @@
   "fields": {
     "title": "Программа развития на 2021-2024 года",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Программа_развития_2024.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7410,7 +7575,9 @@
   "fields": {
     "title": "Предписание об устранении выявленных нарушений требований законодательства об образовании 2021 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Предписание_2021.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7427,7 +7594,9 @@
   "fields": {
     "title": "Результат рассмотрения отчёта об устранении выявленных нарушений за 2021 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Результат_отчёта_2021.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7444,7 +7613,9 @@
   "fields": {
     "title": "Уведомление о проведении плановой проверки за 2023 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Уведомление_проверка_2023.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7461,7 +7632,9 @@
   "fields": {
     "title": "Акт по результатам проверки за 2023 год 1 лист",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Акт_проверки_2023_1.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7478,7 +7651,9 @@
   "fields": {
     "title": "Акт по результатам проверки за 2023 год 2 лист",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Акт_проверки_2023_2.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7495,7 +7670,9 @@
   "fields": {
     "title": "Приложение к лицензии",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk_images/Приложение_к_лицензии.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7512,7 +7689,9 @@
   "fields": {
     "title": "Свидетельство о постановке на учет в налоговом органе",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk_images/Свидетельство_налоговый_учет.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7529,7 +7708,9 @@
   "fields": {
     "title": "Свидетельство о внесении в ЕГРЮЛ",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk_images/Свидетельство_ЕГРЮЛ.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7546,7 +7727,9 @@
   "fields": {
     "title": "Свидетельство о постановке на учет некоммерческой организации",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk_images/Свидетельство_некоммерческая.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7563,7 +7746,9 @@
   "fields": {
     "title": "Свидетельство о регистрации общественного объединения",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk_images/Свидетельство_общественное.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7580,7 +7765,9 @@
   "fields": {
     "title": "Санитарно-эпидемиологическое заключение",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk_images/Санитарное_заключение.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7597,7 +7784,9 @@
   "fields": {
     "title": "Образец договора об оказании платных образовательных услуг",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Договор_образец.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7614,7 +7803,9 @@
   "fields": {
     "title": "Политика защиты и обработки персональных данных",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Политика_ПД.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7631,7 +7822,9 @@
   "fields": {
     "title": "Положение о защите персональных данных работников",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Положение_ПД_работников.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7648,7 +7841,9 @@
   "fields": {
     "title": "Приказ на утверждение формы бланка свидетельства о профессии водителя",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Приказ_бланк_свидетельства.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7665,7 +7860,10 @@
   "fields": {
     "title": "Положение об оказании платных образовательных услуг",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
     "file": "documents/ustkut/Положение_платные_услуги.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7673,7 +7871,7 @@
     "department": 4,
     "order": 9,
     "is_active": true,
-    "created_at": "2025-11-24T12:49:47.225Z"
+    "created_at": "2025-11-24T12:49:47Z"
   }
 },
 {
@@ -7682,7 +7880,9 @@
   "fields": {
     "title": "Положение об официальном сайте образовательной организации",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Положение_сайт.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7699,7 +7899,9 @@
   "fields": {
     "title": "Приказ об утверждении справок",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Приказ_справки.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7716,7 +7918,9 @@
   "fields": {
     "title": "Правила внутреннего трудового распорядка для работников Усть-Кутского городского отделения Общественной организации \"Всероссийское общество автомобилистов\"",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Правила_трудового_распорядка.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7733,7 +7937,9 @@
   "fields": {
     "title": "Памятка о действиях при угрозе пожара",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Памятка_пожар.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7750,7 +7956,9 @@
   "fields": {
     "title": "Положение о видеонаблюдении",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Положение_видеонаблюдение.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7767,7 +7975,9 @@
   "fields": {
     "title": "Программа развития до 2027 года",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Программа_развития_2027.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7784,7 +7994,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2018 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Самообследование_2018.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7801,7 +8013,9 @@
   "fields": {
     "title": "Предписания органов, осуществляющих государственный контроль в сфере образования",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Предписания_контролирующих.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7818,7 +8032,9 @@
   "fields": {
     "title": "Отчеты об исполнении предписаний контролирующих органов",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Отчет_исполнение_предписаний.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -7835,7 +8051,9 @@
   "fields": {
     "title": "Лицензия на образовательную деятельность",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut_images/Лицензия.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7852,7 +8070,9 @@
   "fields": {
     "title": "Свидетельство о регистрации ВОА",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut_images/Свидетельство_регистрация_ВОА.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7869,7 +8089,9 @@
   "fields": {
     "title": "Свидетельство о постановке ВОА",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut_images/Свидетельство_постановка_ВОА.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7886,7 +8108,9 @@
   "fields": {
     "title": "Лицензия на образовательную деятельность (стр. 1)",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk_images/Лицензия_1_страница.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7903,7 +8127,9 @@
   "fields": {
     "title": "Лицензия на образовательную деятельность (стр. 2)",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk_images/Лицензия_2_страница.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7920,7 +8146,9 @@
   "fields": {
     "title": "Лицензия на образовательную деятельность",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut_images/Лицензия.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7937,7 +8165,9 @@
   "fields": {
     "title": "Приложение к лицензии",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut_images/Приложение_к_лицензии.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7954,7 +8184,9 @@
   "fields": {
     "title": "Федеральный закон \"О персональных данных\"",
     "document_type": "external",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "",
     "external_url": "http://www.consultant.ru/document/cons_doc_LAW_61801/",
     "file_type": "",
@@ -7971,7 +8203,9 @@
   "fields": {
     "title": "Заключение ГИБДД",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk_images/Заключение_ГИБДД.jpg",
     "external_url": "",
     "file_type": "image",
@@ -7988,7 +8222,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2019 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Самообследование_2019.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8005,7 +8241,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2020 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Самообследование_2020.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8022,7 +8260,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2021 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Самообследование_2021.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8039,7 +8279,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2022 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Самообследование_2022.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8056,7 +8298,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2023 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Самообследование_2023.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8073,7 +8317,9 @@
   "fields": {
     "title": "Отчет о самообследовании за 2024 год",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Самообследование_2024.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8090,7 +8336,9 @@
   "fields": {
     "title": "27.05.2015 Прокуратура Октябрьского района г. Иркутска, проверка исполнения законодательства при подготовке водителей транспортных средств",
     "document_type": "info",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "",
     "external_url": "",
     "file_type": "",
@@ -8107,7 +8355,9 @@
   "fields": {
     "title": "19.03.2015 Плановая проверка Государственной инспекцией труда по Иркутской области",
     "document_type": "info",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "",
     "external_url": "",
     "file_type": "",
@@ -8124,7 +8374,9 @@
   "fields": {
     "title": "19.03.2015 Плановая проверка Управлением Роспотребнадзора по Иркутской области",
     "document_type": "info",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "",
     "external_url": "",
     "file_type": "",
@@ -8141,7 +8393,9 @@
   "fields": {
     "title": "16.03.2015 Плановая проверка Службой по контролю в сфере образования",
     "document_type": "info",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "",
     "external_url": "",
     "file_type": "",
@@ -8158,7 +8412,9 @@
   "fields": {
     "title": "01.08.2014 Плановая проверка Иркутским региональным отделением Общественной организацией ВОА",
     "document_type": "info",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "",
     "external_url": "",
     "file_type": "",
@@ -8175,7 +8431,9 @@
   "fields": {
     "title": "05.05.2014 Плановая проверка Управлением надзорной деятельности ГУ МЧС России по Иркутской области",
     "document_type": "info",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "",
     "external_url": "",
     "file_type": "",
@@ -8192,7 +8450,9 @@
   "fields": {
     "title": "07.04.2014 Плановая проверка Службой по контролю в сфере образования",
     "document_type": "info",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "",
     "external_url": "",
     "file_type": "",
@@ -8209,7 +8469,10 @@
   "fields": {
     "title": "Договор об оказании платных образовательных услуг",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
     "file": "documents/bratsk/Договор_платных_услуг.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8226,13 +8489,16 @@
   "fields": {
     "title": "Приказ о стоимости обучения",
     "document_type": "file",
-    "display_in_sections": [],
-    "file": "documents/bratsk/Приказ_стоимость.pdf",
+    "display_in_sections": [
+      "documents",
+      "platnye-obr-uslugi"
+    ],
+    "file": "documents/bratsk/Приказ_о_стоимости.pdf",
     "external_url": "",
     "file_type": "pdf",
     "category": 1,
     "department": 3,
-    "order": 0,
+    "order": 2,
     "is_active": true,
     "created_at": "2025-11-24T15:12:22Z"
   }
@@ -8243,7 +8509,10 @@
   "fields": {
     "title": "Положение о педагогическом совете",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "struktura-upravleniya",
+      "documents"
+    ],
     "file": "documents/bratsk/Положение_педсовет.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8260,7 +8529,9 @@
   "fields": {
     "title": "Памятка о действиях при угрозе теракта",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Памятка_теракт.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8277,7 +8548,9 @@
   "fields": {
     "title": "Положение о комиссии по урегулированию споров",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Положение_споров.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8294,7 +8567,9 @@
   "fields": {
     "title": "Положение о защите персональных данных",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/bratsk/Положение_защита_ПД.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8311,7 +8586,9 @@
   "fields": {
     "title": "Федеральный закон \"О персональных данных\"",
     "document_type": "external",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "",
     "external_url": "http://www.consultant.ru/document/cons_doc_LAW_61801/",
     "file_type": "",
@@ -8328,7 +8605,9 @@
   "fields": {
     "title": "Положение о выдаче свидетельств",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Положение_выдача_свидетельств.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8345,7 +8624,9 @@
   "fields": {
     "title": "Положение о промежуточной и итоговой аттестации",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Положение_аттестация.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8362,7 +8643,9 @@
   "fields": {
     "title": "Положение об организации практического вождения",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Положение_практическое_вождение.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8379,7 +8662,9 @@
   "fields": {
     "title": "Приказ о стоимости обучения",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Приказ_стоимость.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8396,7 +8681,9 @@
   "fields": {
     "title": "Положение о комиссии по урегулированию споров",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Положение_споров.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8413,7 +8700,9 @@
   "fields": {
     "title": "Правила внутреннего распорядка обучающихся",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Правила_распорядка_обучающихся.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8430,7 +8719,9 @@
   "fields": {
     "title": "Положение о правилах этики поведения педагогических работников",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Положение_ПД_работников.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8447,7 +8738,9 @@
   "fields": {
     "title": "Устав",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Устав.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8464,7 +8757,9 @@
   "fields": {
     "title": "Памятка о действиях при угрозе теракта",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Памятка_теракт.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8481,7 +8776,9 @@
   "fields": {
     "title": "Документы по организации охраны здоровья учащихся",
     "document_type": "file",
-    "display_in_sections": [],
+    "display_in_sections": [
+      "documents"
+    ],
     "file": "documents/ustkut/Охрана_здоровья.pdf",
     "external_url": "",
     "file_type": "pdf",
@@ -8499,7 +8796,7 @@
     "title": "Устав",
     "document_type": "file",
     "display_in_sections": [
-      "education"
+      "documents"
     ],
     "file": "documents/region/Ustav_VOA_2022.pdf",
     "external_url": "",
@@ -8518,7 +8815,7 @@
     "title": "Закон о защите прав потребителей",
     "document_type": "file",
     "display_in_sections": [
-      "education"
+      "documents"
     ],
     "file": "documents/region/Zakon_Prav_Potr.pdf",
     "external_url": "",
@@ -8537,7 +8834,7 @@
     "title": "Санитарные правила",
     "document_type": "file",
     "display_in_sections": [
-      "education"
+      "documents"
     ],
     "file": "documents/region/San_Pravila.pdf",
     "external_url": "",
@@ -8556,7 +8853,7 @@
     "title": "Об утверждении правил пользования автостоянок",
     "document_type": "file",
     "display_in_sections": [
-      "education"
+      "documents"
     ],
     "file": "documents/region/Post_Prav_Avtostoyanki_795.pdf",
     "external_url": "",
@@ -8575,7 +8872,7 @@
     "title": "Постановление Правительства РФ от 10 сентября 2009 г. № 720",
     "document_type": "file",
     "display_in_sections": [
-      "education"
+      "documents"
     ],
     "file": "documents/region/Post_Prav_BezopTrSr-v_720.pdf",
     "external_url": "",
@@ -8594,7 +8891,7 @@
     "title": "Правила проведения технического осмотра транспортных средств",
     "document_type": "file",
     "display_in_sections": [
-      "education"
+      "documents"
     ],
     "file": "documents/region/Post_Prav_Tehosmotr_1008.pdf",
     "external_url": "",
@@ -8604,6 +8901,1469 @@
     "order": 5,
     "is_active": true,
     "created_at": "2025-12-13T07:12:40Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 136,
+  "fields": {
+    "title": "Калькуляция стоимости обучения",
+    "document_type": "file",
+    "display_in_sections": [
+      "documents"
+    ],
+    "file": "documents/bratsk/Калькуляция_стоимости.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 1,
+    "department": 3,
+    "order": 3,
+    "is_active": true,
+    "created_at": "2025-12-21T06:13:44Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 137,
+  "fields": {
+    "title": "Сведения о мастерах производственного обучения",
+    "document_type": "file",
+    "display_in_sections": [
+      "mastera-po"
+    ],
+    "file": "documents/ustkut/Сведения_МПОВ.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T06:23:34Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 138,
+  "fields": {
+    "title": "Фотографии автомобилей",
+    "document_type": "file",
+    "display_in_sections": [
+      "mastera-po"
+    ],
+    "file": "documents/ustkut/Фотографии_автомобилеи.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 2,
+    "is_active": true,
+    "created_at": "2025-12-21T08:13:39Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 139,
+  "fields": {
+    "title": "Заключение ГИБДД",
+    "document_type": "file",
+    "display_in_sections": [
+      "documents"
+    ],
+    "file": "documents/ustkut_images/Заключение_ГИБДД.jpg",
+    "external_url": "",
+    "file_type": "image",
+    "category": 6,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T08:19:02Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 140,
+  "fields": {
+    "title": "Сведения об учебных транспортных средствах",
+    "document_type": "file",
+    "display_in_sections": [
+      "mastera-po"
+    ],
+    "file": "documents/ustkut/Сведения_об_учебных_транспортных_средствах.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 1,
+    "is_active": true,
+    "created_at": "2025-12-21T08:21:16Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 141,
+  "fields": {
+    "title": "Список педагогических работников",
+    "document_type": "file",
+    "display_in_sections": [
+      "prepodavateli"
+    ],
+    "file": "documents/ustkut/Список_педагогических_работников.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T08:25:26Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 142,
+  "fields": {
+    "title": "Cтруктура управления ЧПОУ «Автошкола ИРО ООО ВОА»",
+    "document_type": "file",
+    "display_in_sections": [
+      "struktura-upravleniya"
+    ],
+    "file": "documents/irkutsk/Структура_и_органы_управления.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T09:22:18Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 143,
+  "fields": {
+    "title": "Положение об органах управления автошколой",
+    "document_type": "file",
+    "display_in_sections": [
+      "struktura-upravleniya"
+    ],
+    "file": "documents/irkutsk/Положение_об_органах_управления_автошколои.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T09:22:52Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 144,
+  "fields": {
+    "title": "Учебный план",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/irkutsk/Учебныи_план.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T09:49:24Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 145,
+  "fields": {
+    "title": "Календарный учебный график",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/irkutsk/Календарныи_учебныи_график.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T09:49:58Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 146,
+  "fields": {
+    "title": "Адаптированная образовательная программа профессиональной подготовки водителей транспортных средств категории \"B\"",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/irkutsk/Адаптированная_образовательная_программа_кат._В.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T09:50:38Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 147,
+  "fields": {
+    "title": "Учебный план к адаптированной образовательной программе",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/irkutsk/Учебныи_план_к_адаптированнои_образовательнои_программе.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T09:51:18Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 148,
+  "fields": {
+    "title": "Календарный учебный график к адаптированной образовательной программе",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/irkutsk/Календарныи_учебныи_график_к_адаптированнои_образовательнои_программе.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T09:51:46Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 149,
+  "fields": {
+    "title": "Информация о численности обучающихся",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/irkutsk/Информация_о_численности_обучающихся.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T09:52:11Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 150,
+  "fields": {
+    "title": "Сведения о мастерах производственного обучения",
+    "document_type": "file",
+    "display_in_sections": [
+      "mastera-po"
+    ],
+    "file": "documents/irkutsk/Сведения_о_мастрах_производственного_обучения.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:00:47Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 151,
+  "fields": {
+    "title": "Список учебных автомобилей",
+    "document_type": "file",
+    "display_in_sections": [
+      "mastera-po"
+    ],
+    "file": "documents/irkutsk/Список_учебных_автомобилеи.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:01:18Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 152,
+  "fields": {
+    "title": "Администрация",
+    "document_type": "file",
+    "display_in_sections": [
+      "administratsiya"
+    ],
+    "file": "documents/irkutsk/администрация.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:01:46Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 153,
+  "fields": {
+    "title": "Преподаватели",
+    "document_type": "file",
+    "display_in_sections": [
+      "prepodavateli"
+    ],
+    "file": "documents/irkutsk/преподаватели.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:03:01Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 154,
+  "fields": {
+    "title": "Материально-техническое обеспечение",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/irkutsk/материально-техничское_обеспечение.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:11:48Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 155,
+  "fields": {
+    "title": "Сведения о закрытой площадке или автодроме",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/irkutsk/sved-drom.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:14:09Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 156,
+  "fields": {
+    "title": "Договор аренды закрытой площадки",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/irkutsk/dogovor_drom.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:14:30Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 157,
+  "fields": {
+    "title": "Сведения об оборудованных учебных кабинетах",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/irkutsk/sved-uch-kab.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:14:53Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 158,
+  "fields": {
+    "title": "Информационно-методические и иные материалы",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/irkutsk/inf-met-mat.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:15:33Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 159,
+  "fields": {
+    "title": "Перечень специальных учебных материалов и технических средств",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/irkutsk/svedeniya_OVZ-2017.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:16:04Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 160,
+  "fields": {
+    "title": "Перечень учебных материалов и технических средств",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/irkutsk/perechen-oborud.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:17:24Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 161,
+  "fields": {
+    "title": "План финансово-хозяйственной деятельности",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/irkutsk/план_фхд.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:21:40Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 162,
+  "fields": {
+    "title": "Отчет о финансовых результатах деятельности учреждения",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/irkutsk/отчет_фхд.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:22:30Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 163,
+  "fields": {
+    "title": "Информация о расходовании финансовых и материальных средств",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/irkutsk/информация_о_расходовании_финансовых_и_материальных_средств.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:22:50Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 164,
+  "fields": {
+    "title": "Информация об объеме образовательной деятельности",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/irkutsk/информация_об_объеме_образовательнои_деятельности.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:23:15Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 165,
+  "fields": {
+    "title": "Положение БГО ООО ВОА",
+    "document_type": "file",
+    "display_in_sections": [
+      "struktura-upravleniya"
+    ],
+    "file": "documents/bratsk/Положение_БГО_ООО_ВОА.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:37:31Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 166,
+  "fields": {
+    "title": "Положение об Образовательном подразделении Автошкола ВОА",
+    "document_type": "file",
+    "display_in_sections": [
+      "struktura-upravleniya"
+    ],
+    "file": "documents/bratsk/Положение_об_Образовательном_подразделении_Автошкола_ВОА_Братск.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:38:02Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 167,
+  "fields": {
+    "title": "Вождение ТС с механической трансмиссией",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Вождение_ТС_с_механическои_трансмиссиеи.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:42:58Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 168,
+  "fields": {
+    "title": "Вождение ТС с автоматической трансмиссией",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Вождение_ТС_с_автоматическои_трансмиссиеи.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:43:24Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 169,
+  "fields": {
+    "title": "Организация и выполнение пассажирских перевозок автомобильным транспортом",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Организация_и_выполнение_пассажирских_перевозок_автомобильным_транспортом.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:43:56Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 170,
+  "fields": {
+    "title": "Организация и выполнение грузовых перевозок автомобильным транспортом",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Организация_и_выполнение_грузовых_перевозок_автомобильным_транспортом.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:44:15Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 171,
+  "fields": {
+    "title": "Основы законодательства в сфере ДД",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Основы_законодательства_в_сфере_ДД.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:44:45Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 172,
+  "fields": {
+    "title": "Основы управления ТС",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Основы_управления_ТС.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:45:09Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 173,
+  "fields": {
+    "title": "Первая помощь при ДТП",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Первая_помощь_при_ДТП.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:45:28Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 174,
+  "fields": {
+    "title": "Планируемые результаты",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Планируемые_результаты.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:45:52Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 175,
+  "fields": {
+    "title": "Психофизиологические основы деятельности водителя",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Психофизиологические_основы_деятельности_водителя.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:46:11Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 176,
+  "fields": {
+    "title": "Устройство и техническое обслуживание ТС",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Устроиство_и_техническое_обслуживание_ТС.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:46:30Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 177,
+  "fields": {
+    "title": "Учебный план",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Учебныи_план.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:48:20Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 178,
+  "fields": {
+    "title": "Календарный учебный график",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Календарныи_учебныи_график.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:48:47Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 179,
+  "fields": {
+    "title": "Методические рекомендации по организации образовательного процесса в Образовательном подразделении \"Автошкола ВОА\"",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Методические_рекомендации_по_организации.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:49:13Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 180,
+  "fields": {
+    "title": "Методические рекомендации, регламентирующие форму, периодичность и порядок текущего контроля успеваемости и промежуточной аттестации в Образовательном подразделении \"Автошкола ВОА\"",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Методические_рекомендации_контроля_успеваемости_и_промежуточнои_аттестации.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:49:50Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 181,
+  "fields": {
+    "title": "Образовательная программа профессиональной подготовки водителей транспортных средств категории \"В\"",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/bratsk/Образовательная__программа_профессиональнои_подготовки_водителеи.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:50:24Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 182,
+  "fields": {
+    "title": "Материально-техническое обеспечение",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/bratsk/материально-техническое_обеспечение.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:54:57Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 183,
+  "fields": {
+    "title": "Смета доходов и расходов на 2023 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/bratsk/Смета_доходов_и_расходов_на_2023_год.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T10:58:27Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 184,
+  "fields": {
+    "title": "Смета доходов и расходов на 2024 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/bratsk/Смета_доходов_и_расходов_на_2024_год.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 1,
+    "is_active": true,
+    "created_at": "2025-12-21T10:59:01Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 185,
+  "fields": {
+    "title": "Смета доходов и расходов на 2025 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/bratsk/Смета_доходов_и_расходов_на_2025_год.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 2,
+    "is_active": true,
+    "created_at": "2025-12-21T10:59:37Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 186,
+  "fields": {
+    "title": "Справка о финансовых результатах за 2022 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/bratsk/Справка_о_финансовых_результатах_за_2022_год.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 3,
+    "is_active": true,
+    "created_at": "2025-12-21T11:00:01Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 187,
+  "fields": {
+    "title": "Справка о финансовых результатах за 2023 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/bratsk/Справка_о_финансовых_результатах_за_2023_год.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 4,
+    "is_active": true,
+    "created_at": "2025-12-21T11:01:02Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 188,
+  "fields": {
+    "title": "Справка о финансовых результатах за 2024 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/bratsk/Отчет_о_финансовых_результатах_за_2024_год.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 5,
+    "is_active": true,
+    "created_at": "2025-12-21T11:01:39Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 189,
+  "fields": {
+    "title": "Администрация",
+    "document_type": "file",
+    "display_in_sections": [
+      "administratsiya"
+    ],
+    "file": "documents/bratsk/администрация.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:06:34Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 190,
+  "fields": {
+    "title": "Сведения об администрации",
+    "document_type": "file",
+    "display_in_sections": [
+      "administratsiya"
+    ],
+    "file": "documents/bratsk/Сведения_об_администрации.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:07:04Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 191,
+  "fields": {
+    "title": "Преподаватели",
+    "document_type": "file",
+    "display_in_sections": [
+      "prepodavateli"
+    ],
+    "file": "documents/bratsk/преподаватели.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:07:28Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 192,
+  "fields": {
+    "title": "Сведения о преподавателях",
+    "document_type": "file",
+    "display_in_sections": [
+      "prepodavateli"
+    ],
+    "file": "documents/bratsk/Сведения_о_преподавателях.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:08:11Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 193,
+  "fields": {
+    "title": "Мастера производственного обучения",
+    "document_type": "file",
+    "display_in_sections": [
+      "mastera-po"
+    ],
+    "file": "documents/bratsk/мастера_производственного_обучения.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:09:08Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 194,
+  "fields": {
+    "title": "Сведения о мастерах производственного обучения",
+    "document_type": "file",
+    "display_in_sections": [
+      "mastera-po"
+    ],
+    "file": "documents/bratsk/Сведения_о_МПО.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:09:26Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 195,
+  "fields": {
+    "title": "Список учебных автомобилей",
+    "document_type": "file",
+    "display_in_sections": [
+      "mastera-po"
+    ],
+    "file": "documents/bratsk/Список_автомобилеи.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:09:45Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 196,
+  "fields": {
+    "title": "Положение о педагогическом совете",
+    "document_type": "file",
+    "display_in_sections": [
+      "struktura-upravleniya"
+    ],
+    "file": "documents/ustkut/Положение_о_педагогическом_совете.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:23:06Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 197,
+  "fields": {
+    "title": "Положение об Образовательном подразделении «АВТОШКОЛА ВОА»",
+    "document_type": "file",
+    "display_in_sections": [
+      "struktura-upravleniya"
+    ],
+    "file": "documents/ustkut/Положение_об_Образовательном_подразделении__Автошкола_ВОА.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:23:28Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 198,
+  "fields": {
+    "title": "Положение об Усть-Кутском городском отделении ОО ВОА",
+    "document_type": "file",
+    "display_in_sections": [
+      "struktura-upravleniya"
+    ],
+    "file": "documents/ustkut/Положение_об_Образовательном_подразделении__Автошкола_ВОА.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:23:49Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 199,
+  "fields": {
+    "title": "Учебный план",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/ustkut/Учебныи_план.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:26:56Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 200,
+  "fields": {
+    "title": "Календарный учебный график",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/ustkut/Календарныи_учебныи_график.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:27:15Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 201,
+  "fields": {
+    "title": "Методические рекомендации по организации образовательного процесса в Образовательном подразделении \"Автошкола ВОА\"",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/ustkut/Методические_рекомендации_по_организации.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:27:37Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 202,
+  "fields": {
+    "title": "Методические рекомендации по предмету вождение автомобиля",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/ustkut/Методические_рекомендации_по_предмету_вождение_автомобиля.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:28:08Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 203,
+  "fields": {
+    "title": "Рабочая программа категории \"В\"",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/ustkut/Рабочая_программа_категории_В.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 13,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:28:26Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 204,
+  "fields": {
+    "title": "Правила приема, отчисления, восстановления",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/ustkut/Правила_приема_отчисления_восстановления.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:28:45Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 205,
+  "fields": {
+    "title": "Положение о порядке обучения по индивидуальному учебному плану",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/ustkut/Положение_о_порядке_обучения_по_индивидуальному_учебному_плану.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:29:12Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 206,
+  "fields": {
+    "title": "Положение о дистанционном обучении",
+    "document_type": "file",
+    "display_in_sections": [
+      "obrazovanie"
+    ],
+    "file": "documents/ustkut/Положение_о_дистанционном_обучении.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:29:36Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 207,
+  "fields": {
+    "title": "Администрация",
+    "document_type": "file",
+    "display_in_sections": [
+      "administratsiya"
+    ],
+    "file": "documents/ustkut/администрация.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:32:32Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 208,
+  "fields": {
+    "title": "Материально-техническое обеспечение",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/ustkut/материально-техническое_обеспечение.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:34:29Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 209,
+  "fields": {
+    "title": "Постановление Правительства № 706 \"Об утверждении Правил оказания платных образовательных услуг\"",
+    "document_type": "file",
+    "display_in_sections": [
+      "platnye-obr-uslugi"
+    ],
+    "file": "documents/ustkut/Постановление_Об_утверждении_Правил_оказания_платных_образовательных_услуг.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:36:16Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 210,
+  "fields": {
+    "title": "Отчет о финансовых результатах за 2022 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/ustkut/Отчет_о_финансовых_результатах_за_2022.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:37:48Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 211,
+  "fields": {
+    "title": "Отчет о финансовых результатах за 2023 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/ustkut/Отчет_о_финансовых_результатах_за_2023.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:38:06Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 212,
+  "fields": {
+    "title": "Отчет о финансовых результатах за 2024 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "finansovo-hozyaystvennaya-deyatelnost"
+    ],
+    "file": "documents/ustkut/Отчет_о_финансовых_результатах_за_2024.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2025-12-21T11:38:28Z"
   }
 },
 {
@@ -8981,39 +10741,6 @@
   }
 },
 {
-  "model": "content.material",
-  "pk": 37,
-  "fields": {
-    "department": 2,
-    "title": "Документы",
-    "slug": "irkutsk-dokumenty",
-    "is_active": true,
-    "created_at": "2025-12-20T11:22:40.062Z"
-  }
-},
-{
-  "model": "content.material",
-  "pk": 38,
-  "fields": {
-    "department": 3,
-    "title": "Документы",
-    "slug": "bratsk-dokumenty",
-    "is_active": true,
-    "created_at": "2025-12-20T11:22:40.093Z"
-  }
-},
-{
-  "model": "content.material",
-  "pk": 39,
-  "fields": {
-    "department": 4,
-    "title": "Документы",
-    "slug": "ustkut-dokumenty",
-    "is_active": true,
-    "created_at": "2025-12-20T11:22:40.119Z"
-  }
-},
-{
   "model": "content.contentblock",
   "pk": 1,
   "fields": {
@@ -9024,7 +10751,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9042,7 +10770,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9056,7 +10785,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9070,7 +10800,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9089,7 +10820,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9103,7 +10835,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9119,7 +10852,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9133,7 +10867,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9147,7 +10882,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9161,7 +10897,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9175,7 +10912,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9189,7 +10927,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9208,7 +10947,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9222,7 +10962,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9236,7 +10977,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9254,7 +10996,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9268,7 +11011,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9282,7 +11026,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9296,7 +11041,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9317,7 +11063,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9331,7 +11078,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9348,7 +11096,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9362,7 +11111,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9386,7 +11136,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9400,7 +11151,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9418,7 +11170,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9432,7 +11185,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9446,7 +11200,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9460,7 +11215,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9482,7 +11238,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9496,7 +11253,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9518,7 +11276,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9532,7 +11291,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9551,7 +11311,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9565,7 +11326,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9579,7 +11341,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9593,7 +11356,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9607,7 +11371,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9629,7 +11394,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9643,7 +11409,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9665,7 +11432,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9679,7 +11447,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9693,7 +11462,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9711,7 +11481,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9725,7 +11496,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9739,7 +11511,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9753,7 +11526,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9767,7 +11541,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9781,7 +11556,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9795,7 +11571,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9815,7 +11592,8 @@
     ],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9829,7 +11607,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9843,7 +11622,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9857,7 +11637,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9871,7 +11652,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9885,7 +11667,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9899,7 +11682,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9909,67 +11693,12 @@
     "material": 5,
     "block_type": "paragraph",
     "order": 2,
-    "text": "20.01.2025 г.",
+    "text": "20.01.2025 г.\r\n\r\nНа экзамен необходимо записываться по телефону 22-40-50 в часы работы администрации.\r\n\r\nДо квалификационного экзамена Всем ученикам необходимо в течение 7 - 10 дней сдать промежуточный экзамен:\r\n\r\nНа промежуточный экзамен по теории записываться за 7-10 дней до квалификационного экзамена по тел. 22-40-50 и подойти в назначенное время в офис Автошколы.\r\n\r\nБез промежуточного (теоретического) экзамена обучающиеся к сдаче квалификационного экзамена не допускаются. На квалификационном экзамене по теории необходимо при себе иметь книжку обучающегося вождению (с отметкой часов), крайнее занятие по вождению автомобиля должно быть не позже чем за 7 дней до теоретического экзамена.",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 60,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 3,
-    "text": "На экзамен необходимо записываться по телефону 22-40-50 в часы работы администрации.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 61,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 4,
-    "text": "До квалификационного экзамена Всем ученикам необходимо в течение 7 - 10 дней сдать промежуточный экзамен:",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 62,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 5,
-    "text": "На промежуточный экзамен по теории записываться за 7-10 дней до квалификационного экзамена по тел. 22-40-50 и подойти в назначенное время в офис Автошколы.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 63,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 6,
-    "text": "Без промежуточного (теоретического) экзамена обучающиеся к сдаче квалификационного экзамена не допускаются. На квалификационном экзамене по теории необходимо при себе иметь книжку обучающегося вождению (с отметкой часов), крайнее занятие по вождению автомобиля должно быть не позже чем за 7 дней до теоретического экзамена.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9983,7 +11712,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -9993,53 +11723,12 @@
     "material": 5,
     "block_type": "paragraph",
     "order": 8,
-    "text": "21.01.2026 г.",
+    "text": "21.01.2026 г.\r\n\r\n08.00 - начало экзамена\r\n\r\nДопускаются только обучающиеся, сдавшие квалификационный (теоретический) экзамен - 20.01.2026 г.\r\n\r\nВсе обязательные часы по программе «Вождение автомобиля» должны быть откатаны.",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 66,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 9,
-    "text": "08.00 - начало экзамена",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 67,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 10,
-    "text": "Допускаются только обучающиеся, сдавшие квалификационный (теоретический) экзамен - 20.01.2026 г.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 68,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 11,
-    "text": "Все обязательные часы по программе «Вождение автомобиля» должны быть откатаны.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10053,7 +11742,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10063,53 +11753,12 @@
     "material": 5,
     "block_type": "paragraph",
     "order": 13,
-    "text": "28.01.2026 г. – в 8:45 по адресу:",
+    "text": "28.01.2026 г. – в 8:45 по адресу:\r\n\r\nпос. Дзержинск, ул. Садовая, 2\r\n\r\n(сбор учащихся без опозданий в автошколе в 07:45)",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 71,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 14,
-    "text": "пос. Дзержинск, ул. Садовая, 2",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 72,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 15,
-    "text": "(сбор учащихся без опозданий в автошколе в 07:45)",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 73,
-  "fields": {
-    "material": 5,
-    "block_type": "heading",
-    "order": 16,
-    "text": "",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10123,7 +11772,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10133,123 +11783,12 @@
     "material": 5,
     "block_type": "paragraph",
     "order": 35,
-    "text": "-П.174.2. Проведение практического экзамена на право управления транспортными средствами категорий «B» – в срок не более 30 минут.",
+    "text": "-П.174.2.  Проведение практического экзамена на право управления транспортными средствами категорий «B» – в срок не более 30 минут.\r\n\r\n-П.184.Экзамен оценивается по следующей системе: положительная оценка – «СДАЛ», отрицательная – «НЕ СДАЛ».\r\n\r\n-П.185.За совершение каждой ошибки кандидату в водители начисляются штрафные баллы: за ошибки (нарушения), предусмотренные пунктами 3.1–3.14 экзаменационного листа – 3 балла, пунктами 4.1 – 4.5 экзаменационного листа – 2 балла, пунктами 5.1–5.4 экзаменационного листа – 1 балл.\r\n\r\n-П.186. Проведение экзамена прекращается и выставляется оценка «НЕ СДАЛ», если кандидат в водители:\r\n\r\n-П.186.1.Допустил 1 нарушение, предусмотренное одним из пунктов 2.1–2.15 экзаменационного листа.\r\n\r\n -П.186.2.Допустил ошибки (нарушения), предусмотренные пунктами 3.1–5.4 экзаменационного листа, сумма штрафных баллов которых составляет 5 и более баллов.\r\n\r\n-П.192.Общее время выполнения административной процедуры в отношении одного кандидата в водители при проведении экзамена на право управления транспортными средствами категорий «B» – до 60 минут.\r\n\r\n-П.193.Критериями принятия решения по данной административной процедуре является наличие (отсутствие) ошибок, предусмотренных пунктом 186 Административного регламента.",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 93,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 36,
-    "text": "-П.184.Экзамен оценивается по следующей системе: положительная оценка – «СДАЛ», отрицательная – «НЕ СДАЛ».",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 94,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 37,
-    "text": "-П.185.За совершение каждой ошибки кандидату в водители начисляются штрафные баллы: за ошибки (нарушения), предусмотренные пунктами 3.1–3.14 экзаменационного листа – 3 балла, пунктами 4.1 – 4.5 экзаменационного листа – 2 балла, пунктами 5.1–5.4 экзаменационного листа – 1 балл.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 95,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 38,
-    "text": "-П.186. Проведение экзамена прекращается и выставляется оценка «НЕ СДАЛ», если кандидат в водители:",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 96,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 39,
-    "text": "-П.186.1.Допустил 1 нарушение, предусмотренное одним из пунктов 2.1–2.15 экзаменационного листа.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 97,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 40,
-    "text": "-П.186.2.Допустил ошибки (нарушения), предусмотренные пунктами 3.1–5.4 экзаменационного листа, сумма штрафных баллов которых составляет 5 и более баллов.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 98,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 41,
-    "text": "-П.192.Общее время выполнения административной процедуры в отношении одного кандидата в водители при проведении экзамена на право управления транспортными средствами категорий «B» – до 60 минут.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 99,
-  "fields": {
-    "material": 5,
-    "block_type": "paragraph",
-    "order": 42,
-    "text": "-П.193.Критериями принятия решения по данной административной процедуре является наличие (отсутствие) ошибок, предусмотренных пунктом 186 Административного регламента.",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 100,
-  "fields": {
-    "material": 5,
-    "block_type": "heading",
-    "order": 43,
-    "text": "Экзаменационный лист",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10263,7 +11802,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10277,7 +11817,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10287,11 +11828,12 @@
     "material": 8,
     "block_type": "paragraph",
     "order": 0,
-    "text": "Образование\r\nВыписка из реестра лицензий\r\nУровни образования и нормативный срок обучения\r\n11442 – профессия «Водитель автомобиля» категории «В»\r\n\r\nФормы обучения: очная, очно-заочная\r\nНормативные документы\r\nОбразовательная программа профессиональной подготовки водителей транспортных средств категории \"A\"\r\nОбразовательная программа профессиональной подготовки водителей транспортных средств категории \"B\"\r\nУчебный план\r\nКалендарный учебный график\r\nАдаптированная образовательная программа профессиональной подготовки водителей транспортных средств категории \"B\"\r\nУчебный план к адаптированной образовательной программе\r\nКалендарный учебный график к адаптированной образовательной программе\r\nИнформация о численности обучающихся\r\nРеализуемые образовательные программы: Программы профессионального обучения\r\nЯзык обучения: Русский",
+    "text": "Уровни образования и нормативный срок обучения: 11442 – профессия «Водитель автомобиля» категории «В»\r\n\r\nФормы обучения: очная, очно-заочная\r\n\r\nРеализуемые образовательные программы: Программы профессионального обучения\r\n\r\nЯзык обучения: Русский",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10301,109 +11843,12 @@
     "material": 10,
     "block_type": "paragraph",
     "order": 0,
-    "text": "Образовательное подразделение «Автошкола ВОА» Братского городского отделения Общероссийской общественной организации «Всероссийское общество автомобилистов» проводит обучение водителей с 1976 года\r\nКарточка организации\r\nКаждый поступивший в нашу автошколу может вступить в члены Всероссийского общества автомобилистов.\r\n\r\nАвтошкола имеет асфальтированную площадку в черте города (ул. Южная). Место встречи мастера производственного обучения вождению с учащимся (начало практических занятий).\r\n\r\nАвтошкола готовит будущих водителей таким образом, что они научились не только водить автомобиль, но и интуитивно реагировать на возникновение непредвиденных ситуаций и при этом получать настоящее удовольствие от вождения.\r\n\r\nМы выпускаем водителей, знающих ПДД и уважающих других участников дорожного движения. Окончив обучение в нашей автошколе Вы без проблем справитесь с экзаменами в ГИБДД.\r\n\r\nМы научим Вас не робеть перед инспектором - офицером ГИБДД, который будет принимать экзамен. Поверьте, он заинтересован не в том, чтобы Вас \"завалить\", как об этом рассказывают те, кто плохо учился; а в том, чтобы на дорогах России появлялись адекватные и уверенные в себе водители транспортных средств.\r\n\r\nНаше основное отличие от подобных организаций - это индивидуальный подход к каждому ученику. Благодаря такому принципу обучения автошкола выпускает уверенных в себе водителей с хорошей подготовкой.\r\n\r\nМы эффективно сочетаем занятия в классе с практическими уроками на автодроме и в городе. Теория и практика, полученные в ходе обучения, помогают ученику понять принцип управления автомобилем и развить интуитивную реакцию. Знать правила дорожного движения - это хорошо, но еще лучше уметь грамотно ими пользоваться. Наша автошкола научит Вас этому.\r\n\r\nГлавное для нас - это Ваша безопасность и безопасность ваших близких, а высокий рейтинг нашей Автошколы – это показатель слаженности в работе коллектива и желание работать на результат.\r\n\r\nНаш коллектив - это команда профессионалов.\r\n\r\nНаша цель - подготовка водителей, обладающих знаниями и навыками, необходимыми для безопасного вождения.",
+    "text": "Образовательное подразделение «Автошкола ВОА» Братского городского отделения Общероссийской общественной организации «Всероссийское общество автомобилистов» проводит обучение водителей с 1976 года\r\n\r\nКаждый поступивший в нашу автошколу может вступить в члены Всероссийского общества автомобилистов.\r\n\r\nАвтошкола имеет асфальтированную площадку в черте города (ул. Южная). Место встречи мастера производственного обучения вождению с учащимся (начало практических занятий).\r\n\r\nАвтошкола готовит будущих водителей таким образом, что они научились не только водить автомобиль, но и интуитивно реагировать на возникновение непредвиденных ситуаций и при этом получать настоящее удовольствие от вождения.\r\n\r\nМы выпускаем водителей, знающих ПДД и уважающих других участников дорожного движения. Окончив обучение в нашей автошколе Вы без проблем справитесь с экзаменами в ГИБДД.\r\n\r\nМы научим Вас не робеть перед инспектором - офицером ГИБДД, который будет принимать экзамен. Поверьте, он заинтересован не в том, чтобы Вас \"завалить\", как об этом рассказывают те, кто плохо учился; а в том, чтобы на дорогах России появлялись адекватные и уверенные в себе водители транспортных средств.\r\n\r\nНаше основное отличие от подобных организаций - это индивидуальный подход к каждому ученику. Благодаря такому принципу обучения автошкола выпускает уверенных в себе водителей с хорошей подготовкой.\r\n\r\nМы эффективно сочетаем занятия в классе с практическими уроками на автодроме и в городе. Теория и практика, полученные в ходе обучения, помогают ученику понять принцип управления автомобилем и развить интуитивную реакцию. Знать правила дорожного движения - это хорошо, но еще лучше уметь грамотно ими пользоваться. Наша автошкола научит Вас этому.\r\n\r\nГлавное для нас - это Ваша безопасность и безопасность ваших близких, а высокий рейтинг нашей Автошколы – это показатель слаженности в работе коллектива и желание работать на результат.\r\n\r\nНаш коллектив - это команда профессионалов.\r\n\r\nНаша цель - подготовка водителей, обладающих знаниями и навыками, необходимыми для безопасного вождения.",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 106,
-  "fields": {
-    "material": 15,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Материально-техническое обеспечение\r\nи оснащённость образовательного процесса\r\n \r\n\r\nИнформация об объектах для проведения теоретических и практических занятий\r\nСведения о закрытой площадке или автодроме\r\nДоговор аренды закрытой площадки\r\nСведения об оборудованных учебных кабинетах\r\nИнформационно-методические и иные материалы\r\nОснащенность здания и помещения автошколы для обучения лиц с ограниченными возможностями здоровья (ОВЗ)\r\nPandus\tShirokaya dver 1\tShirokaya dver\tShirokiy lift\r\n \r\n\r\nShirokiy lift 1\tShirokaya dver 3\tShirokaya dver 4\r\n \r\n\r\nНаличие специальных технических средств обучения коллективного и индивидуального пользования для инвалидов и лиц с ОВЗ\r\nПросмотреть полный перечень специальных учебных материалов и технических средств >>\r\nNaushniki 1\tNaushniki\r\n   \r\n\r\nНаличие средств охраны здоровья учащихся\r\nПросмотреть документы по организации охраны здоровья учащихся >>\r\nAptechka\tAptechka 1\tVoda\tHolodilnik\tPitanie\r\n      \r\n\r\n \r\n\r\nНаш просторный и светлый класс (Байкальская 105-а, каб 403)\r\nПросмотреть перечень учебных материалов и технических средств >>\r\nclass1\r\n\r\n \r\n\r\nclass2\r\n\r\n class3\r\n\r\nНаш удобный асфальтированный автодром (Ширямова 2)\r\ndrom9\tdrom10\tdrom11\tdrom12\r\n \r\n\r\ndrom13\tdrom14\tdrom15",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 107,
-  "fields": {
-    "material": 37,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Основные документы Автошколы ВОА Иркутск\r\n \r\n\r\nSvidetelstvo1   Svidetelstvo2   zaklyuchenie new\r\nВыписка из реестра лицензий\r\nДоговор об оказании платных образовательных услуг\r\nФедеральный закон \"О персональных данных\"\r\nНормативные документы\r\nОбразовательная программа профессиональной подготовки водителей транспортных средств категории \"A\"\r\nОбразовательная программа профессиональной подготовки водителей транспортных средств категории \"B\"\r\nПриказ о стоимости обучения\r\nПриказ о повышении стоимости обучения\r\nПорядок предоставления платных услуг\r\nКалькуляция стоимости подготовки 1 курсанта категории \"В\"\r\nПравила приема, отчисления, восстановления обучающихся в автошколу\r\nПравила внутреннего трудового распорядка и распорядка учащихся\r\nПоложение о проведении промежуточной аттестации\r\nПоложение о проведении итоговой аттестации\r\nПоложение об официальном сайте в сети Интернет\r\nПоложение о комиссии по урегулированию споров\r\nДокументы по организации охраны здоровья учащихся\r\nПамятка о действиях при угрозе теракта\r\nСтруктура и особенности ЧПОУ «Автошкола ИРО ОО ВОА»\r\nПоложение о нормах прoффессиональной этики педагогических работников\r\nМетодические рекомендации по организации образовательного процесса\r\nПоложение о педагогическом совете\r\nУстав ЧПОУ \"Автошкола ИРО ОО ВОА\"\r\nАкты\r\nАкт самообследования 2017\r\nАкт самообследования 2018\r\nАкт самообследования 2019\r\nАкт самообследования 2020\r\nАкт самообследования 2021\r\nАкт самообследования 2022\r\nАкт самообследования 2023\r\nАкт самообследования 2024\r\nАкт самообследования 2025\r\nСведения о проводимых проверках\r\n2014\r\n07.04.2014 Плановая проверка Службой по контролю в сфере образования\r\n05.05.2014 Плановая проверка Управлением надзорной деятельности ГУ МЧС России по Иркутской области\r\n01.08.2014 Плановая проверка Иркутским региональным отделением Общественной организацией ВОА\r\n2015\r\n16.03.2015 Плановая проверка Службой по контролю в сфере образования\r\n19.03.2015 Плановая проверка Управлением Роспотребнадзора по Иркутской области\r\n19.03.2015 Плановая проверка Государственной инспекцией труда по Иркутской области\r\n27.05.2015 Прокуратура Октябрьского района г. Иркутска, проверка исполнения законодательства при подготовке водителей транспортных средств\r\n30.12.2015 Внеплановая проверка Службой по контролю и надзору в сфере образования\r\n2019\r\n11.11.2019 Распоряжение о плановой проверке Службой по контролю в сфере образования\r\n12.11.2019 Уведомление о плановой проверке Службой по контролю в сфере образования\r\n27.12.2019 Акт плановой проверки Службой по контролю в сфере образования",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 108,
-  "fields": {
-    "material": 12,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Администрация\r\ndirector\r\n\r\nБурков Андреян Александрович\r\n\r\nДиректор автошколы\r\n.\r\n\r\nтел: 22-40-50\r\n\r\noshurkova\r\n\r\nОшуркова Татьяна Владимировна\r\n\r\nМенеджер по работе с клиентами\r\n\r\nтел: 22-40-50\r\n\r\npopova\r\n\r\nПопова Елена Кузьминична\r\n\r\nМенеджер по работе с клиентами\r\n\r\nтел: 22-40-50\r\n\r\nsviridov\r\n\r\nСвиридов Владимир Николаевич\r\n\r\nЗаведующий учебной частью\r\n\r\nтел: 22-40-50",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 109,
-  "fields": {
-    "material": 13,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Наши преподаватели\r\nsviridov\r\n\r\nСвиридов Владимир Николаевич\r\n\r\nnaidenov 2\r\n\r\nНайденов Павел Андреевич\r\n\r\nsuzdalnizky\r\n\r\nСуздальницкий Алексей Евгеньевич\r\n\r\ndianova\r\n\r\nДианова Ксения Сергеевна",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 110,
-  "fields": {
-    "material": 14,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Мастера производственного обучения и транспорт\r\nНормативные документы\r\nСведения о мастерах производственного обучения\r\nСписок учебных автомобилей",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 111,
-  "fields": {
-    "material": 16,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Платные образовательные услуги\r\nНормативные документы\r\nДоговор об оказании платных образовательных услуг\r\nПриказ о стоимости обучения\r\nПорядок предоставления платных услуг\r\nКалькуляция стоимости подготовки 1 курсанта категории \"В\"",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 112,
-  "fields": {
-    "material": 17,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Финансово-хозяйственная деятельность\r\nНормативные документы\r\nПлан финансово-хозяйственной деятельности\r\nОтчет о финансовых результатах деятельности учреждения\r\nИнформация о расходовании финансовых и материальных средств\r\nИнформация об объеме образовательной деятельности",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10417,7 +11862,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10427,25 +11873,12 @@
     "material": 19,
     "block_type": "paragraph",
     "order": 0,
-    "text": "Структура и органы управления образовательной организацией\r\n \r\n\r\nСТРУКТУРА ОБЩЕРОССИЙСКОЙ\r\nОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ \r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО АВТОМОБИЛИСТОВ»\r\n \r\n\r\nЦЕНТРАЛЬНЫЙ СОВЕТ ОБЩЕРОССИЙСКОЙ\r\nОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ «ВСЕРОССИЙСКОЕ \r\nОБЩЕСТВО АВТОМОБИЛИСТОВ» \r\nг. МОСКВА\r\nПредседатель ВОА Солдунов Валерий Михайлович\r\nсайт: www.voa.ru\r\n↓\r\n\r\nИРКУТСКОЕ РЕГИОНАЛЬНОЕ ОТДЕЛЕНИЕ \r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» г. ИРКУТСК\r\nПредседатель Слободчиков Денис Алексеевич\r\nАдрес: г. Иркутск, ул. Байкальская 105А, оф.403\r\nсайт: voa-irkutsk.ru\r\n↓\r\n\r\nБРАТСКОЕ ГОРОДСКОЕ ОТДЕЛЕНИЕ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» г. БРАТСК\r\nПредседатель Сиволапов Юрий Вениаминович\r\nАдрес: г. Братск, ул. Курчатова 30А\r\nЭл. почта: bratskvoa@mail.ru\r\n↓\r\n\r\nОБРАЗОВАТЕЛЬНОЕ ПОДРАЗДЕЛЕНИЕ\r\nБРАТСКОГО ГОРОДСКОГО ОТДЕЛЕНИЯ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» «АВТОШКОЛА ВОА»\r\nДиректор Сиволапов Юрий Вениаминович\r\nАдрес: г. Братск, ул. Курчатова 30А\r\n↓\r\n\r\nПЕДАГОГИЧЕСКИЙ СОВЕТ\r\nОБРАЗОВАТЕЛЬНОГО ПОДРАЗДЕЛЕНИЯ\r\nБРАТСКОГО ГОРОДСКОГО ОТДЕЛЕНИЯ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ»\r\n \r\n\r\nПоложение БГО ООО ВОА\r\nПоложение об Образовательном подразделении Автошкола ВОА\r\nПоложение о педагогическом совете",
+    "text": "СТРУКТУРА ОБЩЕРОССИЙСКОЙ\r\nОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ \r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО АВТОМОБИЛИСТОВ»\r\n \r\n\r\nЦЕНТРАЛЬНЫЙ СОВЕТ ОБЩЕРОССИЙСКОЙ\r\nОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ «ВСЕРОССИЙСКОЕ \r\nОБЩЕСТВО АВТОМОБИЛИСТОВ» \r\nг. МОСКВА\r\nПредседатель ВОА Солдунов Валерий Михайлович\r\nсайт: www.voa.ru\r\n↓\r\n\r\nИРКУТСКОЕ РЕГИОНАЛЬНОЕ ОТДЕЛЕНИЕ \r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» г. ИРКУТСК\r\nПредседатель Слободчиков Денис Алексеевич\r\nАдрес: г. Иркутск, ул. Байкальская 105А, оф.403\r\nсайт: voa-irkutsk.ru\r\n↓\r\n\r\nБРАТСКОЕ ГОРОДСКОЕ ОТДЕЛЕНИЕ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» г. БРАТСК\r\nПредседатель Сиволапов Юрий Вениаминович\r\nАдрес: г. Братск, ул. Курчатова 30А\r\nЭл. почта: bratskvoa@mail.ru\r\n↓\r\n\r\nОБРАЗОВАТЕЛЬНОЕ ПОДРАЗДЕЛЕНИЕ\r\nБРАТСКОГО ГОРОДСКОГО ОТДЕЛЕНИЯ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» «АВТОШКОЛА ВОА»\r\nДиректор Сиволапов Юрий Вениаминович\r\nАдрес: г. Братск, ул. Курчатова 30А\r\n↓\r\n\r\nПЕДАГОГИЧЕСКИЙ СОВЕТ\r\nОБРАЗОВАТЕЛЬНОГО ПОДРАЗДЕЛЕНИЯ\r\nБРАТСКОГО ГОРОДСКОГО ОТДЕЛЕНИЯ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ»",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 115,
-  "fields": {
-    "material": 38,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Основные документы Автошколы ВОА Братск\r\nЛицензия 1 страница\r\nЛицензия 1 страница\t\r\nЛицензия 2 страница\r\nЛицензия 2 страница\t\r\nПриложение к лицензии\r\nПриложение к лицензии\r\nЗаключение ГИБДД\r\nЗаключение ГИБДД\t\r\nСвидетельство о постановке на учет в налоговом органе\r\nСвидетельство о постановке на учет в налоговом органе\t\r\nСвидетельство о внесении в ЕГРЮЛ\r\nСвидетельство о внесении в ЕГРЮЛ\r\nСвидетельство о постановке на учет некоммерческой организации\r\nСвидетельство о постановке на учет некоммерческой организации\t\r\nСвидетельство о регистрации общественного объединения\r\nСвидетельство о регистрации общественного объединения\t\r\nСанитарно-эпидемиологическое заключение\r\nСанитарно-эпидемиологическое заключение\r\n \r\n\r\nДоговор об оказании платных образовательных услуг\r\nДоговор с несовершеннолетним об оказании платных образовательных услуг\r\nСправка об обучении\r\nПриказ о стоимости обучения\r\nФедеральный закон \"О персональных данных\"\r\n \r\n\r\nНормативные документы\r\nПоложение о выдаче свидетельств\r\nПоложение о промежуточной и итоговой аттестации\r\nПостановление Правительства РФ от 15.09.2020 N 1441 Об утверждении Правил оказания платных образовательных услуг\r\nПриказ о стоимости обучения\r\nПоложение о защите персональных данных\r\nПоложение о порядке обучения по индивидуальному учебному плану\r\nПоложение об организации учебного процесса\r\nПоложение об организации практического вождения\r\nПоложение о педагогическом совете\r\nПравила внутреннего распорядка обучающихся\r\nИнструкция по охране труда для обучающихся\r\nПамятка о действиях при угрозе теракта\r\nПравила приёма\r\nПравила отчисления\r\nПорядок оформления возникновения, изменения и прекращения образовательных отношений\r\nПоложение о правилах этики поведения педагогических работников\r\nПравила внутреннего трудового распорядка для работников БГО ОО ВОА\r\nПоложение о комиссии по урегулированию споров\r\nУстав\r\nОтчёты о самообследовании и программы развития\r\nОтчет о самообследовании за 2019 год\r\nОтчет о самообследовании за 2020 год\r\nОтчет о самообследовании за 2021 год\r\nОтчет о самообследовании за 2022 год\r\nОтчет о самообследовании за 2023 год\r\nОтчет о самообследовании за 2024 год\r\nПрограмма развития на 2021-2024 года\r\nПредписания контролирующих органов и отчёты по их исполнению\r\nПредписание об устранении выявленных нарушений требований законодательства об образовании 2021 год\r\nРезультат рассмотрения отчёта об устранении выявленных нарушений за 2021 год\r\nУведомление о проведении плановой проверки за 2023 год\r\nАкт по результатам проверки за 2023 год 1 лист\r\nАкт по результатам проверки за 2023 год 2 лист",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10455,95 +11888,12 @@
     "material": 20,
     "block_type": "paragraph",
     "order": 0,
-    "text": "Образование\r\nПриняв решение об обучении в Образовательном подразделении «Автошкола ВОА» Братского городского отделения Общероссийской общественной организации «Всероссийское общество автомобилистов», обращайтесь к заведующей курсами в г.Братске, ул.Курчатова 30А, она ответит на все интересующие Вас вопросы, более подробно расскажет о схеме занятий и условиях обучения, ознакомит с Положением об Образовательном подразделении «Автошкола ВОА» и Правилами приема, пригласит Вас на организационное собрание которое проводит директор Автошколы и только после этого Вы заключаете договор на оказание платных образовательных услуг и приступаете к занятиям. Обучение проводится только за счет средств физических лиц. Оплатить обучение можно в кассе БГО ООО «ВОА» или на расчетный счет БГО ООО «ВОА». по Вашему желанию предоставляется рассрочка оплаты обучения.\r\n\r\n«Автошкола ВОА» реализует программу профессиональной подготовки водителей транспортных средств категории «В». Форма обучения очная, нормативный срок обучения по данной программе составляет три месяца. Обучение ведется на русском языке.\r\n\r\nПрограмма профессиональной подготовки водителей транспортных средств категории «В», включает в себя четыре предмета базового цикла:\r\n\r\n«Основы законодательства в сфере дорожного движения»;\r\n«Психофизиологические основы деятельности водителя»;\r\n«Основы управления транспортными средствами»;\r\n«Первая помощь при дорожно-транспортном происшествии»;\r\nтри предмета специального цикла:\r\n\r\n«Устройство и техническое обслуживание транспортных средств категории «В» как объектов управления»;\r\n«Основы управления транспортными средствами категории «В»»;\r\n«Вождение транспортных средств категории «В» (с механической трансмиссией/ с автоматической трансмиссией)»;\r\nдва предмета профессионального цикла:\r\n\r\n«Организация и выполнение грузовых перевозок автомобильным транспортом»;\r\n«Организация и выполнение пассажирских перевозок автомобильным транспортом».\r\nПо каждому предмету имеется индивидуальная рабочая программа, утвержденная в установленном порядке, сформированные на основании Образовательной программы профессиональной подготовки водителей транспортных средств категории «В».\r\n\r\nОбучение проводится согласно учебному плану и календарному учебному графику.\r\n\r\nЧисленность обученных по договорам оказания платных образовательных услуг, заключенных при приеме на обучение за счет средств физического лица:\r\n\r\n2019 год – 128 чел. (в том числе обучающихся, являющихся иностранными\r\n2020 год - 166 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2021 год - 213 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2022 год - 228 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2023 год – 252 чел. (в том числе обучающихся, являющихся иностранными гражданами – 0 чел.);\r\n2024 год – 215 чел. (в том числе несовершеннолетних – 44 чел.; в том числе обучающихся, являющихся иностранными гражданами – 0 чел.);\r\nНормативные документы\r\nУчебный план\r\nКалендарный учебный график\r\nМетодические рекомендации по организации образовательного процесса в Образовательном подразделении \"Автошкола ВОА\"\r\nМетодические рекомендации, регламентирующие форму, периодичность и порядок текущего контроля успеваемости и промежуточной аттестации в Образовательном подразделении \"Автошкола ВОА\"\r\nОбразовательная программа профессиональной подготовки водителей транспортных средств категории \"В\"\r\nПравила приема\r\nПравила отчисления\r\nПорядок оформления возникновения, изменения и прекращения образовательных отношений\r\nПоложение о порядке обучения по индивидуальному учебному плану\r\nРабочие программы\r\nВождение ТС с механической трансмиссией\r\nВождение ТС с автоматической трансмиссией\r\nОрганизация и выполнение пассажирских перевозок автомобильным транспортом\r\nОрганизация и выполнение грузовых перевозок автомобильным транспортом\r\nОсновы законодательства в сфере ДД\r\nОсновы управления ТС\r\nПервая помощь при ДТП\r\nПланируемые результаты\r\nПсихофизиологические основы деятельности водителя\r\nУстройство и техническое обслуживание ТС",
+    "text": "Приняв решение об обучении в Образовательном подразделении «Автошкола ВОА» Братского городского отделения Общероссийской общественной организации «Всероссийское общество автомобилистов», обращайтесь к заведующей курсами в г.Братске, ул.Курчатова 30А, она ответит на все интересующие Вас вопросы, более подробно расскажет о схеме занятий и условиях обучения, ознакомит с Положением об Образовательном подразделении «Автошкола ВОА» и Правилами приема, пригласит Вас на организационное собрание которое проводит директор Автошколы и только после этого Вы заключаете договор на оказание платных образовательных услуг и приступаете к занятиям. Обучение проводится только за счет средств физических лиц. Оплатить обучение можно в кассе БГО ООО «ВОА» или на расчетный счет БГО ООО «ВОА». по Вашему желанию предоставляется рассрочка оплаты обучения.\r\n\r\n«Автошкола ВОА» реализует программу профессиональной подготовки водителей транспортных средств категории «В». Форма обучения очная, нормативный срок обучения по данной программе составляет три месяца. Обучение ведется на русском языке.\r\n\r\nПрограмма профессиональной подготовки водителей транспортных средств категории «В», включает в себя четыре предмета базового цикла:\r\n\r\n«Основы законодательства в сфере дорожного движения»;\r\n«Психофизиологические основы деятельности водителя»;\r\n«Основы управления транспортными средствами»;\r\n«Первая помощь при дорожно-транспортном происшествии»;\r\nтри предмета специального цикла:\r\n\r\n«Устройство и техническое обслуживание транспортных средств категории «В» как объектов управления»;\r\n«Основы управления транспортными средствами категории «В»»;\r\n«Вождение транспортных средств категории «В» (с механической трансмиссией/ с автоматической трансмиссией)»;\r\nдва предмета профессионального цикла:\r\n\r\n«Организация и выполнение грузовых перевозок автомобильным транспортом»;\r\n«Организация и выполнение пассажирских перевозок автомобильным транспортом».\r\nПо каждому предмету имеется индивидуальная рабочая программа, утвержденная в установленном порядке, сформированные на основании Образовательной программы профессиональной подготовки водителей транспортных средств категории «В».\r\n\r\nОбучение проводится согласно учебному плану и календарному учебному графику.\r\n\r\nЧисленность обученных по договорам оказания платных образовательных услуг, заключенных при приеме на обучение за счет средств физического лица:\r\n\r\n2019 год – 128 чел. (в том числе обучающихся, являющихся иностранными\r\n2020 год - 166 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2021 год - 213 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2022 год - 228 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2023 год – 252 чел. (в том числе обучающихся, являющихся иностранными гражданами – 0 чел.);\r\n2024 год – 215 чел. (в том числе несовершеннолетних – 44 чел.; в том числе обучающихся, являющихся иностранными гражданами – 0 чел.);",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 117,
-  "fields": {
-    "material": 24,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Материально-техническое обеспечение\r\nи оснащённость образовательного процесса\r\n  \r\n\r\nНаш просторный и светлый класс\r\n\t\r\n\t\r\n\t\r\n\t\r\n\t\r\n \r\n \r\nРазнообразная материальная часть\r\n\t\r\n\t\r\n\t\r\n\t\r\n\t\r\n \r\n \r\nАвтотренажеры\r\n\t\r\n\t\r\n\t\r\n\r\n \r\n \r\nНаш удобный асфальтированный автодром\r\n\t\r\n\t\r\n\t\r\n\t\r\n \r\n \r\nПрицеп",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 118,
-  "fields": {
-    "material": 25,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Платные образовательные услуги\r\n \r\n\r\nНормативные документы\r\nДоговор об оказании платных образовательных услуг\r\nДоговор с несовершеннолетним об оказании платных образовательных услуг\r\nПостановление Правительства РФ от 15.09.2020 N 1441 Об утверждении Правил оказания платных образовательных услуг\r\nПриказ о стоимости обучения",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 119,
-  "fields": {
-    "material": 26,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Финансово-хозяйственная деятельность\r\n \r\nНормативные документы\r\nСмета доходов и расходов на 2023 год\r\nСмета доходов и расходов на 2024 год\r\nСмета доходов и расходов на 2025 год\r\nСправка о финансовых результатах за 2022 год\r\nСправка о финансовых результатах за 2023 год\r\nСправка о финансовых результатах за 2024 год",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 120,
-  "fields": {
-    "material": 21,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Руководство ВОА Братск\r\nСведения об администрации\r\nСиволапов\t\r\nПредседатель – Сиволапов Юрий Вениаминович\r\nКонтактный телефон 8(3953)41-10-22 e-mail: bratskvoa@mail.ru\r\nСот: +7 (950) 108-30-95\r\n\r\n \r\nФролова\t\r\nЗаведующая курсами - Фролова Людмила Никифоровна\r\nКонтактный телефон 8(3953)41-10-22 e-mail: bratskvoa@mail.ru\r\nСот: +7 (950) 108-30-95\r\n\r\n \r\nФролова\t\r\nСпециалист по ведению документации организации - Сиволапова Оксана Петровна\r\nКонтактный телефон 8(3953)41-10-22 e-mail: bratskvoa@mail.ru\r\nСот: +7 (950) 108-30-95",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 121,
-  "fields": {
-    "material": 22,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Наши преподаватели\r\nСведения о преподавателях\r\nКурилов\t\r\nКурилов Денис Федорович\r\n \r\nПершин\t\r\nПершин Сергей Александрович\r\n \r\nПлеханов\t\r\nПлеханов Игорь Александрович\r\n \r\nСтаросветский\t\r\nСтаросветский Виктор Владимирович\r\n \r\nТемирчиева\t\r\nТемирчиева Светлана Васильевна",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 122,
-  "fields": {
-    "material": 23,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Мастера производственного обучения\r\nСведения о мастерах производственного обучения\r\nСписок автомобилей\r\nГаджиев\t\r\nГаджиев Михаил Тахмас оглы\r\n \r\nКузьмин\t\r\nКузьмин Алексей Евгеньевич\r\n \r\nМальцев\t\r\nМальцев Валерий Николаевич\r\n \r\nМорозов\t\r\nМорозов Никита Вячеславович\r\n \r\nШевченко\t\r\nШевченко Валерий Александрович",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10553,11 +11903,12 @@
     "material": 11,
     "block_type": "paragraph",
     "order": 0,
-    "text": "Образовательное подразделение «Автошкола ВОА»\r\nОбразовательное подразделение «Автошкола ВОА» не является юридическим лицом, и входит в состав Усть-Кутского городского отделения Общероссийской общественной организации «Всероссийское общество автомобилистов».\r\n\r\nОбщество было создано как «Всероссийское добровольное общество автомотолюбителей» (ВДОАМ) в соответствии с постановлением Совета Министров РСФСР от 23 февраля 1973 года № 89 «Об организации Всероссийского добровольного общества автомотолюбителей». Общество было переименовано во Всероссийское общество автомобилистов 3 октября 1990 года на V внеочередном съезде. Общество является продолжателем традиций Российского автомобильного общества, основанного в 1903 году.\r\n\r\n«Автошкола ВОА» одно из старейших образовательных учреждений занимающихся подготовкой водителей транспортных средств. За период с 2000 по 2016гг. было подготовлено более 4900 тысяч водителей категорий \"В\", «С».\r\n\r\nОсновным направлением нашей деятельности является обеспечение безопасности дорожного движения и профилактика дорожно-транспортного травматизма. Для реализации данной цели «Автошкола ВОА» ведет активную деятельность по проведению различных спортивных и массовых мероприятий для жителей г. Усть-Кута и Усть-Кутского района, активно взаимодействует с органами ГИБДД, МРЭО, Транспортной инспекцией.\r\n\r\nАдминистрацией УКМО, Спортивно оздоровительным центром г. Усть-Кута. «Автошкола ВОА» оказывает образовательные услуги в соответствии с Лицензией, выданной Службой по контролю и надзору в сфере образования Иркутской области.\r\n\r\nНаша автошкола выпустила на дороги г. Усть-Кута и Иркутской области тысячи водителей транспортных средств различных категорий. Мы стали известны и востребованы благодаря тому, что обучившиеся у нас автомобилисты остались довольны своим выбором. Наши выпускники с удовольствием рекомендуют нас своим родным и друзьям, когда те выбирают, где обучаться вождению.\r\n\r\nС 2005 года мы постоянно совершенствуем процесс обучения. Нас интересует всё: и наработанные десятилетиями традиционные способы обучения, и новые методики, предлагаемые различными автошколами. Мы поддерживаем контакты и обмениваемся опытом с аналогичными учебными заведениями г. Иркутска и г. Братска.\r\n\r\nАдминистрация\r\nПреподаватели\r\nМастера производственного обучения\r\n \r\n \r\n\r\nОбщее1\r\n\r\n \r\n \r\n\r\nАдрес офиса «Автошколы ВОА»:\r\n\r\n г. Усть-Кут, ул. Речников д. 39 пом. 23 (напротив остановки Дзержинского)\r\n- телефон 8 (39565) 5-70-39; 89041197431\r\n- Адрес электронной почты voa2024@mail.ru\r\n\r\nВремя работы «Автошколы ВОА»:\r\n\r\nПонедельник – пятница – 9.00-18.00, перерыв – 13.00-14.00\r\n\r\nСуббота – 9.00-13.00\r\n\r\n \r\n Карточка предприятия\r\nПолное наименование организации\tУсть-Кутское городское отделение Общероссийской общественной организации «Всероссийское общество автомобилистов»\r\nСокращенное наименование организации\tУКГО ООО «ВОА»\r\nРуководитель организации\tПредседатель Воловикова Наталья Сергеевна, действующая на основании Устава\r\nГлавный бухгалтер\tВоловикова Наталья Сергеевна\r\nЮридический адрес организации\t666780, Иркутская область, г.Усть-Кут, ул.Речников д.39 кв.23\r\nПочтовый адрес организации\t666780, Иркутская область, г.Усть-Кут, ул.Речников д.39 кв.23\r\nДата, место и орган регистрации организации\t22.01.1996 года Управление юстиции Администрации Иркутской области\r\nИНН\t3818005131\r\nКПП\t381801001\r\nОГРН\t1033800006217 дата выдачи 10 февраля 2003 года\r\nКод ОКПО\t44246699\r\nОКАТО\t2544501000\r\nОКТМО\t25644101001\r\nОКОГУ\t4220003\r\nОКФС\t53\r\nОКОПФ\t20200\r\nБанковские реквизиты\tРасчетный счет: 40703810518090000742\r\nРеквизиты банка: ИНН 7707083893 КПП 380443001\r\nК/счет 30101810600000000607\r\nБАЙКАЛЬСКИЙ БАНК ПАО СБЕРБАНК\r\nБИК 042520607\r\nТелефоны организации\t8 (39565) 5-70-39; 89041197431; сот. 89246151828\r\nЭлектронный адрес\tvoa2024@mail.ru",
+    "text": "Образовательное подразделение «Автошкола ВОА» не является юридическим лицом, и входит в состав Усть-Кутского городского отделения Общероссийской общественной организации «Всероссийское общество автомобилистов».\r\n\r\nОбщество было создано как «Всероссийское добровольное общество автомотолюбителей» (ВДОАМ) в соответствии с постановлением Совета Министров РСФСР от 23 февраля 1973 года № 89 «Об организации Всероссийского добровольного общества автомотолюбителей». Общество было переименовано во Всероссийское общество автомобилистов 3 октября 1990 года на V внеочередном съезде. Общество является продолжателем традиций Российского автомобильного общества, основанного в 1903 году.\r\n\r\n«Автошкола ВОА» одно из старейших образовательных учреждений занимающихся подготовкой водителей транспортных средств. За период с 2000 по 2016гг. было подготовлено более 4900 тысяч водителей категорий \"В\", «С».\r\n\r\nОсновным направлением нашей деятельности является обеспечение безопасности дорожного движения и профилактика дорожно-транспортного травматизма. Для реализации данной цели «Автошкола ВОА» ведет активную деятельность по проведению различных спортивных и массовых мероприятий для жителей г. Усть-Кута и Усть-Кутского района, активно взаимодействует с органами ГИБДД, МРЭО, Транспортной инспекцией.\r\n\r\nАдминистрацией УКМО, Спортивно оздоровительным центром г. Усть-Кута. «Автошкола ВОА» оказывает образовательные услуги в соответствии с Лицензией, выданной Службой по контролю и надзору в сфере образования Иркутской области.\r\n\r\nНаша автошкола выпустила на дороги г. Усть-Кута и Иркутской области тысячи водителей транспортных средств различных категорий. Мы стали известны и востребованы благодаря тому, что обучившиеся у нас автомобилисты остались довольны своим выбором. Наши выпускники с удовольствием рекомендуют нас своим родным и друзьям, когда те выбирают, где обучаться вождению.\r\n\r\nС 2005 года мы постоянно совершенствуем процесс обучения. Нас интересует всё: и наработанные десятилетиями традиционные способы обучения, и новые методики, предлагаемые различными автошколами. Мы поддерживаем контакты и обмениваемся опытом с аналогичными учебными заведениями г. Иркутска и г. Братска.",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10567,25 +11918,12 @@
     "material": 28,
     "block_type": "paragraph",
     "order": 0,
-    "text": "Структура и органы управления образовательной организацией\r\n \r\n\r\nСТРУКТУРА ОБЩЕРОССИЙСКОЙ\r\nОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ \r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО АВТОМОБИЛИСТОВ»\r\n \r\n\r\nЦЕНТРАЛЬНЫЙ СОВЕТ ОБЩЕРОССИЙСКОЙ\r\nОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ «ВСЕРОССИЙСКОЕ \r\nОБЩЕСТВО АВТОМОБИЛИСТОВ» \r\nг. МОСКВА\r\nПредседатель ВОА Солдунов Валерий Михайлович\r\nсайт: www.voa.ru\r\n↓\r\n\r\nИРКУТСКОЕ РЕГИОНАЛЬНОЕ ОТДЕЛЕНИЕ \r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» г. ИРКУТСК\r\nПредседатель Слободчиков Денис Алексеевич\r\nАдрес: г. Иркутск, ул. Байкальская 105А, оф.403\r\nсайт: voa-irkutsk.ru\r\n↓\r\n\r\nУСТЬ-КУТСКОЕ ГОРОДСКОЕ ОТДЕЛЕНИЕ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» г. УСТЬ-КУТ\r\nПредседатель Воловикова Наталья Сергеевна\r\nАдрес: г. Усть-Кут, ул. Речников 39, помещ. 23\r\nЭл. почта: voa2005@rambler.ru\r\n↓\r\n\r\nОБРАЗОВАТЕЛЬНОЕ ПОДРАЗДЕЛЕНИЕ УСТЬ-\r\nКУТСКОГО ГОРОДСКОГО ОТДЕЛЕНИЯ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» «АВТОШКОЛА ВОА»\r\nДиректор Кузнецова Александра Витальевна\r\nАдрес: г. Усть-Кут, ул. Речников 39, помещ. 23\r\nЭл. почта: voa2024@mail.ru\r\n↓\r\n\r\nПЕДАГОГИЧЕСКИЙ СОВЕТ\r\nОБРАЗОВАТЕЛЬНОГО ПОДРАЗДЕЛЕНИЯ УСТЬ-\r\nКУТСКОГО ГОРОДСКОГО ОТДЕЛЕНИЯ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ»\r\n \r\n\r\nПоложение о педагогическом совете\r\nПоложение об Образовательном подразделении «АВТОШКОЛА ВОА»\r\nПоложение об Усть-Кутском городском отделении ОО ВОА",
+    "text": "СТРУКТУРА ОБЩЕРОССИЙСКОЙ\r\nОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ \r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО АВТОМОБИЛИСТОВ»\r\n \r\n\r\nЦЕНТРАЛЬНЫЙ СОВЕТ ОБЩЕРОССИЙСКОЙ\r\nОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ «ВСЕРОССИЙСКОЕ \r\nОБЩЕСТВО АВТОМОБИЛИСТОВ» \r\nг. МОСКВА\r\nПредседатель ВОА Солдунов Валерий Михайлович\r\nсайт: www.voa.ru\r\n↓\r\n\r\nИРКУТСКОЕ РЕГИОНАЛЬНОЕ ОТДЕЛЕНИЕ \r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» г. ИРКУТСК\r\nПредседатель Слободчиков Денис Алексеевич\r\nАдрес: г. Иркутск, ул. Байкальская 105А, оф.403\r\nсайт: voa-irkutsk.ru\r\n↓\r\n\r\nУСТЬ-КУТСКОЕ ГОРОДСКОЕ ОТДЕЛЕНИЕ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» г. УСТЬ-КУТ\r\nПредседатель Воловикова Наталья Сергеевна\r\nАдрес: г. Усть-Кут, ул. Речников 39, помещ. 23\r\nЭл. почта: voa2005@rambler.ru\r\n↓\r\n\r\nОБРАЗОВАТЕЛЬНОЕ ПОДРАЗДЕЛЕНИЕ УСТЬ-\r\nКУТСКОГО ГОРОДСКОГО ОТДЕЛЕНИЯ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ» «АВТОШКОЛА ВОА»\r\nДиректор Кузнецова Александра Витальевна\r\nАдрес: г. Усть-Кут, ул. Речников 39, помещ. 23\r\nЭл. почта: voa2024@mail.ru\r\n↓\r\n\r\nПЕДАГОГИЧЕСКИЙ СОВЕТ\r\nОБРАЗОВАТЕЛЬНОГО ПОДРАЗДЕЛЕНИЯ УСТЬ-\r\nКУТСКОГО ГОРОДСКОГО ОТДЕЛЕНИЯ\r\nОБЩЕРОССИЙСКОЙ ОБЩЕСТВЕННОЙ ОРГАНИЗАЦИИ\r\n«ВСЕРОССИЙСКОЕ ОБЩЕСТВО\r\nАВТОМОБИЛИСТОВ»",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 125,
-  "fields": {
-    "material": 39,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Основные документы Автошколы ВОА Усть-Кут\r\nЛицензия\r\nЛицензия\t\r\nПриложение к лицензии\r\nПриложение_к_лицензии\t\r\nЗаключение ГИБДД\r\nЗаключение ГИБДД\r\nСвидетельство о регистрации ВОА\r\nСвидетельство о регистрации ВОА\t\r\nСвидетельство о постановке ВОА\r\nСвидетельство о постановке ВОА\t \r\n \r\n\r\n \r\n\r\nОбразец договора об оказании платных образовательных услуг\r\nФедеральный закон \"О персональных данных\"\r\nНормативные документы\r\nПолитика защиты и обработки персональных данных\r\nПоложение о защите персональных данных работников\r\nПоложение о выдаче свидетельств\r\nПриказ на утверждение формы бланка свидетельства о профессии водителя\r\nПоложение о промежуточной и итоговой аттестации\r\nПоложение об организации практического вождения\r\nПриказ о стоимости обучения\r\nПоложение об оказании платных образовательных услуг\r\nПоложение о комиссии по урегулированию споров\r\nПоложение об официальном сайте образовательной организации\r\nПриказ об утверждении справок\r\nПравила внутреннего трудового распорядка для работников Усть-Кутского городского отделения Общественной организации \"Всероссийское общество автомобилистов\" \r\nПравила внутреннего распорядка обучающихся\r\nПоложение о правилах этики поведения педагогических работников\r\nДокументы по организации охраны здоровья учащихся\r\nПамятка о действиях при угрозе теракта\r\nПамятка о действиях при угрозе пожара\r\nПоложение о видеонаблюдении\r\nУстав\r\nПрограмма развития до 2027 года\r\nОтчёты о самообследовании\r\nОтчет о самообследовании за 2018 год\r\nОтчет о самообследовании за 2019 год\r\nОтчет о самообследовании за 2020 год\r\nОтчет о самообследовании за 2021 год\r\nОтчет о самообследовании за 2022 год\r\nОтчет о самообследовании за 2023 год\r\nОтчет о самообследовании за 2024 год\r\nПредписания контролирующих органов и отчёты по их исполнению\r\nПредписания органов, осуществляющих государственный контроль в сфере образования\r\nОтчеты об исполнении предписаний контролирующих органов",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10595,95 +11933,12 @@
     "material": 29,
     "block_type": "paragraph",
     "order": 0,
-    "text": "Образование\r\nПриняв решение об обучении в нашей «Автошколе ВОА», обращайтесь к заведующей курсами, она ответит на все интересующие Вас вопросы, более подробно расскажет о схеме занятий и условиях обучения, ознакомит с Положением об Образовательном подразделении «Автошкола ВОА» и Правилами приема. Уже после этого Вы заключаете договор на оказание платных образовательных услуг и приступаете к занятиям. Оплатить обучение можно в кассе Усть-Кутского ГО ОО «ВОА», для Вашего удобства предоставляется рассрочка на три месяца.\r\n\r\n«Автошкола ВОА» реализует программу профессиональной подготовки водителей транспортных средств категории «В». Форма обучения очная, очно-заочная, нормативный срок обучения по данной программе составляет три месяца. Обучение ведется на русском языке.\r\n\r\nПрограмма профессиональной подготовки водителей транспортных средств категории «В», включает в себя четыре предмета базового цикла:\r\n\r\n«Основы законодательства в сфере дорожного движения»;\r\n«Психофизиологические основы деятельности водителя»;\r\n«Основы управления транспортными средствами»;\r\n«Первая помощь при дорожно-транспортном происшествии»;\r\nтри предмета специального цикла:\r\n\r\n«Устройство и техническое обслуживание транспортных средств категории «В» как объектов управления»;\r\n«Основы управления транспортными средствами категории «В»»;\r\n«Вождение транспортных средств категории «В» (с механической трансмиссией/ с автоматической трансмиссией)»;\r\nдва предмета профессионального цикла:\r\n\r\n«Организация и выполнение грузовых перевозок автомобильным транспортом»;\r\n«Организация и выполнение пассажирских перевозок автомобильным транспортом».\r\nПо каждому предмету имеется индивидуальная рабочая программа, утвержденная в установленном порядке.\r\n\r\nОбучение проводится согласно учебному плану и календарному учебному графику.\r\n\r\nЧисленность обучающихся по договорам об образовании, заключаемых при приеме на обучение за счет средств физического лица:\r\n\r\n2020 год - 332 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2021 год - 328 чел. (в том числе обучающихся, являющихся иностранными гражданами - 3 чел.);\r\n2022 год - 294 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2023 год – 283 чел. (в том числе обучающихся, являющихся иностранными гражданами – 0 чел.);\r\n2024 год – 243 чел. (в том числе обучающихся, являющихся иностранными гражданами – 0 чел.);\r\nУчебный план\r\nКалендарный учебный график\r\nМетодические рекомендации по организации образовательного процесса в Образовательном подразделении \"Автошкола ВОА\"\r\nМетодические рекомендации по предмету вождение автомобиля\r\nРабочая программа категории \"В\"\r\nПравила приема, отчисления, восстановления\r\nПоложение о порядке обучения по индивидуальному учебному плану\r\nПоложение о дистанционном обучении",
+    "text": "Приняв решение об обучении в нашей «Автошколе ВОА», обращайтесь к заведующей курсами, она ответит на все интересующие Вас вопросы, более подробно расскажет о схеме занятий и условиях обучения, ознакомит с Положением об Образовательном подразделении «Автошкола ВОА» и Правилами приема. Уже после этого Вы заключаете договор на оказание платных образовательных услуг и приступаете к занятиям. Оплатить обучение можно в кассе Усть-Кутского ГО ОО «ВОА», для Вашего удобства предоставляется рассрочка на три месяца.\r\n\r\n«Автошкола ВОА» реализует программу профессиональной подготовки водителей транспортных средств категории «В». Форма обучения очная, очно-заочная, нормативный срок обучения по данной программе составляет три месяца. Обучение ведется на русском языке.\r\n\r\nПрограмма профессиональной подготовки водителей транспортных средств категории «В», включает в себя четыре предмета базового цикла:\r\n\r\n«Основы законодательства в сфере дорожного движения»;\r\n«Психофизиологические основы деятельности водителя»;\r\n«Основы управления транспортными средствами»;\r\n«Первая помощь при дорожно-транспортном происшествии»;\r\nтри предмета специального цикла:\r\n\r\n«Устройство и техническое обслуживание транспортных средств категории «В» как объектов управления»;\r\n«Основы управления транспортными средствами категории «В»»;\r\n«Вождение транспортных средств категории «В» (с механической трансмиссией/ с автоматической трансмиссией)»;\r\nдва предмета профессионального цикла:\r\n\r\n«Организация и выполнение грузовых перевозок автомобильным транспортом»;\r\n«Организация и выполнение пассажирских перевозок автомобильным транспортом».\r\nПо каждому предмету имеется индивидуальная рабочая программа, утвержденная в установленном порядке.\r\n\r\nОбучение проводится согласно учебному плану и календарному учебному графику.\r\n\r\nЧисленность обучающихся по договорам об образовании, заключаемых при приеме на обучение за счет средств физического лица:\r\n\r\n2020 год - 332 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2021 год - 328 чел. (в том числе обучающихся, являющихся иностранными гражданами - 3 чел.);\r\n2022 год - 294 чел. (в том числе обучающихся, являющихся иностранными гражданами - 0 чел.);\r\n2023 год – 283 чел. (в том числе обучающихся, являющихся иностранными гражданами – 0 чел.);\r\n2024 год – 243 чел. (в том числе обучающихся, являющихся иностранными гражданами – 0 чел.);",
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 127,
-  "fields": {
-    "material": 30,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Руководство ВОА Усть-Кут\r\nВоловикова\t\r\nПредседатель – Воловикова Наталья Сергеевна\r\nОбразование – высшее, «Филиал ФГОУ высшего профессионального образования Новосибирской государственной академии водного транспорта», «Центр профессионального образования Байкальского государственного Университета экономики и права».\r\n\r\nОбщий стаж работы – 23 года. Контактный телефон 8(39565) 5-70-39 e-mail: voa2005@rambler.ru\r\n\r\n \r\nКузнецова\t\r\nДиректор «Автошколы ВОА» – Кузнецова Александра Витальевна\r\nОбразование – высшее, «Братский государственный университет» Общий стаж работы – 31 год.\r\n\r\nКонтактные телефоны 8(39565) 5-70-39 8 904 119 7431 e-mail: voa2024@mail.ru\r\n\r\nВсе персональные данные сотрудников размещены с их личного согласия",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 128,
-  "fields": {
-    "material": 31,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Наши преподаватели\r\nМы основательно подходим к отбору преподавателей и мастеров производственного обучения. В нашей автошколе работают только профессионалы. Профильные предметы преподают семь преподавателей имеющих высшее образование в области, соответствующей преподаваемому предмету, непрерывно повышающих свои знания и подтверждающих свою квалификацию не реже одного раза в три года.  Процесс подготовки ученика всегда находится под контролем администрации, а система занятий и зачетов помогает ученику составить собственное мнение о темпах роста водительских навыков.\r\n\r\nДисциплины «Основы законодательства в сфере дорожного движения», «Основы управления транспортными средствами», «Устройство и техническое обслуживание ТС категории «В» как объектов управления», «Основы управления ТС категории «В»»\r\n Романчугов\t\r\nРоманчугов Алексей Александрович\r\nОбразование – высшее, «Негосударственное частное образовательное учреждение высшего образования «Армавирский лингвистический социальный институт»» специальность «Юриспруденция».\r\n\r\nПовышение квалификации: 382414278117, ГАПОУ Иркутской области «Братский индустриально-металлургический техникум» по дополнительной профессиональной программе «Педагогические основы деятельности преподавателя по подготовке водителей автотранспортных средств» от 02.04.2021г.\r\n\r\nОбщий стаж работы – 15 лет, стаж работы в автошколе – 9 лет.\r\n\r\n \r\nДисциплины: «Организация и выполнение грузовых перевозок автомобильным транспортом», «Организация и выполнение пассажирских перевозок автомобильным транспортом»\r\n No male\t\r\nКузнецова Александра Витальевна\r\nОбразование – высшее, «Братский государственный университет» специальность «Педагогика и психология». 2005 г.\r\n\r\nСредне-профессиональное образование: НКОУ «Техникум экономики и права Иркутского облпотребсоюза», юрист, 2013 г.\r\n\r\nПройдена переподготовка: ООО «Столичный учебный центр» программа «Менеджер образования: Эффективный менеджмент в образовательной организации» , квалификация Менеджер образования, 2020 г.\r\n\r\nПовышение квалификации: ГАУ ДПО Иркутской области «Региональный институт кадровой политики и непрерывного профессионального образования» ДПО «Организационные и содержательные аспекты работы по формированию правового пространства в образовательной организации», 2019 г.\r\n\r\nПовышение квалификации: ООО «Инфоурок» г.Смоленск, «Государственное и муниципальное управление в образовании», 2018 г.\r\n\r\nОбщий стаж работы – 31 год, стаж работы в автошколе – 9 мес.\r\n\r\n \r\nДисциплина: «Первая помощь при дорожно-транспортном происшествии»\r\nСтарикова\t\r\nСавельева Оксана Геннадьевна\r\nОбразование – средне-специальное, Областное государственное образовательное учреждение среднего профессионального образования «Нижнеудинское медицинское училище» г. Нижнеудинск, Специальность - лечебное дело, квалификация фельдшер;\r\n\r\nПовышение квалификации: Частное образовательное учреждение ДПО «Единый центр профессиональной подготовки» г.Санкт-Петербург, «Инструктор по обучению первой помощи», Удостоверение, 170921 0004979 от 22.11.2022г\r\n\r\nАНО ДПО «Единый всероссийский институт дополнительного профессионального образования» ПП 46786 от 15.01.2025г по программе Преподаватель по подготовке водителей транспортных средств»\r\n\r\nОбщий стаж работы – 19 лет, стаж работы в «Автошколе ВОА» – первый год.\r\n\r\n \r\nДисциплина: «Психофизиологические основы деятельности водителя»\r\n Марчук\t\r\nМарчук Анастасия Сергеевна\r\nОбразование – высшее, «Братский государственный университет», специальность «Педагогика и психология», квалификация педагог- психолог.\r\n\r\nПовышение квалификации: 382414278155, ГАПОУ Иркутской области «Братский индустриально-металлургический техникум» по дополнительной профессиональной программе «Педагогические основы деятельности преподавателя по подготовке водителей автотранспортных средств» от 28.04.2022г.\r\n\r\nОбщий стаж работы – 15 лет, стаж работы в автошколе – 8 лет.\r\n\r\nВсе персональные данные сотрудников размещены с их личного согласия",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 129,
-  "fields": {
-    "material": 32,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Мастера производственного обучения\r\n \r\n\r\nСведения о мастерах производственного обучения\r\nСписок автомобилей\r\nФотографии автомобилей\r\nВсе персональные данные сотрудников размещены с их личного согласия",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 130,
-  "fields": {
-    "material": 33,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Материально-техническое обеспечение\r\nи оснащённость образовательного процесса\r\n \r\n\r\nНаш просторный и светлый класс (Речников 39)\r\nclassdrom\tclassdrom\r\nclassdrom\tclassdrom\r\nclassdrom\tclassdrom\r\nclassdrom\r\n \r\n\r\n \r\n\r\n \r\n\r\n \r\n\r\n \r\n\r\nНаш удобный асфальтированный автодром\r\nclassdrom\tclassdrom\r\nclassdrom\tclassdrom\r\nclassdrom\tclassdrom\r\nclassdrom\tclassdrom\r\nclassdrom\tclassdrom",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 131,
-  "fields": {
-    "material": 34,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Платные образовательные услуги\r\n \r\n\r\nНормативные документы\r\nПоложение об оказании платных услуг\r\nПостановление Правительства № 706 \"Об утверждении Правил оказания платных образовательных услуг\"",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
-  }
-},
-{
-  "model": "content.contentblock",
-  "pk": 132,
-  "fields": {
-    "material": 35,
-    "block_type": "paragraph",
-    "order": 0,
-    "text": "Финансово-хозяйственная деятельность\r\n \r\nНормативные документы\r\nОтчет о финансовых результатах за 2022 год\r\nОтчет о финансовых результатах за 2023 год\r\nОтчет о финансовых результатах за 2024 год",
-    "items": [],
-    "image": "",
-    "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 },
 {
@@ -10697,7 +11952,8 @@
     "items": [],
     "image": "",
     "video": "",
-    "video_url": ""
+    "video_url": "",
+    "documents_section": ""
   }
 }
 ]
