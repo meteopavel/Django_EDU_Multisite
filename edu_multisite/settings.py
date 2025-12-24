@@ -2,10 +2,13 @@ import os
 
 from pathlib import Path
 
+from core.host_parser import get_allowed_hosts_from_map
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG_VALUE') == 'True'
-ALLOWED_HOSTS = ['*']
+HOST_TO_DEPARTMENT_MAP = os.getenv('HOST_TO_DEPARTMENT_MAP', '')
+ALLOWED_HOSTS = get_allowed_hosts_from_map(HOST_TO_DEPARTMENT_MAP)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -73,8 +76,6 @@ TIME_ZONE = 'Asia/Irkutsk'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
-HOST_TO_DEPARTMENT_MAP = os.getenv('HOST_TO_DEPARTMENT_MAP', '')
 
 if DEBUG:
     STATIC_URL = '/static/'

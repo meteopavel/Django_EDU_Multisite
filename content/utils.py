@@ -2,29 +2,17 @@ from django.conf import settings
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 
+from core.host_parser import parse_host_map
 from .models import News, Department
 
 
 def get_host_map():
-    host_map = {}
-    raw = settings.HOST_TO_DEPARTMENT_MAP
-    raw = raw.strip().replace('\\', '')
-    if not raw:
-        return host_map
-    for part in raw.splitlines():
-        part = part.strip()
-        if not part or ':' not in part:
-            continue
-        slug, hosts_str = part.split(':', 1)
-        slug = slug.strip()
-        hosts = [h.strip() for h in hosts_str.split(',') if h.strip()]
-        for host in hosts:
-            host_map[host.lower()] = slug
-    return host_map
+    return parse_host_map(settings.HOST_TO_DEPARTMENT_MAP)
 
 
 def get_department_by_host(request):
-    host = request.get_host().lower()
+    host_with_port = request.get_host()
+    host = host_with_port.split(':')[0].lower()
     department_slug = get_host_map().get(host)
     return get_object_or_404(Department, slug=department_slug, is_active=True)
 
