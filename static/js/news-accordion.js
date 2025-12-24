@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function restoreButtonText(btn) {
-        btn.innerHTML = 'Показать все новости&nbsp;';
+        btn.innerHTML = 'Все новости&nbsp;';
         const svgTemplate = document.getElementById('svg-show-all-template');
         if (svgTemplate && svgTemplate.firstElementChild) {
             const svgClone = svgTemplate.firstElementChild.cloneNode(true);
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateButtonTextToHide(btn) {
-        btn.innerHTML = 'Скрыть все новости&nbsp;';
+        btn.innerHTML = 'Скрыть&nbsp;';
         const svgTemplate = document.getElementById('svg-show-all-template');
         if (svgTemplate && svgTemplate.firstElementChild) {
             const svgClone = svgTemplate.firstElementChild.cloneNode(true);

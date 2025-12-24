@@ -30,7 +30,7 @@ body {
 @media (max-width: 768px) {
     .content__layout {
         max-width: 768px;
-        min-width: 375px;
+        min-width: 335px;
         margin: 0 auto;
         padding: 0 20px;
     }
