@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         titleEl.textContent = title;
                     }
                     // Обновляем кнопку на "Назад"
-                    showMoreBtn.innerHTML = 'К списку новостей&nbsp';
+                    showMoreBtn.innerHTML = 'Назад&nbsp';
                     showMoreBtn.classList.add('back-to-list-btn');
                     showMoreBtn.classList.remove('hide-news-btn');
                     const existingSvg = showMoreBtn.querySelector('svg');
