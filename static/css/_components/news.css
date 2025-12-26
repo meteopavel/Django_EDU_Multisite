@@ -56,13 +56,6 @@
     color: var(--text-color-contrast);
 }
 
-@media (max-width: 768px) {
-    .news-grid {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 24px;
-    }
-}
-
 .news-card:hover {
     transform: translateY(-5px);
 }
@@ -91,4 +84,17 @@
     background: var(--card-gradient-blue);
     min-height: 100px;
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 24px;
+    }
+    .news-card {
+        min-height: 300px;
+    }
+    .news-card__image img {
+        height: 300px;
+    }
 }

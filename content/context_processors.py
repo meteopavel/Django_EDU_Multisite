@@ -1,13 +1,18 @@
 from django.db import models
+from django.http import Http404
 
-from .models import MenuItem, Department
-from .utils import get_host_map
+from .models import MenuItem
+from .utils import get_department_by_host
 
 
 def menu_processor(request):
-    host = request.get_host().lower()
-    department_slug = get_host_map().get(host, 'bratsk')
-    department = Department.objects.get(slug=department_slug, is_active=True)
+    try:
+        department = get_department_by_host(request)
+    except Http404:
+        from .models import Department
+        department = Department.objects.filter(slug='bratsk', is_active=True).first()
+        if not department:
+            return {'menu_items': MenuItem.objects.none()}
     menu_items = MenuItem.objects.filter(
         is_active=True
     ).filter(
