@@ -9,3 +9,9 @@ nav .content__layout {
     justify-content: center;
     gap: 48px;
 }
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+}

@@ -1,7 +1,7 @@
 {% load static %}
 
 <header class="header">
-    <div class="content__layout {% if department.slug == "irkutsk" %}header-special{% endif %}">
+    <div class="content__layout {% if department.slug == "irkutsk" %}header-special{% else %}header-default{% endif %}">
         <a href="/"><img class="header_img" src="{% static 'img/logo.png' %}" /></a>
         {% if department.slug == "irkutsk" %}
             <div class="header__contacts_special">

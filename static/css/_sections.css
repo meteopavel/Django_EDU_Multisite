@@ -27,6 +27,18 @@
     align-items: center;
 }
 
+@media (max-width: 768px) {
+    .section {
+        padding-top: 60px;
+    }
+    .section__title {
+        margin-bottom: 40px;
+    }
+    .section:last-child {
+        padding-bottom: 60px;
+    }
+}
+
 
 
 

@@ -13,3 +13,10 @@
 .footer__contacts svg {
     color: var(--text-color-contrast);
 }
+
+@media (max-width: 768px) {
+    .footer .content__layout {
+        flex-direction: column;
+        gap: 24px;
+    }
+}

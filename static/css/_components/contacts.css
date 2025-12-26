@@ -44,3 +44,21 @@
 .bank-details {
     margin-top: 16px;
 }
+
+@media (max-width: 768px) {
+    .contacts__content {
+        flex-direction: column;
+    }
+    .contacts__map {
+        width: 100%;
+        min-height: 364px;
+    }
+    .contacts__info {
+        width: 100%;
+    }
+    .contacts__iframe {
+        width: 100%;
+        min-height: 364px;
+        height: 364px;
+    }
+}

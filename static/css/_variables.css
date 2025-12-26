@@ -38,3 +38,14 @@
     --card-gradient-red: linear-gradient(to bottom, rgba(229, 184, 193, 0.9), rgba(195, 0, 39, 0.9));
     --footer-gradient: linear-gradient(180deg, var(--background-color-blue) 0%, var(--background-color-dark-blue) 100%);
 }
+
+@media (max-width: 768px) {
+    :root {
+        --font-size-h1: 22px;
+        --font-size-h2: 22px;
+        --font-size-h3: 20px;
+        --font-size-h4: 18px;
+        --font-size-default: 18px;
+        --font-size-small: 14px;
+    }
+}

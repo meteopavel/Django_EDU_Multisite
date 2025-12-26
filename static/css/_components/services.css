@@ -5,7 +5,6 @@
 
 .services-grid-parking {
     grid-template-columns: repeat(2, 1fr);
-    min-height: 564px;
 }
 
 .services-grid-info_card {
@@ -38,6 +37,7 @@
 .service-card-parking {
     background-color: var(--background-color-blue);
     padding: 20px 20px 0 20px;
+    min-height: 564px;
 }
 
 .service-card-info_card {
@@ -87,4 +87,21 @@
 .service-card-icon svg {
     width: 70px;
     height: 70px;
+}
+
+@media (max-width: 768px) {
+    .services-grid-parking {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .services-grid-info_card {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .service-card-parking {
+        padding: 8px 8px 0 8px;
+        min-height: 364px;
+    }
+    .service-card-footer {
+        gap: 8px;
+        margin: 8px 0;
+    }
 }
