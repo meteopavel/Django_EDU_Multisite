@@ -4119,6 +4119,66 @@
   }
 },
 {
+  "model": "content.newsimage",
+  "pk": 645,
+  "fields": {
+    "news": 181,
+    "image": "news/gallery/dor_bezop_3_2.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 646,
+  "fields": {
+    "news": 181,
+    "image": "news/gallery/dor_bezop_3_3.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 647,
+  "fields": {
+    "news": 181,
+    "image": "news/gallery/dor_bezop_3_4.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 648,
+  "fields": {
+    "news": 181,
+    "image": "news/gallery/dor_bezop_3_5.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 649,
+  "fields": {
+    "news": 181,
+    "image": "news/gallery/dor_bezop_3_6.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 650,
+  "fields": {
+    "news": 181,
+    "image": "news/gallery/dor_bezop_3_7.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
   "model": "content.news",
   "pk": 66,
   "fields": {
@@ -6309,6 +6369,25 @@
     "is_partner_news": false,
     "is_active": true,
     "created_at": "2025-12-18T04:00:00Z",
+    "departments": [
+      1
+    ]
+  }
+},
+{
+  "model": "content.news",
+  "pk": 181,
+  "fields": {
+    "joomla_id": null,
+    "title": "Предновогодний урок «Дорожной безопасности»",
+    "slug": "prednovogodnij-urok-dorozhnoj-bezopasnosti",
+    "preview_text": "В Иркутске прошел предновогодний урок «Дорожной безопасности»",
+    "content": "Иркутское региональное отделение Всероссийского общества автомобилистов, в рамках совместного проекта компании «ЛЛК Лукойл» и Всероссийского общества автомобилистов, провели урок «Дорожной безопасности» для воспитанников детского сада \"Пивоваровский детский сад\". \r\n\r\nСказочные персонажи: Дед Мороз и Снегурочка повторили с воспитанниками детского сада правила безопасности пешехода и пассажира, вместе поучаствовали в викторине по ПДД, посмотрели мультик о правилах безопасного поведения на дороге «Лукоша». По окончании мероприятия все дети получили тематические подарки и сладкие призы.",
+    "main_image": "news/main/dor_bezop_3_1.jpg",
+    "video": "",
+    "is_partner_news": false,
+    "is_active": true,
+    "created_at": "2025-12-26T04:00:00Z",
     "departments": [
       1
     ]
