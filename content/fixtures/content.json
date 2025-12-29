@@ -489,6 +489,21 @@
   "fields": {
     "title": "Сведения об ОО",
     "url": "#education-info",
+    "order": 2,
+    "is_active": true,
+    "departments": [
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "content.menuitem",
+  "pk": 8,
+  "fields": {
+    "title": "Стоимость",
+    "url": "#pricing",
     "order": 1,
     "is_active": true,
     "departments": [
