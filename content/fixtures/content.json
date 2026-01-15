@@ -4194,6 +4194,66 @@
   }
 },
 {
+  "model": "content.newsimage",
+  "pk": 651,
+  "fields": {
+    "news": 182,
+    "image": "news/gallery/ded_moroz_2026_2.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 652,
+  "fields": {
+    "news": 182,
+    "image": "news/gallery/ded_moroz_2026_3.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 653,
+  "fields": {
+    "news": 182,
+    "image": "news/gallery/ded_moroz_2026_4.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 654,
+  "fields": {
+    "news": 182,
+    "image": "news/gallery/ded_moroz_2026_5.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 655,
+  "fields": {
+    "news": 182,
+    "image": "news/gallery/ded_moroz_2026_6.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 656,
+  "fields": {
+    "news": 182,
+    "image": "news/gallery/ded_moroz_2026_7.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
   "model": "content.news",
   "pk": 66,
   "fields": {
@@ -6403,6 +6463,25 @@
     "is_partner_news": false,
     "is_active": true,
     "created_at": "2025-12-26T04:00:00Z",
+    "departments": [
+      1
+    ]
+  }
+},
+{
+  "model": "content.news",
+  "pk": 182,
+  "fields": {
+    "joomla_id": null,
+    "title": "Полицейский Дед Мороз",
+    "slug": "policejskij-ded-moroz",
+    "preview_text": "В г.Иркутске прошла акция «Полицейский Дед Мороз»",
+    "content": "В рамках проведения акции «Полицейский Дед Мороз» Иркутское региональное отделение ВОА совместно с сотрудниками ГИБДД поздравили иркутян с наступающим Новым годом.\r\n\r\nПраздничный экипаж в составе полицейского Деда Мороза, Снегурочки и дорожных инспекторов останавливали водителей транспортных средств, напоминали о правилах дорожного движения, раздавали листовки, предлагали поучаствовать в импровизированной викторине на знания правил дорожного движения, а маленьким   пассажирам было предложено рассказать новогоднее стихотворение. Взамен, главные герои Нового года дарили иркутянам сладкие подарки и мандарины. \r\n\r\nАкция «Полицейский Дед Мороз» проходит на территории Приангарья несколько лет и уже стала доброй традицией.",
+    "main_image": "news/main/ded_moroz_2026_1.jpg",
+    "video": "",
+    "is_partner_news": false,
+    "is_active": true,
+    "created_at": "2026-01-14T04:00:00Z",
     "departments": [
       1
     ]
