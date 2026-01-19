@@ -4,9 +4,9 @@
     gap: 24px;
 }
 
-.exam-card:first-child {
-    grid-column: 1 / span 3;
-}
+/*.exam-card:first-child {*/
+/*    grid-column: 1 / span 3;*/
+/*}*/
 
 /* Карточка */
 .exam-card {
