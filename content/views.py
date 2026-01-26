@@ -31,6 +31,7 @@ def home_view(request, department):
             'address': details.address,
             'short_address': details.short_address,
             'phone': details.phone,
+            'cellphone': details.cellphone,
             'email': details.email,
             'map_center': details.map_center
         },

@@ -142,7 +142,7 @@
                                 <p class="pricing-note">Возможна рассрочка платежа</p>
                             {% elif department.slug == 'bratsk' %}
                                 <p><strong>Срок обучения — 3 месяца</strong></p>
-                                <p><strong>Полная стоимость — 60000 ₽</strong></p>
+                                <p><strong>Полная стоимость — 65000 ₽</strong></p>
                                 <p class="pricing-note">Возможна рассрочка платежа</p>
                             {% elif department.slug == 'ustkut' %}
                                 <p><strong>Теория — 30000 ₽</strong></p>
@@ -332,7 +332,7 @@
                                     {% endfor %}
                                 </ul>
                                 <h4 class="section__card_title">{% include "icons/icon_phone.svg" %}Телефон:</h4>
-                                <p>{{ contacts_data.phone }}</p>
+                                <p>{{ contacts_data.phone }}<br>{{ contacts_data.cellphone }}</p>
                                 <h4 class="section__card_title">{% include "icons/icon_mail.svg" %}E-mail:</h4>
                                 <p>{{ contacts_data.email }}</p>
                             </div>

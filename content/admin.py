@@ -29,7 +29,7 @@ class DepartmentDetailsAdminForm(forms.ModelForm):
 @admin.register(DepartmentDetails)
 class DepartmentDetailsAdmin(admin.ModelAdmin):
     form = DepartmentDetailsAdminForm
-    list_display = ('department', 'phone', 'email', 'inn', 'show_contacts')
+    list_display = ('department', 'phone', 'email', 'cellphone', 'inn', 'show_contacts')
     search_fields = ('department__name', 'address', 'email')
 
     def get_fieldsets(self, request, obj=None):
@@ -40,7 +40,7 @@ class DepartmentDetailsAdmin(admin.ModelAdmin):
                 'fields': ('department',) + tuple(show_fields),
             }),
             ('Контакты', {
-                'fields': ('address', 'short_address', 'phone', 'email', 'website'),
+                'fields': ('address', 'short_address', 'phone', 'cellphone', 'email', 'website'),
                 'classes': ('collapse',)
             }),
             ('Реквизиты', {

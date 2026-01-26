@@ -1,3 +1,6 @@
 <a class="img_link" href="#">{% include "icons/icon_address.svg" %}{{ contacts_data.short_address }}</a>
 <a class="img_link" href="#">{% include "icons/icon_phone.svg" %}{{ contacts_data.phone }}</a>
+{% if contacts_data.cellphone %}
+    <a class="img_link" href="#">{% include "icons/icon_cellphone.svg" %}{{ contacts_data.cellphone }}</a>
+{% endif %}
 <a class="img_link" href="#">{% include "icons/icon_mail.svg" %}{{ contacts_data.email }}</a>

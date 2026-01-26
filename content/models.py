@@ -42,6 +42,7 @@ class DepartmentDetails(models.Model):
     address = models.TextField('Адрес', blank=True)
     short_address = models.CharField('Короткий адрес', max_length=200, blank=True)
     phone = models.CharField('Телефон', max_length=50, blank=True)
+    cellphone = models.CharField('Сотовый телефон', max_length=50, blank=True)
     email = models.EmailField('Email', blank=True)
     website = models.URLField('Сайт', blank=True)
 
