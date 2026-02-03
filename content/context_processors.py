@@ -1,3 +1,6 @@
+from pathlib import Path
+
+from django.conf import settings
 from django.db import models
 from django.http import Http404
 
@@ -19,3 +22,16 @@ def menu_processor(request):
         models.Q(departments__isnull=True) | models.Q(departments=department)
     ).distinct().order_by('order')
     return {'menu_items': menu_items}
+
+
+def static_version(request):
+    static_dir = Path(settings.BASE_DIR) / 'static'
+    try:
+        files = list(static_dir.rglob('*'))
+        if files:
+            latest = max(f.stat().st_mtime for f in files if f.is_file())
+            return {'STATIC_VERSION': str(int(latest))}
+    except:
+        pass
+
+    return {'STATIC_VERSION': '1'}
