@@ -79,11 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // ОБРАБОТЧИК POPSTATE
     // ========================================
     window.addEventListener('popstate', function(event) {
-        console.log('popstate обработан:', event.state);
 
         // Блокируем повторные вызовы во время обработки
         if (isProcessingHistory) {
-            console.log('Пропускаем popstate - уже обрабатывается');
             return;
         }
 
