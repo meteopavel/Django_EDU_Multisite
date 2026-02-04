@@ -20,3 +20,29 @@ img {
 .hidden {
     display: none !important;
 }
+
+.special #contacts__map *,
+.special .service-card-parking *
+{
+    background-color: transparent !important;
+}
+
+.special .ymaps-2-1-79-float-button,
+.special .ymaps-2-1-79-listbox__button,
+.special .ymaps-2-1-79-listbox__list {
+    border: 1px solid #000000 !important;
+}
+
+.special .ymaps-2-1-79-listbox__list-item-text {
+    color: #000000 !important;
+}
+
+.special .ymaps-2-1-79-float-button-icon,
+.special .ymaps-2-1-79-listbox__button-icon {
+    border: transparent !important;
+}
+
+.special .ymaps-2-1-79-copyright__text,
+.special .ymaps-2-1-79-copyright__link {
+    color: #000000 !important;
+}

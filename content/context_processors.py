@@ -33,5 +33,4 @@ def static_version(request):
             return {'STATIC_VERSION': str(int(latest))}
     except:
         pass
-
     return {'STATIC_VERSION': '1'}
