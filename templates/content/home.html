@@ -24,24 +24,61 @@
         <section id="exam-info" class="section exam-info">
             <div class="content__layout">
                 {%  if department.slug == 'irkutsk' %}
+                    <!-- АКЦИЯ - отдельная карточка вне сетки (как в Усть-Куте) -->
+    <style>
+        @media (max-width: 768px) {
+            .promo-card {
+                flex-direction: column !important;
+            }
+            .promo-card .image-container {
+                width: 100% !important;
+                max-width: none !important;
+                max-height: 250px !important;
+            }
+            .promo-card .content-block {
+                padding: 15px !important;
+            }
+            .promo-card h3 {
+                font-size: 18px !important;
+            }
+            .promo-card p,
+            .promo-card li {
+                font-size: 16px !important;
+            }
+            .promo-card .highlight-price {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+
+    <div class="promo-card" style="display: flex; align-items: stretch; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 24px;">
+        <div class="image-container" style="flex-shrink: 0; width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden">
+            <img src="media/ads-irkutsk.jpg" alt="Акция 23 февраля" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div class="content-block" style="flex: 1; padding: 20px;">
+            <div style="margin-bottom: 15px;">
+                <h3 style="margin: 0 0 10px 0; color: #C30027; font-size: 22px; font-weight: 700;">🎁 АКЦИЯ К 23 ФЕВРАЛЯ И 8 МАРТА: ТЕОРИЯ БЕСПЛАТНО!</h3>
+                <p style="margin: 0 0 10px 0; color: #666; font-size: 18px; line-height: 1.6;">Подарите себе уверенность за рулём к весне! <strong>Только до 10 марта 2026 года</strong> мы полностью оплачиваем теоретический курс за вас.</p>
+            </div>
+
+            <p class="highlight-price" style="color: #C30027; font-weight: bold; font-size: 24px; margin: 15px 0;">Ваша выгода — 8000 рублей!</p>
+
+            <div style="margin-bottom: 15px;">
+                <ul style="margin: 0; padding-left: 20px; color: #555; font-size: 18px; line-height: 1.8;">
+                    <li><strong style="color: #28a745;">✓ Экономия</strong> — реальная скидка от стоимости обучения</li>
+                    <li><strong style="color: #28a745;">✓ Быстрый старт</strong> — не ждите набора группы</li>
+                    <li><strong style="color: #28a745;">✓ Фокус на практике</strong> — сэкономленные деньги можно вложить в дополнительные часы вождения</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #C30027;">
+                <p style="margin: 0; color: #333; font-size: 18px;"><strong>📅 Успейте записаться до 10.03.2026!</strong><br>
+                Количество мест по акции ограничено.</p>
+            </div>
+        </div>
+    </div>
                     <!-- Карточки -->
                     <div class="exam-cards" data-accordion-group="material-cards">
-                        <!-- Акция! -->
-    {#                    <div class="exam-card">#}
-    {#                        <div class="exam-card-header">#}
-    {#                            <div class="exam-card-icon">#}
-    {#                                {% include "icons/icon_sales.svg" %}#}
-    {#                            </div>#}
-    {#                            <h1 class="header__title">Режим работы автошколы в новогодние каникулы</h1>#}
-    {#                        </div>#}
-    {#                        <div class="exam-card-content">#}
-    {#                            <p>Администрация (офис) – с 31 декабря 2025г. до 11 января 2026. - выходные дни. С 12 января 2026 г. работаем по расписанию.</p>#}
-    {#                            <p>Инструктора по вождению работают в соответствии с графиком записи на вождение.</p>#}
-    {#                            <p>Лекции по теории начнутся с 17 января 2026.</p>#}
-    {#                            <p><strong>Для желающих записаться на вождение в новогодние праздники просьба  проверить наличие баланса в личном кабинете, при необходимости произвести оплату до 28 декабря.</strong></p>#}
-    {#                        </div>#}
-    {#                    </div>#}
-
                         <!-- Для учеников других автошкол -->
                         <div class="exam-card">
                             <div class="exam-card-header">
