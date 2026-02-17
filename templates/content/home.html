@@ -23,83 +23,140 @@
     {% if show_exam_info %}
         <section id="exam-info" class="section exam-info">
             <div class="content__layout">
-                <!-- Карточки -->
-                <div class="exam-cards" data-accordion-group="material-cards">
-                    <!-- Акция! -->
-{#                    <div class="exam-card">#}
-{#                        <div class="exam-card-header">#}
-{#                            <div class="exam-card-icon">#}
-{#                                {% include "icons/icon_sales.svg" %}#}
-{#                            </div>#}
-{#                            <h1 class="header__title">Режим работы автошколы в новогодние каникулы</h1>#}
-{#                        </div>#}
-{#                        <div class="exam-card-content">#}
-{#                            <p>Администрация (офис) – с 31 декабря 2025г. до 11 января 2026. - выходные дни. С 12 января 2026 г. работаем по расписанию.</p>#}
-{#                            <p>Инструктора по вождению работают в соответствии с графиком записи на вождение.</p>#}
-{#                            <p>Лекции по теории начнутся с 17 января 2026.</p>#}
-{#                            <p><strong>Для желающих записаться на вождение в новогодние праздники просьба  проверить наличие баланса в личном кабинете, при необходимости произвести оплату до 28 декабря.</strong></p>#}
-{#                        </div>#}
-{#                    </div>#}
+                {%  if department.slug == 'irkutsk' %}
+                    <!-- Карточки -->
+                    <div class="exam-cards" data-accordion-group="material-cards">
+                        <!-- Акция! -->
+    {#                    <div class="exam-card">#}
+    {#                        <div class="exam-card-header">#}
+    {#                            <div class="exam-card-icon">#}
+    {#                                {% include "icons/icon_sales.svg" %}#}
+    {#                            </div>#}
+    {#                            <h1 class="header__title">Режим работы автошколы в новогодние каникулы</h1>#}
+    {#                        </div>#}
+    {#                        <div class="exam-card-content">#}
+    {#                            <p>Администрация (офис) – с 31 декабря 2025г. до 11 января 2026. - выходные дни. С 12 января 2026 г. работаем по расписанию.</p>#}
+    {#                            <p>Инструктора по вождению работают в соответствии с графиком записи на вождение.</p>#}
+    {#                            <p>Лекции по теории начнутся с 17 января 2026.</p>#}
+    {#                            <p><strong>Для желающих записаться на вождение в новогодние праздники просьба  проверить наличие баланса в личном кабинете, при необходимости произвести оплату до 28 декабря.</strong></p>#}
+    {#                        </div>#}
+    {#                    </div>#}
 
-                    <!-- Для учеников других автошкол -->
-                    <div class="exam-card">
-                        <div class="exam-card-header">
-                            <div class="exam-card-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                                </svg>
+                        <!-- Для учеников других автошкол -->
+                        <div class="exam-card">
+                            <div class="exam-card-header">
+                                <div class="exam-card-icon">
+                                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="section__subtitle">СРОЧНО!</h3>
                             </div>
-                            <h3 class="section__subtitle">СРОЧНО!</h3>
-                        </div>
-                        <div class="exam-card-content">
-                            <p style="color: #C30027"><strong>ПРИНИМАЕМ УЧЕНИКОВ ДРУГИХ АВТОШКОЛ НА СДАЧУ ЭКЗАМЕНА В ГИБДД!</strong></p>
-                            <p><strong>ТАК ВЫ БЫСТРЕЕ ПОПАДЕТЕ НА ЭКЗАМЕН!</strong></p>
-                            <p><strong>НОВЫЙ АВТОПАРК И ОПЫТНЫЕ ИНСТРУКТОРА!</strong></p>
-                            <p><strong>ДОСТУПНЫЕ ЦЕНЫ!</strong></p>
-                        </div>
-                    </div>
-
-                    <!-- Информация об экзамене! -->
-                    <div class="exam-card exam-card-accordion"
-                         data-material-slug="exameny">
-                        <div class="exam-card-header">
-                            <div class="exam-card-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                                </svg>
+                            <div class="exam-card-content">
+                                <p style="color: #C30027"><strong>ПРИНИМАЕМ УЧЕНИКОВ ДРУГИХ АВТОШКОЛ НА СДАЧУ ЭКЗАМЕНА В ГИБДД!</strong></p>
+                                <p><strong>ТАК ВЫ БЫСТРЕЕ ПОПАДЕТЕ НА ЭКЗАМЕН!</strong></p>
+                                <p><strong>НОВЫЙ АВТОПАРК И ОПЫТНЫЕ ИНСТРУКТОРА!</strong></p>
+                                <p><strong>ДОСТУПНЫЕ ЦЕНЫ!</strong></p>
                             </div>
-                            <h3 class="section__subtitle">Информация об экзаменах!</h3>
                         </div>
-                        <div class="exam-card-content">
-                            <p>График контрольных мероприятий для группы <strong>201</strong></p>
-                            <p>Квалификационный экзамен (теоретический): <strong>03.02.2025 г.</strong></p>
-                            <p>Квалификационный экзамен (практический) по вождению автомобиля: <strong>04.02.2025 г.</strong></p>
-                            <p>Экзамен в ГИБДД: <strong>12.02.2026 г. – в 8:00</strong></p>
-                            <p><strong>Кликните по карточке для подробностей</strong></p>
-                        </div>
-                    </div>
 
-                    <!-- Внимание! -->
-                    <div class="exam-card">
-                        <div class="exam-card-header">
-                            <div class="exam-card-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                                </svg>
+                        <!-- Информация об экзамене! -->
+                        <div class="exam-card exam-card-accordion"
+                             data-material-slug="exameny">
+                            <div class="exam-card-header">
+                                <div class="exam-card-icon">
+                                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="section__subtitle">Информация об экзаменах!</h3>
                             </div>
-                            <h3 class="section__subtitle">Занятия в автошколе!</h3>
+                            <div class="exam-card-content">
+                                <p>График контрольных мероприятий для группы <strong>202</strong></p>
+                                <p>Квалификационный экзамен (теоретический): <strong>17.02.2025 г.</strong></p>
+                                <p>Квалификационный экзамен (практический) по вождению автомобиля: <strong>18.02.2025 г.</strong></p>
+                                <p>Экзамен в ГИБДД: <strong>26.02.2026 г. – в 8:45</strong></p>
+                                <p><strong>Кликните по карточке для подробностей</strong></p>
+                            </div>
                         </div>
-                        <div class="exam-card-content">
-                            <p>22 января с 17:00 до 20:00 в Автошколе будут проводиться занятия по <strong>Медицине</strong></p>
-                            <p>1 февраля с 9:00 до 12:00 в Автошколе будут проводиться занятия по <strong>Психологии</strong></p>
-                            <p>Запись на занятия по телефону <strong>22-40-50</strong> либо при посещении офиса Автошколы</p>
-                        </div>
-                    </div>
 
-                    <div class="material-description-block" style="display: none;">
-                        <div class="material-description-content"></div>
+                        <!-- Внимание! -->
+                        <div class="exam-card">
+                            <div class="exam-card-header">
+                                <div class="exam-card-icon">
+                                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="section__subtitle">Занятия в автошколе!</h3>
+                            </div>
+                            <div class="exam-card-content">
+                                <p>22 января с 17:00 до 20:00 в Автошколе будут проводиться занятия по <strong>Медицине</strong></p>
+                                <p>1 февраля с 9:00 до 12:00 в Автошколе будут проводиться занятия по <strong>Психологии</strong></p>
+                                <p>Запись на занятия по телефону <strong>22-40-50</strong> либо при посещении офиса Автошколы</p>
+                            </div>
+                        </div>
+
+                        <div class="material-description-block" style="display: none;">
+                            <div class="material-description-content"></div>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
+                {%  if department.slug == 'ustkut' %}
+                    <style>
+                        @media (max-width: 768px) {
+                            .exam-card {
+                                flex-direction: column !important;
+                            }
+                            .exam-card .image-container {
+                                width: 100% !important;
+                                max-height: 250px;
+                            }
+                            .exam-card .content-block {
+                                padding: 15px !important;
+                            }
+                            .exam-card h3 {
+                                font-size: 18px !important;
+                            }
+                            .exam-card p {
+                                font-size: 14px !important;
+                            }
+                        }
+                    </style>
+
+                    <div class="exam-card" style="display: flex; align-items: stretch; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div class="image-container" style="flex-shrink: 0; width: 100%; max-width: 400px; border-radius: 8px; overflow: hidden">
+                            <img src="media/ads-ustkut.jpg" alt="Автошкола ВОА" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                        <div class="content-block" style="flex: 1; padding: 20px;">
+                            <div style="margin-bottom: 15px;">
+                                <h3 style="margin: 0 0 10px 0; color: #C30027; font-size: 20px;">🎁 ПОДАРОЧНЫЕ СЕРТИФИКАТЫ НА ОБУЧЕНИЕ ВОЖДЕНИЮ!</h3>
+                                <p style="margin: 0 0 10px 0; color: #666; font-size: 16px;">В преддверии 23 февраля и 8 марта подарите не очередной сувенир, а настоящую независимость и уверенность за рулём!</p>
+                            </div>
+
+                            <div style="margin-bottom: 15px;">
+                                <h4 style="margin: 0 0 10px 0; color: #333; font-size: 16px;">Почему это идеальный подарок?</h4>
+                                <ul style="margin: 0; padding-left: 20px; color: #555; font-size: 14px; line-height: 1.6;">
+                                    <li><strong style="color: #28a745;">✓ Практичный</strong> — навык на всю жизнь</li>
+                                    <li><strong style="color: #28a745;">✓ Эмоциональный</strong> — первые самостоятельные поездки не забываются</li>
+                                    <li><strong style="color: #28a745;">✓ Персональный</strong> — можно выбрать удобное время обучения</li>
+                                    <li><strong style="color: #28a745;">✓ Универсальный</strong> — подходит и мужчинам, и женщинам</li>
+                                    <li><strong style="color: #28a745;">✓ Профессиональный</strong> — получите профессию водителя</li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 8px;">
+                                <p style="margin: 0 0 8px 0; color: #333; font-size: 16px;"><strong>Современные автомобили, опытные инструктора, удобный график занятий и качественная подготовка к экзамену</strong> — всё, чтобы уверенно получить права и сесть за руль.</p>
+                                <p style="margin: 0; color: #C30027; font-size: 16px;"><strong>🎁 Подарите возможность управлять своей дорогой!</strong></p>
+                            </div>
+
+                            <div style="border-top: 1px solid #eee; padding-top: 10px;">
+                                <p style="margin: 0 0 5px 0; color: #C30027; font-size: 15px; font-weight: bold;">⏰ Количество сертификатов ограничено — успейте порадовать близких к праздникам!</p>
+                                <p style="margin: 0; color: #666; font-size: 15px;"><strong>Тел.</strong> 89041197431 <strong>ул. Речников, 39</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </section>
     {% endif %}
