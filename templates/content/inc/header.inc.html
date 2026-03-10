@@ -15,6 +15,7 @@
             <div class="header_main_part">
                 <a href="/"><h1 class="header__title">{{ department.details.meta_title }}<br>{{ department.details.meta_description }}</h1></a>
                 <div class="header_department_links">
+                    <a class="img_link" href="https://voa.ru"><img src="{% static 'img/icon_moscow.png' %}" />Центральный совет</a>
                     {% if not department.slug == "region" %}<a class="img_link" href="https://voa-irkutsk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Региональное отделение</a>{% endif %}
                     {% if not department.slug == "irkutsk" %}<a class="img_link" href="https://voa-irk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Иркутская автошкола</a>{% endif %}
                     {% if not department.slug == "ustkut" %}<a class="img_link" href="https://xn----7sbf8aruhbfd1h.xn--p1ai"><img src="{% static 'img/icon_ustkut.png' %}" />Усть-Кутское отделение</a>{% endif %}

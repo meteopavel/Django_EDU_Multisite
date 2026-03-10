@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    min-width: 720px;
+    min-width: 900px;
 }
 
 .header__contacts_special {
@@ -110,7 +110,7 @@
 
     .header-default .accessibility {
         align-self: flex-end;
-        margin-top: -375px;
-        margin-bottom: 300px;
+        margin-top: -420px;
+        margin-bottom: 350px;
     }
 }
