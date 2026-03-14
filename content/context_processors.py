@@ -34,3 +34,7 @@ def static_version(request):
     except:
         pass
     return {'STATIC_VERSION': '1'}
+
+
+def yandex_maps(request):
+    return {'YANDEX_MAPS_API_KEY': getattr(settings, 'YANDEX_MAPS_API_KEY', ''),}

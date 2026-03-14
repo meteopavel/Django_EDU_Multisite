@@ -33,11 +33,10 @@
         <div class="modal-caption" id="modal-caption"></div>
     </div>
 
-    <script src="{% static 'js/news-accordion.js' %}?v={{ STATIC_VERSION }}"></script>
-    <script src="{% static 'js/partner-news-accordion.js' %}?v={{ STATIC_VERSION }}"></script>
-    <script src="{% static 'js/maps-init.js' %}?v={{ STATIC_VERSION }}"></script>
-    <script src="{% static 'js/documents-accordion.js' %}?v={{ STATIC_VERSION }}"></script>
-    <script src="{% static 'js/material-description.js' %}?v={{ STATIC_VERSION }}"></script>
-    <script src="{% static 'js/image-modal.js' %}?v={{ STATIC_VERSION }}"></script>
+    <script>
+        window.APP_CONFIG = window.APP_CONFIG || {};
+        window.APP_CONFIG.YANDEX_MAPS_API_KEY = "{{ YANDEX_MAPS_API_KEY }}";
+    </script>
+    <script src="{% static 'js/app.js' %}?v={{ STATIC_VERSION }}" type="module"></script>
 </body>
 </html>
