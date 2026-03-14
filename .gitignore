@@ -8,6 +8,7 @@ media/
 # Secrets
 .env
 deploy.sh
+deploy-local.sh
 
 # Python
 __pycache__/
