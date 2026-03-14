@@ -1,4 +1,14 @@
-import { fetchJSON, withErrorHandling, LOADING_HTML } from '../lib/ajax.js';
+import { DetailLoader } from '../components/detail-loader.js';
+
+
+function createHideButton(onClick) {
+    const btn = document.createElement('button');
+    btn.className = 'material-close-button';
+    btn.textContent = 'Скрыть';
+    btn.type = 'button';
+    btn.addEventListener('click', onClick);
+    return btn;
+}
 
 
 export function initMaterials() {
@@ -7,72 +17,41 @@ export function initMaterials() {
     groups.forEach(group => {
         const cards = group.querySelectorAll('[data-material-slug]');
         const descBlock = group.querySelector('.material-description-block');
-        const descContent = group.querySelector('.material-description-content')
+        const descContent = group.querySelector('.material-description-content');
         if (!descBlock || !descContent) return;
-        let currentlyOpenSlug = null;
-        const sectionHeader = group.closest('.section')?.querySelector('.section__header') ||
-                              group.closest('.section') ||
-                              group;
+        const sectionHeader = group.closest('.section')?.querySelector('.section__header') || group;
+        const materialLoader = new DetailLoader({
+            container: descContent,
+            button: null,
+            title: null,
+            baseUrl: window.location.pathname,
+            endpoint: '/ajax/material-description/',
+            config: {
+                label: 'материал',
+                useHistory: false,
+                backText: 'Скрыть',
+                restoreText: '',
+                slugInPath: true,
+                onLoaded: (container) => {
+                    container.appendChild(createHideButton(() => {
+                        descBlock.style.display = 'none';
+                        sectionHeader?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }));
+                    descBlock.style.display = 'block';
+                    descBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
         cards.forEach(card => {
             card.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A' && !e.target.hasAttribute('data-material-slug')) {
-                    return;
-                }
-                const materialSlug = this.dataset.materialSlug;
-                if (currentlyOpenSlug === materialSlug) {
+                if (e.target.closest('a') && !e.target.closest('a[data-material-slug]')) return;                const slug = this.dataset.materialSlug;
+                if (descBlock.style.display === 'block' && materialLoader.currentSlug === slug) {
                     descBlock.style.display = 'none';
-                    currentlyOpenSlug = null;
-                    sectionHeader?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     return;
                 }
-                currentlyOpenSlug = materialSlug;
-                descBlock.style.display = 'none';
-                descContent.innerHTML = LOADING_HTML;
-                loadMaterialDescription(
-                    materialSlug,
-                    descContent,
-                    descBlock,
-                    sectionHeader,
-                    () => { currentlyOpenSlug = null; }
-                );
-            });
-            const links = card.querySelectorAll('a[data-material-slug]');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    card.click();
-                });
+                sectionHeader?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                materialLoader.load(slug, {}, false);
             });
         });
     });
-}
-
-
-async function loadMaterialDescription(slug, contentEl, blockEl, sectionHeader, onClose) {
-    try {
-        const data = await fetchJSON(`/ajax/material-description/${slug}/`);
-        if (data.success && data.html) {
-            contentEl.innerHTML = data.html;
-            const closeButton = document.createElement('button');
-            closeButton.className = 'material-close-button';
-            closeButton.textContent = 'Скрыть';
-            closeButton.type = 'button';
-            closeButton.addEventListener('click', function() {
-                blockEl.style.display = 'none';
-                if (typeof onClose === 'function') onClose();
-                sectionHeader?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-            contentEl.appendChild(closeButton);
-            blockEl.style.display = 'block';
-            blockEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            const { onSuccess } = withErrorHandling(contentEl, 'материал');
-            onSuccess(data, () => {});
-            blockEl.style.display = 'block';
-        }
-    } catch (err) {
-        const { onError } = withErrorHandling(contentEl, 'материал');
-        onError(err);
-        blockEl.style.display = 'block';
-    }
 }

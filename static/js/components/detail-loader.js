@@ -21,12 +21,19 @@ export class DetailLoader {
     }
     async load(slug, params = {}, addToHistory = true) {
         this.currentSlug = slug;
-        this.currentParams = params;
         this.container.innerHTML = LOADING_HTML;
         this._updateButton({ text: 'Загрузка...', loading: true });
         try {
-            const queryParams = new URLSearchParams({ slug, ...params }).toString();
-            const data = await fetchJSON(`${this.endpoint}?${queryParams}`);
+            let url;
+            if (this.config.slugInPath) {
+                url = Object.keys(params).length > 0
+                    ? `${this.endpoint}${slug}/?${new URLSearchParams(params)}`
+                    : `${this.endpoint}${slug}/`;
+            } else {
+                const queryParams = new URLSearchParams({ slug, ...params }).toString();
+                url = `${this.endpoint}?${queryParams}`;
+            }
+            const data = await fetchJSON(url);
             if (data.success && data.html) {
                 this.container.innerHTML = data.html;
                 this._updateTitleFromContent(data.html);
@@ -44,6 +51,7 @@ export class DetailLoader {
                 this.container.innerHTML = getErrorHTML(this.config.label);
             }
         } catch (err) {
+            if (err.name === 'AbortError') return;
             console.error(`AJAX error (${this.config.label}):`, err);
             this.container.innerHTML = getErrorHTML(this.config.label);
         }

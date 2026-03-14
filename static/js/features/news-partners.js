@@ -1,16 +1,7 @@
 import { DetailLoader } from '../components/detail-loader.js';
 import { fetchWithFeedback } from '../lib/ajax.js';
 import { updateButton } from '../lib/svg.js';
-
-const SELECTORS = {
-    newsContainer: 'news-content-container',
-    newsButton: '.show-more-news',
-    newsTitle: 'news-section-title',
-    partnersContainer: 'partners-content-container',
-    partnersButton: '.show-all-partner-news-btn',
-    partnersTitle: '#partners .section__title',
-    svgTemplate: 'svg-show-all-template'
-};
+import { SELECTORS } from '../lib/constants.js';
 
 let newsLoader = null;
 let partnersLoader = null;
