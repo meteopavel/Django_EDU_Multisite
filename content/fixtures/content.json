@@ -12338,5 +12338,29 @@
     "video_url": "",
     "documents_section": ""
   }
+},
+{
+  "model": "content.examinfo",
+  "pk": 1,
+  "fields": {
+    "department": 2,
+    "group_number": 205,
+    "theory_date": "2026-03-31",
+    "practice_date": "2026-04-01",
+    "gibdd_date": "2026-04-04",
+    "gibdd_time": "07:45:00"
+  }
+},
+{
+  "model": "content.examinfo",
+  "pk": 2,
+  "fields": {
+    "department": 2,
+    "group_number": 204,
+    "theory_date": "2026-03-24",
+    "practice_date": "2026-03-25",
+    "gibdd_date": "2026-04-04",
+    "gibdd_time": "07:45:00"
+  }
 }
 ]
