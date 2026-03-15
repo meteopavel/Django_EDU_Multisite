@@ -78,7 +78,7 @@
 {#        </div>#}
 {#    </div>#}
                     <!-- Карточки -->
-                    <div class="exam-cards" data-accordion-group="material-cards">
+                    <div class="exam-cards" data-accordion-group="material-cards" data-department="{{ department.slug }}">
                         <!-- Для учеников других автошкол -->
                         <div class="exam-card">
                             <div class="exam-card-header">
@@ -98,8 +98,7 @@
                         </div>
 
                         <!-- Информация об экзамене! -->
-                        <div class="exam-card exam-card-accordion"
-                             data-material-slug="exameny">
+                        <div class="exam-card exam-card-accordion" data-material-slug="exameny">
                             <div class="exam-card-header">
                                 <div class="exam-card-icon">
                                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -109,11 +108,71 @@
                                 <h3 class="section__subtitle">Информация об экзаменах!</h3>
                             </div>
                             <div class="exam-card-content">
-                                <p>График контрольных мероприятий для группы <strong>203</strong></p>
-                                <p>Квалификационный экзамен (теоретический): <strong>03.03.2025 г.</strong></p>
-                                <p>Квалификационный экзамен (практический) по вождению автомобиля: <strong>04.03.2025 г.</strong></p>
-                                <p>Экзамен в ГИБДД: <strong>10.03.2026 г. – в 8:45</strong></p>
-                                <p><strong>Кликните по карточке для подробностей</strong></p>
+                                {% if has_exams and exam_preview %}
+                                    {% if exam_preview|length == 1 %}
+                                        {% with exam=exam_preview.0 %}
+                                        <div style="padding: 10px 0;">
+                                            <p style="margin: 0 0 10px 0; font-size: 1.05em; color: #C30027; font-weight: bold;">
+                                                Группа {{ exam.group_number }}
+                                            </p>
+                                            <p style="margin: 6px 0; font-size: 0.95em;">
+                                                <span style="color: #666;">Теория:</span>
+                                                <strong>{{ exam.theory_date|date:"d.m.Y" }}</strong>
+                                            </p>
+                                            {% if exam.practice_date %}
+                                            <p style="margin: 6px 0; font-size: 0.95em;">
+                                                <span style="color: #666;">Практика:</span>
+                                                <strong>{{ exam.practice_date|date:"d.m.Y" }}</strong>
+                                            </p>
+                                            {% endif %}
+                                            {% if exam.gibdd_date %}
+                                            <p style="margin: 6px 0; font-size: 0.95em;">
+                                                <span style="color: #666;">ГИБДД:</span>
+                                                <strong>{{ exam.gibdd_date|date:"d.m.Y" }}</strong>
+                                            </p>
+                                            {% endif %}
+                                        </div>
+                                        {% endwith %}
+                                    {% else %}
+                                        <table style="width: 100%; font-size: 0.85em; border-collapse: collapse;">
+                                            <thead>
+                                                <tr style="border-bottom: 2px solid #C30027;">
+                                                    <th style="text-align: left; padding: 6px 4px; color: #C30027;">Группа</th>
+                                                    <th style="text-align: left; padding: 6px 4px; color: #C30027;">Теория</th>
+                                                    <th style="text-align: left; padding: 6px 4px; color: #C30027;">Практика</th>
+                                                    <th style="text-align: left; padding: 6px 4px; color: #C30027;">ГИБДД</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for exam in exam_preview %}
+                                                <tr style="border-bottom: 1px dashed #ddd;">
+                                                    <td style="padding: 8px 4px; font-weight: bold;">{{ exam.group_number }}</td>
+                                                    <td style="padding: 8px 4px;">{{ exam.theory_date|date:"d.m.Y" }}</td>
+                                                    <td style="padding: 8px 4px;">
+                                                        {% if exam.practice_date %}
+                                                            {{ exam.practice_date|date:"d.m.Y" }}
+                                                        {% else %}
+                                                            —
+                                                        {% endif %}
+                                                    </td>
+                                                    <td style="padding: 8px 4px;">
+                                                        {% if exam.gibdd_date %}
+                                                            {{ exam.gibdd_date|date:"d.m.Y" }}
+                                                        {% else %}
+                                                            —
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    {% endif %}
+                                    <p style="margin-top: 10px; font-size: 0.8em; color: #999; text-align: center;">
+                                        ← Кликните для подробностей
+                                    </p>
+                                {% else %}
+                                    <p>Загрузка...</p>
+                                {% endif %}
                             </div>
                         </div>
 

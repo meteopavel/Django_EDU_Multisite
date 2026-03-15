@@ -4,10 +4,11 @@ import shutil
 from django import forms
 from django.conf import settings
 from django.contrib import admin
+from django.utils import timezone
 from django.utils.html import format_html
 
 from .models import Department, DepartmentDetails, MenuItem, NewsImage, News, Document, DocumentCategory, Service, \
-    ContentBlock, Material
+    ContentBlock, Material, ExamInfo
 
 
 @admin.register(Department)
@@ -263,8 +264,42 @@ class ContentBlockInline(admin.TabularInline):
     extra = 1
     fields = ('block_type', 'order', 'text', 'items', 'image', 'video', 'video_url', 'documents_section')
 
+
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
     inlines = [ContentBlockInline]
     list_display = ['title', 'department']
     list_filter = ['department']
+
+
+@admin.register(ExamInfo)
+class ExamInfoAdmin(admin.ModelAdmin):
+    list_display = [
+        'group_number',
+        'theory_date',
+        'practice_date',
+        'gibdd_date',
+        'gibdd_time',
+        'is_expired_col',
+    ]
+
+    search_fields = ['group_number']
+    ordering = ['group_number', 'gibdd_date']
+
+    fieldsets = (
+        ('Основная информация', {
+            'fields': ('department', 'group_number'),
+            'description': 'Информация для одной группы'
+        }),
+        ('Даты экзаменов', {
+            'fields': ('theory_date', 'practice_date', 'gibdd_date', 'gibdd_time'),
+            'description': 'Практический экзамен обычно на следующий день после теоретического. Сбор за час до ГИБДД.'
+        }),
+    )
+
+    def is_expired_col(self, obj):
+        if obj.is_expired():
+            return format_html('<span style="color: red; font-weight: bold;">✓ Просрочен</span>')
+        return format_html('<span style="color: green; font-weight: bold;">✓ Актуален</span>')
+
+    is_expired_col.short_description = 'Статус'

@@ -20,37 +20,41 @@ export function initMaterials() {
         const descContent = group.querySelector('.material-description-content');
         if (!descBlock || !descContent) return;
         const sectionHeader = group.closest('.section')?.querySelector('.section__header') || group;
-        const materialLoader = new DetailLoader({
-            container: descContent,
-            button: null,
-            title: null,
-            baseUrl: window.location.pathname,
-            endpoint: '/ajax/material-description/',
-            config: {
-                label: 'материал',
-                useHistory: false,
-                backText: 'Скрыть',
-                restoreText: '',
-                slugInPath: true,
-                onLoaded: (container) => {
-                    container.appendChild(createHideButton(() => {
-                        descBlock.style.display = 'none';
-                        sectionHeader?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }));
-                    descBlock.style.display = 'block';
-                    descBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-        });
+        const departmentSlug = group.dataset.department || '';
+
         cards.forEach(card => {
+            const slug = card.dataset.materialSlug;
+            const isExam = (slug === 'exameny');
+            const loader = new DetailLoader({
+                container: descContent,
+                button: null,
+                title: null,
+                baseUrl: window.location.pathname,
+                endpoint: isExam ? '/ajax/exam-info/' : '/ajax/material-description/',
+                config: {
+                    label: isExam ? 'информацию об экзаменах' : 'материал',
+                    useHistory: false,
+                    backText: 'Скрыть',
+                    restoreText: '',
+                    slugInPath: !isExam,  // ✅ Только материалы используют slug в пути
+                    onLoaded: (container) => {
+                        container.appendChild(createHideButton(() => {
+                            descBlock.style.display = 'none';
+                            sectionHeader?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }));
+                        descBlock.style.display = 'block';
+                        descBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
             card.addEventListener('click', function(e) {
-                if (e.target.closest('a') && !e.target.closest('a[data-material-slug]')) return;                const slug = this.dataset.materialSlug;
-                if (descBlock.style.display === 'block' && materialLoader.currentSlug === slug) {
+                if (e.target.closest('a:not([data-material-slug])')) return;
+                if (descBlock.style.display === 'block' && loader.currentSlug === slug) {
                     descBlock.style.display = 'none';
                     return;
                 }
                 sectionHeader?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                materialLoader.load(slug, {}, false);
+                loader.load(isExam ? '' : slug, isExam ? { department: departmentSlug } : {}, false);
             });
         });
     });

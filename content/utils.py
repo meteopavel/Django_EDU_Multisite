@@ -48,3 +48,30 @@ def get_news_years(department):
         .dates('created_at', 'year', order='DESC')
         .values_list('created_at__year', flat=True)
     )
+
+
+def get_exam_month_range(exams):
+    if not exams:
+        return ""
+    all_dates = []
+    for exam in exams:
+        if exam.theory_date:
+            all_dates.append(exam.theory_date)
+        if exam.practice_date:
+            all_dates.append(exam.practice_date)
+        if exam.gibdd_date:
+            all_dates.append(exam.gibdd_date)
+    if not all_dates:
+        return ""
+    min_date = min(all_dates)
+    max_date = max(all_dates)
+    months = {
+        1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель',
+        5: 'Май', 6: 'Июнь', 7: 'Июль', 8: 'Август',
+        9: 'Сентябрь', 10: 'Октябрь', 11: 'Ноябрь', 12: 'Декабрь'
+    }
+    if min_date.month == max_date.month and min_date.year == max_date.year:
+        return f"{months[min_date.month]} {min_date.year} г."
+    if min_date.year == max_date.year:
+        return f"{months[min_date.month]}-{months[max_date.month]} {min_date.year} г."
+    return f"{months[min_date.month]} {min_date.year} - {months[max_date.month]} {max_date.year} г."

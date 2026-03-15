@@ -24,29 +24,18 @@ export class DetailLoader {
         this.container.innerHTML = LOADING_HTML;
         this._updateButton({ text: 'Загрузка...', loading: true });
         try {
-            let url;
-            if (this.config.slugInPath) {
-                url = Object.keys(params).length > 0
-                    ? `${this.endpoint}${slug}/?${new URLSearchParams(params)}`
-                    : `${this.endpoint}${slug}/`;
-            } else {
-                const queryParams = new URLSearchParams({ slug, ...params }).toString();
-                url = `${this.endpoint}?${queryParams}`;
-            }
+            const url = (this.config.slugInPath && slug)
+                ? `${this.endpoint}${slug}/` + (Object.keys(params).length ? `?${new URLSearchParams(params)}` : '')
+                : `${this.endpoint}?${new URLSearchParams({ ...(slug && { slug }), ...params })}`;
             const data = await fetchJSON(url);
             if (data.success && data.html) {
                 this.container.innerHTML = data.html;
                 this._updateTitleFromContent(data.html);
-                this._updateButton({
-                    text: this.config.backText || 'Назад',
-                    back: true
-                });
+                this._updateButton({ text: this.config.backText || 'Назад', back: true });
                 if (addToHistory && this.config.useHistory) {
                     this._pushHistory({ state: 'detail', slug, params });
                 }
-                if (typeof this.config.onLoaded === 'function') {
-                    this.config.onLoaded(this.container);
-                }
+                this.config.onLoaded?.(this.container);
             } else {
                 this.container.innerHTML = getErrorHTML(this.config.label);
             }

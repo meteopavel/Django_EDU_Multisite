@@ -7,4 +7,5 @@ urlpatterns = [
     path('ajax/all-news/', views.ajax_all_news, name='ajax_all_news'),
     path('ajax/documents/', views.ajax_documents, name='ajax_documents'),
     path('ajax/material-description/<slug:material_slug>/', views.ajax_material_description, name='ajax_service_description'),
+    path('ajax/exam-info/', views.ajax_exam_info, name='ajax_exam_info'),
 ]

@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 
 from .decorators import page_name, ajax_view
-from .models import News, Document, Service, Material, EDUCATION_SECTION_CHOICES
-from .utils import get_news_for_department, get_news_years
+from .models import News, Document, Service, Material, EDUCATION_SECTION_CHOICES, ExamInfo
+from .utils import get_news_for_department, get_news_years, get_exam_month_range
 
 
 @page_name('Главная', 'content/home.html')
@@ -25,6 +26,17 @@ def home_view(request, department):
             }
             for s in services
         ]
+    if details.show_exam_info:
+        exams = ExamInfo.objects.filter(
+            department=department
+        ).order_by('gibdd_date', 'theory_date')
+        today = timezone.now().date()
+        visible_exams = []
+        for exam in exams:
+            if exam.gibdd_date and exam.gibdd_date >= today:
+                visible_exams.append(exam)
+        context['exam_preview'] = visible_exams
+        context['has_exams'] = bool(visible_exams)
     context.update({
         'contacts_data': {
             'title': department.name,
@@ -186,4 +198,21 @@ def ajax_news_detail(request, department):
     return {
         'news': news_item,
         'title': news_item.title
+    }
+
+
+@ajax_view('Информация об экзаменах', 'content/inc/exam_info.inc.html')
+def ajax_exam_info(request, department):
+    exams = ExamInfo.objects.filter(
+        department=department
+    ).order_by('group_number', 'gibdd_date')
+    visible_exams = []
+    for exam in exams:
+        if exam.gibdd_date and exam.gibdd_date >= timezone.now().date():
+            visible_exams.append(exam)
+    month_range = get_exam_month_range(visible_exams)
+    return {
+        'exams': visible_exams,
+        'has_exams': bool(visible_exams),
+        'month_range': month_range,
     }

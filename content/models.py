@@ -1,3 +1,5 @@
+from datetime import timedelta, datetime
+
 from django.db import models
 from django.utils import timezone
 
@@ -388,3 +390,42 @@ class ContentBlock(models.Model):
 
     class Meta:
         ordering = ['order']
+
+
+class ExamInfo(models.Model):
+    department = models.ForeignKey(
+        Department,
+        on_delete=models.CASCADE,
+        related_name='exam_info',
+        verbose_name='Подразделение'
+    )
+
+    group_number = models.PositiveSmallIntegerField('Номер группы')
+    theory_date = models.DateField('Дата теоретического экзамена')
+    practice_date = models.DateField('Дата практического экзамена', blank=True, null=True)
+    gibdd_date = models.DateField('Дата экзамена в ГИБДД', blank=True, null=True)
+    gibdd_time = models.TimeField('Время экзамена в ГИБДД', blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Информация об экзамене'
+        verbose_name_plural = 'Информация об экзаменах'
+        ordering = ['group_number', 'gibdd_date']
+
+    def __str__(self):
+        return f'Группа {self.group_number} ({self.gibdd_date})'
+
+    @property
+    def gathering_time(self):
+        if not self.gibdd_time:
+            return None
+        dt = datetime.combine(datetime.today().date(), self.gibdd_time)
+        gathering_dt = dt - timedelta(hours=1)
+        return gathering_dt.time()
+
+    def is_expired(self):
+        today = timezone.now().date()
+        if self.gibdd_date:
+            return self.gibdd_date < today
+
+    def should_be_visible(self):
+        return not self.is_expired()
