@@ -6814,7 +6814,7 @@
     "category": 2,
     "department": 2,
     "order": 3,
-    "is_active": true,
+    "is_active": false,
     "created_at": "2025-11-24T12:11:03Z"
   }
 },
@@ -9428,7 +9428,7 @@
     "display_in_sections": [
       "obrazovanie"
     ],
-    "file": "documents/irkutsk/Учебныи_план.pdf",
+    "file": "documents/irkutsk/Учебныи_план_B.pdf",
     "external_url": "",
     "file_type": "pdf",
     "category": 2,
@@ -9447,7 +9447,7 @@
     "display_in_sections": [
       "obrazovanie"
     ],
-    "file": "documents/irkutsk/Календарныи_учебныи_график.pdf",
+    "file": "documents/irkutsk/календарныи_график.pdf",
     "external_url": "",
     "file_type": "pdf",
     "category": 2,
@@ -10747,6 +10747,25 @@
     "order": 30,
     "is_active": true,
     "created_at": "2026-03-14T05:10:00Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 214,
+  "fields": {
+    "title": "Отчет о самообследовании за 2025 год",
+    "document_type": "file",
+    "display_in_sections": [
+      "documents"
+    ],
+    "file": "documents/ustkut/Самообследование_за_2025__УКГО__ООО__ВОА.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 10,
+    "department": 4,
+    "order": 22,
+    "is_active": true,
+    "created_at": "2026-03-20T12:11:01Z"
   }
 },
 {
