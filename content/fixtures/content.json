@@ -4368,6 +4368,66 @@
   }
 },
 {
+  "model": "content.newsimage",
+  "pk": 670,
+  "fields": {
+    "news": 187,
+    "image": "news/gallery/UID_birthday_1.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 671,
+  "fields": {
+    "news": 187,
+    "image": "news/gallery/UID_birthday_2.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 672,
+  "fields": {
+    "news": 187,
+    "image": "news/gallery/UID_birthday_3.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 673,
+  "fields": {
+    "news": 187,
+    "image": "news/gallery/UID_birthday_4.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 674,
+  "fields": {
+    "news": 187,
+    "image": "news/gallery/UID_birthday_5.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 675,
+  "fields": {
+    "news": 187,
+    "image": "news/gallery/UID_birthday_6.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
   "model": "content.news",
   "pk": 66,
   "fields": {
@@ -6673,6 +6733,25 @@
     "is_partner_news": false,
     "is_active": true,
     "created_at": "2026-03-08T04:00:00Z",
+    "departments": [
+      1
+    ]
+  }
+},
+{
+  "model": "content.news",
+  "pk": 187,
+  "fields": {
+    "joomla_id": null,
+    "title": "День рождения ЮИД",
+    "slug": "den-rozhdeniya-yuid",
+    "preview_text": "Иркутское региональное отделение ВОА приняло участие в торжественном мероприятии, \r\nпосвященном Дню рождения ЮИД",
+    "content": "11 марта, в г.Ангарск Иркутской области прошло торжественное мероприятие  «День рождение ЮИД», в нем приняли участие команды отрядов ЮИД в возрасте 12+ лет общей численностью около 70 человек. Мероприятие прошло на базе муниципального ресурсного центра по профилактике детского дорожно-транспортного травматизма «Зебра», который отметил в марте свой 20 год активной деятельности, и было приурочено 53-годовщине создания движения ЮИД. \r\n\r\nЦель данного мероприятия - увлечь изучать правила дорожного движения современных детей и подростков. Каждый урок, каждый разговор с детьми и родителями, наши совместные акции приближают к общей цели.  \r\n\r\nНачальник управления Госавтоинспекции по Иркутской области вручил руководителям отрядов ЮИД благодарности. В ответ дети подготовили концертную программу из выступлений агитбригад, творческих номеров и патриотических песен. В рядах приглашенных гостей - руководитель центра «Зеленая волна», общественный деятель Наталья Дубровина, ветеран Госавтоинспекции капитан полиции в отставке Валерий Кириллов, начальник ангарской Госавтоинспекции подполковник полиции Алексей Воронин, представители комитета управления образованием города нефтехимиков. Памятные подарки активистам движения ЮИД вручил председатель регионального отделения «ВОА», член общественного совета МВД Главка Денис Слободчиков.",
+    "main_image": "news/main/UID_birthday_2.jpg",
+    "video": "news/videos/UID_birthday.mp4",
+    "is_partner_news": false,
+    "is_active": true,
+    "created_at": "2026-03-11T04:00:00Z",
     "departments": [
       1
     ]
@@ -9029,7 +9108,7 @@
     "display_in_sections": [
       "documents"
     ],
-    "file": "documents/ustkut/Приказ_стоимость.pdf",
+    "file": "documents/ustkut/Приказ_о_стоимости_обучения.pdf",
     "external_url": "",
     "file_type": "pdf",
     "category": 2,
@@ -10766,6 +10845,25 @@
     "order": 22,
     "is_active": true,
     "created_at": "2026-03-20T12:11:01Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 215,
+  "fields": {
+    "title": "Прайс-лист на услуги автошколы",
+    "document_type": "file",
+    "display_in_sections": [
+      "documents"
+    ],
+    "file": "documents/ustkut/Праис-лист_с_06.03.26.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 7,
+    "is_active": true,
+    "created_at": "2026-03-24T09:10:30Z"
   }
 },
 {
