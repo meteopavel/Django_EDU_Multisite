@@ -2,42 +2,18 @@ from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
 from .decorators import page_name, ajax_view
-from .models import News, Document, Service, Material, EDUCATION_SECTION_CHOICES, ExamInfo
+from .models import News, Document, Service, Material, ExamInfo, HomeSectionChoices
+from .constants import EDUCATION_SECTION_CHOICES
 from .utils import get_news_for_department, get_news_years, get_exam_month_range
 
 
 @page_name('Главная', 'content/pages/home.html')
 def home_view(request, department):
     details = department.details
-    context = details.get_section_flags()
-    context['partner_news'] = get_news_for_department(
-        department=None,
-        limit=3,
-        partner_only=True
-    )
-    if details.show_services:
-        services = Service.objects.filter(department=department, is_active=True).order_by('order')
-        context['services'] = services
-        context['services_with_desc'] = [
-            {
-                'id': s.id,
-                'name': s.name,
-                'icon_name': s.icon_name,
-            }
-            for s in services
-        ]
-    if details.show_exam_info:
-        exams = ExamInfo.objects.filter(
-            department=department
-        ).order_by('gibdd_date', 'theory_date')
-        today = timezone.now().date()
-        visible_exams = []
-        for exam in exams:
-            if exam.gibdd_date and exam.gibdd_date >= today:
-                visible_exams.append(exam)
-        context['exam_preview'] = visible_exams
-        context['has_exams'] = bool(visible_exams)
-    context.update({
+    home_sections = list(department.home_page_sections.filter(is_enabled=True).order_by('order', 'id'))
+    enabled_section_keys = {section.section_key for section in home_sections}
+    context = {
+        'home_sections': home_sections,
         'contacts_data': {
             'title': department.name,
             'address': details.address,
@@ -45,7 +21,7 @@ def home_view(request, department):
             'phone': details.phone,
             'cellphone': details.cellphone,
             'email': details.email,
-            'map_center': details.map_center
+            'map_center': details.map_center,
         },
         'schedule': details.schedule,
         'requisites': {
@@ -59,43 +35,36 @@ def home_view(request, department):
             'payment_purpose': details.payment_purpose,
         },
         'map_iframes': details.map_iframes,
-    })
-
-    if details.show_latest_news:
+    }
+    if HomeSectionChoices.PARTNERS in enabled_section_keys:
+        context['partner_news'] = get_news_for_department(department=None, limit=3, partner_only=True)
+    if HomeSectionChoices.SERVICES in enabled_section_keys:
+        services = Service.objects.filter(department=department, is_active=True).order_by('order')
+        context['services'] = services
+        context['services_with_desc'] = [{'id': service.id,
+                                          'name': service.name,
+                                          'icon_name': service.icon_name} for service in services]
+    if HomeSectionChoices.EXAM_INFO in enabled_section_keys:
+        exams = ExamInfo.objects.filter( department=department).order_by('gibdd_date', 'theory_date')
+        today = timezone.now().date()
+        visible_exams = [exam for exam in exams if exam.gibdd_date and exam.gibdd_date >= today]
+        context['exam_preview'] = visible_exams
+        context['has_exams'] = bool(visible_exams)
+    if HomeSectionChoices.LATEST_NEWS in enabled_section_keys:
         context['latest_news'] = get_news_for_department(department, limit=3)
-
-    if details.show_documents:
-        context['show_documents'] = details.show_documents
-
-    if details.show_education_info:
-        EDUCATION_SECTIONS = []
-        for slug, title in EDUCATION_SECTION_CHOICES:
-            if slug == 'documents':
-                item_type = 'documents'
-            else:
-                item_type = 'material'
-            EDUCATION_SECTIONS.append((title, slug, item_type))
-
+    if HomeSectionChoices.DOCUMENTS in enabled_section_keys:
+        pass
+    if HomeSectionChoices.EDUCATION_INFO in enabled_section_keys:
+        education_sections = [(title, slug, 'documents' if slug == 'documents' else 'material')
+                               for slug, title in EDUCATION_SECTION_CHOICES]
         accordion_items = []
-        for title, base_slug, item_type in EDUCATION_SECTIONS:
+        for title, base_slug, item_type in education_sections:
             if item_type == 'documents':
-                accordion_items.append({
-                    'title': title,
-                    'type': 'documents'
-                })
-            elif item_type == 'material':
+                accordion_items.append({'title': title, 'type': 'documents'})
+            else:
                 full_slug = f'{department.slug}-{base_slug}'
-                if Material.objects.filter(
-                        department=department,
-                        slug=full_slug,
-                        is_active=True
-                ).exists():
-                    accordion_items.append({
-                        'title': title,
-                        'type': 'material',
-                        'material_slug': full_slug
-                    })
-
+                if Material.objects.filter(department=department, slug=full_slug, is_active=True).exists():
+                    accordion_items.append({'title': title, 'type': 'material', 'material_slug': full_slug,})
         context['education_accordion_items'] = accordion_items
         context['show_education_accordion'] = bool(accordion_items)
     return context

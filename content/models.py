@@ -3,21 +3,7 @@ from datetime import timedelta, datetime
 from django.db import models
 from django.utils import timezone
 
-
-EDUCATION_SECTION_CHOICES = [
-    ('osnovnye-svedeniya', 'Основные сведения'),
-    ('struktura-upravleniya', 'Структура и органы управления'),
-    ('documents', 'Документы'),
-    ('obrazovanie', 'Образование'),
-    ('administratsiya', 'Администрация'),
-    ('prepodavateli', 'Преподаватели'),
-    ('mastera-po', 'Мастера производственного обучения'),
-    ('materialno-tehnicheskoe-obespechenie', 'Материально-техническое обеспечение'),
-    ('platnye-obr-uslugi', 'Платные образовательные услуги'),
-    ('finansovo-hozyaystvennaya-deyatelnost', 'Финансово-хозяйственная деятельность'),
-    ('vakantnye-mesta', 'Вакантные места для приёма (перевода)'),
-    ('other', 'Прочее'),
-]
+from .constants import EDUCATION_SECTION_CHOICES
 
 
 class Department(models.Model):
@@ -68,25 +54,8 @@ class DepartmentDetails(models.Model):
     )
     map_iframes = models.JSONField('Ссылки на карты (Google Embed)', default=list, blank=True)
 
-    show_latest_news = models.BooleanField('Показывать последние новости', default=True)
-    show_services = models.BooleanField('Показывать услуги', default=False)
-    show_partners = models.BooleanField('Показывать партнёров', default=False)
-    show_documents = models.BooleanField('Показывать документы', default=True)
-    show_contacts = models.BooleanField('Показывать контакты', default=True)
-    show_header_banner = models.BooleanField('Показывать главный баннер', default=False)
-    show_exam_info = models.BooleanField('Показывать акции и экзамены', default=False)
-    show_education_info = models.BooleanField('Показывать сведения об образовательной организации', default=False)
-    show_pricing = models.BooleanField('Показывать стоимость', default=False)
-
     meta_title = models.CharField('SEO Title', max_length=100, blank=True)
     meta_description = models.CharField('SEO Description', max_length=255, blank=True)
-
-    def get_section_flags(self):
-        return {
-            field.name: getattr(self, field.name)
-            for field in self._meta.fields
-            if field.name.startswith('show_')
-        }
 
     class Meta:
         verbose_name = 'Детали подразделения'
@@ -94,6 +63,77 @@ class DepartmentDetails(models.Model):
 
     def __str__(self):
         return f'Детали: {self.department.name}'
+
+
+class HomeSectionChoices(models.TextChoices):
+    HEADER_BANNER = 'header_banner', 'Главный баннер'
+    EXAM_INFO = 'exam_info', 'Акции и экзамены'
+    LATEST_NEWS = 'latest_news', 'Последние новости'
+    PRICING = 'pricing', 'Стоимость'
+    EDUCATION_INFO = 'education_info', 'Сведения об образовательной организации'
+    SERVICES = 'services', 'Услуги'
+    DOCUMENTS = 'documents', 'Документы'
+    PARTNERS = 'partners', 'Партнёры'
+    CONTACTS = 'contacts', 'Контакты'
+
+
+DEFAULT_HOME_SECTION_ORDER = [
+    HomeSectionChoices.HEADER_BANNER,
+    HomeSectionChoices.EXAM_INFO,
+    HomeSectionChoices.LATEST_NEWS,
+    HomeSectionChoices.PRICING,
+    HomeSectionChoices.EDUCATION_INFO,
+    HomeSectionChoices.SERVICES,
+    HomeSectionChoices.DOCUMENTS,
+    HomeSectionChoices.PARTNERS,
+    HomeSectionChoices.CONTACTS,
+]
+
+
+class HomePageSection(models.Model):
+    department = models.ForeignKey(
+        Department,
+        on_delete=models.CASCADE,
+        related_name='home_page_sections',
+        verbose_name='Подразделение',
+    )
+    section_key = models.CharField(
+        'Секция',
+        max_length=50,
+        choices=HomeSectionChoices.choices,
+    )
+    is_enabled = models.BooleanField('Показывать', default=True)
+    order = models.PositiveSmallIntegerField('Порядок', default=0)
+
+    TEMPLATE_MAP = {
+        HomeSectionChoices.HEADER_BANNER: 'content/blocks/home/header_banner.html',
+        HomeSectionChoices.EXAM_INFO: 'content/blocks/home/exam_info.html',
+        HomeSectionChoices.LATEST_NEWS: 'content/blocks/home/latest_news.html',
+        HomeSectionChoices.PRICING: 'content/blocks/home/pricing.html',
+        HomeSectionChoices.EDUCATION_INFO: 'content/blocks/home/education_info.html',
+        HomeSectionChoices.SERVICES: 'content/blocks/home/services.html',
+        HomeSectionChoices.DOCUMENTS: 'content/blocks/home/documents.html',
+        HomeSectionChoices.PARTNERS: 'content/blocks/home/partners.html',
+        HomeSectionChoices.CONTACTS: 'content/blocks/home/contacts.html',
+    }
+
+    class Meta:
+        verbose_name = 'Секция главной страницы'
+        verbose_name_plural = 'Секции главной страницы'
+        ordering = ['order', 'id']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['department', 'section_key'],
+                name='unique_home_section_per_department',
+            )
+        ]
+
+    def __str__(self):
+        return f'{self.department.name} — {self.get_section_key_display()}'
+
+    @property
+    def template_name(self):
+        return self.TEMPLATE_MAP[self.section_key]
 
 
 class Service(models.Model):

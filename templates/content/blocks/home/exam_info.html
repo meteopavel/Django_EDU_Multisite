@@ -1,8 +1,7 @@
-{% if show_exam_info %}
-    <section id="exam-info" class="section exam-info">
-        <div class="content__layout">
-            {%  if department.slug == 'irkutsk' %}
-                <!-- АКЦИЯ - отдельная карточка вне сетки (как в Усть-Куте) -->
+<section id="exam-info" class="section exam-info">
+    <div class="content__layout">
+        {%  if department.slug == 'irkutsk' %}
+            <!-- АКЦИЯ - отдельная карточка вне сетки (как в Усть-Куте) -->
 {#    <style>#}
 {#        @media (max-width: 768px) {#}
 {#            .promo-card {#}
@@ -55,182 +54,181 @@
 {#            </div>#}
 {#        </div>#}
 {#    </div>#}
-                <!-- Карточки -->
-                <div class="exam-cards" data-accordion-group="material-cards" data-department="{{ department.slug }}">
-                    <!-- Для учеников других автошкол -->
-                    <div class="exam-card">
-                        <div class="exam-card-header">
-                            <div class="exam-card-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                                </svg>
-                            </div>
-                            <h3 class="section__subtitle">СРОЧНО!</h3>
+            <!-- Карточки -->
+            <div class="exam-cards" data-accordion-group="material-cards" data-department="{{ department.slug }}">
+                <!-- Для учеников других автошкол -->
+                <div class="exam-card">
+                    <div class="exam-card-header">
+                        <div class="exam-card-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
                         </div>
-                        <div class="exam-card-content">
-                            <p style="color: #C30027"><strong>ПРИНИМАЕМ УЧЕНИКОВ ДРУГИХ АВТОШКОЛ НА СДАЧУ ЭКЗАМЕНА В ГИБДД!</strong></p>
-                            <p><strong>ТАК ВЫ БЫСТРЕЕ ПОПАДЕТЕ НА ЭКЗАМЕН!</strong></p>
-                            <p><strong>НОВЫЙ АВТОПАРК И ОПЫТНЫЕ ИНСТРУКТОРА!</strong></p>
-                            <p><strong>ДОСТУПНЫЕ ЦЕНЫ!</strong></p>
-                        </div>
+                        <h3 class="section__subtitle">СРОЧНО!</h3>
                     </div>
+                    <div class="exam-card-content">
+                        <p style="color: #C30027"><strong>ПРИНИМАЕМ УЧЕНИКОВ ДРУГИХ АВТОШКОЛ НА СДАЧУ ЭКЗАМЕНА В ГИБДД!</strong></p>
+                        <p><strong>ТАК ВЫ БЫСТРЕЕ ПОПАДЕТЕ НА ЭКЗАМЕН!</strong></p>
+                        <p><strong>НОВЫЙ АВТОПАРК И ОПЫТНЫЕ ИНСТРУКТОРА!</strong></p>
+                        <p><strong>ДОСТУПНЫЕ ЦЕНЫ!</strong></p>
+                    </div>
+                </div>
 
-                    <!-- Информация об экзамене! -->
-                    <div class="exam-card exam-card-accordion" data-material-slug="exameny">
-                        <div class="exam-card-header">
-                            <div class="exam-card-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                                </svg>
-                            </div>
-                            <h3 class="section__subtitle">Информация об экзаменах!</h3>
+                <!-- Информация об экзамене! -->
+                <div class="exam-card exam-card-accordion" data-material-slug="exameny">
+                    <div class="exam-card-header">
+                        <div class="exam-card-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
                         </div>
-                        <div class="exam-card-content">
-                            {% if has_exams and exam_preview %}
-                                {% if exam_preview|length == 1 %}
-                                    {% with exam=exam_preview.0 %}
-                                    <div style="padding: 10px 0;">
-                                        <p style="margin: 0 0 10px 0; font-size: 1.05em; color: #C30027; font-weight: bold;">
-                                            Группа {{ exam.group_number }}
-                                        </p>
-                                        <p style="margin: 6px 0; font-size: 0.95em;">
-                                            <span style="color: #666;">Теория:</span>
-                                            <strong>{{ exam.theory_date|date:"d.m.Y" }}</strong>
-                                        </p>
-                                        {% if exam.practice_date %}
-                                        <p style="margin: 6px 0; font-size: 0.95em;">
-                                            <span style="color: #666;">Практика:</span>
-                                            <strong>{{ exam.practice_date|date:"d.m.Y" }}</strong>
-                                        </p>
-                                        {% endif %}
-                                        {% if exam.gibdd_date %}
-                                        <p style="margin: 6px 0; font-size: 0.95em;">
-                                            <span style="color: #666;">ГИБДД:</span>
-                                            <strong>{{ exam.gibdd_date|date:"d.m.Y" }}</strong>
-                                        </p>
-                                        {% endif %}
-                                    </div>
-                                    {% endwith %}
-                                {% else %}
-                                    <table style="width: 100%; font-size: 0.85em; border-collapse: collapse;">
-                                        <thead>
-                                            <tr style="border-bottom: 2px solid #C30027;">
-                                                <th style="text-align: left; padding: 6px 4px; color: #C30027;">Группа</th>
-                                                <th style="text-align: left; padding: 6px 4px; color: #C30027;">Теория</th>
-                                                <th style="text-align: left; padding: 6px 4px; color: #C30027;">Практика</th>
-                                                <th style="text-align: left; padding: 6px 4px; color: #C30027;">ГИБДД</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for exam in exam_preview %}
-                                            <tr style="border-bottom: 1px dashed #ddd;">
-                                                <td style="padding: 8px 4px; font-weight: bold;">{{ exam.group_number }}</td>
-                                                <td style="padding: 8px 4px;">{{ exam.theory_date|date:"d.m.Y" }}</td>
-                                                <td style="padding: 8px 4px;">
-                                                    {% if exam.practice_date %}
-                                                        {{ exam.practice_date|date:"d.m.Y" }}
-                                                    {% else %}
-                                                        —
-                                                    {% endif %}
-                                                </td>
-                                                <td style="padding: 8px 4px;">
-                                                    {% if exam.gibdd_date %}
-                                                        {{ exam.gibdd_date|date:"d.m.Y" }}
-                                                    {% else %}
-                                                        —
-                                                    {% endif %}
-                                                </td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                {% endif %}
-                                <p style="margin-top: 10px; font-size: 0.8em; color: #999; text-align: center;">
-                                    ← Кликните для подробностей
-                                </p>
+                        <h3 class="section__subtitle">Информация об экзаменах!</h3>
+                    </div>
+                    <div class="exam-card-content">
+                        {% if has_exams and exam_preview %}
+                            {% if exam_preview|length == 1 %}
+                                {% with exam=exam_preview.0 %}
+                                <div style="padding: 10px 0;">
+                                    <p style="margin: 0 0 10px 0; font-size: 1.05em; color: #C30027; font-weight: bold;">
+                                        Группа {{ exam.group_number }}
+                                    </p>
+                                    <p style="margin: 6px 0; font-size: 0.95em;">
+                                        <span style="color: #666;">Теория:</span>
+                                        <strong>{{ exam.theory_date|date:"d.m.Y" }}</strong>
+                                    </p>
+                                    {% if exam.practice_date %}
+                                    <p style="margin: 6px 0; font-size: 0.95em;">
+                                        <span style="color: #666;">Практика:</span>
+                                        <strong>{{ exam.practice_date|date:"d.m.Y" }}</strong>
+                                    </p>
+                                    {% endif %}
+                                    {% if exam.gibdd_date %}
+                                    <p style="margin: 6px 0; font-size: 0.95em;">
+                                        <span style="color: #666;">ГИБДД:</span>
+                                        <strong>{{ exam.gibdd_date|date:"d.m.Y" }}</strong>
+                                    </p>
+                                    {% endif %}
+                                </div>
+                                {% endwith %}
                             {% else %}
-                                <p>Загрузка...</p>
+                                <table style="width: 100%; font-size: 0.85em; border-collapse: collapse;">
+                                    <thead>
+                                        <tr style="border-bottom: 2px solid #C30027;">
+                                            <th style="text-align: left; padding: 6px 4px; color: #C30027;">Группа</th>
+                                            <th style="text-align: left; padding: 6px 4px; color: #C30027;">Теория</th>
+                                            <th style="text-align: left; padding: 6px 4px; color: #C30027;">Практика</th>
+                                            <th style="text-align: left; padding: 6px 4px; color: #C30027;">ГИБДД</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for exam in exam_preview %}
+                                        <tr style="border-bottom: 1px dashed #ddd;">
+                                            <td style="padding: 8px 4px; font-weight: bold;">{{ exam.group_number }}</td>
+                                            <td style="padding: 8px 4px;">{{ exam.theory_date|date:"d.m.Y" }}</td>
+                                            <td style="padding: 8px 4px;">
+                                                {% if exam.practice_date %}
+                                                    {{ exam.practice_date|date:"d.m.Y" }}
+                                                {% else %}
+                                                    —
+                                                {% endif %}
+                                            </td>
+                                            <td style="padding: 8px 4px;">
+                                                {% if exam.gibdd_date %}
+                                                    {{ exam.gibdd_date|date:"d.m.Y" }}
+                                                {% else %}
+                                                    —
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
                             {% endif %}
-                        </div>
-                    </div>
-
-                    <!-- Внимание! -->
-                    <div class="exam-card">
-                        <div class="exam-card-header">
-                            <div class="exam-card-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                                </svg>
-                            </div>
-                            <h3 class="section__subtitle">Занятия в автошколе!</h3>
-                        </div>
-                        <div class="exam-card-content">
-                            <p>23 апреля с 17:00 до 20:00 в Автошколе будут проводиться занятия по <strong>Медицине</strong></p>
-                            <p>19 апреля с 9:00 до 12:00 в Автошколе будут проводиться занятия по <strong>Психологии</strong></p>
-                            <p>Запись на занятия по телефону <strong>22-40-50</strong> либо при посещении офиса Автошколы</p>
-                        </div>
-                    </div>
-
-                    <div class="material-description-block" style="display: none;">
-                        <div class="material-description-content"></div>
+                            <p style="margin-top: 10px; font-size: 0.8em; color: #999; text-align: center;">
+                                ← Кликните для подробностей
+                            </p>
+                        {% else %}
+                            <p>Загрузка...</p>
+                        {% endif %}
                     </div>
                 </div>
-            {% endif %}
-            {%  if department.slug == 'ustkut' %}
-                <style>
-                    @media (max-width: 768px) {
-                        .exam-card {
-                            flex-direction: column !important;
-                        }
-                        .exam-card .image-container {
-                            width: 100% !important;
-                            max-height: 250px;
-                        }
-                        .exam-card .content-block {
-                            padding: 15px !important;
-                        }
-                        .exam-card h3 {
-                            font-size: 18px !important;
-                        }
-                        .exam-card p {
-                            font-size: 14px !important;
-                        }
+
+                <!-- Внимание! -->
+                <div class="exam-card">
+                    <div class="exam-card-header">
+                        <div class="exam-card-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="section__subtitle">Занятия в автошколе!</h3>
+                    </div>
+                    <div class="exam-card-content">
+                        <p>23 апреля с 17:00 до 20:00 в Автошколе будут проводиться занятия по <strong>Медицине</strong></p>
+                        <p>19 апреля с 9:00 до 12:00 в Автошколе будут проводиться занятия по <strong>Психологии</strong></p>
+                        <p>Запись на занятия по телефону <strong>22-40-50</strong> либо при посещении офиса Автошколы</p>
+                    </div>
+                </div>
+
+                <div class="material-description-block" style="display: none;">
+                    <div class="material-description-content"></div>
+                </div>
+            </div>
+        {% endif %}
+        {%  if department.slug == 'ustkut' %}
+            <style>
+                @media (max-width: 768px) {
+                    .exam-card {
+                        flex-direction: column !important;
                     }
-                </style>
+                    .exam-card .image-container {
+                        width: 100% !important;
+                        max-height: 250px;
+                    }
+                    .exam-card .content-block {
+                        padding: 15px !important;
+                    }
+                    .exam-card h3 {
+                        font-size: 18px !important;
+                    }
+                    .exam-card p {
+                        font-size: 14px !important;
+                    }
+                }
+            </style>
 
-                <div class="exam-card" style="display: flex; align-items: stretch; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <div class="image-container" style="flex-shrink: 0; width: 100%; max-width: 400px; border-radius: 8px; overflow: hidden">
-                        <img src="media/ads-ustkut.jpg" alt="Автошкола ВОА" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div class="exam-card" style="display: flex; align-items: stretch; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <div class="image-container" style="flex-shrink: 0; width: 100%; max-width: 400px; border-radius: 8px; overflow: hidden">
+                    <img src="media/ads-ustkut.jpg" alt="Автошкола ВОА" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </div>
+                <div class="content-block" style="flex: 1; padding: 20px;">
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="margin: 0 0 10px 0; color: #C30027; font-size: 20px;">🎁 ПОДАРОЧНЫЕ СЕРТИФИКАТЫ НА ОБУЧЕНИЕ ВОЖДЕНИЮ!</h3>
+                        <p style="margin: 0 0 10px 0; color: #666; font-size: 16px;">Подарите близким и любимым не очередной сувенир, а настоящую независимость и уверенность за рулём!</p>
                     </div>
-                    <div class="content-block" style="flex: 1; padding: 20px;">
-                        <div style="margin-bottom: 15px;">
-                            <h3 style="margin: 0 0 10px 0; color: #C30027; font-size: 20px;">🎁 ПОДАРОЧНЫЕ СЕРТИФИКАТЫ НА ОБУЧЕНИЕ ВОЖДЕНИЮ!</h3>
-                            <p style="margin: 0 0 10px 0; color: #666; font-size: 16px;">Подарите близким и любимым не очередной сувенир, а настоящую независимость и уверенность за рулём!</p>
-                        </div>
 
-                        <div style="margin-bottom: 15px;">
-                            <h4 style="margin: 0 0 10px 0; color: #333; font-size: 16px;">Почему это идеальный подарок?</h4>
-                            <ul style="margin: 0; padding-left: 20px; color: #555; font-size: 14px; line-height: 1.6;">
-                                <li><strong style="color: #28a745;">✓ Практичный</strong> — навык на всю жизнь</li>
-                                <li><strong style="color: #28a745;">✓ Эмоциональный</strong> — первые самостоятельные поездки не забываются</li>
-                                <li><strong style="color: #28a745;">✓ Персональный</strong> — можно выбрать удобное время обучения</li>
-                                <li><strong style="color: #28a745;">✓ Универсальный</strong> — подходит и мужчинам, и женщинам</li>
-                                <li><strong style="color: #28a745;">✓ Профессиональный</strong> — получите профессию водителя</li>
-                            </ul>
-                        </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="margin: 0 0 10px 0; color: #333; font-size: 16px;">Почему это идеальный подарок?</h4>
+                        <ul style="margin: 0; padding-left: 20px; color: #555; font-size: 14px; line-height: 1.6;">
+                            <li><strong style="color: #28a745;">✓ Практичный</strong> — навык на всю жизнь</li>
+                            <li><strong style="color: #28a745;">✓ Эмоциональный</strong> — первые самостоятельные поездки не забываются</li>
+                            <li><strong style="color: #28a745;">✓ Персональный</strong> — можно выбрать удобное время обучения</li>
+                            <li><strong style="color: #28a745;">✓ Универсальный</strong> — подходит и мужчинам, и женщинам</li>
+                            <li><strong style="color: #28a745;">✓ Профессиональный</strong> — получите профессию водителя</li>
+                        </ul>
+                    </div>
 
-                        <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 8px;">
-                            <p style="margin: 0 0 8px 0; color: #333; font-size: 16px;"><strong>Современные автомобили, опытные инструктора, удобный график занятий и качественная подготовка к экзамену</strong> — всё, чтобы уверенно получить права и сесть за руль.</p>
-                            <p style="margin: 0; color: #C30027; font-size: 16px;"><strong>🎁 Подарите возможность управлять своей дорогой!</strong></p>
-                        </div>
+                    <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 8px;">
+                        <p style="margin: 0 0 8px 0; color: #333; font-size: 16px;"><strong>Современные автомобили, опытные инструктора, удобный график занятий и качественная подготовка к экзамену</strong> — всё, чтобы уверенно получить права и сесть за руль.</p>
+                        <p style="margin: 0; color: #C30027; font-size: 16px;"><strong>🎁 Подарите возможность управлять своей дорогой!</strong></p>
+                    </div>
 
-                        <div style="border-top: 1px solid #eee; padding-top: 10px;">
-                            <p style="margin: 0 0 5px 0; color: #C30027; font-size: 15px; font-weight: bold;">⏰ Количество сертификатов ограничено — успейте порадовать близких!</p>
-                            <p style="margin: 0; color: #666; font-size: 15px;"><strong>Тел.</strong> 89041197431 <strong>ул. Речников, 39</strong></p>
-                        </div>
+                    <div style="border-top: 1px solid #eee; padding-top: 10px;">
+                        <p style="margin: 0 0 5px 0; color: #C30027; font-size: 15px; font-weight: bold;">⏰ Количество сертификатов ограничено — успейте порадовать близких!</p>
+                        <p style="margin: 0; color: #666; font-size: 15px;"><strong>Тел.</strong> 89041197431 <strong>ул. Речников, 39</strong></p>
                     </div>
                 </div>
-            {% endif %}
-        </div>
-    </section>
-{% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>

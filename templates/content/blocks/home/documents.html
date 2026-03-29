@@ -1,10 +1,8 @@
 {% load document_tags %}
 
-{% if show_documents %}
-    <section id="documents" class="section screen_width_container">
-        <div class="content__layout">
-            <h2 class="section__title">Документы</h2>
-            {% documents_for_section department 'documents' %}
-        </div>
-    </section>
-{% endif %}
+<section id="documents" class="section screen_width_container">
+    <div class="content__layout">
+        <h2 class="section__title">Документы</h2>
+        {% documents_for_section department 'documents' %}
+    </div>
+</section>

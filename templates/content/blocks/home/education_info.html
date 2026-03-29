@@ -1,24 +1,22 @@
-{% if show_education_info %}
-    <section id="education-info" class="section education-info">
-        <div class="content__layout">
-            <div class="section__header">
-                <h2 class="section__title">Сведения об образовательной организации</h2>
-            </div>
-            <div class="accordion-group" data-accordion-group="education-accordion">
-                {% for item in education_accordion_items %}
-                    <div class="accordion-item"
-                         {% if item.type == 'material' %}data-material-slug="{{ item.material_slug }}"{% endif %}
-                         {% if item.type == 'documents' %}data-documents="true"{% endif %}>
-                        <button class="accordion-header">
-                            {{ item.title }}
-                            <span class="accordion-toggle">+</span>
-                        </button>
-                        <div class="accordion-content" style="display: none;">
-                            <p>Загрузка...</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+<section id="education-info" class="section education-info">
+    <div class="content__layout">
+        <div class="section__header">
+            <h2 class="section__title">Сведения об образовательной организации</h2>
         </div>
-    </section>
-{% endif %}
+        <div class="accordion-group" data-accordion-group="education-accordion">
+            {% for item in education_accordion_items %}
+                <div class="accordion-item"
+                     {% if item.type == 'material' %}data-material-slug="{{ item.material_slug }}"{% endif %}
+                     {% if item.type == 'documents' %}data-documents="true"{% endif %}>
+                    <button class="accordion-header">
+                        {{ item.title }}
+                        <span class="accordion-toggle">+</span>
+                    </button>
+                    <div class="accordion-content" style="display: none;">
+                        <p>Загрузка...</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

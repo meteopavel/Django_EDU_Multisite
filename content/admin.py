@@ -7,8 +7,9 @@ from django.contrib import admin
 from django.utils import timezone
 from django.utils.html import format_html
 
-from .models import Department, DepartmentDetails, MenuItem, NewsImage, News, Document, DocumentCategory, Service, \
-    ContentBlock, Material, ExamInfo
+from .models import (Department, DepartmentDetails, HomePageSection, MenuItem,
+                     NewsImage, News, Document, DocumentCategory, Service,
+                     ContentBlock, Material, ExamInfo)
 
 
 @admin.register(Department)
@@ -30,7 +31,7 @@ class DepartmentDetailsAdminForm(forms.ModelForm):
 @admin.register(DepartmentDetails)
 class DepartmentDetailsAdmin(admin.ModelAdmin):
     form = DepartmentDetailsAdminForm
-    list_display = ('department', 'phone', 'email', 'cellphone', 'inn', 'show_contacts')
+    list_display = ('department', 'phone', 'email', 'cellphone', 'inn')
     search_fields = ('department__name', 'address', 'email')
 
     def get_fieldsets(self, request, obj=None):
@@ -58,6 +59,18 @@ class DepartmentDetailsAdmin(admin.ModelAdmin):
                 'classes': ('collapse',)
             }),
         )
+
+
+@admin.register(HomePageSection)
+class HomePageSectionAdmin(admin.ModelAdmin):
+    list_display = ('department', 'section_label', 'is_enabled', 'order')
+    list_filter = ('department', 'is_enabled', 'section_key')
+    search_fields = ('department__name',)
+    ordering = ('department', 'order', 'id')
+
+    @admin.display(description='Секция', ordering='section_key')
+    def section_label(self, obj):
+        return obj.get_section_key_display()
 
 
 @admin.register(MenuItem)
