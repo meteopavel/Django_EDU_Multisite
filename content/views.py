@@ -6,7 +6,7 @@ from .models import News, Document, Service, Material, EDUCATION_SECTION_CHOICES
 from .utils import get_news_for_department, get_news_years, get_exam_month_range
 
 
-@page_name('Главная', 'content/home.html')
+@page_name('Главная', 'content/pages/home.html')
 def home_view(request, department):
     details = department.details
     context = details.get_section_flags()
@@ -101,7 +101,7 @@ def home_view(request, department):
     return context
 
 
-@ajax_view('Все новости', 'content/inc/news_grid.inc.html')
+@ajax_view('Все новости', 'content/ajax/news/news_grid.html')
 def ajax_all_news(request, department):
     all_years = get_news_years(department)
     selected_year = request.GET.get('year')
@@ -126,7 +126,17 @@ def ajax_all_news(request, department):
     }
 
 
-@ajax_view('Документы', 'content/inc/documents_section.inc.html')
+@ajax_view('Новость', 'content/ajax/news/news_detail.html')
+def ajax_news_detail(request, department):
+    slug = request.GET.get('slug')
+    news_item = get_object_or_404(News, slug=slug, is_active=True)
+    return {
+        'news': news_item,
+        'title': news_item.title
+    }
+
+
+@ajax_view('Документы', 'content/ajax/documents/documents_section.html')
 def ajax_documents(request, department):
     all_docs = Document.objects.filter(
         department=department,
@@ -153,7 +163,7 @@ def ajax_documents(request, department):
     }
 
 
-@ajax_view('Описание материала', 'content/inc/material_description.inc.html')
+@ajax_view('Описание материала', 'content/ajax/materials/material_description.html')
 def ajax_material_description(request, department, **kwargs):
     material_slug = kwargs.get('material_slug')
     material = get_object_or_404(Material, slug=material_slug, is_active=True)
@@ -191,17 +201,7 @@ def ajax_material_description(request, department, **kwargs):
     }
 
 
-@ajax_view('Новость', 'content/inc/news_detail.inc.html')
-def ajax_news_detail(request, department):
-    slug = request.GET.get('slug')
-    news_item = get_object_or_404(News, slug=slug, is_active=True)
-    return {
-        'news': news_item,
-        'title': news_item.title
-    }
-
-
-@ajax_view('Информация об экзаменах', 'content/inc/exam_info.inc.html')
+@ajax_view('Информация об экзаменах', 'content/ajax/exams/exam_info.html')
 def ajax_exam_info(request, department):
     exams = ExamInfo.objects.filter(
         department=department

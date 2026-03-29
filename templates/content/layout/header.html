@@ -5,7 +5,7 @@
         <a href="/"><img class="header_img" src="{% static 'img/logo.png' %}" /></a>
         {% if department.slug == "irkutsk" %}
             <div class="header__contacts_special">
-                {% include "content/inc/contacts.inc.html" %}
+                {% include "content/partials/contacts/contact_links.html" %}
             </div>
             <div class="header__social_special">
                 <a href="https://vk.com/voairk">{% include "icons/icon_vk.svg" %}</a>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="header__contacts">
-                {% include "content/inc/contacts.inc.html" %}
+                {% include "content/partials/contacts/contact_links.html" %}
             </div>
         {% endif %}
         <div class="accessibility">

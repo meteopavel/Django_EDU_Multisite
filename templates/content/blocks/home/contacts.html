@@ -1,0 +1,58 @@
+{% if show_contacts %}
+    {% block contacts %}
+        <section id="contacts" class="section contacts">
+            <div class="content__layout">
+                <div class="section__header">
+                    <h2 class="section__title">Контакты</h2>
+                </div>
+                <div class="contacts__content">
+                    <div
+                        class="contacts__map"
+                        id="contacts__map"
+                        data-center="{{ contacts_data.map_center|safe }}"
+                        data-balloon="Офис ИРО ООО ВОА">
+                    </div>
+                    <div class="contacts__info">
+                        <div class="contacts__info-card">
+                            <h4 class="section__card_title">{% include "icons/icon_address.svg" %}Адрес:</h4>
+                            <p>{{ contacts_data.address }}</p>
+                            <h4 class="section__card_title">{% include "icons/icon_schedule.svg" %}Режим работы:</h4>
+                            <ul class="schedule">
+                                {% for item in schedule %}
+                                    <li>{{ item.days|join:", " }}: {{ item.hours }}</li>
+                                {% endfor %}
+                            </ul>
+                            <h4 class="section__card_title">{% include "icons/icon_phone.svg" %}Телефон:</h4>
+                            <p>{{ contacts_data.phone }}<br>{{ contacts_data.cellphone }}</p>
+                            <h4 class="section__card_title">{% include "icons/icon_mail.svg" %}E-mail:</h4>
+                            <p>{{ contacts_data.email }}</p>
+                        </div>
+                        <div class="contacts__info-card">
+                            <h4 class="section__card_title">{% include "icons/icon_requisites.svg" %}Реквизиты для оплаты услуг:</h4>
+                            <ul class="bank-details">
+                                <li>Наименование получателя: {{ requisites.recipient_name }}</li>
+                                <li>ИНН {{ requisites.inn }}; КПП {{ requisites.kpp }}</li>
+                                <li>Банк получателя: <br> {{ requisites.bank }}</li>
+                                <li>БИК: {{ requisites.bik }}</li>
+                                <li>Корр.счет: {{ requisites.corr_account }}</li>
+                                <li>Расч.счет: {{ requisites.settlement_account }}</li>
+                                <li>В назначении платежа обязательно указывать: <br> «{{ requisites.payment_purpose }}»</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacts__content">
+                    {% for iframe_url in map_iframes %}
+                        <div class="contacts__iframe">
+                            <iframe
+                                style="border: 0; width: 100%; height: 100%;"
+                                src="{{ iframe_url }}"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+{% endif %}

@@ -3,7 +3,7 @@ from content.models import Document, DocumentCategory
 
 register = template.Library()
 
-@register.inclusion_tag('content/inc/documents_section.inc.html')
+@register.inclusion_tag('content/ajax/documents/documents_section.html')
 def documents_for_section(department, section_slug):
     """
     Возвращает документы для раздела, разделённые на:

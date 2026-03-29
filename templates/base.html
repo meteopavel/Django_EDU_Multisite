@@ -21,11 +21,11 @@
 </head>
 <body>
     <div class="page-wrapper">
-        {% block header %}{% include "content/inc/header.inc.html" %}{% endblock %}
-        {% block navigation %}{% include "content/inc/nav.inc.html" %}{% endblock %}
+        {% block header %}{% include "content/layout/header.html" %}{% endblock %}
+        {% block navigation %}{% include "content/layout/navigation.html" %}{% endblock %}
         {% block content %}{% endblock %}
     </div>
-    {% block footer %}{% include "content/inc/footer.inc.html" %}{% endblock %}
+    {% block footer %}{% include "content/layout/footer.html" %}{% endblock %}
 
     <div id="image-modal" class="modal" style="display: none;">
         <span class="modal-close" id="modal-close">&times;</span>

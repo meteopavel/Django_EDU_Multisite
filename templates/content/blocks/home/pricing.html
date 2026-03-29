@@ -1,0 +1,56 @@
+{% load static %}
+
+{% if show_pricing %}
+    <section id="pricing" class="section pricing">
+        <div class="content__layout">
+            <h2 class="section__title">Стоимость обучения</h2>
+
+            <div class="pricing-grid">
+                <!-- Карточка 1: Категория В -->
+                <div class="pricing-card">
+                    <div class="pricing-card-image">
+                        <img src="{% static 'img/red_car.png' %}" />
+                    </div>
+                    <div class="pricing-card-content">
+                        <h3>КАТЕГОРИЯ В</h3>
+                        {%  if department.slug == 'irkutsk' %}
+                            <p><strong>Теория — 8000 ₽</strong></p>
+                            <p><strong>Практика — 1150 ₽ / час</strong></p>
+                            <ul>
+                                <li>58 часов на МКПП - <strong>66700 ₽</strong></li>
+                                <li>56 часа на АКПП - <strong>64400 ₽</strong></li>
+                            </ul>
+                            <p class="pricing-note">Возможна рассрочка платежа</p>
+                        {% elif department.slug == 'bratsk' %}
+                            <p><strong>Срок обучения — 3 месяца</strong></p>
+                            <p><strong>Полная стоимость — 65000 ₽</strong></p>
+                            <p class="pricing-note">Возможна рассрочка платежа</p>
+                        {% elif department.slug == 'ustkut' %}
+                            <p><strong>Теория — 30000 ₽</strong></p>
+                            <p><strong>Практика АКПП — 70000 ₽</strong></p>
+                            <p><strong>Практика МКПП — 72500 ₽</strong></p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Карточка 2: Дополнительные услуги -->
+                {% if department.slug != 'bratsk' %}
+                    <div class="pricing-card">
+                        <div class="pricing-card-image">
+                            <img src="{% static 'img/ring_sing.png' %}" />
+                        </div>
+                        <div class="pricing-card-content">
+                            <h3>ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h3>
+                            {%  if department.slug == 'irkutsk' %}
+                                <p>Восстановление навыков — <strong>12000 ₽</strong></p>
+                                <p>Сдача экзамена по вождению для учеников других автошкол — <strong>15000 ₽</strong><br> (4 занятия + автомобиль на экзамен)<br><span class="pricing-note">Попадание на экзамен в короткие сроки</span></p>
+                            {% elif department.slug == 'ustkut' %}
+                                <p>Восстановление навыков — <strong>2200 ₽ / час</strong></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endif %}

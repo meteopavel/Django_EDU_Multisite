@@ -1,0 +1,68 @@
+{% if show_services %}
+    <section id="services" class="section services">
+        <div class="content__layout">
+            <div class="section__header">
+                <h2 class="section__title">Услуги</h2>
+            </div>
+            {% if department.slug == 'region' %}
+                <!-- Региональное отделение: карточки с картами -->
+                <div class="services-grid-parking">
+                    {% for service in services %}
+                        <div class="service-card-parking"
+                             data-coords="{{ service.map_center|safe }}"
+                             data-address="{{ service.address }}">
+                            <div class="service-card-map" id="map-{{ forloop.counter }}"></div>
+                            <div class="service-card-footer">
+                                <div class="service-card-icon">{% include "icons/parking_sing.svg" %}</div>
+                                <div class="service-card-info">
+                                    <p>{{ service.name }}</p>
+                                    <p>Адрес: {{ service.address }}</p>
+                                    <p>тел. {{ service.phone }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            {% elif department.slug == 'ustkut' %}
+                <!-- Усть-Кут: карточки + блок описания -->
+                <div class="services-cards" data-accordion-group="material-cards">
+                    <div class="services-grid-info_card">
+                       {% for service in services %}
+                            <div class="service-card-info_card"
+                                 data-material-slug={{ service.description_material.slug }}>
+                                <div class="service-card-header">
+                                    <div class="service-card-icon">
+                                        {% if service.icon_name %}
+                                            {% include "icons/"|add:service.icon_name|add:".svg" %}
+                                        {% else %}
+                                            {% include "icons/icon_car.svg" %}
+                                        {% endif %}
+                                    </div>
+                                    <div class="service-card-title">
+                                        <h3 class="section__subtitle">{{ service.name }}</h3>
+                                    </div>
+                                    <div class="service-card-info">
+                                        {% if service.points %}
+                                            <ul>
+                                                {% for point in service.points %}
+                                                    <li>{{ point }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Блок описания — появляется ниже -->
+                    <div class="material-description-block" style="display: none;">
+                        <div class="material-description-content"></div>
+                    </div>
+                </div>
+
+            {% endif %}
+        </div>
+    </section>
+{% endif %}

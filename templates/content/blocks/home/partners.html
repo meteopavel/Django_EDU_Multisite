@@ -1,0 +1,31 @@
+{% if show_partners %}
+    <section id="partners" class="section partners">
+        <div class="content__layout">
+            <div class="section__header">
+                <h2 class="section__title">Наши партнёры</h2>
+                <a href="#" class="show-all-partner-news-btn hidden" data-department="{{ department.slug }}"></a>
+                <div id="svg-show-all-template" style="display: none;">{% include "icons/show_all.svg" %}</div>
+            </div>
+            <div id="partners-content-container">
+                <div class="partners-grid">
+                    {% for news_item in partner_news %}
+                        <div class="partner-card">
+                            <a href="#"
+                               class="partner-card-link"
+                               data-slug="{{ news_item.slug }}">
+                                {% if news_item.main_image %}
+                                    <div class="partner-card__image">
+                                        <img src="{{ news_item.main_image.url }}" alt="{{ news_item.title }}">
+                                    </div>
+                                {% endif %}
+                                <div class="partner-card__content">
+                                    <h3 class="section__card_title">{{ news_item.title }}</h3>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
