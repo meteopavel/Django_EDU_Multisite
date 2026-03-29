@@ -87,15 +87,6 @@
       "https://www.google.com/maps/embed?pb=!1m0!3m2!1sru!2sru!4v1488453420360!6m8!1m7!1sTSP4iB0qifkAAAQvxbq9RA!2m2!1d52.26740935932995!2d104.3091538168924!3f131!4f0!5f0.7820865974627469",
       "https://www.google.com/maps/embed?pb=!1m0!3m2!1sru!2sru!4v1488453497777!6m8!1m7!1se5qjRzOemlEAAAQvxbq9Rw!2m2!1d52.26723460681285!2d104.3092742457873!3f181!4f0!5f0.7820865974627469"
     ],
-    "show_latest_news": true,
-    "show_services": true,
-    "show_partners": true,
-    "show_documents": true,
-    "show_contacts": true,
-    "show_header_banner": false,
-    "show_exam_info": false,
-    "show_education_info": false,
-    "show_pricing": false,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Иркутское региональное отделение"
   }
@@ -157,15 +148,6 @@
       "https://www.google.com/maps/embed?pb=!1m0!3m2!1sru!2sru!4v1488453420360!6m8!1m7!1sTSP4iB0qifkAAAQvxbq9RA!2m2!1d52.26740935932995!2d104.3091538168924!3f131!4f0!5f0.7820865974627469",
       "https://www.google.com/maps/embed?pb=!1m0!3m2!1sru!2sru!4v1488453497777!6m8!1m7!1se5qjRzOemlEAAAQvxbq9Rw!2m2!1d52.26723460681285!2d104.3092742457873!3f181!4f0!5f0.7820865974627469"
     ],
-    "show_latest_news": true,
-    "show_services": false,
-    "show_partners": true,
-    "show_documents": false,
-    "show_contacts": true,
-    "show_header_banner": true,
-    "show_exam_info": true,
-    "show_education_info": true,
-    "show_pricing": true,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Автошкола Иркутск"
   }
@@ -222,15 +204,6 @@
       "https://www.google.com/maps/embed?pb=!3m2!1sru!2sru!4v1720510550377!5m2!1sru!2sru!6m8!1m7!1s16CQjkY7a3SVrhl0qluUIw!2m2!1d56.1637614549609!2d101.6265976582474!3f231.19!4f-4.420000000000002!5f1.0063043547592547",
       "https://www.google.com/maps/embed?pb=!4v1765548537917!6m8!1m7!1smJy2D1t5xmfpq4BS-oL4OQ!2m2!1d56.16380452889008!2d101.6264490612156!3f171.5482794095881!4f-4.977091086359863!5f0.7820865974627469"
     ],
-    "show_latest_news": true,
-    "show_services": false,
-    "show_partners": true,
-    "show_documents": false,
-    "show_contacts": true,
-    "show_header_banner": false,
-    "show_exam_info": false,
-    "show_education_info": true,
-    "show_pricing": true,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Братское городское отделение"
   }
@@ -287,17 +260,238 @@
       "https://www.google.com/maps/embed?pb=!4v1554820400259!6m8!1m7!1sueR9dPGtJhx2c-VA7XPD_g!2m2!1d56.79649157943005!2d105.7890608883128!3f21.440983065661133!4f-1.7831596677062578!5f1.3604321259922958",
       "https://www.google.com/maps/embed?pb=!4v1554820544723!6m8!1m7!1sOQEom9y9DDNR_eI5n4TQjw!2m2!1d56.79657285708789!2d105.7893727662209!3f306.0587775375419!4f-6.530916936481972!5f1.3545676248378002"
     ],
-    "show_latest_news": true,
-    "show_services": true,
-    "show_partners": true,
-    "show_documents": false,
-    "show_contacts": true,
-    "show_header_banner": false,
-    "show_exam_info": true,
-    "show_education_info": true,
-    "show_pricing": true,
     "meta_title": "Всероссийское общество автомобилистов",
     "meta_description": "Усть-кутское городское отделение"
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 1,
+  "fields": {
+    "department": 1,
+    "section_key": "latest_news",
+    "is_enabled": true,
+    "order": 1
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 2,
+  "fields": {
+    "department": 1,
+    "section_key": "services",
+    "is_enabled": true,
+    "order": 2
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 3,
+  "fields": {
+    "department": 1,
+    "section_key": "documents",
+    "is_enabled": true,
+    "order": 3
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 4,
+  "fields": {
+    "department": 1,
+    "section_key": "partners",
+    "is_enabled": true,
+    "order": 4
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 5,
+  "fields": {
+    "department": 1,
+    "section_key": "contacts",
+    "is_enabled": true,
+    "order": 5
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 6,
+  "fields": {
+    "department": 2,
+    "section_key": "header_banner",
+    "is_enabled": true,
+    "order": 1
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 7,
+  "fields": {
+    "department": 2,
+    "section_key": "exam_info",
+    "is_enabled": true,
+    "order": 2
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 8,
+  "fields": {
+    "department": 2,
+    "section_key": "pricing",
+    "is_enabled": true,
+    "order": 3
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 9,
+  "fields": {
+    "department": 2,
+    "section_key": "education_info",
+    "is_enabled": true,
+    "order": 4
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 10,
+  "fields": {
+    "department": 2,
+    "section_key": "latest_news",
+    "is_enabled": true,
+    "order": 5
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 11,
+  "fields": {
+    "department": 2,
+    "section_key": "partners",
+    "is_enabled": true,
+    "order": 6
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 12,
+  "fields": {
+    "department": 2,
+    "section_key": "contacts",
+    "is_enabled": true,
+    "order": 7
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 13,
+  "fields": {
+    "department": 3,
+    "section_key": "latest_news",
+    "is_enabled": true,
+    "order": 1
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 14,
+  "fields": {
+    "department": 3,
+    "section_key": "pricing",
+    "is_enabled": true,
+    "order": 2
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 15,
+  "fields": {
+    "department": 3,
+    "section_key": "education_info",
+    "is_enabled": true,
+    "order": 3
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 16,
+  "fields": {
+    "department": 3,
+    "section_key": "partners",
+    "is_enabled": true,
+    "order": 4
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 17,
+  "fields": {
+    "department": 3,
+    "section_key": "contacts",
+    "is_enabled": true,
+    "order": 5
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 18,
+  "fields": {
+    "department": 4,
+    "section_key": "exam_info",
+    "is_enabled": true,
+    "order": 1
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 19,
+  "fields": {
+    "department": 4,
+    "section_key": "latest_news",
+    "is_enabled": true,
+    "order": 2
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 20,
+  "fields": {
+    "department": 4,
+    "section_key": "pricing",
+    "is_enabled": true,
+    "order": 4
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 21,
+  "fields": {
+    "department": 4,
+    "section_key": "services",
+    "is_enabled": true,
+    "order": 3
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 22,
+  "fields": {
+    "department": 4,
+    "section_key": "partners",
+    "is_enabled": true,
+    "order": 5
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 23,
+  "fields": {
+    "department": 4,
+    "section_key": "contacts",
+    "is_enabled": true,
+    "order": 6
   }
 },
 {
