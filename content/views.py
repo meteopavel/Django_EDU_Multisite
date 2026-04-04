@@ -4,7 +4,7 @@ from django.utils import timezone
 from .decorators import page_name, ajax_view
 from .models import News, Document, Service, Material, ExamInfo, HomeSectionChoices
 from .constants import EDUCATION_SECTION_CHOICES
-from .utils import get_news_for_department, get_news_years, get_exam_month_range
+from .utils import get_news_for_department, get_news_years, get_exam_month_range, get_education_section_title
 
 
 @page_name('Главная', 'content/pages/home.html')
@@ -55,16 +55,15 @@ def home_view(request, department):
     if HomeSectionChoices.DOCUMENTS in enabled_section_keys:
         pass
     if HomeSectionChoices.EDUCATION_INFO in enabled_section_keys:
-        education_sections = [(title, slug, 'documents' if slug == 'documents' else 'material')
-                               for slug, title in EDUCATION_SECTION_CHOICES]
         accordion_items = []
-        for title, base_slug, item_type in education_sections:
-            if item_type == 'documents':
+        for base_slug, default_title in EDUCATION_SECTION_CHOICES:
+            title = get_education_section_title(department.slug, base_slug, default_title)
+            if base_slug == 'documents':
                 accordion_items.append({'title': title, 'type': 'documents'})
-            else:
-                full_slug = f'{department.slug}-{base_slug}'
-                if Material.objects.filter(department=department, slug=full_slug, is_active=True).exists():
-                    accordion_items.append({'title': title, 'type': 'material', 'material_slug': full_slug,})
+                continue
+            full_slug = f'{department.slug}-{base_slug}'
+            if Material.objects.filter(department=department, slug=full_slug, is_active=True).exists():
+                accordion_items.append({'title': title, 'type': 'material', 'material_slug': full_slug,})
         context['education_accordion_items'] = accordion_items
         context['show_education_accordion'] = bool(accordion_items)
     return context

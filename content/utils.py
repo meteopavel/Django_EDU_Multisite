@@ -75,3 +75,12 @@ def get_exam_month_range(exams):
     if min_date.year == max_date.year:
         return f"{months[min_date.month]}-{months[max_date.month]} {min_date.year} г."
     return f"{months[min_date.month]} {min_date.year} - {months[max_date.month]} {max_date.year} г."
+
+
+def get_education_section_title(department_slug, base_slug, default_title):
+    if (
+        department_slug == 'irkutsk'
+        and base_slug == 'materialno-tehnicheskoe-obespechenie'
+    ):
+        return 'Материально-техническое обеспечение и оснащенность образовательного процесса. Доступная среда'
+    return default_title
