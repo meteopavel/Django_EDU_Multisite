@@ -481,7 +481,7 @@
     "department": 4,
     "section_key": "partners",
     "is_enabled": true,
-    "order": 5
+    "order": 6
   }
 },
 {
@@ -491,7 +491,17 @@
     "department": 4,
     "section_key": "contacts",
     "is_enabled": true,
-    "order": 6
+    "order": 7
+  }
+},
+{
+  "model": "content.homepagesection",
+  "pk": 24,
+  "fields": {
+    "department": 4,
+    "section_key": "education_info",
+    "is_enabled": true,
+    "order": 5
   }
 },
 {
