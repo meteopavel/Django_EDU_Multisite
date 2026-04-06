@@ -8513,13 +8513,13 @@
   "model": "content.document",
   "pk": 76,
   "fields": {
-    "title": "Договор об оказании платных услуг",
+    "title": "Договор на обучение",
     "document_type": "file",
     "display_in_sections": [
       "documents",
       "platnye-obr-uslugi"
     ],
-    "file": "documents/ustkut/Договор_об_оказании_платных_услуг.pdf",
+    "file": "documents/ustkut/Договор_на_обучение.pdf",
     "external_url": "",
     "file_type": "pdf",
     "category": 1,
@@ -8743,7 +8743,7 @@
   "model": "content.document",
   "pk": 88,
   "fields": {
-    "title": "Предписания органов, осуществляющих государственный контроль в сфере образования",
+    "title": "Предписание об устранении выявленных нарушений требований законодательства об образовании от 20.09.2013",
     "document_type": "file",
     "display_in_sections": [
       "documents"
@@ -8762,7 +8762,7 @@
   "model": "content.document",
   "pk": 89,
   "fields": {
-    "title": "Отчеты об исполнении предписаний контролирующих органов",
+    "title": "Отчёт об исполнении предписания от 20.09.2013",
     "document_type": "file",
     "display_in_sections": [
       "documents"
@@ -8774,7 +8774,7 @@
     "department": 4,
     "order": 30,
     "is_active": true,
-    "created_at": "2025-11-24T12:50:14.214Z"
+    "created_at": "2025-11-24T12:50:14Z"
   }
 },
 {
@@ -11199,13 +11199,13 @@
   "model": "content.document",
   "pk": 218,
   "fields": {
-    "title": "Договор на дополнительные платные услуги",
+    "title": "Договор на аренду автомобиля для сдачи экзамена ГИБДД",
     "document_type": "file",
     "display_in_sections": [
       "documents",
       "platnye-obr-uslugi"
     ],
-    "file": "documents/ustkut/Договор_на_дополнительные_платные_услуги.pdf",
+    "file": "documents/ustkut/Договор_на_аренду_автомобиля_для_сдачи_экзамена_ГИБДД.pdf",
     "external_url": "",
     "file_type": "pdf",
     "category": 1,
@@ -11233,6 +11233,25 @@
     "order": 3,
     "is_active": true,
     "created_at": "2026-04-04T06:32:40Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 220,
+  "fields": {
+    "title": "Предостережение о недопустимости нарушений требований законодательства об образовании от 01.04.2026",
+    "document_type": "file",
+    "display_in_sections": [
+      "documents"
+    ],
+    "file": "documents/ustkut/167_Предостережение_Усть-Кутское_гор._отд._ООО_ВО_автомобилистов_1_1.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 8,
+    "department": 4,
+    "order": 31,
+    "is_active": true,
+    "created_at": "2026-04-06T06:46:36Z"
   }
 },
 {
