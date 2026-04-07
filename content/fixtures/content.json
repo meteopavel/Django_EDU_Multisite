@@ -7946,25 +7946,6 @@
 },
 {
   "model": "content.document",
-  "pk": 46,
-  "fields": {
-    "title": "Положение о защите персональных данных",
-    "document_type": "file",
-    "display_in_sections": [
-      "documents"
-    ],
-    "file": "documents/bratsk/Положение_защита_ПД.pdf",
-    "external_url": "",
-    "file_type": "pdf",
-    "category": 2,
-    "department": 3,
-    "order": 9,
-    "is_active": true,
-    "created_at": "2025-11-24T12:33:06.148Z"
-  }
-},
-{
-  "model": "content.document",
   "pk": 47,
   "fields": {
     "title": "Положение о порядке обучения по индивидуальному учебному плану",
