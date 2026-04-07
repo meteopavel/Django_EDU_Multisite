@@ -9,6 +9,7 @@ media/
 .env
 deploy.sh
 deploy-local.sh
+TODO
 
 # Python
 __pycache__/
