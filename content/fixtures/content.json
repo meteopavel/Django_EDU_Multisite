@@ -10997,25 +10997,6 @@
 },
 {
   "model": "content.document",
-  "pk": 208,
-  "fields": {
-    "title": "Материально-техническое обеспечение",
-    "document_type": "file",
-    "display_in_sections": [
-      "materialno-tehnicheskoe-obespechenie"
-    ],
-    "file": "documents/ustkut/Материально-техническое_обеспечение.pdf",
-    "external_url": "",
-    "file_type": "pdf",
-    "category": 2,
-    "department": 4,
-    "order": 0,
-    "is_active": true,
-    "created_at": "2025-12-21T11:34:29Z"
-  }
-},
-{
-  "model": "content.document",
   "pk": 209,
   "fields": {
     "title": "Постановление Правительства № 1440 \"Об утверждении Правил оказания платных образовательных услуг\"",
@@ -11358,6 +11339,82 @@
     "order": 30,
     "is_active": true,
     "created_at": "2026-04-07T13:10:27Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 227,
+  "fields": {
+    "title": "Учебный класс",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/ustkut/Учебныи_класс.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 2,
+    "is_active": true,
+    "created_at": "2026-04-08T10:34:53Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 228,
+  "fields": {
+    "title": "Перечень учебного оборудования",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/ustkut/Перечень_учебного_оборудования.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 1,
+    "is_active": true,
+    "created_at": "2026-04-08T10:35:57Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 229,
+  "fields": {
+    "title": "Автодром",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/ustkut/Автодром.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 3,
+    "is_active": true,
+    "created_at": "2026-04-08T10:36:37Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 230,
+  "fields": {
+    "title": "Учебные автомобили",
+    "document_type": "file",
+    "display_in_sections": [
+      "materialno-tehnicheskoe-obespechenie"
+    ],
+    "file": "documents/ustkut/Учебные_автомобили.pdf",
+    "external_url": "",
+    "file_type": "pdf",
+    "category": 2,
+    "department": 4,
+    "order": 4,
+    "is_active": true,
+    "created_at": "2026-04-08T10:37:09Z"
   }
 },
 {
