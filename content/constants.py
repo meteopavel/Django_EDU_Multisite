@@ -10,6 +10,7 @@ EDUCATION_SECTION_CHOICES = [
     ('finansovo-hozyaystvennaya-deyatelnost', 'Финансово-хозяйственная деятельность'),
     ('vakantnye-mesta', 'Вакантные места для приёма (перевода)'),
     ('dostupnaya-sreda', 'Доступная среда'),
+    ('obrazovatelnye-standarty', 'Образовательные стандарты и требования'),
     ('stipendii', 'Стипендии и меры поддержки обучающихся'),
     ('mezhdunarodnoye', 'Международное сотрудничество'),
     ('pitanie', 'Организация питания в образовательной организации'),
