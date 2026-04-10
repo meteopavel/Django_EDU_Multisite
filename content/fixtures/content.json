@@ -11418,6 +11418,63 @@
   }
 },
 {
+  "model": "content.document",
+  "pk": 231,
+  "fields": {
+    "title": "Федеральные государственные образовательные стандарты",
+    "document_type": "external",
+    "display_in_sections": [
+      "obrazovatelnye-standarty"
+    ],
+    "file": "",
+    "external_url": "https://www.consultant.ru/document/cons_doc_LAW_140174/dfbe1cf7aa2e2acfd7b8e7ad37cdf71b759c539d/",
+    "file_type": "",
+    "category": 2,
+    "department": 4,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2026-04-10T11:47:08Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 232,
+  "fields": {
+    "title": "Федеральные государственные образовательные стандарты",
+    "document_type": "external",
+    "display_in_sections": [
+      "obrazovatelnye-standarty"
+    ],
+    "file": "",
+    "external_url": "https://www.consultant.ru/document/cons_doc_LAW_140174/dfbe1cf7aa2e2acfd7b8e7ad37cdf71b759c539d/",
+    "file_type": "",
+    "category": 2,
+    "department": 2,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2026-04-10T11:47:08Z"
+  }
+},
+{
+  "model": "content.document",
+  "pk": 233,
+  "fields": {
+    "title": "Федеральные государственные образовательные стандарты",
+    "document_type": "external",
+    "display_in_sections": [
+      "obrazovatelnye-standarty"
+    ],
+    "file": "",
+    "external_url": "https://www.consultant.ru/document/cons_doc_LAW_140174/dfbe1cf7aa2e2acfd7b8e7ad37cdf71b759c539d/",
+    "file_type": "",
+    "category": 2,
+    "department": 3,
+    "order": 0,
+    "is_active": true,
+    "created_at": "2026-04-10T11:47:08Z"
+  }
+},
+{
   "model": "content.material",
   "pk": 2,
   "fields": {
@@ -11910,6 +11967,39 @@
     "slug": "bratsk-dostupnaya-sreda",
     "is_active": true,
     "created_at": "2026-04-04T05:40:28.624Z"
+  }
+},
+{
+  "model": "content.material",
+  "pk": 52,
+  "fields": {
+    "department": 4,
+    "title": "Образовательные стандарты и требования",
+    "slug": "ustkut-obrazovatelnye-standarty",
+    "is_active": true,
+    "created_at": "2026-04-10T11:44:42.578Z"
+  }
+},
+{
+  "model": "content.material",
+  "pk": 53,
+  "fields": {
+    "department": 3,
+    "title": "Образовательные стандарты и требования",
+    "slug": "bratsk-obrazovatelnye-standarty",
+    "is_active": true,
+    "created_at": "2026-04-10T11:44:42.578Z"
+  }
+},
+{
+  "model": "content.material",
+  "pk": 54,
+  "fields": {
+    "department": 2,
+    "title": "Образовательные стандарты и требования",
+    "slug": "irkutsk-obrazovatelnye-standarty",
+    "is_active": true,
+    "created_at": "2026-04-10T11:44:42.578Z"
   }
 },
 {
@@ -13189,6 +13279,51 @@
   }
 },
 {
+  "model": "content.contentblock",
+  "pk": 150,
+  "fields": {
+    "material": 52,
+    "block_type": "paragraph",
+    "order": 0,
+    "text": "О применяемых федеральных государственных образовательных стандартах, федеральных государственных требованиях с приложением их копий или размещением гиперссылки на действующие редакции соответствующих документов - не реализуется.\r\n\r\nОб утвержденных образовательных стандартах, самостоятельно устанавливаемых требованиях с приложением образовательных стандартов, самостоятельно устанавливаемых требований в форме электронного документа или в виде активных ссылок, непосредственный переход по которым позволяет получить доступ к образовательному стандарту, самостоятельно устанавливаемым требованиям в форме электронного документа - не реализуется.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": "",
+    "documents_section": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 151,
+  "fields": {
+    "material": 53,
+    "block_type": "paragraph",
+    "order": 0,
+    "text": "О применяемых федеральных государственных образовательных стандартах, федеральных государственных требованиях с приложением их копий или размещением гиперссылки на действующие редакции соответствующих документов - не реализуется.\r\n\r\nОб утвержденных образовательных стандартах, самостоятельно устанавливаемых требованиях с приложением образовательных стандартов, самостоятельно устанавливаемых требований в форме электронного документа или в виде активных ссылок, непосредственный переход по которым позволяет получить доступ к образовательному стандарту, самостоятельно устанавливаемым требованиям в форме электронного документа - не реализуется.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": "",
+    "documents_section": ""
+  }
+},
+{
+  "model": "content.contentblock",
+  "pk": 152,
+  "fields": {
+    "material": 54,
+    "block_type": "paragraph",
+    "order": 0,
+    "text": "О применяемых федеральных государственных образовательных стандартах, федеральных государственных требованиях с приложением их копий или размещением гиперссылки на действующие редакции соответствующих документов - не реализуется.\r\n\r\nОб утвержденных образовательных стандартах, самостоятельно устанавливаемых требованиях с приложением образовательных стандартов, самостоятельно устанавливаемых требований в форме электронного документа или в виде активных ссылок, непосредственный переход по которым позволяет получить доступ к образовательному стандарту, самостоятельно устанавливаемым требованиям в форме электронного документа - не реализуется.",
+    "items": [],
+    "image": "",
+    "video": "",
+    "video_url": "",
+    "documents_section": ""
+  }
+},
+{
   "model": "content.examinfo",
   "pk": 1,
   "fields": {
@@ -13205,10 +13340,10 @@
   "pk": 2,
   "fields": {
     "department": 2,
-    "group_number": 204,
-    "theory_date": "2026-03-24",
-    "practice_date": "2026-03-25",
-    "gibdd_date": "2026-04-04",
+    "group_number": 207,
+    "theory_date": "2026-04-23",
+    "practice_date": "2026-04-24",
+    "gibdd_date": "2026-05-02",
     "gibdd_time": "07:45:00"
   }
 },
