@@ -3,6 +3,7 @@
 в markdown и/или json в директорию project_passport.
 Использование:
     python tools/extract_api_map.py app
+    python tools/extract_api_map.py content core edu_multisite
     python tools/extract_api_map.py app/services/chronicle/prompts.py
     python tools/extract_api_map.py app --project-root .
 Опции:
@@ -24,15 +25,23 @@ from typing import Any
 
 DEFAULT_PASSPORT_DIRNAME = 'project_passport'
 
+EXCLUDED_PATH_PARTS = {
+    'migrations',
+    'venv',
+    '__pycache__',
+    'tests',
+}
+
 
 def parse_args() -> argparse.Namespace:
     """Разбирает аргументы командной строки."""
     parser = argparse.ArgumentParser(
-        description='Собирает карту Python API по файлу или директории.',
+        description='Собирает карту Python API по одному или нескольким файлам/директориям.',
     )
     parser.add_argument(
-        'path',
-        help='Путь к Python-файлу или директории относительно project root или абсолютный путь.',
+        'paths',
+        nargs='+',
+        help='Один или несколько путей к Python-файлам или директориям относительно project root или абсолютные пути.',
     )
     parser.add_argument(
         '--project-root',
@@ -100,6 +109,24 @@ def build_output_path(
     """Строит путь к выходному файлу внутри output_dir."""
     display_target = get_display_path(target_path, base_dir)
     normalized_name = sanitize_filename_part(display_target)
+    return output_dir / f'api_map__{normalized_name}.{extension}'
+
+
+def build_combined_output_name(target_paths: list[Path], base_dir: Path) -> str:
+    """Строит безопасное имя для общего выходного файла по нескольким путям."""
+    display_parts = [get_display_path(path, base_dir) for path in target_paths]
+    combined = '__'.join(sanitize_filename_part(part) for part in display_parts)
+    return combined or 'combined'
+
+
+def build_output_path_for_targets(
+    target_paths: list[Path],
+    output_dir: Path,
+    base_dir: Path,
+    extension: str,
+) -> Path:
+    """Строит путь к выходному файлу внутри output_dir для одного или нескольких путей."""
+    normalized_name = build_combined_output_name(target_paths, base_dir)
     return output_dir / f'api_map__{normalized_name}.{extension}'
 
 
@@ -357,35 +384,69 @@ def is_meaningful_module(module_data: dict[str, Any]) -> bool:
     )
 
 
+def should_skip_python_file(file_path: Path, base_dir: Path) -> bool:
+    """Проверяет, нужно ли исключить Python-файл из карты API."""
+    display_path = get_display_path(file_path, base_dir)
+    normalized_parts = Path(display_path).parts
+
+    if set(normalized_parts) & EXCLUDED_PATH_PARTS:
+        return True
+
+    for index in range(len(normalized_parts) - 1):
+        if normalized_parts[index] == 'management' and normalized_parts[index + 1] == 'commands':
+            return True
+
+    return False
+
+
 def collect_python_file_paths(target_path: Path, base_dir: Path) -> list[Path]:
     """Собирает список Python-файлов из файла или директории."""
     if target_path.is_file():
         if target_path.suffix != '.py':
             raise ValueError(f'Ожидался Python-файл: {target_path}')
+        if should_skip_python_file(target_path, base_dir):
+            return []
         return [target_path]
     if target_path.is_dir():
         return sorted(
             (
                 file_path
                 for file_path in target_path.rglob('*.py')
-                if file_path.is_file()
+                if file_path.is_file() and not should_skip_python_file(file_path, base_dir)
             ),
             key=lambda path: get_display_path(path, base_dir),
         )
     raise ValueError(f'Путь не найден: {target_path}')
 
 
-def build_api_map_data(target_path: Path, base_dir: Path) -> dict[str, Any]:
-    """Собирает структурированную карту API по файлу или директории."""
-    all_python_files = collect_python_file_paths(target_path, base_dir)
+def collect_python_file_paths_from_targets(target_paths: list[Path], base_dir: Path) -> list[Path]:
+    """Собирает список Python-файлов из нескольких файлов и/или директорий."""
+    collected_files: dict[Path, Path] = {}
+
+    for target_path in target_paths:
+        for file_path in collect_python_file_paths(target_path, base_dir):
+            resolved_file_path = file_path.resolve()
+            collected_files[resolved_file_path] = resolved_file_path
+
+    return sorted(
+        collected_files.values(),
+        key=lambda path: get_display_path(path, base_dir),
+    )
+
+
+def build_api_map_data(target_paths: list[Path], base_dir: Path) -> dict[str, Any]:
+    """Собирает структурированную карту API по одному или нескольким файлам/директориям."""
+    all_python_files = collect_python_file_paths_from_targets(target_paths, base_dir)
     modules: list[dict[str, Any]] = []
     skipped_files: list[str] = []
+
     for file_path in all_python_files:
         module_data = extract_python_file_data(file_path, base_dir)
         if is_meaningful_module(module_data):
             modules.append(module_data)
         else:
             skipped_files.append(module_data['path'])
+
     stats = {
         'modules': len(modules),
         'classes': sum(module['stats']['classes'] for module in modules),
@@ -394,11 +455,13 @@ def build_api_map_data(target_path: Path, base_dir: Path) -> dict[str, Any]:
         'methods': sum(module['stats']['methods'] for module in modules),
         'constants': sum(module['stats']['constants'] for module in modules),
     }
+
     return {
         'schema_version': '1.0',
         'generated_at': datetime.now(timezone.utc).isoformat(),
         'generator': 'tools/extract_api_map.py',
-        'target': get_display_path(target_path, base_dir),
+        'targets': [get_display_path(path, base_dir) for path in target_paths],
+        'target': ', '.join(get_display_path(path, base_dir) for path in target_paths),
         'scanned_python_files': len(all_python_files),
         'files_count': len(modules),
         'skipped_files_count': len(skipped_files),
@@ -483,7 +546,7 @@ def render_json(api_map_data: dict[str, Any]) -> str:
 
 def write_output_files(
     api_map_data: dict[str, Any],
-    target_path: Path,
+    target_paths: list[Path],
     output_dir: Path,
     base_dir: Path,
     output_format: str,
@@ -491,14 +554,17 @@ def write_output_files(
     """Сохраняет markdown и/или json версии карты API."""
     output_dir.mkdir(parents=True, exist_ok=True)
     written_files: list[Path] = []
+
     if output_format in ('md', 'both'):
-        markdown_path = build_output_path(target_path, output_dir, base_dir, 'md')
+        markdown_path = build_output_path_for_targets(target_paths, output_dir, base_dir, 'md')
         markdown_path.write_text(render_markdown(api_map_data), encoding='utf-8')
         written_files.append(markdown_path)
+
     if output_format in ('json', 'both'):
-        json_path = build_output_path(target_path, output_dir, base_dir, 'json')
+        json_path = build_output_path_for_targets(target_paths, output_dir, base_dir, 'json')
         json_path.write_text(render_json(api_map_data), encoding='utf-8')
         written_files.append(json_path)
+
     return written_files
 
 
@@ -508,20 +574,29 @@ def main() -> None:
     project_root = Path(args.project_root).resolve()
     if not project_root.exists():
         raise SystemExit(f'Корень проекта не найден: {project_root}')
-    target_path = resolve_path(project_root, args.path)
+
+    target_paths = [resolve_path(project_root, raw_path) for raw_path in args.paths]
     output_dir = resolve_output_dir(project_root, args.output_dir)
-    if not target_path.exists():
-        raise SystemExit(f'Путь не найден: {target_path}')
-    api_map_data = build_api_map_data(target_path, project_root)
+
+    missing_paths = [path for path in target_paths if not path.exists()]
+    if missing_paths:
+        missing_text = ', '.join(str(path) for path in missing_paths)
+        raise SystemExit(f'Пути не найдены: {missing_text}')
+
+    api_map_data = build_api_map_data(target_paths, project_root)
+
     if not api_map_data['modules']:
-        raise SystemExit(f'Не найдено подходящих Python-файлов для карты API: {target_path}')
+        joined_targets = ', '.join(str(path) for path in target_paths)
+        raise SystemExit(f'Не найдено подходящих Python-файлов для карты API: {joined_targets}')
+
     written_files = write_output_files(
         api_map_data=api_map_data,
-        target_path=target_path,
+        target_paths=target_paths,
         output_dir=output_dir,
         base_dir=project_root,
         output_format=args.format,
     )
+
     print('Готово:')
     for output_file in written_files:
         print(f'- {output_file}')

@@ -1,0 +1,1504 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-04-19T05:47:58.985307+00:00",
+  "generator": "tools/extract_api_map.py",
+  "targets": [
+    "content",
+    "core",
+    "edu_multisite"
+  ],
+  "target": "content, core, edu_multisite",
+  "scanned_python_files": 18,
+  "files_count": 14,
+  "skipped_files_count": 4,
+  "skipped_files": [
+    "content/__init__.py",
+    "content/templatetags/__init__.py",
+    "core/__init__.py",
+    "edu_multisite/__init__.py"
+  ],
+  "stats": {
+    "modules": 14,
+    "classes": 31,
+    "dataclasses": 0,
+    "functions": 22,
+    "methods": 35,
+    "constants": 21
+  },
+  "modules": [
+    {
+      "path": "content/admin.py",
+      "module_docstring": "Административные настройки контентного приложения.\n\nМодуль содержит:\n- регистрации моделей в Django admin;\n- кастомные формы админки;\n- inline-настройки связанных сущностей;\n- вспомогательные методы отображения и сохранения файлов.",
+      "module_summary": "Административные настройки контентного приложения.",
+      "classes": [
+        {
+          "name": "DepartmentAdmin",
+          "signature": "DepartmentAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование подразделений.",
+          "summary": "Администрирование подразделений.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(Department)"
+          ],
+          "fields": [],
+          "methods": [],
+          "lineno": 27,
+          "end_lineno": 31
+        },
+        {
+          "name": "DepartmentDetailsAdminForm",
+          "signature": "DepartmentDetailsAdminForm(forms.ModelForm)",
+          "docstring": "Форма администрирования деталей подразделения с удобными JSON-полями.",
+          "summary": "Форма администрирования деталей подразделения с удобными JSON-полями.",
+          "kind": "class",
+          "bases": [
+            "forms.ModelForm"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [],
+          "lineno": 34,
+          "end_lineno": 43
+        },
+        {
+          "name": "DepartmentDetailsAdmin",
+          "signature": "DepartmentDetailsAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование контактных, реквизитных и SEO-данных подразделения.",
+          "summary": "Администрирование контактных, реквизитных и SEO-данных подразделения.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(DepartmentDetails)"
+          ],
+          "fields": [],
+          "methods": [
+            {
+              "name": "get_fieldsets",
+              "signature": "get_fieldsets(self, request: HttpRequest, obj: DepartmentDetails | None = None) -> tuple[tuple[str, dict[str, Any]], ...]",
+              "docstring": "Возвращает набор секций формы редактирования деталей подразделения.",
+              "summary": "Возвращает набор секций формы редактирования деталей подразделения.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 53,
+              "end_lineno": 63
+            }
+          ],
+          "lineno": 47,
+          "end_lineno": 63
+        },
+        {
+          "name": "HomePageSectionAdmin",
+          "signature": "HomePageSectionAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование состава и порядка секций главной страницы.",
+          "summary": "Администрирование состава и порядка секций главной страницы.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(HomePageSection)"
+          ],
+          "fields": [],
+          "methods": [
+            {
+              "name": "section_label",
+              "signature": "section_label(self, obj: HomePageSection) -> str",
+              "docstring": "Возвращает человекочитаемое название секции.",
+              "summary": "Возвращает человекочитаемое название секции.",
+              "kind": "method",
+              "decorators": [
+                "admin.display(description='Секция', ordering='section_key')"
+              ],
+              "lineno": 75,
+              "end_lineno": 77
+            }
+          ],
+          "lineno": 67,
+          "end_lineno": 77
+        },
+        {
+          "name": "MenuItemAdmin",
+          "signature": "MenuItemAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование пунктов меню подразделений.",
+          "summary": "Администрирование пунктов меню подразделений.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(MenuItem)"
+          ],
+          "fields": [],
+          "methods": [
+            {
+              "name": "departments_list",
+              "signature": "departments_list(self, obj: MenuItem) -> str",
+              "docstring": "Возвращает список подразделений, где отображается пункт меню.",
+              "summary": "Возвращает список подразделений, где отображается пункт меню.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 88,
+              "end_lineno": 92
+            }
+          ],
+          "lineno": 81,
+          "end_lineno": 94
+        },
+        {
+          "name": "NewsImageAdmin",
+          "signature": "NewsImageAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование изображений новостей.",
+          "summary": "Администрирование изображений новостей.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(NewsImage)"
+          ],
+          "fields": [],
+          "methods": [],
+          "lineno": 98,
+          "end_lineno": 101
+        },
+        {
+          "name": "NewsImageInline",
+          "signature": "NewsImageInline(admin.TabularInline)",
+          "docstring": "Inline-редактирование изображений новости.",
+          "summary": "Inline-редактирование изображений новости.",
+          "kind": "class",
+          "bases": [
+            "admin.TabularInline"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [],
+          "lineno": 104,
+          "end_lineno": 107
+        },
+        {
+          "name": "NewsAdmin",
+          "signature": "NewsAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование новостей и их галереи.",
+          "summary": "Администрирование новостей и их галереи.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(News)"
+          ],
+          "fields": [],
+          "methods": [],
+          "lineno": 111,
+          "end_lineno": 116
+        },
+        {
+          "name": "DocumentCategoryAdmin",
+          "signature": "DocumentCategoryAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование категорий документов.",
+          "summary": "Администрирование категорий документов.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(DocumentCategory)"
+          ],
+          "fields": [],
+          "methods": [
+            {
+              "name": "document_count",
+              "signature": "document_count(self, obj: DocumentCategory) -> int",
+              "docstring": "Возвращает количество документов в категории.",
+              "summary": "Возвращает количество документов в категории.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 128,
+              "end_lineno": 130
+            }
+          ],
+          "lineno": 120,
+          "end_lineno": 132
+        },
+        {
+          "name": "DocumentAdminForm",
+          "signature": "DocumentAdminForm(forms.ModelForm)",
+          "docstring": "Форма администрирования документа с множественным выбором секций отображения.",
+          "summary": "Форма администрирования документа с множественным выбором секций отображения.",
+          "kind": "class",
+          "bases": [
+            "forms.ModelForm"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__init__",
+              "signature": "__init__(self, *args: Any, **kwargs: Any) -> None",
+              "docstring": "Инициализирует форму и подставляет текущие секции отображения документа.",
+              "summary": "Инициализирует форму и подставляет текущие секции отображения документа.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 143,
+              "end_lineno": 147
+            },
+            {
+              "name": "clean_display_in_sections",
+              "signature": "clean_display_in_sections(self) -> list[str]",
+              "docstring": "Возвращает выбранные секции отображения документа.",
+              "summary": "Возвращает выбранные секции отображения документа.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 149,
+              "end_lineno": 151
+            }
+          ],
+          "lineno": 135,
+          "end_lineno": 151
+        },
+        {
+          "name": "DocumentDepartmentFilter",
+          "signature": "DocumentDepartmentFilter(admin.SimpleListFilter)",
+          "docstring": "Фильтр документов по подразделению в административном интерфейсе.",
+          "summary": "Фильтр документов по подразделению в административном интерфейсе.",
+          "kind": "class",
+          "bases": [
+            "admin.SimpleListFilter"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "lookups",
+              "signature": "lookups(self, request: HttpRequest, model_admin: admin.ModelAdmin) -> list[tuple[int, str]]",
+              "docstring": "Возвращает список подразделений для фильтра.",
+              "summary": "Возвращает список подразделений для фильтра.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 159,
+              "end_lineno": 161
+            },
+            {
+              "name": "queryset",
+              "signature": "queryset(self, request: HttpRequest, queryset)",
+              "docstring": "Фильтрует queryset по выбранному подразделению.",
+              "summary": "Фильтрует queryset по выбранному подразделению.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 163,
+              "end_lineno": 167
+            }
+          ],
+          "lineno": 154,
+          "end_lineno": 167
+        },
+        {
+          "name": "DocumentAdmin",
+          "signature": "DocumentAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование документов и их файлового размещения.",
+          "summary": "Администрирование документов и их файлового размещения.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(Document)"
+          ],
+          "fields": [],
+          "methods": [
+            {
+              "name": "get_readonly_fields",
+              "signature": "get_readonly_fields(self, request: HttpRequest, obj: Document | None = None) -> list[str]",
+              "docstring": "Возвращает список полей только для чтения.",
+              "summary": "Возвращает список полей только для чтения.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 181,
+              "end_lineno": 183
+            },
+            {
+              "name": "save_model",
+              "signature": "save_model(self, request: HttpRequest, obj: Document, form: forms.ModelForm, change: bool) -> None",
+              "docstring": "Сохраняет документ и при необходимости перемещает файл в каталог подразделения.",
+              "summary": "Сохраняет документ и при необходимости перемещает файл в каталог подразделения.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 185,
+              "end_lineno": 200
+            },
+            {
+              "name": "file_type_display",
+              "signature": "file_type_display(self, obj: Document) -> str",
+              "docstring": "Возвращает человекочитаемое название типа файла.",
+              "summary": "Возвращает человекочитаемое название типа файла.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 202,
+              "end_lineno": 204
+            },
+            {
+              "name": "file_link",
+              "signature": "file_link(self, obj: Document) -> str",
+              "docstring": "Возвращает HTML-ссылку на файл документа.",
+              "summary": "Возвращает HTML-ссылку на файл документа.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 208,
+              "end_lineno": 212
+            }
+          ],
+          "lineno": 171,
+          "end_lineno": 214
+        },
+        {
+          "name": "ServiceAdmin",
+          "signature": "ServiceAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование услуг подразделений.",
+          "summary": "Администрирование услуг подразделений.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(Service)"
+          ],
+          "fields": [],
+          "methods": [],
+          "lineno": 218,
+          "end_lineno": 224
+        },
+        {
+          "name": "ContentBlockAdminForm",
+          "signature": "ContentBlockAdminForm(forms.ModelForm)",
+          "docstring": "Форма администрирования блока контента с валидацией секции документов.",
+          "summary": "Форма администрирования блока контента с валидацией секции документов.",
+          "kind": "class",
+          "bases": [
+            "forms.ModelForm"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "clean",
+              "signature": "clean(self) -> dict[str, Any]",
+              "docstring": "Проверяет обязательность выбора секции для блока типа documents.",
+              "summary": "Проверяет обязательность выбора секции для блока типа documents.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 235,
+              "end_lineno": 242
+            }
+          ],
+          "lineno": 227,
+          "end_lineno": 242
+        },
+        {
+          "name": "ContentBlockInline",
+          "signature": "ContentBlockInline(admin.TabularInline)",
+          "docstring": "Inline-редактирование блоков контента материала.",
+          "summary": "Inline-редактирование блоков контента материала.",
+          "kind": "class",
+          "bases": [
+            "admin.TabularInline"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [],
+          "lineno": 245,
+          "end_lineno": 250
+        },
+        {
+          "name": "MaterialAdmin",
+          "signature": "MaterialAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование материалов и их контентных блоков.",
+          "summary": "Администрирование материалов и их контентных блоков.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(Material)"
+          ],
+          "fields": [],
+          "methods": [],
+          "lineno": 254,
+          "end_lineno": 258
+        },
+        {
+          "name": "ExamInfoAdmin",
+          "signature": "ExamInfoAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование информации об экзаменах.",
+          "summary": "Администрирование информации об экзаменах.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(ExamInfo)"
+          ],
+          "fields": [],
+          "methods": [
+            {
+              "name": "is_expired_col",
+              "signature": "is_expired_col(self, obj: ExamInfo) -> str",
+              "docstring": "Возвращает HTML-индикатор актуальности экзамена.",
+              "summary": "Возвращает HTML-индикатор актуальности экзамена.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 272,
+              "end_lineno": 276
+            }
+          ],
+          "lineno": 262,
+          "end_lineno": 278
+        }
+      ],
+      "functions": [],
+      "constants": [],
+      "stats": {
+        "classes": 17,
+        "dataclasses": 0,
+        "functions": 0,
+        "methods": 14,
+        "constants": 0
+      }
+    },
+    {
+      "path": "content/apps.py",
+      "module_docstring": "Конфигурация приложения content.",
+      "module_summary": "Конфигурация приложения content.",
+      "classes": [
+        {
+          "name": "ContentConfig",
+          "signature": "ContentConfig(AppConfig)",
+          "docstring": "Конфигурация Django-приложения content.",
+          "summary": "Конфигурация Django-приложения content.",
+          "kind": "class",
+          "bases": [
+            "AppConfig"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [],
+          "lineno": 8,
+          "end_lineno": 11
+        }
+      ],
+      "functions": [],
+      "constants": [],
+      "stats": {
+        "classes": 1,
+        "dataclasses": 0,
+        "functions": 0,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "content/constants.py",
+      "module_docstring": "Константы контентного приложения.\n\nМодуль содержит справочные наборы значений, используемые в моделях,\nпредставлениях и шаблонах.",
+      "module_summary": "Константы контентного приложения.",
+      "classes": [],
+      "functions": [],
+      "constants": [
+        {
+          "name": "EDUCATION_SECTION_CHOICES",
+          "annotation": null,
+          "value_repr": "[('osnovnye-svedeniya', 'Основные сведения'), ('struktura-upravleniya', 'Структура и органы управления образовательной организацией'), ('documents', 'Документы'), ('obrazovanie', 'Образование'), ('administratsiya', 'Руководство'), ('prepodavateli', 'Педагогический (научно-педагогический) состав'), ('materialno-tehnicheskoe-obespechenie', 'Материально-техническое обеспечение и оснащенность образовательного процесса'), ('platnye-obr-uslugi', 'Платные образовательные услуги'), ('finansovo-hozyaystvennaya-deyatelnost', 'Финансово-хозяйственная деятельность'), ('vakantnye-mesta', 'Вакантные места для приёма (перевода)'), ('dostupnaya-sreda', 'Доступная среда'), ('obrazovatelnye-standarty', 'Образовательные стандарты и требования'), ('stipendii', 'Стипендии и меры поддержки обучающихся'), ('mezhdunarodnoye', 'Международное сотрудничество'), ('pitanie', 'Организация питания в образовательной организации')]",
+          "lineno": 8
+        }
+      ],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 0,
+        "methods": 0,
+        "constants": 1
+      }
+    },
+    {
+      "path": "content/context_processors.py",
+      "module_docstring": "Контекстные процессоры контентного приложения.\n\nМодуль содержит функции для:\n- подстановки меню текущего подразделения;\n- вычисления версии статики;\n- передачи ключа Yandex Maps в шаблоны.",
+      "module_summary": "Контекстные процессоры контентного приложения.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "menu_processor",
+          "signature": "menu_processor(request: HttpRequest) -> dict[str, Any]",
+          "docstring": "Возвращает пункты меню для текущего подразделения или резервного подразделения.",
+          "summary": "Возвращает пункты меню для текущего подразделения или резервного подразделения.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 23,
+          "end_lineno": 32
+        },
+        {
+          "name": "static_version",
+          "signature": "static_version(request: HttpRequest) -> dict[str, str]",
+          "docstring": "Возвращает версию статики по времени последнего изменения файлов static.",
+          "summary": "Возвращает версию статики по времени последнего изменения файлов static.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 35,
+          "end_lineno": 45
+        },
+        {
+          "name": "yandex_maps",
+          "signature": "yandex_maps(request: HttpRequest) -> dict[str, str]",
+          "docstring": "Возвращает ключ API Яндекс.Карт для использования в шаблонах.",
+          "summary": "Возвращает ключ API Яндекс.Карт для использования в шаблонах.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 48,
+          "end_lineno": 50
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 3,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "content/decorators.py",
+      "module_docstring": "Декораторы представлений контентного приложения.\n\nМодуль содержит:\n- декоратор для обычных страниц с автоматическим определением подразделения;\n- декоратор для AJAX-представлений с рендерингом HTML или возвратом JSON.",
+      "module_summary": "Декораторы представлений контентного приложения.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "page_name",
+          "signature": "page_name(name: str, template_name: str) -> Callable",
+          "docstring": "Декорирует view, добавляя page_name, department и рендер шаблона страницы.",
+          "summary": "Декорирует view, добавляя page_name, department и рендер шаблона страницы.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 21,
+          "end_lineno": 32
+        },
+        {
+          "name": "ajax_view",
+          "signature": "ajax_view(name: str | None = None, template_name: str | None = None) -> Callable",
+          "docstring": "Декорирует AJAX-view, разрешая подразделение и возвращая JSON или HTML.",
+          "summary": "Декорирует AJAX-view, разрешая подразделение и возвращая JSON или HTML.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 35,
+          "end_lineno": 68
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 2,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "content/models.py",
+      "module_docstring": "Модели контентной и справочной структуры сайта.\n\nМодуль содержит сущности для:\n- подразделений и их реквизитов;\n- секций главной страницы;\n- услуг, меню, новостей и документов;\n- материалов и блоков контента;\n- экзаменационной информации.",
+      "module_summary": "Модели контентной и справочной структуры сайта.",
+      "classes": [
+        {
+          "name": "Department",
+          "signature": "Department(models.Model)",
+          "docstring": "Подразделение организации, к которому привязываются контент и данные.",
+          "summary": "Подразделение организации, к которому привязываются контент и данные.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает название подразделения.",
+              "summary": "Возвращает название подразделения.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 34,
+              "end_lineno": 36
+            }
+          ],
+          "lineno": 23,
+          "end_lineno": 36
+        },
+        {
+          "name": "DepartmentDetails",
+          "signature": "DepartmentDetails(models.Model)",
+          "docstring": "Расширенные реквизиты, контакты и SEO-данные подразделения.",
+          "summary": "Расширенные реквизиты, контакты и SEO-данные подразделения.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает краткое представление деталей подразделения.",
+              "summary": "Возвращает краткое представление деталей подразделения.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 70,
+              "end_lineno": 72
+            }
+          ],
+          "lineno": 39,
+          "end_lineno": 72
+        },
+        {
+          "name": "HomeSectionChoices",
+          "signature": "HomeSectionChoices(models.TextChoices)",
+          "docstring": "Ключи секций главной страницы подразделения.",
+          "summary": "Ключи секций главной страницы подразделения.",
+          "kind": "class",
+          "bases": [
+            "models.TextChoices"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [],
+          "lineno": 75,
+          "end_lineno": 86
+        },
+        {
+          "name": "HomePageSection",
+          "signature": "HomePageSection(models.Model)",
+          "docstring": "Настройка состава, порядка и видимости секций главной страницы.",
+          "summary": "Настройка состава, порядка и видимости секций главной страницы.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [
+            {
+              "name": "TEMPLATE_MAP",
+              "annotation": "dict[str, str]",
+              "value_repr": "{HomeSectionChoices.HEADER_BANNER: 'content/blocks/home/header_banner.html', HomeSectionChoices.EXAM_INFO: 'content/blocks/home/exam_info.html', HomeSectionChoices.LATEST_NEWS: 'content/blocks/home/latest_news.html', HomeSectionChoices.PRICING: 'content/blocks/home/pricing.html', HomeSectionChoices.EDUCATION_INFO: 'content/blocks/home/education_info.html', HomeSectionChoices.SERVICES: 'content/blocks/home/services.html', HomeSectionChoices.DOCUMENTS: 'content/blocks/home/documents.html', HomeSectionChoices.PARTNERS: 'content/blocks/home/partners.html', HomeSectionChoices.CONTACTS: 'content/blocks/home/contacts.html'}",
+              "lineno": 110
+            }
+          ],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает название секции в контексте подразделения.",
+              "summary": "Возвращает название секции в контексте подразделения.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 129,
+              "end_lineno": 131
+            },
+            {
+              "name": "template_name",
+              "signature": "template_name(self) -> str",
+              "docstring": "Возвращает путь к шаблону секции.",
+              "summary": "Возвращает путь к шаблону секции.",
+              "kind": "method",
+              "decorators": [
+                "property"
+              ],
+              "lineno": 134,
+              "end_lineno": 136
+            }
+          ],
+          "lineno": 102,
+          "end_lineno": 136
+        },
+        {
+          "name": "Service",
+          "signature": "Service(models.Model)",
+          "docstring": "Услуга подразделения с кратким описанием, типом и контактными данными.",
+          "summary": "Услуга подразделения с кратким описанием, типом и контактными данными.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [
+            {
+              "name": "SERVICE_TYPES",
+              "annotation": "list[tuple[str, str]]",
+              "value_repr": "[('parking', 'Автостоянка'), ('info_card', 'Информационная карточка (с описанием)'), ('custom', 'Произвольная услуга')]",
+              "lineno": 142
+            }
+          ],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает название услуги и подразделение.",
+              "summary": "Возвращает название услуги и подразделение.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 168,
+              "end_lineno": 170
+            }
+          ],
+          "lineno": 139,
+          "end_lineno": 170
+        },
+        {
+          "name": "MenuItem",
+          "signature": "MenuItem(models.Model)",
+          "docstring": "Пункт меню, который может отображаться во всех или выбранных подразделениях.",
+          "summary": "Пункт меню, который может отображаться во всех или выбранных подразделениях.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает пункт меню с указанием подразделений показа.",
+              "summary": "Возвращает пункт меню с указанием подразделений показа.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 189,
+              "end_lineno": 194
+            }
+          ],
+          "lineno": 173,
+          "end_lineno": 194
+        },
+        {
+          "name": "NewsImage",
+          "signature": "NewsImage(models.Model)",
+          "docstring": "Изображение галереи, связанное с новостью.",
+          "summary": "Изображение галереи, связанное с новостью.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает описание изображения или его идентификатор.",
+              "summary": "Возвращает описание изображения или его идентификатор.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 210,
+              "end_lineno": 212
+            }
+          ],
+          "lineno": 197,
+          "end_lineno": 212
+        },
+        {
+          "name": "News",
+          "signature": "News(models.Model)",
+          "docstring": "Новость сайта с текстом, медиа и привязкой к подразделениям.",
+          "summary": "Новость сайта с текстом, медиа и привязкой к подразделениям.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает заголовок новости.",
+              "summary": "Возвращает заголовок новости.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 237,
+              "end_lineno": 239
+            },
+            {
+              "name": "save",
+              "signature": "save(self, *args: Any, **kwargs: Any) -> None",
+              "docstring": "Сохраняет новость и при необходимости заполняет дату публикации.",
+              "summary": "Сохраняет новость и при необходимости заполняет дату публикации.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 241,
+              "end_lineno": 245
+            }
+          ],
+          "lineno": 215,
+          "end_lineno": 245
+        },
+        {
+          "name": "DocumentCategory",
+          "signature": "DocumentCategory(models.Model)",
+          "docstring": "Категория документов для группировки и сортировки.",
+          "summary": "Категория документов для группировки и сортировки.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает название категории.",
+              "summary": "Возвращает название категории.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 260,
+              "end_lineno": 262
+            }
+          ],
+          "lineno": 248,
+          "end_lineno": 262
+        },
+        {
+          "name": "Document",
+          "signature": "Document(models.Model)",
+          "docstring": "Документ подразделения: файл, внешняя ссылка или информационный пункт.",
+          "summary": "Документ подразделения: файл, внешняя ссылка или информационный пункт.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [
+            {
+              "name": "DOCUMENT_TYPE_CHOICES",
+              "annotation": "list[tuple[str, str]]",
+              "value_repr": "[('file', 'Файл (PDF/изображение)'), ('external', 'Внешняя ссылка'), ('info', 'Информационный пункт (без файла)')]",
+              "lineno": 268
+            }
+          ],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает название документа и подразделение.",
+              "summary": "Возвращает название документа и подразделение.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 293,
+              "end_lineno": 295
+            },
+            {
+              "name": "get_display_url",
+              "signature": "get_display_url(self) -> str | None",
+              "docstring": "Возвращает URL файла или внешней ссылки для отображения.",
+              "summary": "Возвращает URL файла или внешней ссылки для отображения.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 297,
+              "end_lineno": 303
+            },
+            {
+              "name": "is_external",
+              "signature": "is_external(self) -> bool",
+              "docstring": "Проверяет, является ли документ внешней ссылкой.",
+              "summary": "Проверяет, является ли документ внешней ссылкой.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 305,
+              "end_lineno": 307
+            },
+            {
+              "name": "is_info_only",
+              "signature": "is_info_only(self) -> bool",
+              "docstring": "Проверяет, является ли документ информационным пунктом без файла.",
+              "summary": "Проверяет, является ли документ информационным пунктом без файла.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 309,
+              "end_lineno": 311
+            },
+            {
+              "name": "save",
+              "signature": "save(self, *args: Any, **kwargs: Any) -> None",
+              "docstring": "Сохраняет документ и автоматически определяет тип загруженного файла.",
+              "summary": "Сохраняет документ и автоматически определяет тип загруженного файла.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 313,
+              "end_lineno": 325
+            }
+          ],
+          "lineno": 265,
+          "end_lineno": 325
+        },
+        {
+          "name": "Material",
+          "signature": "Material(models.Model)",
+          "docstring": "Контентный материал подразделения с отдельным slug и статусом активности.",
+          "summary": "Контентный материал подразделения с отдельным slug и статусом активности.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает заголовок материала.",
+              "summary": "Возвращает заголовок материала.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 341,
+              "end_lineno": 343
+            }
+          ],
+          "lineno": 328,
+          "end_lineno": 343
+        },
+        {
+          "name": "ContentBlock",
+          "signature": "ContentBlock(models.Model)",
+          "docstring": "Упорядоченный блок контента, входящий в состав материала.",
+          "summary": "Упорядоченный блок контента, входящий в состав материала.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [
+            {
+              "name": "BLOCK_TYPES",
+              "annotation": "list[tuple[str, str]]",
+              "value_repr": "[('heading', 'Заголовок'), ('paragraph', 'Абзац'), ('list', 'Список'), ('image', 'Изображение'), ('video', 'Видео'), ('quote', 'Цитата'), ('documents', 'Документы')]",
+              "lineno": 349
+            }
+          ],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает краткое представление блока материала.",
+              "summary": "Возвращает краткое представление блока материала.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 367,
+              "end_lineno": 369
+            }
+          ],
+          "lineno": 346,
+          "end_lineno": 369
+        },
+        {
+          "name": "ExamInfo",
+          "signature": "ExamInfo(models.Model)",
+          "docstring": "Информация об экзаменах группы с вычислением актуальности и времени сбора.",
+          "summary": "Информация об экзаменах группы с вычислением актуальности и времени сбора.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": "Возвращает номер группы и дату экзамена в ГИБДД.",
+              "summary": "Возвращает номер группы и дату экзамена в ГИБДД.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 388,
+              "end_lineno": 390
+            },
+            {
+              "name": "gathering_time",
+              "signature": "gathering_time(self) -> time | None",
+              "docstring": "Возвращает время сбора за час до экзамена в ГИБДД.",
+              "summary": "Возвращает время сбора за час до экзамена в ГИБДД.",
+              "kind": "method",
+              "decorators": [
+                "property"
+              ],
+              "lineno": 393,
+              "end_lineno": 399
+            },
+            {
+              "name": "is_expired",
+              "signature": "is_expired(self) -> bool",
+              "docstring": "Проверяет, прошла ли дата экзамена в ГИБДД.",
+              "summary": "Проверяет, прошла ли дата экзамена в ГИБДД.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 401,
+              "end_lineno": 406
+            },
+            {
+              "name": "should_be_visible",
+              "signature": "should_be_visible(self) -> bool",
+              "docstring": "Проверяет, должна ли запись отображаться как актуальная.",
+              "summary": "Проверяет, должна ли запись отображаться как актуальная.",
+              "kind": "method",
+              "decorators": [],
+              "lineno": 408,
+              "end_lineno": 410
+            }
+          ],
+          "lineno": 372,
+          "end_lineno": 410
+        }
+      ],
+      "functions": [],
+      "constants": [
+        {
+          "name": "DEFAULT_HOME_SECTION_ORDER",
+          "annotation": "list[str]",
+          "value_repr": "[HomeSectionChoices.HEADER_BANNER, HomeSectionChoices.EXAM_INFO, HomeSectionChoices.LATEST_NEWS, HomeSectionChoices.PRICING, HomeSectionChoices.EDUCATION_INFO, HomeSectionChoices.SERVICES, HomeSectionChoices.DOCUMENTS, HomeSectionChoices.PARTNERS, HomeSectionChoices.CONTACTS]",
+          "lineno": 89
+        }
+      ],
+      "stats": {
+        "classes": 13,
+        "dataclasses": 0,
+        "functions": 0,
+        "methods": 21,
+        "constants": 1
+      }
+    },
+    {
+      "path": "content/templatetags/document_tags.py",
+      "module_docstring": "Шаблонные теги для работы с документами.\n\nМодуль содержит inclusion tag для вывода документов подразделения\nпо выбранной секции с разделением на изображения и прочие документы.",
+      "module_summary": "Шаблонные теги для работы с документами.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "documents_for_section",
+          "signature": "documents_for_section(department: Department, section_slug: str) -> dict[str, Any]",
+          "docstring": "Возвращает документы секции, разделённые на изображения и категории прочих файлов.",
+          "summary": "Возвращает документы секции, разделённые на изображения и категории прочих файлов.",
+          "kind": "function",
+          "decorators": [
+            "register.inclusion_tag('content/ajax/documents/documents_section.html')"
+          ],
+          "lineno": 20,
+          "end_lineno": 37
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 1,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "content/urls.py",
+      "module_docstring": "URL-маршруты контентного приложения.\n\nМодуль определяет:\n- главную страницу подразделения;\n- AJAX-эндпоинты новостей;\n- AJAX-эндпоинты документов, материалов и экзаменов.",
+      "module_summary": "URL-маршруты контентного приложения.",
+      "classes": [],
+      "functions": [],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 0,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "content/utils.py",
+      "module_docstring": "Вспомогательные функции контентного приложения.\n\nМодуль содержит утилиты для:\n- определения подразделения по хосту;\n- выборки и фильтрации новостей;\n- группировки документов;\n- вычисления диапазона месяцев экзаменов;\n- кастомизации заголовков образовательных секций.",
+      "module_summary": "Вспомогательные функции контентного приложения.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "get_host_map",
+          "signature": "get_host_map() -> dict[str, str]",
+          "docstring": "Возвращает словарь соответствия хостов и slug подразделений.",
+          "summary": "Возвращает словарь соответствия хостов и slug подразделений.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 25,
+          "end_lineno": 27
+        },
+        {
+          "name": "get_department_by_host",
+          "signature": "get_department_by_host(request: HttpRequest) -> Department",
+          "docstring": "Определяет активное подразделение по хосту текущего запроса.",
+          "summary": "Определяет активное подразделение по хосту текущего запроса.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 30,
+          "end_lineno": 35
+        },
+        {
+          "name": "get_news_for_department",
+          "signature": "get_news_for_department(department: Department | None, limit: int | None = None, year: int | None = None, partner_only: bool = False)",
+          "docstring": "Возвращает новости подразделения с опциональной фильтрацией по году и лимиту.",
+          "summary": "Возвращает новости подразделения с опциональной фильтрацией по году и лимиту.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 38,
+          "end_lineno": 49
+        },
+        {
+          "name": "get_news_years",
+          "signature": "get_news_years(department: Department) -> list[int]",
+          "docstring": "Возвращает список годов, в которых есть новости подразделения.",
+          "summary": "Возвращает список годов, в которых есть новости подразделения.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 52,
+          "end_lineno": 54
+        },
+        {
+          "name": "split_documents_by_file_type",
+          "signature": "split_documents_by_file_type(documents: list[Document]) -> tuple[list[Document], list[Document]]",
+          "docstring": "Разделяет документы на изображения и прочие элементы.",
+          "summary": "Разделяет документы на изображения и прочие элементы.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 57,
+          "end_lineno": 66
+        },
+        {
+          "name": "group_documents_by_category",
+          "signature": "group_documents_by_category(documents: list[Document]) -> list[tuple[Any, list[Document]]]",
+          "docstring": "Группирует документы по категории с выделением группы «Прочее».",
+          "summary": "Группирует документы по категории с выделением группы «Прочее».",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 69,
+          "end_lineno": 78
+        },
+        {
+          "name": "get_exam_month_range",
+          "signature": "get_exam_month_range(exams: list[ExamInfo]) -> str",
+          "docstring": "Возвращает человекочитаемый диапазон месяцев по датам экзаменов.",
+          "summary": "Возвращает человекочитаемый диапазон месяцев по датам экзаменов.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 81,
+          "end_lineno": 106
+        },
+        {
+          "name": "get_education_section_title",
+          "signature": "get_education_section_title(department_slug: str, base_slug: str, default_title: str) -> str",
+          "docstring": "Возвращает отображаемый заголовок образовательной секции с учётом кастомизаций.",
+          "summary": "Возвращает отображаемый заголовок образовательной секции с учётом кастомизаций.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 109,
+          "end_lineno": 113
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 8,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "content/views.py",
+      "module_docstring": "Представления контентного раздела сайта.\n\nМодуль содержит:\n- главную страницу подразделения;\n- AJAX-список и детали новостей;\n- AJAX-секции документов и материалов;\n- AJAX-вывод информации об экзаменах.",
+      "module_summary": "Представления контентного раздела сайта.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "home_view",
+          "signature": "home_view(request: HttpRequest, department: Department) -> dict[str, Any]",
+          "docstring": "Собирает контекст главной страницы подразделения по включённым секциям.",
+          "summary": "Собирает контекст главной страницы подразделения по включённым секциям.",
+          "kind": "function",
+          "decorators": [
+            "page_name('Главная', 'content/pages/home.html')"
+          ],
+          "lineno": 28,
+          "end_lineno": 85
+        },
+        {
+          "name": "ajax_all_news",
+          "signature": "ajax_all_news(request: HttpRequest, department: Department) -> dict[str, Any]",
+          "docstring": "Возвращает контекст AJAX-списка новостей с фильтрацией по году.",
+          "summary": "Возвращает контекст AJAX-списка новостей с фильтрацией по году.",
+          "kind": "function",
+          "decorators": [
+            "ajax_view('Все новости', 'content/ajax/news/news_grid.html')"
+          ],
+          "lineno": 89,
+          "end_lineno": 102
+        },
+        {
+          "name": "ajax_news_detail",
+          "signature": "ajax_news_detail(request: HttpRequest, department: Department) -> dict[str, Any]",
+          "docstring": "Возвращает контекст детального AJAX-представления одной новости.",
+          "summary": "Возвращает контекст детального AJAX-представления одной новости.",
+          "kind": "function",
+          "decorators": [
+            "ajax_view('Новость', 'content/ajax/news/news_detail.html')"
+          ],
+          "lineno": 106,
+          "end_lineno": 110
+        },
+        {
+          "name": "ajax_documents",
+          "signature": "ajax_documents(request: HttpRequest, department: Department) -> dict[str, Any]",
+          "docstring": "Возвращает контекст AJAX-секции документов подразделения.",
+          "summary": "Возвращает контекст AJAX-секции документов подразделения.",
+          "kind": "function",
+          "decorators": [
+            "ajax_view('Документы', 'content/ajax/documents/documents_section.html')"
+          ],
+          "lineno": 114,
+          "end_lineno": 119
+        },
+        {
+          "name": "ajax_material_description",
+          "signature": "ajax_material_description(request: HttpRequest, department: Department, **kwargs: Any) -> dict[str, Any]",
+          "docstring": "Возвращает контекст AJAX-описания материала и связанных документов секции.",
+          "summary": "Возвращает контекст AJAX-описания материала и связанных документов секции.",
+          "kind": "function",
+          "decorators": [
+            "ajax_view('Описание материала', 'content/ajax/materials/material_description.html')"
+          ],
+          "lineno": 123,
+          "end_lineno": 138
+        },
+        {
+          "name": "ajax_exam_info",
+          "signature": "ajax_exam_info(request: HttpRequest, department: Department) -> dict[str, Any]",
+          "docstring": "Возвращает контекст AJAX-блока с актуальными экзаменами подразделения.",
+          "summary": "Возвращает контекст AJAX-блока с актуальными экзаменами подразделения.",
+          "kind": "function",
+          "decorators": [
+            "ajax_view('Информация об экзаменах', 'content/ajax/exams/exam_info.html')"
+          ],
+          "lineno": 142,
+          "end_lineno": 148
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 6,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "core/host_parser.py",
+      "module_docstring": "Утилиты разбора конфигурации соответствия хостов и подразделений.\n\nМодуль используется для:\n- преобразования строковой карты хостов в словарь;\n- получения списка допустимых хостов для настроек Django.",
+      "module_summary": "Утилиты разбора конфигурации соответствия хостов и подразделений.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "parse_host_map",
+          "signature": "parse_host_map(raw_map: str) -> dict[str, str]",
+          "docstring": "Преобразует строковую карту хостов в словарь вида {host: department_slug}.",
+          "summary": "Преобразует строковую карту хостов в словарь вида {host: department_slug}.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 12,
+          "end_lineno": 28
+        },
+        {
+          "name": "get_allowed_hosts_from_map",
+          "signature": "get_allowed_hosts_from_map(raw_map: str) -> list[str]",
+          "docstring": "Возвращает список хостов из конфигурационной карты.",
+          "summary": "Возвращает список хостов из конфигурационной карты.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 31,
+          "end_lineno": 33
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 2,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "edu_multisite/settings.py",
+      "module_docstring": "Настройки Django-проекта edu_multisite.\n\nМодуль определяет:\n- базовые настройки проекта;\n- подключённые приложения и middleware;\n- шаблоны и context processors;\n- параметры базы данных;\n- статические и медиа-файлы;\n- мультидоменную конфигурацию через HOST_TO_DEPARTMENT_MAP.",
+      "module_summary": "Настройки Django-проекта edu_multisite.",
+      "classes": [],
+      "functions": [],
+      "constants": [
+        {
+          "name": "BASE_DIR",
+          "annotation": null,
+          "value_repr": "Path(__file__).resolve().parent.parent",
+          "lineno": 20
+        },
+        {
+          "name": "SECRET_KEY",
+          "annotation": null,
+          "value_repr": "os.getenv('SECRET_KEY')",
+          "lineno": 22
+        },
+        {
+          "name": "DEBUG",
+          "annotation": null,
+          "value_repr": "os.getenv('DEBUG_VALUE') == 'True'",
+          "lineno": 23
+        },
+        {
+          "name": "HOST_TO_DEPARTMENT_MAP",
+          "annotation": null,
+          "value_repr": "os.getenv('HOST_TO_DEPARTMENT_MAP', '')",
+          "lineno": 24
+        },
+        {
+          "name": "YANDEX_MAPS_API_KEY",
+          "annotation": null,
+          "value_repr": "os.getenv('YANDEX_MAPS_API_KEY', '')",
+          "lineno": 25
+        },
+        {
+          "name": "ALLOWED_HOSTS",
+          "annotation": null,
+          "value_repr": "get_allowed_hosts_from_map(HOST_TO_DEPARTMENT_MAP)",
+          "lineno": 27
+        },
+        {
+          "name": "INSTALLED_APPS",
+          "annotation": null,
+          "value_repr": "['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'content']",
+          "lineno": 29
+        },
+        {
+          "name": "MIDDLEWARE",
+          "annotation": null,
+          "value_repr": "['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware']",
+          "lineno": 39
+        },
+        {
+          "name": "ROOT_URLCONF",
+          "annotation": null,
+          "value_repr": "'edu_multisite.urls'",
+          "lineno": 49
+        },
+        {
+          "name": "TEMPLATES",
+          "annotation": null,
+          "value_repr": "[{'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIRS': [BASE_DIR / 'templates'], 'APP_DIRS': True, 'OPTIONS': {'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request', 'django.contrib.auth.context_processors.auth', 'django.contrib.messages.context_processors.messages', 'content.context_processors.menu_processor', 'content.context_processors.static_version', 'content.context_processors.yandex_maps']}}]",
+          "lineno": 51
+        },
+        {
+          "name": "WSGI_APPLICATION",
+          "annotation": null,
+          "value_repr": "'edu_multisite.wsgi.application'",
+          "lineno": 70
+        },
+        {
+          "name": "DATABASES",
+          "annotation": null,
+          "value_repr": "{'default': {'ENGINE': 'django.db.backends.mysql', 'NAME': os.getenv('DB_NAME'), 'USER': os.getenv('DB_USER'), 'PASSWORD': os.getenv('DB_PASSWORD'), 'OPTIONS': {'sql_mode': 'STRICT_TRANS_TABLES'}}}",
+          "lineno": 72
+        },
+        {
+          "name": "AUTH_PASSWORD_VALIDATORS",
+          "annotation": null,
+          "value_repr": "[{'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'}, {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'}, {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'}, {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}]",
+          "lineno": 84
+        },
+        {
+          "name": "LANGUAGE_CODE",
+          "annotation": null,
+          "value_repr": "'ru'",
+          "lineno": 91
+        },
+        {
+          "name": "TIME_ZONE",
+          "annotation": null,
+          "value_repr": "'Asia/Irkutsk'",
+          "lineno": 92
+        },
+        {
+          "name": "USE_I18N",
+          "annotation": null,
+          "value_repr": "True",
+          "lineno": 93
+        },
+        {
+          "name": "USE_L10N",
+          "annotation": null,
+          "value_repr": "True",
+          "lineno": 94
+        },
+        {
+          "name": "USE_TZ",
+          "annotation": null,
+          "value_repr": "True",
+          "lineno": 95
+        },
+        {
+          "name": "DEFAULT_AUTO_FIELD",
+          "annotation": null,
+          "value_repr": "'django.db.models.BigAutoField'",
+          "lineno": 119
+        }
+      ],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 0,
+        "methods": 0,
+        "constants": 19
+      }
+    },
+    {
+      "path": "edu_multisite/urls.py",
+      "module_docstring": "Корневые URL-маршруты проекта edu_multisite.\n\nМодуль определяет:\n- подключение административного интерфейса в режиме DEBUG;\n- подключение маршрутов приложения content;\n- раздачу static и media в режиме разработки.",
+      "module_summary": "Корневые URL-маршруты проекта edu_multisite.",
+      "classes": [],
+      "functions": [],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 0,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "edu_multisite/wsgi.py",
+      "module_docstring": "WSGI-конфигурация проекта edu_multisite.\n\nМодуль:\n- подготавливает sys.path для окружения хостинга;\n- загружает переменные окружения из .env;\n- инициализирует WSGI-приложение Django.",
+      "module_summary": "WSGI-конфигурация проекта edu_multisite.",
+      "classes": [],
+      "functions": [],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 0,
+        "methods": 0,
+        "constants": 0
+      }
+    }
+  ]
+}

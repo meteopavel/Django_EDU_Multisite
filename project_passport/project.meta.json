@@ -1,46 +1,46 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-12T13:41:00.941288+00:00",
+  "generated_at": "2026-04-19T06:04:23.593478+00:00",
   "generated_by": "tools/build_project_passport.py",
   "auto_generated": true,
   "review_status": "draft",
-  "id": "chronicle-reporting-automation",
-  "title": "Redmine Documents & Chronicle Automation",
-  "tagline": "Python CLI для генерации документов, экспорта данных из Redmine, подготовки Chronicle-контекста и LLM-friendly prompt workflow.",
-  "summary": "Проект автоматизирует выгрузку трудозатрат и связанных данных из Redmine. На базе полученных данных формируются DOCX-документы, включая акт и отчёт. Дополнительно проект готовит структурированный контекст задач, chunk-based prompt-файлы и итоговый prompt для дальнейшего LLM-анализа. Сценарии запуска объединены через единый CLI-слой.",
+  "id": "django-edu-multisite",
+  "title": "Django Multisite Content Platform",
+  "tagline": "Django-платформа для мультисайтового управления подразделениями, контентом, документами и информационными разделами.",
+  "summary": "Проект реализован на Django и организован как набор приложений с выделенными слоями моделей, представлений, маршрутизации и административного интерфейса. Поддерживается мультидоменная логика, при которой активное подразделение определяется по хосту и влияет на выдачу контента. Проект включает предметные сущности и интерфейсы для разделов: новости, документы, услуги и экзаменационные блоки. Для управления данными используется расширенный Django admin с кастомными формами, фильтрами и inline-конфигурациями. На уровне шаблонов и UI-логики используются context processors, template tags и AJAX-представления.",
   "status": "active",
   "visibility": "private_code",
   "role": "solo_developer",
   "domain": [
-    "automation",
-    "integrations",
-    "document-generation",
-    "reporting",
-    "developer-tools",
-    "llm-workflows"
+    "web",
+    "django",
+    "multisite",
+    "content-management",
+    "admin",
+    "domain-routing"
   ],
   "stack": [
     "Python",
-    "Redmine API",
-    "pandas",
-    "python-docx",
-    "dotenv",
+    "Django",
+    "MySQL",
+    "dotenv/env",
     "JSON",
-    "CSV",
-    "Markdown"
+    "Yandex Maps API"
   ],
   "links": {
     "repo": null,
     "demo": null,
-    "details": "/projects/chronicle-reporting-automation"
+    "details": "/projects/django-edu-multisite"
   },
   "highlights": [
-    "Генерация актов и отчётов на основе шаблонов DOCX.",
-    "Интеграция с Redmine API и экспорт данных за выбранный период.",
-    "Подготовка CSV-таблиц трудозатрат с итогами по датам и задачам.",
-    "Разбиение контекста задач на chunk'и и сборка итогового monthly prompt.",
-    "Подготовка JSON- и markdown-артефактов для последующего LLM-анализа.",
-    "Единый CLI entrypoint для маршрутизации сценариев генерации и экспорта."
+    "Мультидоменное определение подразделения по хосту запроса.",
+    "Расширенный Django admin для управления контентом и связанными сущностями.",
+    "Управление документами и их отображением по секциям и подразделениям.",
+    "Поддержка новостных разделов и AJAX-выдачи контента.",
+    "Отдельный блок данных для экзаменационной информации и её актуальности.",
+    "Контекстные процессоры для меню, версионирования статики и внешних ключей.",
+    "Выделенные template tags для подготовки данных на уровне шаблонов.",
+    "Интеграция с Yandex Maps API через настройки и шаблонный контекст."
   ],
   "public_artifacts": [
     "api_map_json",
@@ -50,7 +50,13 @@
   ],
   "notes": {
     "project_root": ".",
-    "source_target": "app",
-    "scanned_python_files": 21
+    "source_target": "content, core, edu_multisite",
+    "source_targets": [
+      "content",
+      "core",
+      "edu_multisite"
+    ],
+    "scanned_python_files": 18,
+    "files_count": 14
   }
 }

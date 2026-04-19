@@ -1,132 +1,159 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-13T07:29:11.068973+00:00",
+  "generated_at": "2026-04-19T06:04:23.596039+00:00",
   "generated_by": "tools/build_project_passport.py",
-  "id": "chronicle-reporting-automation",
-  "title": "Redmine Documents & Chronicle Automation",
-  "tagline": "Python CLI для генерации документов, экспорта данных из Redmine, подготовки Chronicle-контекста и LLM-friendly prompt workflow.",
-  "summary": "Проект автоматизирует выгрузку трудозатрат и связанных данных из Redmine. На базе полученных данных формируются DOCX-документы, включая акт и отчёт. Дополнительно проект готовит структурированный контекст задач, chunk-based prompt-файлы и итоговый prompt для дальнейшего LLM-анализа. Сценарии запуска объединены через единый CLI-слой.",
+  "id": "django-edu-multisite",
+  "title": "Django Multisite Content Platform",
+  "tagline": "Django-платформа для мультисайтового управления подразделениями, контентом, документами и информационными разделами.",
+  "summary": "Проект реализован на Django и организован как набор приложений с выделенными слоями моделей, представлений, маршрутизации и административного интерфейса. Поддерживается мультидоменная логика, при которой активное подразделение определяется по хосту и влияет на выдачу контента. Проект включает предметные сущности и интерфейсы для разделов: новости, документы, услуги и экзаменационные блоки. Для управления данными используется расширенный Django admin с кастомными формами, фильтрами и inline-конфигурациями. На уровне шаблонов и UI-логики используются context processors, template tags и AJAX-представления.",
   "status": "active",
   "visibility": "private_code",
   "role": "solo_developer",
   "domain": [
-    "automation",
-    "integrations",
-    "document-generation",
-    "reporting",
-    "developer-tools",
-    "llm-workflows"
+    "web",
+    "django",
+    "multisite",
+    "content-management",
+    "admin",
+    "domain-routing"
   ],
   "stack": [
     "Python",
-    "Redmine API",
-    "pandas",
-    "python-docx",
-    "dotenv",
+    "Django",
+    "MySQL",
+    "dotenv/env",
     "JSON",
-    "CSV",
-    "Markdown"
+    "Yandex Maps API"
   ],
   "links": {
     "repo": null,
     "demo": null,
-    "details": "/projects/chronicle-reporting-automation"
+    "details": "/projects/django-edu-multisite"
   },
   "highlights": [
-    "Генерация актов и отчётов на основе шаблонов DOCX.",
-    "Интеграция с Redmine API и экспорт данных за выбранный период.",
-    "Подготовка CSV-таблиц трудозатрат с итогами по датам и задачам.",
-    "Разбиение контекста задач на chunk'и и сборка итогового monthly prompt.",
-    "Подготовка JSON- и markdown-артефактов для последующего LLM-анализа.",
-    "Единый CLI entrypoint для маршрутизации сценариев генерации и экспорта."
+    "Мультидоменное определение подразделения по хосту запроса.",
+    "Расширенный Django admin для управления контентом и связанными сущностями.",
+    "Управление документами и их отображением по секциям и подразделениям.",
+    "Поддержка новостных разделов и AJAX-выдачи контента.",
+    "Отдельный блок данных для экзаменационной информации и её актуальности.",
+    "Контекстные процессоры для меню, версионирования статики и внешних ключей.",
+    "Выделенные template tags для подготовки данных на уровне шаблонов.",
+    "Интеграция с Yandex Maps API через настройки и шаблонный контекст."
   ],
   "signals": [
-    "cli_entrypoint",
-    "redmine_integration",
-    "document_generation",
-    "chronicle_workflow",
-    "llm_ready",
-    "data_processing",
-    "docx_templates",
-    "csv_export",
-    "json_artifacts",
-    "markdown_artifacts",
+    "django_project",
+    "django_admin",
+    "django_models",
+    "django_views",
+    "django_routing",
+    "django_settings",
+    "wsgi_entrypoint",
+    "template_tags",
+    "context_processors",
+    "utility_module",
+    "custom_view_decorators",
+    "forms_layer",
     "env_config",
-    "timelog_export"
+    "mysql_backend",
+    "yandex_maps_integration",
+    "host_based_routing",
+    "multisite_content",
+    "news_content",
+    "documents_content",
+    "exam_info_content",
+    "services_content",
+    "menu_content",
+    "ajax_views",
+    "admin_customization"
   ],
   "tech_profile": {
-    "python_files": 16,
-    "scanned_python_files": 21,
-    "classes": 2,
-    "dataclasses": 1,
-    "functions": 64,
-    "methods": 4,
-    "constants": 20,
-    "has_cli": true,
-    "has_redmine_integration": true,
-    "has_document_generation": true,
-    "has_llm_workflow": true,
+    "python_files": 14,
+    "scanned_python_files": 18,
+    "classes": 31,
+    "dataclasses": 0,
+    "functions": 22,
+    "methods": 35,
+    "constants": 21,
+    "has_django": true,
+    "has_django_admin": true,
+    "has_django_models": true,
+    "has_django_views": true,
+    "has_multisite": true,
+    "has_host_routing": true,
+    "has_documents": true,
+    "has_news": true,
+    "has_exam_info": true,
     "has_api_map": true
   },
   "architecture": {
-    "target": "app",
+    "target": "content, core, edu_multisite",
+    "targets": [
+      "content",
+      "core",
+      "edu_multisite"
+    ],
     "layers": [
-      "cli",
-      "config",
-      "services/acts_data",
-      "services/chronicle",
-      "services/documents",
-      "services/redmine",
-      "utils"
+      "django-admin",
+      "content-app",
+      "context-processors",
+      "view-decorators",
+      "domain-models",
+      "template-tags",
+      "app-routing",
+      "utils",
+      "views",
+      "core-infrastructure",
+      "project-settings",
+      "deployment-entrypoint"
     ],
     "key_modules": [
       {
-        "path": "app/config.py",
-        "summary": "Конфигурация приложения и загрузка значений из переменных окружения.",
+        "path": "content/models.py",
+        "summary": "Модели контентной и справочной структуры сайта.",
+        "stats": {
+          "classes": 13,
+          "dataclasses": 0,
+          "functions": 0,
+          "methods": 21,
+          "constants": 1
+        }
+      },
+      {
+        "path": "content/admin.py",
+        "summary": "Административные настройки контентного приложения.",
+        "stats": {
+          "classes": 17,
+          "dataclasses": 0,
+          "functions": 0,
+          "methods": 14,
+          "constants": 0
+        }
+      },
+      {
+        "path": "edu_multisite/settings.py",
+        "summary": "Настройки Django-проекта edu_multisite.",
         "stats": {
           "classes": 0,
           "dataclasses": 0,
-          "functions": 3,
+          "functions": 0,
           "methods": 0,
           "constants": 19
         }
       },
       {
-        "path": "app/services/redmine/normalizers.py",
-        "summary": "Функции нормализации и упрощения данных Redmine.",
+        "path": "content/utils.py",
+        "summary": "Вспомогательные функции контентного приложения.",
         "stats": {
           "classes": 0,
           "dataclasses": 0,
-          "functions": 11,
-          "methods": 0,
-          "constants": 0
-        }
-      },
-      {
-        "path": "app/services/redmine/exports.py",
-        "summary": "Экспорт трудозатрат Redmine в табличный CSV-формат.",
-        "stats": {
-          "classes": 0,
-          "dataclasses": 0,
-          "functions": 11,
-          "methods": 0,
-          "constants": 0
-        }
-      },
-      {
-        "path": "app/cli.py",
-        "summary": "CLI-точка входа для генерации документов и экспорта данных из Redmine.",
-        "stats": {
-          "classes": 1,
-          "dataclasses": 1,
           "functions": 8,
           "methods": 0,
           "constants": 0
         }
       },
       {
-        "path": "app/utils/docx_utils.py",
-        "summary": "Утилиты для работы с DOCX-документами.",
+        "path": "content/views.py",
+        "summary": "Представления контентного раздела сайта.",
         "stats": {
           "classes": 0,
           "dataclasses": 0,
@@ -136,27 +163,27 @@
         }
       },
       {
-        "path": "app/services/redmine/client.py",
-        "summary": "HTTP-клиент для получения данных из Redmine API.",
+        "path": "content/context_processors.py",
+        "summary": "Контекстные процессоры контентного приложения.",
         "stats": {
-          "classes": 1,
+          "classes": 0,
           "dataclasses": 0,
-          "functions": 0,
-          "methods": 4,
+          "functions": 3,
+          "methods": 0,
           "constants": 0
         }
       }
     ]
   },
   "artifacts": {
-    "api_map_json": "project_passport/api_map__app.json",
-    "api_map_markdown": "project_passport/api_map__app.md",
+    "api_map_json": "project_passport/api_map__content__core__edu_multisite.json",
+    "api_map_markdown": "project_passport/api_map__content__core__edu_multisite.md",
     "project_meta_json": "project_passport/project.meta.json",
     "project_public_json": "project_passport/project.public.json"
   },
   "source": {
     "api_map_schema_version": "1.0",
-    "api_map_generated_at": "2026-04-13T04:58:13.531867+00:00",
+    "api_map_generated_at": "2026-04-19T05:47:58.985307+00:00",
     "api_map_generator": "tools/extract_api_map.py",
     "meta_auto_generated": true,
     "meta_review_status": "draft"
