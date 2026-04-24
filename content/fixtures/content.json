@@ -13498,10 +13498,10 @@
   "pk": 1,
   "fields": {
     "department": 2,
-    "group_number": 205,
-    "theory_date": "2026-03-31",
-    "practice_date": "2026-04-01",
-    "gibdd_date": "2026-04-04",
+    "group_number": 208,
+    "theory_date": "2026-05-12",
+    "practice_date": "2026-05-13",
+    "gibdd_date": "2026-05-26",
     "gibdd_time": "07:45:00"
   }
 },
