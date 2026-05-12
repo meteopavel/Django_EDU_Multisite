@@ -13522,11 +13522,11 @@
   "pk": 3,
   "fields": {
     "department": 2,
-    "group_number": 206,
-    "theory_date": "2026-04-14",
-    "practice_date": "2026-04-15",
-    "gibdd_date": "2026-04-28",
-    "gibdd_time": "08:45:00"
+    "group_number": 209,
+    "theory_date": "2026-05-19",
+    "practice_date": "2026-05-20",
+    "gibdd_date": "2026-05-26",
+    "gibdd_time": "07:45:00"
   }
 }
 ]
