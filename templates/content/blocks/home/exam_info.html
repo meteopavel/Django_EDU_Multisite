@@ -31,7 +31,6 @@
                 aspect-ratio: 1 / 1;
                 background: #f8f9fa;
             }
-
             .promo-card .image-container img {
                 width: 100% !important;
                 height: 100% !important;
@@ -246,7 +245,15 @@
                     }
                     .exam-card .image-container {
                         width: 100% !important;
-                        max-height: 250px;
+                        max-width: none !important;
+                        max-height: none !important;
+                        aspect-ratio: 1 / 1;
+                        background: #f8f9fa;
+                    }
+                    .exam-card .image-container img {
+                        width: 100% !important;
+                        height: 100% !important;
+                        object-fit: contain !important;
                     }
                     .exam-card .content-block {
                         padding: 15px !important;
