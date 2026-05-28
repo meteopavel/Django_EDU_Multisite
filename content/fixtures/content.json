@@ -4922,6 +4922,46 @@
   }
 },
 {
+  "model": "content.newsimage",
+  "pk": 705,
+  "fields": {
+    "news": 195,
+    "image": "news/gallery/2.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 706,
+  "fields": {
+    "news": 195,
+    "image": "news/gallery/3.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 707,
+  "fields": {
+    "news": 195,
+    "image": "news/gallery/4.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 708,
+  "fields": {
+    "news": 195,
+    "image": "news/gallery/5.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
   "model": "content.news",
   "pk": 66,
   "fields": {
@@ -7397,6 +7437,25 @@
     "is_partner_news": false,
     "is_active": true,
     "created_at": "2026-05-15T04:00:00Z",
+    "departments": [
+      1
+    ]
+  }
+},
+{
+  "model": "content.news",
+  "pk": 195,
+  "fields": {
+    "joomla_id": null,
+    "title": "Полицейский Дядя Степа – 2026",
+    "slug": "policejskij-dyadya-stepa-2026",
+    "preview_text": "В городе Иркутске прошел творческий конкурс детской игрушки «Полицейский Дядя Степа – 2026»",
+    "content": "Председатель Иркутского регионального отделения и член Общественного совета при ГУВД по Иркутской области Денис Слободчиков принял участие в жюри творческого конкурса детской игрушки «Полицейский Дядя Степа – 2026» где определяли победителей и призеров. \r\n\r\nВ акции приняли участие конкурсанты разных возрастных категорий, это и воспитанники детских садов, и люди старшего поколения. Авторов всех работ наградили благодарностями, а победители получили ценные подарки. По завершению конкурса, игрушки передадут воспитанникам детских домов и других социальных учреждений, в том числе, подшефных МВД, а также детям из малообеспеченных семей.",
+    "main_image": "news/main/1_I5w1eNz.jpg",
+    "video": "",
+    "is_partner_news": false,
+    "is_active": true,
+    "created_at": "2026-05-28T04:00:00Z",
     "departments": [
       1
     ]
