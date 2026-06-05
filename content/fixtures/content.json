@@ -4962,6 +4962,76 @@
   }
 },
 {
+  "model": "content.newsimage",
+  "pk": 709,
+  "fields": {
+    "news": 196,
+    "image": "news/gallery/2_YzhdSGF.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 710,
+  "fields": {
+    "news": 196,
+    "image": "news/gallery/3_MHz3v5u.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 711,
+  "fields": {
+    "news": 196,
+    "image": "news/gallery/4_2NVM5Pf.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 712,
+  "fields": {
+    "news": 196,
+    "image": "news/gallery/5_93QHkMc.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 713,
+  "fields": {
+    "news": 196,
+    "image": "news/gallery/6.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 714,
+  "fields": {
+    "news": 196,
+    "image": "news/gallery/7.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 715,
+  "fields": {
+    "news": 196,
+    "image": "news/gallery/8.jpg",
+    "description": "",
+    "order": 0
+  }
+},
+{
   "model": "content.news",
   "pk": 66,
   "fields": {
@@ -7456,6 +7526,25 @@
     "is_partner_news": false,
     "is_active": true,
     "created_at": "2026-05-28T04:00:00Z",
+    "departments": [
+      1
+    ]
+  }
+},
+{
+  "model": "content.news",
+  "pk": 196,
+  "fields": {
+    "joomla_id": null,
+    "title": "Соревнования на «Автогородоке» в г.Иркутск",
+    "slug": "sorevnovaniya-na-avtogorodoke-v-girkutsk",
+    "preview_text": "3 июня 2026 в «МОУ ИРМО Пивоваровская СОШ» прошло мероприятие для детей «Автогородок» в нем приняли участие более 80 школьников, возрастом 7+ лет.",
+    "content": "3 июня 2026 в «МОУ ИРМО Пивоваровская СОШ» прошло мероприятие для детей «Автогородок» в нем приняли участие более 80 школьников, возрастом 7+ лет.  В мероприятии приняли участие работники Иркутского регионального отделения ВОА,  инспекторы отдела пропаганды подразделения ГИБДД «Иркутское», педагоги Пивоваровской СОШ.\r\n\r\nНа территории школы проводились командные состязания, которые состояли из прохождения станций:\r\n- знатоки правил дорожного движения; \r\n- оказание первой медицинской помощи; \r\n- фигурное вождение велосипеда;\r\n- фигурное вождение электросамоката;\r\n- творческий конкурс «Рисунок на тему – знание ПДД».\r\n\r\nПо итогу проведенных мероприятий ребята получили в подарок электросамокат, велосипеды. \r\n\r\nС наступлением долгожданных для всех детей и подростков летних каникул у ребят появилось много свободного времени, именно в этот период взрослым необходимо быть особенно внимательными к вопросам детской, подростковой безопасности. Чтобы сохранить самое ценное - жизнь и здоровье, каждому ребенку необходимо знать правила поведения на дорогах, а также в трудных ситуациях.",
+    "main_image": "news/main/1_wVpryNG.jpg",
+    "video": "",
+    "is_partner_news": false,
+    "is_active": true,
+    "created_at": "2026-06-03T04:00:00Z",
     "departments": [
       1
     ]
