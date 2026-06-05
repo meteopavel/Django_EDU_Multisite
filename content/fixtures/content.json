@@ -13744,10 +13744,10 @@
   "pk": 1,
   "fields": {
     "department": 2,
-    "group_number": 208,
-    "theory_date": "2026-05-12",
-    "practice_date": "2026-05-13",
-    "gibdd_date": "2026-05-26",
+    "group_number": 210,
+    "theory_date": "2026-06-09",
+    "practice_date": "2026-06-10",
+    "gibdd_date": "2026-06-16",
     "gibdd_time": "07:45:00"
   }
 },
@@ -13756,10 +13756,10 @@
   "pk": 2,
   "fields": {
     "department": 2,
-    "group_number": 207,
-    "theory_date": "2026-04-23",
-    "practice_date": "2026-04-24",
-    "gibdd_date": "2026-05-02",
+    "group_number": 211,
+    "theory_date": "2026-06-23",
+    "practice_date": "2026-06-24",
+    "gibdd_date": "2026-07-01",
     "gibdd_time": "07:45:00"
   }
 },
