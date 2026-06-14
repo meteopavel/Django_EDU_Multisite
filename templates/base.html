@@ -27,9 +27,11 @@
     </div>
     {% block footer %}{% include "content/layout/footer.html" %}{% endblock %}
 
-    <div id="image-modal" class="modal" style="display: none;">
+    <div id="image-modal" class="modal">
         <span class="modal-close" id="modal-close">&times;</span>
+        <button class="modal-nav modal-prev">&#10094;</button>
         <img class="modal-content" id="modal-image">
+        <button class="modal-nav modal-next">&#10095;</button>
         <div class="modal-caption" id="modal-caption"></div>
     </div>
 
