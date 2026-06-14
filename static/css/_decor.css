@@ -1,9 +1,9 @@
-.services, .latest_news, .exam-info {
+.services, .latest_news, .exam-info, .announcements {
     position: relative;
     z-index: 1;
 }
 
-.services::before, .latest_news::before, .exam-info::before {
+.services::before, .latest_news::before, .exam-info::before, .announcements::before {
     content: '';
     position: absolute;
     top: 0;
@@ -30,10 +30,20 @@
     transform: rotateY(-180deg);
 }
 
+/* Если объявления идут перед экзаменами — декор и его отступ убираются */
+.announcements ~ .exam-info {
+    padding-top: 0;
+}
+
+.announcements ~ .exam-info::before {
+    display: none;
+}
+
 @media (max-width: 768px) {
   .services::before,
   .latest_news::before,
-  .exam-info::before {
+  .exam-info::before,
+  .announcements::before {
     display: none;
   }
 }

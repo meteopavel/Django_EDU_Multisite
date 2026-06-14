@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.http import HttpRequest
 from django.utils.html import format_html
 
-from .models import Department, DepartmentDetails, HomePageSection, MenuItem, NewsImage, News, Document, DocumentCategory, Service, ContentBlock, Material, ExamInfo
+from .models import Department, DepartmentDetails, HomePageSection, MenuItem, NewsImage, News, Document, DocumentCategory, Service, ContentBlock, Material, ExamInfo, Announcement
 
 
 @admin.register(Department)
@@ -276,3 +276,16 @@ class ExamInfoAdmin(admin.ModelAdmin):
         return format_html('<span style="color: green; font-weight: bold;">✓ Актуален</span>')
 
     is_expired_col.short_description = 'Статус'
+
+
+@admin.register(Announcement)
+class AnnouncementAdmin(admin.ModelAdmin):
+    """Администрирование объявлений и акций."""
+    list_display = ['title', 'department', 'card_type', 'is_active', 'expires_at', 'order']
+    list_editable = ['is_active', 'expires_at', 'order']
+    list_filter = ['department', 'card_type', 'is_active']
+    search_fields = ['title', 'text']
+    fieldsets = (
+        ('Основное', {'fields': ('department', 'card_type', 'title', 'is_active', 'expires_at', 'order')}),
+        ('Содержимое', {'fields': ('text', 'image'), 'description': 'Изображение используется только для типа «Акция / Сертификат».'}),
+    )

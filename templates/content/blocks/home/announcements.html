@@ -1,0 +1,26 @@
+{% if above_announcements %}
+<section id="announcements" class="section announcements">
+    <div class="content__layout">
+        {% for ann in above_announcements %}
+            {% if ann.card_type == 'promo' %}
+            <div class="promo-card">
+                {% if ann.image %}
+                <div class="promo-card__image">
+                    <img src="{{ ann.image.url }}" alt="{{ ann.title }}">
+                </div>
+                {% endif %}
+                <div class="promo-card__body">
+                    <h3 class="promo-card__title">{{ ann.title }}</h3>
+                    <div class="promo-card__text">{{ ann.text|safe }}</div>
+                </div>
+            </div>
+            {% else %}
+            <div class="announcement-card">
+                <h3 class="announcement-card__title">{{ ann.title }}</h3>
+                <div class="announcement-card__text">{{ ann.text|safe }}</div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

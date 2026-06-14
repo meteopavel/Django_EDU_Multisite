@@ -1,21 +1,17 @@
+/* Сетка информационных карточек */
 .exam-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
 }
 
-/*.exam-card:first-child {*/
-/*    grid-column: 1 / span 3;*/
-/*}*/
-
-/* Карточка */
+/* Базовая карточка */
 .exam-card {
     background: white;
     border: var(--red-accent-border);
     border-radius: var(--border-radius);
     padding: 8px;
 }
-
 
 .exam-card-header {
     display: flex;
@@ -24,16 +20,10 @@
 }
 
 .exam-card-icon {
+    flex-shrink: 0;
     width: 24px;
     height: 24px;
     color: #dc3545;
-}
-
-.exam-card-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #dc3545;
-    margin: 0;
 }
 
 .exam-card-content {
@@ -56,10 +46,9 @@
     margin-bottom: 5px;
 }
 
-/* Интерактивная карточка */
+/* Интерактивная карточка (аккордеон) */
 .exam-card-accordion {
     cursor: pointer;
-    position: relative;
     transition: transform 0.2s ease;
 }
 
@@ -67,20 +56,174 @@
     transform: translateY(-5px);
 }
 
-
 .exam-card-accordion .exam-link {
     color: #007bff;
     text-decoration: underline;
     font-weight: 600;
 }
 
-@media (max-width: 768px) {
-    .exam-cards {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 20px;
-    }
-    .exam-card:first-child {
-        grid-column: 1;
-    }
+/* Таблица экзаменов */
+.exam-table {
+    width: 100%;
+    font-size: 0.85em;
+    border-collapse: collapse;
 }
 
+.exam-table thead tr {
+    border-bottom: 2px solid #C30027;
+}
+
+.exam-table th {
+    text-align: left;
+    padding: 6px 4px;
+    color: #C30027;
+}
+
+.exam-table tbody tr {
+    border-bottom: 1px dashed #ddd;
+}
+
+.exam-table td {
+    padding: 8px 4px;
+}
+
+.exam-table td:first-child {
+    font-weight: bold;
+}
+
+/* Одиночный экзамен */
+.exam-single {
+    padding: 10px 0;
+}
+
+.exam-single p {
+    margin: 6px 0;
+    font-size: 0.95em;
+}
+
+.exam-group {
+    color: #C30027;
+    font-weight: bold;
+    font-size: 1.05em !important;
+    margin-bottom: 10px !important;
+}
+
+.exam-label {
+    color: #666;
+}
+
+.exam-hint {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #999;
+    text-align: center;
+}
+
+/* Объявление на всю ширину */
+.announcement-card {
+    background: #fff;
+    border: var(--red-accent-border);
+    border-radius: var(--border-radius);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.announcement-card__title {
+    margin: 0 0 10px 0;
+    color: #C30027;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.announcement-card__text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.announcement-card__text p {
+    margin: 6px 0;
+}
+
+/* Акция / Сертификат — promo-карточка */
+.promo-card {
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+    border: var(--red-accent-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+
+.promo-card__image {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.promo-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.promo-card__body {
+    flex: 1;
+    padding: 20px;
+}
+
+.promo-card__title {
+    margin: 0 0 12px 0;
+    color: #C30027;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.promo-card__text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.promo-card__text p {
+    margin: 0 0 10px 0;
+}
+
+.promo-card__text ul {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .exam-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .promo-card {
+        flex-direction: column;
+    }
+
+    .promo-card__image {
+        max-width: none;
+        max-height: 250px;
+    }
+
+    .promo-card__image img {
+        object-fit: contain;
+    }
+
+    .promo-card__body {
+        padding: 15px;
+    }
+
+    .promo-card__title {
+        font-size: 18px;
+    }
+}

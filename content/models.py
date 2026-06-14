@@ -76,7 +76,8 @@ class HomeSectionChoices(models.TextChoices):
     """Ключи секций главной страницы подразделения."""
 
     HEADER_BANNER = 'header_banner', 'Главный баннер'
-    EXAM_INFO = 'exam_info', 'Акции и экзамены'
+    ANNOUNCEMENTS = 'announcements', 'Объявления и акции'
+    EXAM_INFO = 'exam_info', 'Экзамены и карточки'
     LATEST_NEWS = 'latest_news', 'Последние новости'
     PRICING = 'pricing', 'Стоимость'
     EDUCATION_INFO = 'education_info', 'Сведения об образовательной организации'
@@ -88,6 +89,7 @@ class HomeSectionChoices(models.TextChoices):
 
 DEFAULT_HOME_SECTION_ORDER: list[str] = [
     HomeSectionChoices.HEADER_BANNER,
+    HomeSectionChoices.ANNOUNCEMENTS,
     HomeSectionChoices.EXAM_INFO,
     HomeSectionChoices.LATEST_NEWS,
     HomeSectionChoices.PRICING,
@@ -109,6 +111,7 @@ class HomePageSection(models.Model):
     order = models.PositiveSmallIntegerField('Порядок', default=0)
     TEMPLATE_MAP: dict[str, str] = {
         HomeSectionChoices.HEADER_BANNER: 'content/blocks/home/header_banner.html',
+        HomeSectionChoices.ANNOUNCEMENTS: 'content/blocks/home/announcements.html',
         HomeSectionChoices.EXAM_INFO: 'content/blocks/home/exam_info.html',
         HomeSectionChoices.LATEST_NEWS: 'content/blocks/home/latest_news.html',
         HomeSectionChoices.PRICING: 'content/blocks/home/pricing.html',
@@ -408,3 +411,34 @@ class ExamInfo(models.Model):
     def should_be_visible(self) -> bool:
         """Проверяет, должна ли запись отображаться как актуальная."""
         return not self.is_expired()
+
+
+class Announcement(models.Model):
+    """Объявление, акция или информационная карточка для секции exam_info."""
+
+    class CardType(models.TextChoices):
+        INFO = 'info', 'Карточка в сетке (маленькая)'
+        ANNOUNCEMENT = 'announcement', 'Объявление (на всю ширину)'
+        PROMO = 'promo', 'Акция / Сертификат (с изображением, на всю ширину)'
+
+    department = models.ForeignKey(
+        Department, on_delete=models.CASCADE, related_name='announcements',
+        verbose_name='Подразделение',
+    )
+    card_type = models.CharField('Тип карточки', max_length=20, choices=CardType.choices, default=CardType.ANNOUNCEMENT)
+    title = models.CharField('Заголовок', max_length=255)
+    text = models.TextField('Текст (HTML)', blank=True, help_text='Допустим HTML-разметка: p, strong, ul, li и др.')
+    image = models.ImageField('Изображение', upload_to='announcements/', blank=True, null=True,
+                              help_text='Только для типа «Акция / Сертификат».')
+    is_active = models.BooleanField('Показывать', default=True)
+    expires_at = models.DateField('Показывать до (включительно)', blank=True, null=True,
+                                  help_text='Оставьте пустым — будет показываться бессрочно.')
+    order = models.PositiveSmallIntegerField('Порядок', default=0)
+
+    class Meta:
+        verbose_name = 'Объявление / Акция'
+        verbose_name_plural = 'Объявления и акции'
+        ordering = ['order', '-id']
+
+    def __str__(self) -> str:
+        return f'{self.department.name} — {self.title}'

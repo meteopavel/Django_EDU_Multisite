@@ -1,0 +1,36 @@
+{% if exam_preview|length == 1 %}
+    {% with exam=exam_preview.0 %}
+    <div class="exam-single">
+        <p class="exam-group">Группа {{ exam.group_number }}</p>
+        <p><span class="exam-label">Теория:</span> <strong>{{ exam.theory_date|date:"d.m.Y" }}</strong></p>
+        {% if exam.practice_date %}
+        <p><span class="exam-label">Практика:</span> <strong>{{ exam.practice_date|date:"d.m.Y" }}</strong></p>
+        {% endif %}
+        {% if exam.gibdd_date %}
+        <p><span class="exam-label">ГИБДД:</span> <strong>{{ exam.gibdd_date|date:"d.m.Y" }}</strong></p>
+        {% endif %}
+    </div>
+    {% endwith %}
+{% else %}
+    <table class="exam-table">
+        <thead>
+            <tr>
+                <th>Группа</th>
+                <th>Теория</th>
+                <th>Практика</th>
+                <th>ГИБДД</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exam in exam_preview %}
+            <tr>
+                <td>{{ exam.group_number }}</td>
+                <td>{{ exam.theory_date|date:"d.m.Y" }}</td>
+                <td>{{ exam.practice_date|date:"d.m.Y"|default:"—" }}</td>
+                <td>{{ exam.gibdd_date|date:"d.m.Y"|default:"—" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+<p class="exam-hint">← Кликните для подробностей</p>

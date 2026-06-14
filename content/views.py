@@ -12,13 +12,14 @@ from __future__ import annotations
 
 from typing import Any
 
+from django.db import models
 from django.http import HttpRequest
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
 from .constants import EDUCATION_SECTION_CHOICES
 from .decorators import page_name, ajax_view
-from .models import Department, News, Document, Service, Material, ExamInfo, HomeSectionChoices
+from .models import Department, News, Document, Service, Material, ExamInfo, HomeSectionChoices, Announcement
 from .utils import get_news_for_department, get_news_years, split_documents_by_file_type, group_documents_by_category, \
                    get_exam_month_range, get_education_section_title
 
@@ -60,12 +61,21 @@ def home_view(request: HttpRequest, department: Department) -> dict[str, Any]:
         services = Service.objects.filter(department=department, is_active=True).order_by('order')
         context['services'] = services
         context['services_with_desc'] = [{'id': service.id, 'name': service.name, 'icon_name': service.icon_name} for service in services]
+    if HomeSectionChoices.ANNOUNCEMENTS in enabled_section_keys:
+        today = timezone.now().date()
+        context['above_announcements'] = Announcement.objects.filter(
+            department=department, is_active=True,
+            card_type__in=['promo', 'announcement'],
+        ).filter(models.Q(expires_at__isnull=True) | models.Q(expires_at__gte=today))
     if HomeSectionChoices.EXAM_INFO in enabled_section_keys:
         exams = ExamInfo.objects.filter(department=department).order_by('gibdd_date', 'theory_date')
         today = timezone.now().date()
         visible_exams = [exam for exam in exams if exam.gibdd_date and exam.gibdd_date >= today]
         context['exam_preview'] = visible_exams
         context['has_exams'] = bool(visible_exams)
+        context['grid_cards'] = Announcement.objects.filter(
+            department=department, is_active=True, card_type='info',
+        ).filter(models.Q(expires_at__isnull=True) | models.Q(expires_at__gte=today))
     if HomeSectionChoices.LATEST_NEWS in enabled_section_keys:
         context['latest_news'] = get_news_for_department(department, limit=3)
     if HomeSectionChoices.DOCUMENTS in enabled_section_keys:
