@@ -11,6 +11,10 @@ deploy.sh
 deploy-local.sh
 TODO
 
+# Claude
+CLAUDE.md
+.claude/
+
 # Python
 __pycache__/
 *.pyc
