@@ -111,9 +111,9 @@ if DEBUG:
     ]
 else:
     STATIC_URL = '/static/'
-    STATIC_ROOT = '/home/c/cj82062/DjangoVOA/public_html/static'
+    STATIC_ROOT = os.getenv('PROD_STATIC_ROOT')
 
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = '/home/c/cj82062/DjangoVOA/public_html/media'
+    MEDIA_ROOT = os.getenv('PROD_MEDIA_ROOT')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
