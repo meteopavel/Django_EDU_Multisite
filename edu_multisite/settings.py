@@ -60,6 +60,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'content.context_processors.menu_processor',
+                'content.context_processors.static_version',
                 'content.context_processors.yandex_maps',
             ],
         },
@@ -111,7 +112,6 @@ if DEBUG:
 else:
     STATIC_URL = '/static/'
     STATIC_ROOT = os.getenv('PROD_STATIC_ROOT')
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.getenv('PROD_MEDIA_ROOT')

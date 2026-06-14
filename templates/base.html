@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'css/fonts.css' %}" rel="stylesheet">
-    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/fonts.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
     <link href="{% static 'img/favicon.ico' %}" rel="icon" type="image/x-icon">
     <title>{{ department.details.meta_title|default:department.name }}</title>
     {% if department.details.meta_description %}
@@ -39,6 +39,6 @@
         window.APP_CONFIG = window.APP_CONFIG || {};
         window.APP_CONFIG.YANDEX_MAPS_API_KEY = "{{ YANDEX_MAPS_API_KEY }}";
     </script>
-    <script src="{% static 'js/app.js' %}" type="module"></script>
+    <script src="{% static 'js/app.js' %}?v={{ STATIC_VERSION }}" type="module"></script>
 </body>
 </html>
