@@ -218,16 +218,30 @@ class NewsImage(models.Model):
         if self.image:
             path = self.image.path
             img = PilImage.open(path)
-            min_side = min(img.width, img.height)
-            if min_side > 1000:
-                ratio = 1000 / min_side
-                new_size = (int(img.width * ratio), int(img.height * ratio))
-                img = img.resize(new_size, PilImage.LANCZOS)
+            orig_fmt = img.format or 'JPEG'
+            need_resize = min(img.width, img.height) > 1000
+            need_convert = orig_fmt.upper() == 'PNG'
+            if need_resize or need_convert:
+                if need_resize:
+                    ratio = 1000 / min(img.width, img.height)
+                    img = img.resize(
+                        (int(img.width * ratio), int(img.height * ratio)),
+                        PilImage.LANCZOS,
+                    )
+                if need_convert:
+                    img = img.convert('RGB')
+                    new_path = path.rsplit('.', 1)[0] + '.jpg'
+                else:
+                    new_path = path
                 buf = io.BytesIO()
-                fmt = img.format or 'JPEG'
-                img.save(buf, format=fmt, quality=90)
-                with open(path, 'wb') as f:
+                img.save(buf, format='JPEG', quality=90)
+                with open(new_path, 'wb') as f:
                     f.write(buf.getvalue())
+                if need_convert and new_path != path:
+                    import os
+                    os.remove(path)
+                    self.image.name = self.image.name.rsplit('.', 1)[0] + '.jpg'
+                    NewsImage.objects.filter(pk=self.pk).update(image=self.image.name)
 
     def __str__(self) -> str:
         """Возвращает описание изображения или его идентификатор."""
