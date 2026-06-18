@@ -10,6 +10,9 @@
 """
 
 from __future__ import annotations
+import io
+
+from PIL import Image as PilImage
 
 from datetime import date, datetime, time, timedelta
 from typing import Any
@@ -209,6 +212,22 @@ class NewsImage(models.Model):
         ordering = ['order']
         verbose_name = 'Изображение для галереи'
         verbose_name_plural = 'Изображения для галереи'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.image:
+            path = self.image.path
+            img = PilImage.open(path)
+            min_side = min(img.width, img.height)
+            if min_side > 1000:
+                ratio = 1000 / min_side
+                new_size = (int(img.width * ratio), int(img.height * ratio))
+                img = img.resize(new_size, PilImage.LANCZOS)
+                buf = io.BytesIO()
+                fmt = img.format or 'JPEG'
+                img.save(buf, format=fmt, quality=90)
+                with open(path, 'wb') as f:
+                    f.write(buf.getvalue())
 
     def __str__(self) -> str:
         """Возвращает описание изображения или его идентификатор."""
