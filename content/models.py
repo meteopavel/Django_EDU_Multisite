@@ -10,9 +10,6 @@
 """
 
 from __future__ import annotations
-import io
-
-from PIL import Image as PilImage
 
 from datetime import date, datetime, time, timedelta
 from typing import Any
@@ -214,6 +211,8 @@ class NewsImage(models.Model):
         verbose_name_plural = 'Изображения для галереи'
 
     def save(self, *args, **kwargs):
+        import io
+        from PIL import Image as PilImage
         super().save(*args, **kwargs)
         if self.image:
             path = self.image.path
