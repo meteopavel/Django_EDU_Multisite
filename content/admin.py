@@ -106,6 +106,9 @@ class NewsImageInline(admin.TabularInline):
     model = NewsImage
     extra = 1
 
+    class Media:
+        js = ('js/admin_multi_image_upload.js',)
+
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
