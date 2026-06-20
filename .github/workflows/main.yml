@@ -8,12 +8,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger deploy script via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: |
-            cd ${{ secrets.PROJECT_PATH }} 
-            ${{ secrets.DEPLOY_SCRIPT }}
+      - name: Trigger deploy via webhook
+        run: |
+          curl --retry 4 --retry-delay 15 --retry-all-errors \
+            -X POST https://voa-irk.ru/deploy.php \
+            -H "Content-Type: application/json" \
+            -H "X-Deploy-Token: ${{ secrets.DEPLOY_TOKEN }}" \
+            -d '{"ref": "refs/heads/main"}' \
+            --fail
