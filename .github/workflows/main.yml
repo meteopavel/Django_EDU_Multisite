@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Trigger deploy script via SSH
         uses: appleboy/ssh-action@v1.0.3
