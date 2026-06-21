@@ -41,7 +41,6 @@ htmlcov/
 
 
 /joomla_data.sql
-/docker-compose.yml
 /prod_dump.sql
 /content/management/
 /mysql/
