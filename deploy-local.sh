@@ -117,6 +117,18 @@ fi
 
 # 2️⃣ Дамп контента и отдельный коммит фикстуры
 echo "💾 Этап 2/3: Обновление фикстур..."
+
+DB_HOST=$(get_env "DB_HOST" "$ENV_FILE")
+DB_PORT=$(get_env "DB_PORT" "$ENV_FILE")
+DB_HOST="${DB_HOST:-127.0.0.1}"
+DB_PORT="${DB_PORT:-3306}"
+
+if ! nc -z -w3 "$DB_HOST" "$DB_PORT" 2>/dev/null; then
+    echo "❌ MySQL недоступен на ${DB_HOST}:${DB_PORT} — запустите базу и повторите деплой"
+    exit 1
+fi
+echo "✅ MySQL доступен"
+
 .venv/bin/python manage.py dumpdata content --indent=2 > content/fixtures/content.json
 
 git add content/fixtures/content.json
