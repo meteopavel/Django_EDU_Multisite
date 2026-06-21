@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-19T05:47:58.985307+00:00",
+  "generated_at": "2026-06-21T07:12:12.457473+00:00",
   "generator": "tools/extract_api_map.py",
   "targets": [
     "content",
@@ -19,11 +19,11 @@
   ],
   "stats": {
     "modules": 14,
-    "classes": 31,
+    "classes": 33,
     "dataclasses": 0,
     "functions": 22,
-    "methods": 35,
-    "constants": 21
+    "methods": 37,
+    "constants": 22
   },
   "modules": [
     {
@@ -179,7 +179,7 @@
           "fields": [],
           "methods": [],
           "lineno": 104,
-          "end_lineno": 107
+          "end_lineno": 110
         },
         {
           "name": "NewsAdmin",
@@ -195,8 +195,8 @@
           ],
           "fields": [],
           "methods": [],
-          "lineno": 111,
-          "end_lineno": 116
+          "lineno": 114,
+          "end_lineno": 119
         },
         {
           "name": "DocumentCategoryAdmin",
@@ -219,12 +219,12 @@
               "summary": "Возвращает количество документов в категории.",
               "kind": "method",
               "decorators": [],
-              "lineno": 128,
-              "end_lineno": 130
+              "lineno": 131,
+              "end_lineno": 133
             }
           ],
-          "lineno": 120,
-          "end_lineno": 132
+          "lineno": 123,
+          "end_lineno": 135
         },
         {
           "name": "DocumentAdminForm",
@@ -245,8 +245,8 @@
               "summary": "Инициализирует форму и подставляет текущие секции отображения документа.",
               "kind": "method",
               "decorators": [],
-              "lineno": 143,
-              "end_lineno": 147
+              "lineno": 146,
+              "end_lineno": 150
             },
             {
               "name": "clean_display_in_sections",
@@ -255,12 +255,12 @@
               "summary": "Возвращает выбранные секции отображения документа.",
               "kind": "method",
               "decorators": [],
-              "lineno": 149,
-              "end_lineno": 151
+              "lineno": 152,
+              "end_lineno": 154
             }
           ],
-          "lineno": 135,
-          "end_lineno": 151
+          "lineno": 138,
+          "end_lineno": 154
         },
         {
           "name": "DocumentDepartmentFilter",
@@ -281,8 +281,8 @@
               "summary": "Возвращает список подразделений для фильтра.",
               "kind": "method",
               "decorators": [],
-              "lineno": 159,
-              "end_lineno": 161
+              "lineno": 162,
+              "end_lineno": 164
             },
             {
               "name": "queryset",
@@ -291,12 +291,12 @@
               "summary": "Фильтрует queryset по выбранному подразделению.",
               "kind": "method",
               "decorators": [],
-              "lineno": 163,
-              "end_lineno": 167
+              "lineno": 166,
+              "end_lineno": 170
             }
           ],
-          "lineno": 154,
-          "end_lineno": 167
+          "lineno": 157,
+          "end_lineno": 170
         },
         {
           "name": "DocumentAdmin",
@@ -319,8 +319,8 @@
               "summary": "Возвращает список полей только для чтения.",
               "kind": "method",
               "decorators": [],
-              "lineno": 181,
-              "end_lineno": 183
+              "lineno": 184,
+              "end_lineno": 186
             },
             {
               "name": "save_model",
@@ -329,8 +329,8 @@
               "summary": "Сохраняет документ и при необходимости перемещает файл в каталог подразделения.",
               "kind": "method",
               "decorators": [],
-              "lineno": 185,
-              "end_lineno": 200
+              "lineno": 188,
+              "end_lineno": 203
             },
             {
               "name": "file_type_display",
@@ -339,8 +339,8 @@
               "summary": "Возвращает человекочитаемое название типа файла.",
               "kind": "method",
               "decorators": [],
-              "lineno": 202,
-              "end_lineno": 204
+              "lineno": 205,
+              "end_lineno": 207
             },
             {
               "name": "file_link",
@@ -349,12 +349,12 @@
               "summary": "Возвращает HTML-ссылку на файл документа.",
               "kind": "method",
               "decorators": [],
-              "lineno": 208,
-              "end_lineno": 212
+              "lineno": 211,
+              "end_lineno": 215
             }
           ],
-          "lineno": 171,
-          "end_lineno": 214
+          "lineno": 174,
+          "end_lineno": 217
         },
         {
           "name": "ServiceAdmin",
@@ -370,8 +370,8 @@
           ],
           "fields": [],
           "methods": [],
-          "lineno": 218,
-          "end_lineno": 224
+          "lineno": 221,
+          "end_lineno": 227
         },
         {
           "name": "ContentBlockAdminForm",
@@ -392,12 +392,12 @@
               "summary": "Проверяет обязательность выбора секции для блока типа documents.",
               "kind": "method",
               "decorators": [],
-              "lineno": 235,
-              "end_lineno": 242
+              "lineno": 238,
+              "end_lineno": 245
             }
           ],
-          "lineno": 227,
-          "end_lineno": 242
+          "lineno": 230,
+          "end_lineno": 245
         },
         {
           "name": "ContentBlockInline",
@@ -411,8 +411,8 @@
           "decorators": [],
           "fields": [],
           "methods": [],
-          "lineno": 245,
-          "end_lineno": 250
+          "lineno": 248,
+          "end_lineno": 253
         },
         {
           "name": "MaterialAdmin",
@@ -428,8 +428,8 @@
           ],
           "fields": [],
           "methods": [],
-          "lineno": 254,
-          "end_lineno": 258
+          "lineno": 257,
+          "end_lineno": 261
         },
         {
           "name": "ExamInfoAdmin",
@@ -452,18 +452,35 @@
               "summary": "Возвращает HTML-индикатор актуальности экзамена.",
               "kind": "method",
               "decorators": [],
-              "lineno": 272,
-              "end_lineno": 276
+              "lineno": 275,
+              "end_lineno": 279
             }
           ],
-          "lineno": 262,
-          "end_lineno": 278
+          "lineno": 265,
+          "end_lineno": 281
+        },
+        {
+          "name": "AnnouncementAdmin",
+          "signature": "AnnouncementAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование объявлений и акций.",
+          "summary": "Администрирование объявлений и акций.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(Announcement)"
+          ],
+          "fields": [],
+          "methods": [],
+          "lineno": 285,
+          "end_lineno": 294
         }
       ],
       "functions": [],
       "constants": [],
       "stats": {
-        "classes": 17,
+        "classes": 18,
         "dataclasses": 0,
         "functions": 0,
         "methods": 14,
@@ -675,7 +692,7 @@
           "fields": [],
           "methods": [],
           "lineno": 75,
-          "end_lineno": 86
+          "end_lineno": 87
         },
         {
           "name": "HomePageSection",
@@ -691,8 +708,8 @@
             {
               "name": "TEMPLATE_MAP",
               "annotation": "dict[str, str]",
-              "value_repr": "{HomeSectionChoices.HEADER_BANNER: 'content/blocks/home/header_banner.html', HomeSectionChoices.EXAM_INFO: 'content/blocks/home/exam_info.html', HomeSectionChoices.LATEST_NEWS: 'content/blocks/home/latest_news.html', HomeSectionChoices.PRICING: 'content/blocks/home/pricing.html', HomeSectionChoices.EDUCATION_INFO: 'content/blocks/home/education_info.html', HomeSectionChoices.SERVICES: 'content/blocks/home/services.html', HomeSectionChoices.DOCUMENTS: 'content/blocks/home/documents.html', HomeSectionChoices.PARTNERS: 'content/blocks/home/partners.html', HomeSectionChoices.CONTACTS: 'content/blocks/home/contacts.html'}",
-              "lineno": 110
+              "value_repr": "{HomeSectionChoices.HEADER_BANNER: 'content/blocks/home/header_banner.html', HomeSectionChoices.ANNOUNCEMENTS: 'content/blocks/home/announcements.html', HomeSectionChoices.EXAM_INFO: 'content/blocks/home/exam_info.html', HomeSectionChoices.LATEST_NEWS: 'content/blocks/home/latest_news.html', HomeSectionChoices.PRICING: 'content/blocks/home/pricing.html', HomeSectionChoices.EDUCATION_INFO: 'content/blocks/home/education_info.html', HomeSectionChoices.SERVICES: 'content/blocks/home/services.html', HomeSectionChoices.DOCUMENTS: 'content/blocks/home/documents.html', HomeSectionChoices.PARTNERS: 'content/blocks/home/partners.html', HomeSectionChoices.CONTACTS: 'content/blocks/home/contacts.html'}",
+              "lineno": 112
             }
           ],
           "methods": [
@@ -703,8 +720,8 @@
               "summary": "Возвращает название секции в контексте подразделения.",
               "kind": "method",
               "decorators": [],
-              "lineno": 129,
-              "end_lineno": 131
+              "lineno": 132,
+              "end_lineno": 134
             },
             {
               "name": "template_name",
@@ -715,12 +732,12 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 134,
-              "end_lineno": 136
+              "lineno": 137,
+              "end_lineno": 139
             }
           ],
-          "lineno": 102,
-          "end_lineno": 136
+          "lineno": 104,
+          "end_lineno": 139
         },
         {
           "name": "Service",
@@ -737,7 +754,7 @@
               "name": "SERVICE_TYPES",
               "annotation": "list[tuple[str, str]]",
               "value_repr": "[('parking', 'Автостоянка'), ('info_card', 'Информационная карточка (с описанием)'), ('custom', 'Произвольная услуга')]",
-              "lineno": 142
+              "lineno": 145
             }
           ],
           "methods": [
@@ -748,12 +765,12 @@
               "summary": "Возвращает название услуги и подразделение.",
               "kind": "method",
               "decorators": [],
-              "lineno": 168,
-              "end_lineno": 170
+              "lineno": 171,
+              "end_lineno": 173
             }
           ],
-          "lineno": 139,
-          "end_lineno": 170
+          "lineno": 142,
+          "end_lineno": 173
         },
         {
           "name": "MenuItem",
@@ -774,12 +791,12 @@
               "summary": "Возвращает пункт меню с указанием подразделений показа.",
               "kind": "method",
               "decorators": [],
-              "lineno": 189,
-              "end_lineno": 194
+              "lineno": 192,
+              "end_lineno": 197
             }
           ],
-          "lineno": 173,
-          "end_lineno": 194
+          "lineno": 176,
+          "end_lineno": 197
         },
         {
           "name": "NewsImage",
@@ -794,18 +811,28 @@
           "fields": [],
           "methods": [
             {
+              "name": "save",
+              "signature": "save(self, *args, **kwargs)",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [],
+              "lineno": 213,
+              "end_lineno": 243
+            },
+            {
               "name": "__str__",
               "signature": "__str__(self) -> str",
               "docstring": "Возвращает описание изображения или его идентификатор.",
               "summary": "Возвращает описание изображения или его идентификатор.",
               "kind": "method",
               "decorators": [],
-              "lineno": 210,
-              "end_lineno": 212
+              "lineno": 245,
+              "end_lineno": 247
             }
           ],
-          "lineno": 197,
-          "end_lineno": 212
+          "lineno": 200,
+          "end_lineno": 247
         },
         {
           "name": "News",
@@ -826,8 +853,8 @@
               "summary": "Возвращает заголовок новости.",
               "kind": "method",
               "decorators": [],
-              "lineno": 237,
-              "end_lineno": 239
+              "lineno": 272,
+              "end_lineno": 274
             },
             {
               "name": "save",
@@ -836,12 +863,12 @@
               "summary": "Сохраняет новость и при необходимости заполняет дату публикации.",
               "kind": "method",
               "decorators": [],
-              "lineno": 241,
-              "end_lineno": 245
+              "lineno": 276,
+              "end_lineno": 280
             }
           ],
-          "lineno": 215,
-          "end_lineno": 245
+          "lineno": 250,
+          "end_lineno": 280
         },
         {
           "name": "DocumentCategory",
@@ -862,12 +889,12 @@
               "summary": "Возвращает название категории.",
               "kind": "method",
               "decorators": [],
-              "lineno": 260,
-              "end_lineno": 262
+              "lineno": 295,
+              "end_lineno": 297
             }
           ],
-          "lineno": 248,
-          "end_lineno": 262
+          "lineno": 283,
+          "end_lineno": 297
         },
         {
           "name": "Document",
@@ -884,7 +911,7 @@
               "name": "DOCUMENT_TYPE_CHOICES",
               "annotation": "list[tuple[str, str]]",
               "value_repr": "[('file', 'Файл (PDF/изображение)'), ('external', 'Внешняя ссылка'), ('info', 'Информационный пункт (без файла)')]",
-              "lineno": 268
+              "lineno": 303
             }
           ],
           "methods": [
@@ -895,8 +922,8 @@
               "summary": "Возвращает название документа и подразделение.",
               "kind": "method",
               "decorators": [],
-              "lineno": 293,
-              "end_lineno": 295
+              "lineno": 328,
+              "end_lineno": 330
             },
             {
               "name": "get_display_url",
@@ -905,8 +932,8 @@
               "summary": "Возвращает URL файла или внешней ссылки для отображения.",
               "kind": "method",
               "decorators": [],
-              "lineno": 297,
-              "end_lineno": 303
+              "lineno": 332,
+              "end_lineno": 338
             },
             {
               "name": "is_external",
@@ -915,8 +942,8 @@
               "summary": "Проверяет, является ли документ внешней ссылкой.",
               "kind": "method",
               "decorators": [],
-              "lineno": 305,
-              "end_lineno": 307
+              "lineno": 340,
+              "end_lineno": 342
             },
             {
               "name": "is_info_only",
@@ -925,8 +952,8 @@
               "summary": "Проверяет, является ли документ информационным пунктом без файла.",
               "kind": "method",
               "decorators": [],
-              "lineno": 309,
-              "end_lineno": 311
+              "lineno": 344,
+              "end_lineno": 346
             },
             {
               "name": "save",
@@ -935,12 +962,12 @@
               "summary": "Сохраняет документ и автоматически определяет тип загруженного файла.",
               "kind": "method",
               "decorators": [],
-              "lineno": 313,
-              "end_lineno": 325
+              "lineno": 348,
+              "end_lineno": 360
             }
           ],
-          "lineno": 265,
-          "end_lineno": 325
+          "lineno": 300,
+          "end_lineno": 360
         },
         {
           "name": "Material",
@@ -961,12 +988,12 @@
               "summary": "Возвращает заголовок материала.",
               "kind": "method",
               "decorators": [],
-              "lineno": 341,
-              "end_lineno": 343
+              "lineno": 376,
+              "end_lineno": 378
             }
           ],
-          "lineno": 328,
-          "end_lineno": 343
+          "lineno": 363,
+          "end_lineno": 378
         },
         {
           "name": "ContentBlock",
@@ -983,7 +1010,7 @@
               "name": "BLOCK_TYPES",
               "annotation": "list[tuple[str, str]]",
               "value_repr": "[('heading', 'Заголовок'), ('paragraph', 'Абзац'), ('list', 'Список'), ('image', 'Изображение'), ('video', 'Видео'), ('quote', 'Цитата'), ('documents', 'Документы')]",
-              "lineno": 349
+              "lineno": 384
             }
           ],
           "methods": [
@@ -994,12 +1021,12 @@
               "summary": "Возвращает краткое представление блока материала.",
               "kind": "method",
               "decorators": [],
-              "lineno": 367,
-              "end_lineno": 369
+              "lineno": 402,
+              "end_lineno": 404
             }
           ],
-          "lineno": 346,
-          "end_lineno": 369
+          "lineno": 381,
+          "end_lineno": 404
         },
         {
           "name": "ExamInfo",
@@ -1020,8 +1047,8 @@
               "summary": "Возвращает номер группы и дату экзамена в ГИБДД.",
               "kind": "method",
               "decorators": [],
-              "lineno": 388,
-              "end_lineno": 390
+              "lineno": 423,
+              "end_lineno": 425
             },
             {
               "name": "gathering_time",
@@ -1032,8 +1059,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 393,
-              "end_lineno": 399
+              "lineno": 428,
+              "end_lineno": 434
             },
             {
               "name": "is_expired",
@@ -1042,8 +1069,8 @@
               "summary": "Проверяет, прошла ли дата экзамена в ГИБДД.",
               "kind": "method",
               "decorators": [],
-              "lineno": 401,
-              "end_lineno": 406
+              "lineno": 436,
+              "end_lineno": 441
             },
             {
               "name": "should_be_visible",
@@ -1052,12 +1079,38 @@
               "summary": "Проверяет, должна ли запись отображаться как актуальная.",
               "kind": "method",
               "decorators": [],
-              "lineno": 408,
-              "end_lineno": 410
+              "lineno": 443,
+              "end_lineno": 445
             }
           ],
-          "lineno": 372,
-          "end_lineno": 410
+          "lineno": 407,
+          "end_lineno": 445
+        },
+        {
+          "name": "Announcement",
+          "signature": "Announcement(models.Model)",
+          "docstring": "Объявление, акция или информационная карточка для секции exam_info.",
+          "summary": "Объявление, акция или информационная карточка для секции exam_info.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [],
+              "lineno": 475,
+              "end_lineno": 476
+            }
+          ],
+          "lineno": 448,
+          "end_lineno": 476
         }
       ],
       "functions": [],
@@ -1065,15 +1118,15 @@
         {
           "name": "DEFAULT_HOME_SECTION_ORDER",
           "annotation": "list[str]",
-          "value_repr": "[HomeSectionChoices.HEADER_BANNER, HomeSectionChoices.EXAM_INFO, HomeSectionChoices.LATEST_NEWS, HomeSectionChoices.PRICING, HomeSectionChoices.EDUCATION_INFO, HomeSectionChoices.SERVICES, HomeSectionChoices.DOCUMENTS, HomeSectionChoices.PARTNERS, HomeSectionChoices.CONTACTS]",
-          "lineno": 89
+          "value_repr": "[HomeSectionChoices.HEADER_BANNER, HomeSectionChoices.ANNOUNCEMENTS, HomeSectionChoices.EXAM_INFO, HomeSectionChoices.LATEST_NEWS, HomeSectionChoices.PRICING, HomeSectionChoices.EDUCATION_INFO, HomeSectionChoices.SERVICES, HomeSectionChoices.DOCUMENTS, HomeSectionChoices.PARTNERS, HomeSectionChoices.CONTACTS]",
+          "lineno": 90
         }
       ],
       "stats": {
-        "classes": 13,
+        "classes": 14,
         "dataclasses": 0,
         "functions": 0,
-        "methods": 21,
+        "methods": 23,
         "constants": 1
       }
     },
@@ -1231,8 +1284,8 @@
           "decorators": [
             "page_name('Главная', 'content/pages/home.html')"
           ],
-          "lineno": 28,
-          "end_lineno": 85
+          "lineno": 29,
+          "end_lineno": 95
         },
         {
           "name": "ajax_all_news",
@@ -1243,8 +1296,8 @@
           "decorators": [
             "ajax_view('Все новости', 'content/ajax/news/news_grid.html')"
           ],
-          "lineno": 89,
-          "end_lineno": 102
+          "lineno": 99,
+          "end_lineno": 112
         },
         {
           "name": "ajax_news_detail",
@@ -1255,8 +1308,8 @@
           "decorators": [
             "ajax_view('Новость', 'content/ajax/news/news_detail.html')"
           ],
-          "lineno": 106,
-          "end_lineno": 110
+          "lineno": 116,
+          "end_lineno": 120
         },
         {
           "name": "ajax_documents",
@@ -1267,8 +1320,8 @@
           "decorators": [
             "ajax_view('Документы', 'content/ajax/documents/documents_section.html')"
           ],
-          "lineno": 114,
-          "end_lineno": 119
+          "lineno": 124,
+          "end_lineno": 129
         },
         {
           "name": "ajax_material_description",
@@ -1279,8 +1332,8 @@
           "decorators": [
             "ajax_view('Описание материала', 'content/ajax/materials/material_description.html')"
           ],
-          "lineno": 123,
-          "end_lineno": 138
+          "lineno": 133,
+          "end_lineno": 148
         },
         {
           "name": "ajax_exam_info",
@@ -1291,8 +1344,8 @@
           "decorators": [
             "ajax_view('Информация об экзаменах', 'content/ajax/exams/exam_info.html')"
           ],
-          "lineno": 142,
-          "end_lineno": 148
+          "lineno": 152,
+          "end_lineno": 158
         }
       ],
       "constants": [],
@@ -1487,17 +1540,24 @@
     },
     {
       "path": "edu_multisite/wsgi.py",
-      "module_docstring": "WSGI-конфигурация проекта edu_multisite.\n\nМодуль:\n- подготавливает sys.path для окружения хостинга;\n- загружает переменные окружения из .env;\n- инициализирует WSGI-приложение Django.",
+      "module_docstring": "WSGI-конфигурация проекта edu_multisite.\n\nМодуль:\n- подготавливает sys.path для окружения хостинга;\n- загружает переменные окружения из .env;\n- инициализирует WSGI-приложение Django.\n\nПеременная окружения HOSTING_ROOT задаёт корень проекта на хостинге.\nЕсли не задана, используется расположение этого файла.",
       "module_summary": "WSGI-конфигурация проекта edu_multisite.",
       "classes": [],
       "functions": [],
-      "constants": [],
+      "constants": [
+        {
+          "name": "HOSTING_ROOT",
+          "annotation": null,
+          "value_repr": "os.environ.get('HOSTING_ROOT', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))",
+          "lineno": 18
+        }
+      ],
       "stats": {
         "classes": 0,
         "dataclasses": 0,
         "functions": 0,
         "methods": 0,
-        "constants": 0
+        "constants": 1
       }
     }
   ]

@@ -6,11 +6,11 @@
 
 Сводная статистика:
 - модулей: 14
-- классов: 31
+- классов: 33
 - dataclass: 0
 - функций: 22
-- методов: 35
-- констант: 21
+- методов: 37
+- констант: 22
 
 ---
 
@@ -115,6 +115,9 @@
   - `is_expired_col(self, obj: ExamInfo) -> str`
     Возвращает HTML-индикатор актуальности экзамена.
 
+- `AnnouncementAdmin(admin.ModelAdmin)`
+  Администрирование объявлений и акций.
+
 ---
 
 # content/apps.py
@@ -197,7 +200,7 @@
 - экзаменационной информации.
 
 Константы:
-- `DEFAULT_HOME_SECTION_ORDER: list[str] = [HomeSectionChoices.HEADER_BANNER, HomeSectionChoices.EXAM_INFO, HomeSectionChoices.LATEST_NEWS, Ho…`
+- `DEFAULT_HOME_SECTION_ORDER: list[str] = [HomeSectionChoices.HEADER_BANNER, HomeSectionChoices.ANNOUNCEMENTS, HomeSectionChoices.EXAM_INFO, …`
 
 Классы:
 
@@ -219,7 +222,7 @@
 - `HomePageSection(models.Model)`
   Настройка состава, порядка и видимости секций главной страницы.
   Поля:
-  - `TEMPLATE_MAP: dict[str, str] = {HomeSectionChoices.HEADER_BANNER: 'content/blocks/home/header_banner.html', HomeSectionChoices.EXAM_INFO: 'content/blocks/home/exam_info.html', HomeSectionChoices.LATEST_NEWS: 'content/blocks/home/latest_news.html', HomeSectionChoices.PRICING: 'content/blocks/home/pricing.html', HomeSectionChoices.EDUCATION_INFO: 'content/blocks/home/education_info.html', HomeSectionChoices.SERVICES: 'content/blocks/home/services.html', HomeSectionChoices.DOCUMENTS: 'content/blocks/home/documents.html', HomeSectionChoices.PARTNERS: 'content/blocks/home/partners.html', HomeSectionChoices.CONTACTS: 'content/blocks/home/contacts.html'}`
+  - `TEMPLATE_MAP: dict[str, str] = {HomeSectionChoices.HEADER_BANNER: 'content/blocks/home/header_banner.html', HomeSectionChoices.ANNOUNCEMENTS: 'content/blocks/home/announcements.html', HomeSectionChoices.EXAM_INFO: 'content/blocks/home/exam_info.html', HomeSectionChoices.LATEST_NEWS: 'content/blocks/home/latest_news.html', HomeSectionChoices.PRICING: 'content/blocks/home/pricing.html', HomeSectionChoices.EDUCATION_INFO: 'content/blocks/home/education_info.html', HomeSectionChoices.SERVICES: 'content/blocks/home/services.html', HomeSectionChoices.DOCUMENTS: 'content/blocks/home/documents.html', HomeSectionChoices.PARTNERS: 'content/blocks/home/partners.html', HomeSectionChoices.CONTACTS: 'content/blocks/home/contacts.html'}`
   Методы:
   - `__str__(self) -> str`
     Возвращает название секции в контексте подразделения.
@@ -243,6 +246,8 @@
 - `NewsImage(models.Model)`
   Изображение галереи, связанное с новостью.
   Методы:
+  - `save(self, *args, **kwargs)`
+    Нет докстринга.
   - `__str__(self) -> str`
     Возвращает описание изображения или его идентификатор.
 
@@ -301,6 +306,12 @@
     Проверяет, прошла ли дата экзамена в ГИБДД.
   - `should_be_visible(self) -> bool`
     Проверяет, должна ли запись отображаться как актуальная.
+
+- `Announcement(models.Model)`
+  Объявление, акция или информационная карточка для секции exam_info.
+  Методы:
+  - `__str__(self) -> str`
+    Нет докстринга.
 
 ---
 
@@ -480,3 +491,9 @@ WSGI-конфигурация проекта edu_multisite.
 - подготавливает sys.path для окружения хостинга;
 - загружает переменные окружения из .env;
 - инициализирует WSGI-приложение Django.
+
+Переменная окружения HOSTING_ROOT задаёт корень проекта на хостинге.
+Если не задана, используется расположение этого файла.
+
+Константы:
+- `HOSTING_ROOT = os.environ.get('HOSTING_ROOT', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))`

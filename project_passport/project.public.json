@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-19T06:04:23.596039+00:00",
+  "generated_at": "2026-06-21T07:12:12.518640+00:00",
   "generated_by": "tools/build_project_passport.py",
   "id": "django-edu-multisite",
   "title": "Django Multisite Content Platform",
@@ -69,11 +69,11 @@
   "tech_profile": {
     "python_files": 14,
     "scanned_python_files": 18,
-    "classes": 31,
+    "classes": 33,
     "dataclasses": 0,
     "functions": 22,
-    "methods": 35,
-    "constants": 21,
+    "methods": 37,
+    "constants": 22,
     "has_django": true,
     "has_django_admin": true,
     "has_django_models": true,
@@ -111,10 +111,10 @@
         "path": "content/models.py",
         "summary": "Модели контентной и справочной структуры сайта.",
         "stats": {
-          "classes": 13,
+          "classes": 14,
           "dataclasses": 0,
           "functions": 0,
-          "methods": 21,
+          "methods": 23,
           "constants": 1
         }
       },
@@ -122,7 +122,7 @@
         "path": "content/admin.py",
         "summary": "Административные настройки контентного приложения.",
         "stats": {
-          "classes": 17,
+          "classes": 18,
           "dataclasses": 0,
           "functions": 0,
           "methods": 14,
@@ -183,7 +183,7 @@
   },
   "source": {
     "api_map_schema_version": "1.0",
-    "api_map_generated_at": "2026-04-19T05:47:58.985307+00:00",
+    "api_map_generated_at": "2026-06-21T07:12:12.457473+00:00",
     "api_map_generator": "tools/extract_api_map.py",
     "meta_auto_generated": true,
     "meta_review_status": "draft"
