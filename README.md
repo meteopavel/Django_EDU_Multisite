@@ -1,5 +1,9 @@
 # Django Multisite Content Platform
 
+[![Python](https://k2bz83mrsg.cdn.twcstorage.ru/images/shields/voa_django/python.svg)](https://docs.python.org/3/)
+[![Django](https://k2bz83mrsg.cdn.twcstorage.ru/images/shields/voa_django/django.svg)](https://docs.djangoproject.com/en/stable/)
+[![MySQL](https://k2bz83mrsg.cdn.twcstorage.ru/images/shields/voa_django/mysql.svg)](https://dev.mysql.com/doc/)
+
 Django-платформа для мультисайтового управления подразделениями, контентом, документами и информационными разделами. Активное подразделение определяется по хосту запроса и влияет на выдачу контента: одно приложение обслуживает несколько доменов с разным наполнением.
 
 Проект разработан и развёрнут в production для реального заказчика.
