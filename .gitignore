@@ -8,7 +8,6 @@ media/
 # Secrets
 .env
 deploy.sh
-deploy-local.sh
 TODO
 
 # Claude
