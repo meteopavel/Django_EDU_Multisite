@@ -57,6 +57,20 @@ require_env() {
     fi
 }
 
+rsync_via_tunnel() {
+    # rsync_via_tunnel USER HOST SRC DEST [EXTRA_FLAGS]
+    local user="$1" host="$2" src="$3" dest="$4"
+    shift 4
+    local ctl="/tmp/ssh_ctl_${user}_${host}"
+    ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no \
+        -o ControlMaster=yes -o ControlPath="$ctl" -o ControlPersist=60s \
+        -nNf "${user}@${host}"
+    rsync -avz --progress "$@" \
+        --rsh="ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no -o ControlMaster=no -o ControlPath=$ctl" \
+        "$src" "${user}@${host}:${dest}"
+    ssh -o ControlPath="$ctl" -O exit "${user}@${host}" 2>/dev/null || true
+}
+
 # ================= ЗАГРУЗКА ПЕРЕМЕННЫХ =================
 
 # Читаем все обязательные переменные
@@ -143,10 +157,8 @@ fi
 
 # 3️⃣ Синхронизация медиа с авто-паролем
 echo "📤 Этап 3/3: Синхронизация медиа..."
-export SSHPASS="$RSYNC_PASSWORD"
-rsync -avz --progress \
-    --rsh="sshpass -e ssh -o StrictHostKeyChecking=no" \
-    media/ "${RSYNC_USER}@${RSYNC_HOST}:${RSYNC_PATH}"
+rsync_via_tunnel "${RSYNC_USER}" "${RSYNC_HOST}" \
+    media/ "${RSYNC_PATH}"
 
 echo "----------------------------------------"
 echo "✅ Деплой завершён успешно!"
