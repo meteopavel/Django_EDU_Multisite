@@ -14023,5 +14023,19 @@
     "expires_at": "2026-05-13",
     "order": 3
   }
+},
+{
+  "model": "content.announcement",
+  "pk": 8,
+  "fields": {
+    "department": 2,
+    "card_type": "announcement",
+    "title": "04 июля лекции по теории не будет",
+    "text": "Уважаемые обучающиеся, 4 июля 2026 года занятия по теории проводиться не будут. Следите за расписанием.",
+    "image": "",
+    "is_active": true,
+    "expires_at": "2026-07-04",
+    "order": 0
+  }
 }
 ]
