@@ -13955,6 +13955,18 @@
   }
 },
 {
+  "model": "content.examinfo",
+  "pk": 4,
+  "fields": {
+    "department": 2,
+    "group_number": 212,
+    "theory_date": "2026-07-07",
+    "practice_date": "2026-07-08",
+    "gibdd_date": "2026-07-23",
+    "gibdd_time": "08:45:00"
+  }
+},
+{
   "model": "content.announcement",
   "pk": 3,
   "fields": {
