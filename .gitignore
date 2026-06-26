@@ -46,3 +46,5 @@ htmlcov/
 /mysql/
 /bs.js
 /node_modules/
+.playwright-mcp/
+/*.png

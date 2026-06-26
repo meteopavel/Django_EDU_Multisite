@@ -6,10 +6,10 @@
 
 Сводная статистика:
 - модулей: 14
-- классов: 35
+- классов: 37
 - dataclass: 0
 - функций: 22
-- методов: 40
+- методов: 45
 - констант: 23
 
 ---
@@ -128,6 +128,9 @@
     Нет докстринга.
   - `get_changeform_initial_data(self, request: HttpRequest) -> dict[str, Any]`
     Нет докстринга.
+
+- `PricingPlanAdmin(admin.ModelAdmin)`
+  Администрирование прайс-планов подразделений.
 
 ---
 
@@ -328,6 +331,20 @@
   Занятие по психологии или медицине для отображения в карточке расписания.
   Методы:
   - `__str__(self) -> str`
+    Нет докстринга.
+
+- `PricingPlan(models.Model)`
+  Нет докстринга.
+  Методы:
+  - `__str__(self) -> str`
+    Нет докстринга.
+  - `has_promo_theory(self) -> bool`
+    Нет докстринга.
+  - `effective_practice_price(self) -> int`
+    Нет докстринга.
+  - `total_mkpp(self) -> int`
+    Нет докстринга.
+  - `total_akpp(self) -> int`
     Нет докстринга.
 
 ---

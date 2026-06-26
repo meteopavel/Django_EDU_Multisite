@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.http import HttpRequest
 from django.utils.html import format_html
 
-from .models import Department, DepartmentDetails, HomePageSection, MenuItem, NewsImage, News, Document, DocumentCategory, Service, ContentBlock, Material, ExamInfo, Announcement, ClassSession
+from .models import Department, DepartmentDetails, HomePageSection, MenuItem, NewsImage, News, Document, DocumentCategory, Service, ContentBlock, Material, ExamInfo, Announcement, ClassSession, PricingPlan
 
 
 @admin.register(Department)
@@ -289,7 +289,7 @@ class AnnouncementAdmin(admin.ModelAdmin):
     list_filter = ['department', 'card_type', 'is_active']
     search_fields = ['title', 'text']
     fieldsets = (
-        ('Основное', {'fields': ('department', 'card_type', 'title', 'is_active', 'expires_at', 'order')}),
+        ('Основное', {'fields': ('department', 'card_type', 'title', 'is_active', 'starts_at', 'expires_at', 'order')}),
         ('Содержимое', {'fields': ('text', 'image'), 'description': 'Изображение используется только для типа «Акция / Сертификат».'}),
     )
 
@@ -319,3 +319,21 @@ class ClassSessionAdmin(admin.ModelAdmin):
             initial.setdefault('time_start', SUBJECT_DEFAULTS[subject][0])
             initial.setdefault('time_end', SUBJECT_DEFAULTS[subject][1])
         return initial
+
+
+@admin.register(PricingPlan)
+class PricingPlanAdmin(admin.ModelAdmin):
+    """Администрирование прайс-планов подразделений."""
+    list_display = ['department', 'theory_price', 'practice_price_per_hour', 'hours_mkpp', 'hours_akpp', 'installment_available']
+    fieldsets = (
+        ('Основное', {'fields': ('department', 'installment_available')}),
+        ('Базовые цены', {'fields': ('theory_price', 'practice_price_per_hour', 'hours_mkpp', 'hours_akpp')}),
+        ('Акция на теорию', {
+            'fields': ('promo_theory_price',),
+            'description': 'Цена показывается (со зачёркиванием основной) пока активно promo-объявление подразделения.',
+        }),
+        ('Плановое изменение цены практики', {
+            'fields': ('scheduled_practice_price', 'price_change_date'),
+            'description': 'С указанной даты новая цена практики вступит в силу автоматически.',
+        }),
+    )

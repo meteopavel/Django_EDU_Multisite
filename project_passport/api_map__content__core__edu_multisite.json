@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-26T03:32:54.167599+00:00",
+  "generated_at": "2026-06-26T09:28:04.800538+00:00",
   "generator": "tools/extract_api_map.py",
   "targets": [
     "content",
@@ -19,10 +19,10 @@
   ],
   "stats": {
     "modules": 14,
-    "classes": 35,
+    "classes": 37,
     "dataclasses": 0,
     "functions": 22,
-    "methods": 40,
+    "methods": 45,
     "constants": 23
   },
   "modules": [
@@ -515,6 +515,23 @@
           ],
           "lineno": 304,
           "end_lineno": 321
+        },
+        {
+          "name": "PricingPlanAdmin",
+          "signature": "PricingPlanAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование прайс-планов подразделений.",
+          "summary": "Администрирование прайс-планов подразделений.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(PricingPlan)"
+          ],
+          "fields": [],
+          "methods": [],
+          "lineno": 325,
+          "end_lineno": 339
         }
       ],
       "functions": [],
@@ -527,7 +544,7 @@
         }
       ],
       "stats": {
-        "classes": 19,
+        "classes": 20,
         "dataclasses": 0,
         "functions": 0,
         "methods": 16,
@@ -1152,12 +1169,12 @@
               "summary": null,
               "kind": "method",
               "decorators": [],
-              "lineno": 475,
-              "end_lineno": 476
+              "lineno": 477,
+              "end_lineno": 478
             }
           ],
           "lineno": 448,
-          "end_lineno": 476
+          "end_lineno": 478
         },
         {
           "name": "ClassSession",
@@ -1178,12 +1195,86 @@
               "summary": null,
               "kind": "method",
               "decorators": [],
-              "lineno": 500,
-              "end_lineno": 501
+              "lineno": 502,
+              "end_lineno": 503
             }
           ],
-          "lineno": 479,
-          "end_lineno": 501
+          "lineno": 481,
+          "end_lineno": 503
+        },
+        {
+          "name": "PricingPlan",
+          "signature": "PricingPlan(models.Model)",
+          "docstring": null,
+          "summary": null,
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [],
+              "lineno": 535,
+              "end_lineno": 536
+            },
+            {
+              "name": "has_promo_theory",
+              "signature": "has_promo_theory(self) -> bool",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [
+                "property"
+              ],
+              "lineno": 539,
+              "end_lineno": 540
+            },
+            {
+              "name": "effective_practice_price",
+              "signature": "effective_practice_price(self) -> int",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [
+                "property"
+              ],
+              "lineno": 543,
+              "end_lineno": 547
+            },
+            {
+              "name": "total_mkpp",
+              "signature": "total_mkpp(self) -> int",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [
+                "property"
+              ],
+              "lineno": 550,
+              "end_lineno": 551
+            },
+            {
+              "name": "total_akpp",
+              "signature": "total_akpp(self) -> int",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [
+                "property"
+              ],
+              "lineno": 554,
+              "end_lineno": 555
+            }
+          ],
+          "lineno": 506,
+          "end_lineno": 555
         }
       ],
       "functions": [],
@@ -1196,10 +1287,10 @@
         }
       ],
       "stats": {
-        "classes": 15,
+        "classes": 16,
         "dataclasses": 0,
         "functions": 0,
-        "methods": 24,
+        "methods": 29,
         "constants": 1
       }
     },
@@ -1358,7 +1449,7 @@
             "page_name('Главная', 'content/pages/home.html')"
           ],
           "lineno": 29,
-          "end_lineno": 99
+          "end_lineno": 123
         },
         {
           "name": "ajax_all_news",
@@ -1369,8 +1460,8 @@
           "decorators": [
             "ajax_view('Все новости', 'content/ajax/news/news_grid.html')"
           ],
-          "lineno": 103,
-          "end_lineno": 116
+          "lineno": 127,
+          "end_lineno": 140
         },
         {
           "name": "ajax_news_detail",
@@ -1381,8 +1472,8 @@
           "decorators": [
             "ajax_view('Новость', 'content/ajax/news/news_detail.html')"
           ],
-          "lineno": 120,
-          "end_lineno": 124
+          "lineno": 144,
+          "end_lineno": 148
         },
         {
           "name": "ajax_documents",
@@ -1393,8 +1484,8 @@
           "decorators": [
             "ajax_view('Документы', 'content/ajax/documents/documents_section.html')"
           ],
-          "lineno": 128,
-          "end_lineno": 133
+          "lineno": 152,
+          "end_lineno": 157
         },
         {
           "name": "ajax_material_description",
@@ -1405,8 +1496,8 @@
           "decorators": [
             "ajax_view('Описание материала', 'content/ajax/materials/material_description.html')"
           ],
-          "lineno": 137,
-          "end_lineno": 152
+          "lineno": 161,
+          "end_lineno": 176
         },
         {
           "name": "ajax_exam_info",
@@ -1417,8 +1508,8 @@
           "decorators": [
             "ajax_view('Информация об экзаменах', 'content/ajax/exams/exam_info.html')"
           ],
-          "lineno": 156,
-          "end_lineno": 162
+          "lineno": 180,
+          "end_lineno": 186
         }
       ],
       "constants": [],

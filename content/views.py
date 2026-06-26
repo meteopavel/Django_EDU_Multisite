@@ -19,7 +19,7 @@ from django.utils import timezone
 
 from .constants import EDUCATION_SECTION_CHOICES
 from .decorators import page_name, ajax_view
-from .models import Department, News, Document, Service, Material, ExamInfo, HomeSectionChoices, Announcement, ClassSession
+from .models import Department, News, Document, Service, Material, ExamInfo, HomeSectionChoices, Announcement, ClassSession, PricingPlan
 from .utils import get_news_for_department, get_news_years, split_documents_by_file_type, group_documents_by_category, \
                    get_exam_month_range, get_education_section_title
 
@@ -66,7 +66,11 @@ def home_view(request: HttpRequest, department: Department) -> dict[str, Any]:
         context['above_announcements'] = Announcement.objects.filter(
             department=department, is_active=True,
             card_type__in=['promo', 'announcement'],
-        ).filter(models.Q(expires_at__isnull=True) | models.Q(expires_at__gte=today))
+        ).filter(
+            models.Q(expires_at__isnull=True) | models.Q(expires_at__gte=today)
+        ).filter(
+            models.Q(starts_at__isnull=True) | models.Q(starts_at__lte=today)
+        )
     if HomeSectionChoices.EXAM_INFO in enabled_section_keys:
         exams = ExamInfo.objects.filter(department=department).order_by('gibdd_date', 'theory_date')
         today = timezone.now().date()
@@ -75,11 +79,31 @@ def home_view(request: HttpRequest, department: Department) -> dict[str, Any]:
         context['has_exams'] = bool(visible_exams)
         context['grid_cards'] = Announcement.objects.filter(
             department=department, is_active=True, card_type='info',
-        ).filter(models.Q(expires_at__isnull=True) | models.Q(expires_at__gte=today))
-        upcoming_sessions = ClassSession.objects.filter(department=department, date__gte=today)
-        context['psych_sessions'] = upcoming_sessions.filter(subject='psychology')
-        context['med_sessions'] = upcoming_sessions.filter(subject='medicine')
-        context['show_exam_info_section'] = True
+        ).filter(
+            models.Q(expires_at__isnull=True) | models.Q(expires_at__gte=today)
+        ).filter(
+            models.Q(starts_at__isnull=True) | models.Q(starts_at__lte=today)
+        )
+        has_any_sessions = ClassSession.objects.filter(department=department).exists()
+        if has_any_sessions:
+            upcoming_sessions = ClassSession.objects.filter(department=department, date__gte=today)
+            context['psych_sessions'] = upcoming_sessions.filter(subject='psychology')
+            context['med_sessions'] = upcoming_sessions.filter(subject='medicine')
+            context['show_exam_info_section'] = True
+    if HomeSectionChoices.PRICING in enabled_section_keys:
+        try:
+            context['pricing_plan'] = department.pricing_plan
+        except PricingPlan.DoesNotExist:
+            pass
+        else:
+            today = timezone.now().date()
+            context['pricing_promo_active'] = Announcement.objects.filter(
+                department=department, is_active=True, card_type='promo',
+            ).filter(
+                models.Q(expires_at__isnull=True) | models.Q(expires_at__gte=today)
+            ).filter(
+                models.Q(starts_at__isnull=True) | models.Q(starts_at__lte=today)
+            ).exists()
     if HomeSectionChoices.LATEST_NEWS in enabled_section_keys:
         context['latest_news'] = get_news_for_department(department, limit=3)
     if HomeSectionChoices.DOCUMENTS in enabled_section_keys:

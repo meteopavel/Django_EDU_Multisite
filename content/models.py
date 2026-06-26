@@ -463,6 +463,8 @@ class Announcement(models.Model):
     image = models.ImageField('Изображение', upload_to='announcements/', blank=True, null=True,
                               help_text='Только для типа «Акция / Сертификат».')
     is_active = models.BooleanField('Показывать', default=True)
+    starts_at = models.DateField('Показывать с', blank=True, null=True,
+                                 help_text='Оставьте пустым — будет показываться сразу.')
     expires_at = models.DateField('Показывать до (включительно)', blank=True, null=True,
                                   help_text='Оставьте пустым — будет показываться бессрочно.')
     order = models.PositiveSmallIntegerField('Порядок', default=0)
@@ -499,3 +501,55 @@ class ClassSession(models.Model):
 
     def __str__(self) -> str:
         return f'{self.get_subject_display()} {self.date} {self.time_start:%H:%M}–{self.time_end:%H:%M}'
+
+
+class PricingPlan(models.Model):
+    department = models.OneToOneField(
+        Department, on_delete=models.CASCADE, related_name='pricing_plan',
+        verbose_name='Подразделение',
+    )
+    theory_price = models.PositiveIntegerField('Цена теории, ₽')
+    practice_price_per_hour = models.PositiveIntegerField('Цена практики, ₽/час')
+    hours_mkpp = models.PositiveSmallIntegerField('Часов на МКПП', default=58)
+    hours_akpp = models.PositiveSmallIntegerField('Часов на АКПП', default=56)
+    installment_available = models.BooleanField('Рассрочка платежа', default=False)
+
+    promo_theory_price = models.PositiveIntegerField(
+        'Цена теории по акции, ₽', null=True, blank=True,
+        help_text='Заполните, чтобы зачёркивать основную цену когда активно promo-объявление.',
+    )
+
+    scheduled_practice_price = models.PositiveIntegerField(
+        'Новая цена практики, ₽/час', null=True, blank=True,
+        help_text='Цена, которая вступит в силу с указанной даты.',
+    )
+    price_change_date = models.DateField(
+        'Дата смены цены практики', null=True, blank=True,
+        help_text='С этой даты начнёт действовать новая цена практики.',
+    )
+
+    class Meta:
+        verbose_name = 'Прайс-план'
+        verbose_name_plural = 'Прайс-планы'
+
+    def __str__(self) -> str:
+        return f'Прайс: {self.department}'
+
+    @property
+    def has_promo_theory(self) -> bool:
+        return self.promo_theory_price is not None
+
+    @property
+    def effective_practice_price(self) -> int:
+        if self.scheduled_practice_price is not None and self.price_change_date:
+            if timezone.now().date() >= self.price_change_date:
+                return self.scheduled_practice_price
+        return self.practice_price_per_hour
+
+    @property
+    def total_mkpp(self) -> int:
+        return self.effective_practice_price * self.hours_mkpp
+
+    @property
+    def total_akpp(self) -> int:
+        return self.effective_practice_price * self.hours_akpp

@@ -13,13 +13,32 @@
                 <div class="pricing-card-content">
                     <h3>КАТЕГОРИЯ В</h3>
                     {%  if department.slug == 'irkutsk' %}
-                        <p><strong>Теория — 8000 ₽</strong></p>
-                        <p><strong>Практика — 1150 ₽ / час</strong></p>
-                        <ul>
-                            <li>58 часов на МКПП - <strong>66700 ₽</strong></li>
-                            <li>56 часа на АКПП - <strong>64400 ₽</strong></li>
-                        </ul>
-                        <p class="pricing-note">Возможна рассрочка платежа</p>
+                        {% if pricing_plan %}
+                            <p>
+                                {% if pricing_promo_active and pricing_plan.has_promo_theory %}
+                                    <s style="color:#999;">Теория — {{ pricing_plan.theory_price }} ₽</s><br>
+                                    <strong>Теория — {% if pricing_plan.promo_theory_price == 0 %}бесплатно!{% else %}{{ pricing_plan.promo_theory_price }} ₽{% endif %}</strong>
+                                {% else %}
+                                    <strong>Теория — {{ pricing_plan.theory_price }} ₽</strong>
+                                {% endif %}
+                            </p>
+                            <p><strong>Практика — {{ pricing_plan.effective_practice_price }} ₽ / час</strong></p>
+                            <ul>
+                                <li>{{ pricing_plan.hours_mkpp }} часов на МКПП — <strong>{{ pricing_plan.total_mkpp }} ₽</strong></li>
+                                <li>{{ pricing_plan.hours_akpp }} часа на АКПП — <strong>{{ pricing_plan.total_akpp }} ₽</strong></li>
+                            </ul>
+                            {% if pricing_plan.installment_available %}
+                                <p class="pricing-note">Возможна рассрочка платежа</p>
+                            {% endif %}
+                        {% else %}
+                            <p><strong>Теория — 8000 ₽</strong></p>
+                            <p><strong>Практика — 1150 ₽ / час</strong></p>
+                            <ul>
+                                <li>58 часов на МКПП - <strong>66700 ₽</strong></li>
+                                <li>56 часа на АКПП - <strong>64400 ₽</strong></li>
+                            </ul>
+                            <p class="pricing-note">Возможна рассрочка платежа</p>
+                        {% endif %}
                     {% elif department.slug == 'bratsk' %}
                         <p><strong>Срок обучения — 3 месяца</strong></p>
                         <p><strong>Полная стоимость — 65000 ₽</strong></p>
