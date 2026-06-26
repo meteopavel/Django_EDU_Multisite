@@ -155,8 +155,15 @@ else
     echo "⚠️ Фикстура не изменилась"
 fi
 
-# 3️⃣ Синхронизация медиа с авто-паролем
-echo "📤 Этап 3/3: Синхронизация медиа..."
+# 3️⃣ Деплой на сервер по SSH
+echo "🖥️  Этап 3/4: Деплой на сервер..."
+ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no \
+    "${RSYNC_USER}@${RSYNC_HOST}" \
+    "cd /home/c/cj82062/DjangoVOA/public_html && bash deploy.sh"
+echo "✅ Сервер обновлён"
+
+# 4️⃣ Синхронизация медиа с авто-паролем
+echo "📤 Этап 4/4: Синхронизация медиа..."
 rsync_via_tunnel "${RSYNC_USER}" "${RSYNC_HOST}" \
     media/ "${RSYNC_PATH}"
 
