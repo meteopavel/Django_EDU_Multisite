@@ -13989,7 +13989,7 @@
     "title": "Занятия в автошколе!",
     "text": "<p>14 июня с 9:00 до 12:00 в Автошколе будут проводиться занятия по <strong>Психологии</strong></p><p>18 июня с 17:00 до 20:00 в Автошколе будут проводиться занятия по <strong>Медицине</strong></p><p>Запись на занятия по телефону <strong>22-40-50</strong> либо при посещении офиса Автошколы</p>",
     "image": "",
-    "is_active": true,
+    "is_active": false,
     "expires_at": null,
     "order": 2
   }
@@ -14048,6 +14048,28 @@
     "is_active": true,
     "expires_at": "2026-07-04",
     "order": 0
+  }
+},
+{
+  "model": "content.classsession",
+  "pk": 1,
+  "fields": {
+    "department": 2,
+    "subject": "psychology",
+    "date": "2026-06-14",
+    "time_start": "09:00:00",
+    "time_end": "12:00:00"
+  }
+},
+{
+  "model": "content.classsession",
+  "pk": 2,
+  "fields": {
+    "department": 2,
+    "subject": "medicine",
+    "date": "2026-06-18",
+    "time_start": "17:00:00",
+    "time_end": "20:00:00"
   }
 }
 ]
