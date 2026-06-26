@@ -13938,7 +13938,7 @@
     "group_number": 211,
     "theory_date": "2026-06-23",
     "practice_date": "2026-06-24",
-    "gibdd_date": "2026-07-01",
+    "gibdd_date": "2026-07-10",
     "gibdd_time": "08:45:00"
   }
 },
@@ -13976,6 +13976,7 @@
     "text": "<p><strong style=\"color: #C30027;\">ПРИНИМАЕМ УЧЕНИКОВ ДРУГИХ АВТОШКОЛ НА СДАЧУ ЭКЗАМЕНА В ГИБДД!</strong></p><p><strong>ТАК ВЫ БЫСТРЕЕ ПОПАДЕТЕ НА ЭКЗАМЕН!</strong></p><p><strong>НОВЫЙ АВТОПАРК И ОПЫТНЫЕ ИНСТРУКТОРА!</strong></p><p><strong>ДОСТУПНЫЕ ЦЕНЫ!</strong></p>",
     "image": "",
     "is_active": true,
+    "starts_at": null,
     "expires_at": null,
     "order": 1
   }
@@ -13990,6 +13991,7 @@
     "text": "<p>14 июня с 9:00 до 12:00 в Автошколе будут проводиться занятия по <strong>Психологии</strong></p><p>18 июня с 17:00 до 20:00 в Автошколе будут проводиться занятия по <strong>Медицине</strong></p><p>Запись на занятия по телефону <strong>22-40-50</strong> либо при посещении офиса Автошколы</p>",
     "image": "",
     "is_active": false,
+    "starts_at": null,
     "expires_at": null,
     "order": 2
   }
@@ -14004,6 +14006,7 @@
     "text": "<p style=\"color: #666;\">Подарите близким и любимым не очередной сувенир, а настоящую независимость и уверенность за рулём!</p><ul><li><strong style=\"color: #28a745;\">✓ Практичный</strong> — навык на всю жизнь</li><li><strong style=\"color: #28a745;\">✓ Эмоциональный</strong> — первые самостоятельные поездки не забываются</li><li><strong style=\"color: #28a745;\">✓ Персональный</strong> — можно выбрать удобное время обучения</li><li><strong style=\"color: #28a745;\">✓ Универсальный</strong> — подходит и мужчинам, и женщинам</li><li><strong style=\"color: #28a745;\">✓ Профессиональный</strong> — получите профессию водителя</li></ul><p><strong>Современные автомобили, опытные инструктора, удобный график занятий</strong> — всё, чтобы уверенно получить права и сесть за руль.</p><p style=\"color: #C30027;\"><strong>Количество сертификатов ограничено — успейте порадовать близких!</strong></p><p><strong>Тел.</strong> 89041197431 &nbsp;&nbsp; <strong>ул. Речников, 39</strong></p>",
     "image": "ads-ustkut.jpg",
     "is_active": true,
+    "starts_at": null,
     "expires_at": null,
     "order": 1
   }
@@ -14018,6 +14021,7 @@
     "text": "<p style=\"color: #666;\">Начните обучение в Автошколе ВОА уже сейчас! <strong>Только до 10 июня 2026 года</strong> мы полностью оплачиваем теоретический курс за вас.</p><p style=\"color: #C30027; font-weight: bold; font-size: 1.3em;\">Ваша выгода — 8000 рублей!</p><ul><li><strong style=\"color: #28a745;\">Теория бесплатно</strong> — мы оплачиваем теоретический курс за вас</li><li><strong style=\"color: #28a745;\">Выгодный старт</strong> — начните обучение без лишних затрат</li><li><strong style=\"color: #28a745;\">Больше практики</strong> — сэкономленные деньги можно направить на дополнительные часы вождения</li></ul><p style=\"padding: 10px; background: #f8f9fa; border-left: 4px solid #C30027; border-radius: 4px;\"><strong>Успейте записаться до 10.06.2026!</strong><br>Количество мест по акции ограничено.</p>",
     "image": "ads-irkutsk-2.jpg",
     "is_active": true,
+    "starts_at": null,
     "expires_at": "2026-06-10",
     "order": 0
   }
@@ -14032,6 +14036,7 @@
     "text": "<p>1, 2, 3, 9, 10, 11 мая — не рабочие дни</p><p>4, 5, 6, 7, 8 мая — рабочие дни</p><p>8 мая работаем до 18:00</p><p>С 12 мая Автошкола ВОА работает по расписанию.</p><p style=\"color: #666;\">Желающим записаться на вождение на майские праздники, просьба произвести оплату заблаговременно.</p><p style=\"color: #666;\">Запись на вождения производится в соответствии с графиками.</p><hr style=\"margin: 12px 0; border-color: #eee;\"><p><strong>Занятия по теории:</strong></p><p>02.05.2026 — по расписанию в 9:00</p><p>09.05.2026 — занятий не будет.</p>",
     "image": "",
     "is_active": true,
+    "starts_at": null,
     "expires_at": "2026-05-13",
     "order": 3
   }
@@ -14046,7 +14051,23 @@
     "text": "<p>Уважаемые обучающиеся, <strong>4 июля 2026 года</strong> занятия по теории проводиться не будут.</p>",
     "image": "",
     "is_active": true,
+    "starts_at": null,
     "expires_at": "2026-07-04",
+    "order": 1
+  }
+},
+{
+  "model": "content.announcement",
+  "pk": 9,
+  "fields": {
+    "department": 2,
+    "card_type": "promo",
+    "title": "АКЦИЯ С 29 ИЮНЯ: ТЕОРИЯ БЕСПЛАТНО!",
+    "text": "<p style=\"color: #666;\">Начните обучение в Автошколе ВОА уже сейчас! <strong>Только с 29 июня по 20 июля 2026 года</strong> мы полностью оплачиваем теоретический курс за вас.</p><p style=\"color: #C30027; font-weight: bold; font-size: 1.3em;\">Ваша выгода — 8000 рублей!</p><ul><li><strong style=\"color: #28a745;\">Теория бесплатно</strong> — мы оплачиваем теоретический курс за вас</li><li><strong style=\"color: #28a745;\">Выгодный старт</strong> — начните обучение без лишних затрат</li><li><strong style=\"color: #28a745;\">Больше практики</strong> — сэкономленные деньги можно направить на дополнительные часы вождения</li></ul><p style=\"padding: 10px; background: #f8f9fa; border-left: 4px solid #C30027; border-radius: 4px;\"><strong>Успейте записаться до 20.07.2026!</strong><br>Количество мест по акции ограничено.</p>",
+    "image": "ads-irkutsk-3.jpg",
+    "is_active": true,
+    "starts_at": "2026-06-29",
+    "expires_at": "2026-07-20",
     "order": 0
   }
 },
@@ -14070,6 +14091,21 @@
     "date": "2026-06-18",
     "time_start": "17:00:00",
     "time_end": "20:00:00"
+  }
+},
+{
+  "model": "content.pricingplan",
+  "pk": 1,
+  "fields": {
+    "department": 2,
+    "theory_price": 8000,
+    "practice_price_per_hour": 1150,
+    "hours_mkpp": 58,
+    "hours_akpp": 56,
+    "installment_available": true,
+    "promo_theory_price": 0,
+    "scheduled_practice_price": 1250,
+    "price_change_date": "2026-06-29"
   }
 }
 ]
