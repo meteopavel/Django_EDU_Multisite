@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.http import HttpRequest
 from django.utils.html import format_html
 
-from .models import Department, DepartmentDetails, HomePageSection, MenuItem, NewsImage, News, Document, DocumentCategory, Service, ContentBlock, Material, ExamInfo, Announcement
+from .models import Department, DepartmentDetails, HomePageSection, MenuItem, NewsImage, News, Document, DocumentCategory, Service, ContentBlock, Material, ExamInfo, Announcement, ClassSession
 
 
 @admin.register(Department)
@@ -292,3 +292,30 @@ class AnnouncementAdmin(admin.ModelAdmin):
         ('Основное', {'fields': ('department', 'card_type', 'title', 'is_active', 'expires_at', 'order')}),
         ('Содержимое', {'fields': ('text', 'image'), 'description': 'Изображение используется только для типа «Акция / Сертификат».'}),
     )
+
+
+SUBJECT_DEFAULTS = {
+    'psychology': ('09:00', '12:00'),
+    'medicine': ('17:00', '20:00'),
+}
+
+
+@admin.register(ClassSession)
+class ClassSessionAdmin(admin.ModelAdmin):
+    """Администрирование занятий по психологии и медицине."""
+    list_display = ['subject_display', 'department', 'date', 'time_start', 'time_end']
+    list_editable = ['date']
+    list_filter = ['department', 'subject']
+    ordering = ['date', 'time_start']
+
+    @admin.display(description='Предмет', ordering='subject')
+    def subject_display(self, obj: ClassSession) -> str:
+        return obj.get_subject_display()
+
+    def get_changeform_initial_data(self, request: HttpRequest) -> dict[str, Any]:
+        initial = super().get_changeform_initial_data(request)
+        subject = initial.get('subject', 'psychology')
+        if subject in SUBJECT_DEFAULTS:
+            initial.setdefault('time_start', SUBJECT_DEFAULTS[subject][0])
+            initial.setdefault('time_end', SUBJECT_DEFAULTS[subject][1])
+        return initial

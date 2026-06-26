@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-26T03:07:20.138212+00:00",
+  "generated_at": "2026-06-26T03:32:54.167599+00:00",
   "generator": "tools/extract_api_map.py",
   "targets": [
     "content",
@@ -19,11 +19,11 @@
   ],
   "stats": {
     "modules": 14,
-    "classes": 33,
+    "classes": 35,
     "dataclasses": 0,
     "functions": 22,
-    "methods": 37,
-    "constants": 22
+    "methods": 40,
+    "constants": 23
   },
   "modules": [
     {
@@ -475,16 +475,63 @@
           "methods": [],
           "lineno": 285,
           "end_lineno": 294
+        },
+        {
+          "name": "ClassSessionAdmin",
+          "signature": "ClassSessionAdmin(admin.ModelAdmin)",
+          "docstring": "Администрирование занятий по психологии и медицине.",
+          "summary": "Администрирование занятий по психологии и медицине.",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(ClassSession)"
+          ],
+          "fields": [],
+          "methods": [
+            {
+              "name": "subject_display",
+              "signature": "subject_display(self, obj: ClassSession) -> str",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [
+                "admin.display(description='Предмет', ordering='subject')"
+              ],
+              "lineno": 312,
+              "end_lineno": 313
+            },
+            {
+              "name": "get_changeform_initial_data",
+              "signature": "get_changeform_initial_data(self, request: HttpRequest) -> dict[str, Any]",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [],
+              "lineno": 315,
+              "end_lineno": 321
+            }
+          ],
+          "lineno": 304,
+          "end_lineno": 321
         }
       ],
       "functions": [],
-      "constants": [],
+      "constants": [
+        {
+          "name": "SUBJECT_DEFAULTS",
+          "annotation": null,
+          "value_repr": "{'psychology': ('09:00', '12:00'), 'medicine': ('17:00', '20:00')}",
+          "lineno": 297
+        }
+      ],
       "stats": {
-        "classes": 18,
+        "classes": 19,
         "dataclasses": 0,
         "functions": 0,
-        "methods": 14,
-        "constants": 0
+        "methods": 16,
+        "constants": 1
       }
     },
     {
@@ -1111,6 +1158,32 @@
           ],
           "lineno": 448,
           "end_lineno": 476
+        },
+        {
+          "name": "ClassSession",
+          "signature": "ClassSession(models.Model)",
+          "docstring": "Занятие по психологии или медицине для отображения в карточке расписания.",
+          "summary": "Занятие по психологии или медицине для отображения в карточке расписания.",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [],
+              "lineno": 500,
+              "end_lineno": 501
+            }
+          ],
+          "lineno": 479,
+          "end_lineno": 501
         }
       ],
       "functions": [],
@@ -1123,10 +1196,10 @@
         }
       ],
       "stats": {
-        "classes": 14,
+        "classes": 15,
         "dataclasses": 0,
         "functions": 0,
-        "methods": 23,
+        "methods": 24,
         "constants": 1
       }
     },
@@ -1285,7 +1358,7 @@
             "page_name('Главная', 'content/pages/home.html')"
           ],
           "lineno": 29,
-          "end_lineno": 95
+          "end_lineno": 99
         },
         {
           "name": "ajax_all_news",
@@ -1296,8 +1369,8 @@
           "decorators": [
             "ajax_view('Все новости', 'content/ajax/news/news_grid.html')"
           ],
-          "lineno": 99,
-          "end_lineno": 112
+          "lineno": 103,
+          "end_lineno": 116
         },
         {
           "name": "ajax_news_detail",
@@ -1308,8 +1381,8 @@
           "decorators": [
             "ajax_view('Новость', 'content/ajax/news/news_detail.html')"
           ],
-          "lineno": 116,
-          "end_lineno": 120
+          "lineno": 120,
+          "end_lineno": 124
         },
         {
           "name": "ajax_documents",
@@ -1320,8 +1393,8 @@
           "decorators": [
             "ajax_view('Документы', 'content/ajax/documents/documents_section.html')"
           ],
-          "lineno": 124,
-          "end_lineno": 129
+          "lineno": 128,
+          "end_lineno": 133
         },
         {
           "name": "ajax_material_description",
@@ -1332,8 +1405,8 @@
           "decorators": [
             "ajax_view('Описание материала', 'content/ajax/materials/material_description.html')"
           ],
-          "lineno": 133,
-          "end_lineno": 148
+          "lineno": 137,
+          "end_lineno": 152
         },
         {
           "name": "ajax_exam_info",
@@ -1344,8 +1417,8 @@
           "decorators": [
             "ajax_view('Информация об экзаменах', 'content/ajax/exams/exam_info.html')"
           ],
-          "lineno": 152,
-          "end_lineno": 158
+          "lineno": 156,
+          "end_lineno": 162
         }
       ],
       "constants": [],

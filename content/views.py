@@ -19,7 +19,7 @@ from django.utils import timezone
 
 from .constants import EDUCATION_SECTION_CHOICES
 from .decorators import page_name, ajax_view
-from .models import Department, News, Document, Service, Material, ExamInfo, HomeSectionChoices, Announcement
+from .models import Department, News, Document, Service, Material, ExamInfo, HomeSectionChoices, Announcement, ClassSession
 from .utils import get_news_for_department, get_news_years, split_documents_by_file_type, group_documents_by_category, \
                    get_exam_month_range, get_education_section_title
 
@@ -76,6 +76,10 @@ def home_view(request: HttpRequest, department: Department) -> dict[str, Any]:
         context['grid_cards'] = Announcement.objects.filter(
             department=department, is_active=True, card_type='info',
         ).filter(models.Q(expires_at__isnull=True) | models.Q(expires_at__gte=today))
+        upcoming_sessions = ClassSession.objects.filter(department=department, date__gte=today)
+        context['psych_sessions'] = upcoming_sessions.filter(subject='psychology')
+        context['med_sessions'] = upcoming_sessions.filter(subject='medicine')
+        context['show_exam_info_section'] = True
     if HomeSectionChoices.LATEST_NEWS in enabled_section_keys:
         context['latest_news'] = get_news_for_department(department, limit=3)
     if HomeSectionChoices.DOCUMENTS in enabled_section_keys:

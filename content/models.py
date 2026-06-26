@@ -474,3 +474,28 @@ class Announcement(models.Model):
 
     def __str__(self) -> str:
         return f'{self.department.name} — {self.title}'
+
+
+class ClassSession(models.Model):
+    """Занятие по психологии или медицине для отображения в карточке расписания."""
+
+    class Subject(models.TextChoices):
+        PSYCHOLOGY = 'psychology', 'Психология'
+        MEDICINE = 'medicine', 'Медицина'
+
+    department = models.ForeignKey(
+        Department, on_delete=models.CASCADE, related_name='class_sessions',
+        verbose_name='Подразделение',
+    )
+    subject = models.CharField('Предмет', max_length=20, choices=Subject.choices)
+    date = models.DateField('Дата занятия')
+    time_start = models.TimeField('Начало')
+    time_end = models.TimeField('Конец')
+
+    class Meta:
+        verbose_name = 'Занятие (психология / медицина)'
+        verbose_name_plural = 'Занятия (психология / медицина)'
+        ordering = ['date', 'time_start']
+
+    def __str__(self) -> str:
+        return f'{self.get_subject_display()} {self.date} {self.time_start:%H:%M}–{self.time_end:%H:%M}'

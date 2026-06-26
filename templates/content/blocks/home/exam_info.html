@@ -1,4 +1,4 @@
-{% if grid_cards or has_exams %}
+{% if grid_cards or has_exams or show_exam_info_section %}
 <section id="exam-info" class="section exam-info">
     <div class="content__layout">
         <div class="exam-cards" data-accordion-group="material-cards" data-department="{{ department.slug }}">
@@ -47,6 +47,34 @@
             </div>
             {% endif %}
             {% endfor %}
+
+            <div class="exam-card">
+                <div class="exam-card-header">
+                    <div class="exam-card-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="section__subtitle">Занятия в автошколе!</h3>
+                </div>
+                <div class="exam-card-content">
+                    {% if psych_sessions %}
+                        {% for session in psych_sessions %}
+                        <p>{{ session.date|date:"j E" }} с {{ session.time_start|time:"G:i" }} до {{ session.time_end|time:"G:i" }} в Автошколе будут проводиться занятия по <strong>Психологии</strong></p>
+                        {% endfor %}
+                    {% else %}
+                        <p>Ближайшие занятия по <strong>Психологии</strong> уже прошли, а новые даты вот-вот появятся.</p>
+                    {% endif %}
+                    {% if med_sessions %}
+                        {% for session in med_sessions %}
+                        <p>{{ session.date|date:"j E" }} с {{ session.time_start|time:"G:i" }} до {{ session.time_end|time:"G:i" }} в Автошколе будут проводиться занятия по <strong>Медицине</strong></p>
+                        {% endfor %}
+                    {% else %}
+                        <p>Занятия по <strong>Медицине</strong> на данный момент завершились — следующие даты добавим в ближайшее время.</p>
+                    {% endif %}
+                    <p>Запись на занятия по телефону <strong>22-40-50</strong> либо при посещении офиса Автошколы</p>
+                </div>
+            </div>
 
             <div class="material-description-block" style="display: none;">
                 <div class="material-description-content"></div>
