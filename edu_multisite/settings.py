@@ -119,8 +119,3 @@ else:
     MEDIA_ROOT = os.getenv('PROD_MEDIA_ROOT')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-try:
-    from .local_settings import *  # noqa
-except ImportError:
-    pass

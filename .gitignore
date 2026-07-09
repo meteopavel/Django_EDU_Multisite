@@ -10,9 +10,6 @@ media/
 deploy.sh
 TODO
 
-# Локальный override настроек (машинно-специфичный)
-edu_multisite/local_settings.py
-
 # Claude
 CLAUDE.md
 .claude/
