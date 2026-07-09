@@ -75,6 +75,8 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST', '127.0.0.1'),
+        'PORT': os.getenv('DB_PORT', '3306'),
         'OPTIONS': {
             'sql_mode': 'STRICT_TRANS_TABLES',
         },
@@ -117,3 +119,8 @@ else:
     MEDIA_ROOT = os.getenv('PROD_MEDIA_ROOT')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    from .local_settings import *  # noqa
+except ImportError:
+    pass

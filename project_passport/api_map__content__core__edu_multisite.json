@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-26T09:28:04.800538+00:00",
+  "generated_at": "2026-07-09T07:33:29.990094+00:00",
   "generator": "tools/extract_api_map.py",
   "targets": [
     "content",
@@ -8,8 +8,8 @@
     "edu_multisite"
   ],
   "target": "content, core, edu_multisite",
-  "scanned_python_files": 18,
-  "files_count": 14,
+  "scanned_python_files": 19,
+  "files_count": 15,
   "skipped_files_count": 4,
   "skipped_files": [
     "content/__init__.py",
@@ -18,12 +18,12 @@
     "edu_multisite/__init__.py"
   ],
   "stats": {
-    "modules": 14,
+    "modules": 15,
     "classes": 37,
     "dataclasses": 0,
     "functions": 22,
     "methods": 45,
-    "constants": 23
+    "constants": 25
   },
   "modules": [
     {
@@ -1558,6 +1558,34 @@
       }
     },
     {
+      "path": "edu_multisite/local_settings.py",
+      "module_docstring": "Локальный override настроек. Не коммитится — машинно-специфичный (в .gitignore).\n\nПереключатель между докер-контейнерами на homerouter и локально на Mac.",
+      "module_summary": "Локальный override настроек. Не коммитится — машинно-специфичный (в .gitignore).",
+      "classes": [],
+      "functions": [],
+      "constants": [
+        {
+          "name": "DB_HOST",
+          "annotation": null,
+          "value_repr": "'127.0.0.1'",
+          "lineno": 9
+        },
+        {
+          "name": "DB_PORT",
+          "annotation": null,
+          "value_repr": "'3306'",
+          "lineno": 11
+        }
+      ],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 0,
+        "methods": 0,
+        "constants": 2
+      }
+    },
+    {
       "path": "edu_multisite/settings.py",
       "module_docstring": "Настройки Django-проекта edu_multisite.\n\nМодуль определяет:\n- базовые настройки проекта;\n- подключённые приложения и middleware;\n- шаблоны и context processors;\n- параметры базы данных;\n- статические и медиа-файлы;\n- мультидоменную конфигурацию через HOST_TO_DEPARTMENT_MAP.",
       "module_summary": "Настройки Django-проекта edu_multisite.",
@@ -1633,50 +1661,50 @@
         {
           "name": "DATABASES",
           "annotation": null,
-          "value_repr": "{'default': {'ENGINE': 'django.db.backends.mysql', 'NAME': os.getenv('DB_NAME'), 'USER': os.getenv('DB_USER'), 'PASSWORD': os.getenv('DB_PASSWORD'), 'OPTIONS': {'sql_mode': 'STRICT_TRANS_TABLES'}}}",
+          "value_repr": "{'default': {'ENGINE': 'django.db.backends.mysql', 'NAME': os.getenv('DB_NAME'), 'USER': os.getenv('DB_USER'), 'PASSWORD': os.getenv('DB_PASSWORD'), 'HOST': os.getenv('DB_HOST', '127.0.0.1'), 'PORT': os.getenv('DB_PORT', '3306'), 'OPTIONS': {'sql_mode': 'STRICT_TRANS_TABLES'}}}",
           "lineno": 72
         },
         {
           "name": "AUTH_PASSWORD_VALIDATORS",
           "annotation": null,
           "value_repr": "[{'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'}, {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'}, {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'}, {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}]",
-          "lineno": 84
+          "lineno": 86
         },
         {
           "name": "LANGUAGE_CODE",
           "annotation": null,
           "value_repr": "'ru'",
-          "lineno": 91
+          "lineno": 93
         },
         {
           "name": "TIME_ZONE",
           "annotation": null,
           "value_repr": "'Asia/Irkutsk'",
-          "lineno": 92
+          "lineno": 94
         },
         {
           "name": "USE_I18N",
           "annotation": null,
           "value_repr": "True",
-          "lineno": 93
+          "lineno": 95
         },
         {
           "name": "USE_L10N",
           "annotation": null,
           "value_repr": "True",
-          "lineno": 94
+          "lineno": 96
         },
         {
           "name": "USE_TZ",
           "annotation": null,
           "value_repr": "True",
-          "lineno": 95
+          "lineno": 97
         },
         {
           "name": "DEFAULT_AUTO_FIELD",
           "annotation": null,
           "value_repr": "'django.db.models.BigAutoField'",
-          "lineno": 119
+          "lineno": 121
         }
       ],
       "stats": {
