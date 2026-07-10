@@ -42,7 +42,18 @@ htmlcov/
 
 /joomla_data.sql
 /prod_dump.sql
-/content/management/
+
+# Одноразовые скрипты импорта/загрузки — под конкретные локальные пути, не для прода
+/content/management/commands/import_joomla_news.py
+/content/management/commands/import_materials_from_urls.py
+/content/management/commands/import_service_as_blocks.py
+/content/management/commands/load_bratsk_docs.py
+/content/management/commands/load_bratsk_images.py
+/content/management/commands/load_irkutsk_docs.py
+/content/management/commands/load_irkutsk_images.py
+/content/management/commands/load_ustkut_docs.py
+/content/management/commands/load_ustkut_images.py
+
 /mysql/
 /bs.js
 /node_modules/
