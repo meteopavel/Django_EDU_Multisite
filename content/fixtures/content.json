@@ -14092,4 +14092,20 @@
     "time_start": "17:00:00",
     "time_end": "20:00:00"
   }
+},
+{
+  "model": "content.pricingplan",
+  "pk": 1,
+  "fields": {
+    "department": 2,
+    "theory_price": 8000,
+    "practice_price_per_hour": 1150,
+    "hours_mkpp": 58,
+    "hours_akpp": 56,
+    "installment_available": true,
+    "promo_theory_price": 0,
+    "scheduled_practice_price": 1250,
+    "price_change_date": "2026-06-29"
+  }
 }
+]
