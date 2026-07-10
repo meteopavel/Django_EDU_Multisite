@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-09T12:13:02.333448+00:00",
+  "generated_at": "2026-07-10T13:38:07.259923+00:00",
   "generated_by": "tools/build_project_passport.py",
   "id": "django-edu-multisite",
   "title": "Django Multisite Content Platform",
@@ -67,13 +67,13 @@
     "admin_customization"
   ],
   "tech_profile": {
-    "python_files": 14,
-    "scanned_python_files": 18,
-    "classes": 37,
+    "python_files": 15,
+    "scanned_python_files": 19,
+    "classes": 40,
     "dataclasses": 0,
-    "functions": 22,
-    "methods": 45,
-    "constants": 23,
+    "functions": 24,
+    "methods": 48,
+    "constants": 28,
     "has_django": true,
     "has_django_admin": true,
     "has_django_models": true,
@@ -111,10 +111,10 @@
         "path": "content/models.py",
         "summary": "Модели контентной и справочной структуры сайта.",
         "stats": {
-          "classes": 16,
+          "classes": 17,
           "dataclasses": 0,
           "functions": 0,
-          "methods": 29,
+          "methods": 30,
           "constants": 1
         }
       },
@@ -122,10 +122,10 @@
         "path": "content/admin.py",
         "summary": "Административные настройки контентного приложения.",
         "stats": {
-          "classes": 20,
+          "classes": 21,
           "dataclasses": 0,
           "functions": 0,
-          "methods": 16,
+          "methods": 18,
           "constants": 1
         }
       },
@@ -137,7 +137,7 @@
           "dataclasses": 0,
           "functions": 0,
           "methods": 0,
-          "constants": 19
+          "constants": 21
         }
       },
       {
@@ -152,23 +152,23 @@
         }
       },
       {
+        "path": "core/max_bot.py",
+        "summary": "Минимальный клиент для MAX Bot API (https://dev.max.ru/docs-api).",
+        "stats": {
+          "classes": 1,
+          "dataclasses": 0,
+          "functions": 2,
+          "methods": 0,
+          "constants": 3
+        }
+      },
+      {
         "path": "content/views.py",
         "summary": "Представления контентного раздела сайта.",
         "stats": {
           "classes": 0,
           "dataclasses": 0,
           "functions": 6,
-          "methods": 0,
-          "constants": 0
-        }
-      },
-      {
-        "path": "content/context_processors.py",
-        "summary": "Контекстные процессоры контентного приложения.",
-        "stats": {
-          "classes": 0,
-          "dataclasses": 0,
-          "functions": 3,
           "methods": 0,
           "constants": 0
         }
@@ -183,7 +183,7 @@
   },
   "source": {
     "api_map_schema_version": "1.0",
-    "api_map_generated_at": "2026-07-09T12:13:02.263248+00:00",
+    "api_map_generated_at": "2026-07-10T13:38:07.201265+00:00",
     "api_map_generator": "tools/extract_api_map.py",
     "meta_auto_generated": true,
     "meta_review_status": "draft"

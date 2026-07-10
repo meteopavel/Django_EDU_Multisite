@@ -24,6 +24,9 @@ DEBUG = os.getenv('DEBUG_VALUE') == 'True'
 HOST_TO_DEPARTMENT_MAP = os.getenv('HOST_TO_DEPARTMENT_MAP', '')
 YANDEX_MAPS_API_KEY = os.getenv('YANDEX_MAPS_API_KEY', '')
 
+MAX_BOT_TOKEN = os.getenv('MAX_BOT_TOKEN', '')
+MAX_CHAT_ID = os.getenv('MAX_CHAT_ID', '')
+
 ALLOWED_HOSTS = get_allowed_hosts_from_map(HOST_TO_DEPARTMENT_MAP)
 
 INSTALLED_APPS = [

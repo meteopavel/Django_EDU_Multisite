@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-09T12:13:02.263248+00:00",
+  "generated_at": "2026-07-10T13:38:07.201265+00:00",
   "generator": "tools/extract_api_map.py",
   "targets": [
     "content",
@@ -8,8 +8,8 @@
     "edu_multisite"
   ],
   "target": "content, core, edu_multisite",
-  "scanned_python_files": 18,
-  "files_count": 14,
+  "scanned_python_files": 19,
+  "files_count": 15,
   "skipped_files_count": 4,
   "skipped_files": [
     "content/__init__.py",
@@ -18,12 +18,12 @@
     "edu_multisite/__init__.py"
   ],
   "stats": {
-    "modules": 14,
-    "classes": 37,
+    "modules": 15,
+    "classes": 40,
     "dataclasses": 0,
-    "functions": 22,
-    "methods": 45,
-    "constants": 23
+    "functions": 24,
+    "methods": 48,
+    "constants": 28
   },
   "modules": [
     {
@@ -517,6 +517,44 @@
           "end_lineno": 321
         },
         {
+          "name": "ClassScheduleAlertAdmin",
+          "signature": "ClassScheduleAlertAdmin(admin.ModelAdmin)",
+          "docstring": "Список уже отправленных уведомлений об устаревшем расписании (только просмотр).",
+          "summary": "Список уже отправленных уведомлений об устаревшем расписании (только просмотр).",
+          "kind": "class",
+          "bases": [
+            "admin.ModelAdmin"
+          ],
+          "decorators": [
+            "admin.register(ClassScheduleAlert)"
+          ],
+          "fields": [],
+          "methods": [
+            {
+              "name": "has_add_permission",
+              "signature": "has_add_permission(self, request: HttpRequest) -> bool",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [],
+              "lineno": 331,
+              "end_lineno": 332
+            },
+            {
+              "name": "has_change_permission",
+              "signature": "has_change_permission(self, request: HttpRequest, obj: ClassScheduleAlert | None = None) -> bool",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [],
+              "lineno": 334,
+              "end_lineno": 335
+            }
+          ],
+          "lineno": 325,
+          "end_lineno": 335
+        },
+        {
           "name": "PricingPlanAdmin",
           "signature": "PricingPlanAdmin(admin.ModelAdmin)",
           "docstring": "Администрирование прайс-планов подразделений.",
@@ -530,8 +568,8 @@
           ],
           "fields": [],
           "methods": [],
-          "lineno": 325,
-          "end_lineno": 339
+          "lineno": 339,
+          "end_lineno": 353
         }
       ],
       "functions": [],
@@ -544,10 +582,10 @@
         }
       ],
       "stats": {
-        "classes": 20,
+        "classes": 21,
         "dataclasses": 0,
         "functions": 0,
-        "methods": 16,
+        "methods": 18,
         "constants": 1
       }
     },
@@ -1203,6 +1241,32 @@
           "end_lineno": 503
         },
         {
+          "name": "ClassScheduleAlert",
+          "signature": "ClassScheduleAlert(models.Model)",
+          "docstring": "Отметка о том, что по подразделению/предмету уже отправлено уведомление\nоб отсутствии будущих занятий (чтобы не слать его повторно каждый день).\n\nЗапись удаляется, как только в расписании снова появляется будущая дата —\nследующее устаревание снова вызовет уведомление.",
+          "summary": "Отметка о том, что по подразделению/предмету уже отправлено уведомление",
+          "kind": "class",
+          "bases": [
+            "models.Model"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [
+            {
+              "name": "__str__",
+              "signature": "__str__(self) -> str",
+              "docstring": null,
+              "summary": null,
+              "kind": "method",
+              "decorators": [],
+              "lineno": 528,
+              "end_lineno": 529
+            }
+          ],
+          "lineno": 506,
+          "end_lineno": 529
+        },
+        {
           "name": "PricingPlan",
           "signature": "PricingPlan(models.Model)",
           "docstring": null,
@@ -1221,8 +1285,8 @@
               "summary": null,
               "kind": "method",
               "decorators": [],
-              "lineno": 535,
-              "end_lineno": 536
+              "lineno": 561,
+              "end_lineno": 562
             },
             {
               "name": "has_promo_theory",
@@ -1233,8 +1297,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 539,
-              "end_lineno": 540
+              "lineno": 565,
+              "end_lineno": 566
             },
             {
               "name": "effective_practice_price",
@@ -1245,8 +1309,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 543,
-              "end_lineno": 547
+              "lineno": 569,
+              "end_lineno": 573
             },
             {
               "name": "total_mkpp",
@@ -1257,8 +1321,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 550,
-              "end_lineno": 551
+              "lineno": 576,
+              "end_lineno": 577
             },
             {
               "name": "total_akpp",
@@ -1269,12 +1333,12 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 554,
-              "end_lineno": 555
+              "lineno": 580,
+              "end_lineno": 581
             }
           ],
-          "lineno": 506,
-          "end_lineno": 555
+          "lineno": 532,
+          "end_lineno": 581
         }
       ],
       "functions": [],
@@ -1287,10 +1351,10 @@
         }
       ],
       "stats": {
-        "classes": 16,
+        "classes": 17,
         "dataclasses": 0,
         "functions": 0,
-        "methods": 29,
+        "methods": 30,
         "constants": 1
       }
     },
@@ -1558,6 +1622,77 @@
       }
     },
     {
+      "path": "core/max_bot.py",
+      "module_docstring": "Минимальный клиент для MAX Bot API (https://dev.max.ru/docs-api).\n\nИспользуется для отправки уведомлений в чат заказчиков, например\nпри устаревании расписания занятий (психология/медицина).",
+      "module_summary": "Минимальный клиент для MAX Bot API (https://dev.max.ru/docs-api).",
+      "classes": [
+        {
+          "name": "MaxBotError",
+          "signature": "MaxBotError(Exception)",
+          "docstring": "Ошибка при обращении к MAX Bot API.",
+          "summary": "Ошибка при обращении к MAX Bot API.",
+          "kind": "class",
+          "bases": [
+            "Exception"
+          ],
+          "decorators": [],
+          "fields": [],
+          "methods": [],
+          "lineno": 31,
+          "end_lineno": 32
+        }
+      ],
+      "functions": [
+        {
+          "name": "send_message",
+          "signature": "send_message(text: str, chat_id: str | None = None) -> None",
+          "docstring": "Отправляет текстовое сообщение в чат MAX через бота.\n\nТокен берётся из settings.MAX_BOT_TOKEN, chat_id — из\nsettings.MAX_CHAT_ID, если не передан явно.",
+          "summary": "Отправляет текстовое сообщение в чат MAX через бота.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 35,
+          "end_lineno": 69
+        },
+        {
+          "name": "get_updates",
+          "signature": "get_updates(timeout: int = 20) -> dict",
+          "docstring": "Забирает накопленные события бота (long polling), в т.ч. chat_id\nгрупп, куда бота недавно добавили или где ему написали.\n\nРазовый вызов для настройки — узнать MAX_CHAT_ID.",
+          "summary": "Забирает накопленные события бота (long polling), в т.ч. chat_id",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 72,
+          "end_lineno": 92
+        }
+      ],
+      "constants": [
+        {
+          "name": "MAX_API_BASE_URL",
+          "annotation": null,
+          "value_repr": "'https://platform-api2.max.ru'",
+          "lineno": 19
+        },
+        {
+          "name": "_RUSSIAN_TRUSTED_CA",
+          "annotation": null,
+          "value_repr": "Path(__file__).resolve().parent / 'certs' / 'russian_trusted_ca.pem'",
+          "lineno": 25
+        },
+        {
+          "name": "_SSL_CONTEXT",
+          "annotation": null,
+          "value_repr": "ssl.create_default_context(cafile=certifi.where())",
+          "lineno": 27
+        }
+      ],
+      "stats": {
+        "classes": 1,
+        "dataclasses": 0,
+        "functions": 2,
+        "methods": 0,
+        "constants": 3
+      }
+    },
+    {
       "path": "edu_multisite/settings.py",
       "module_docstring": "Настройки Django-проекта edu_multisite.\n\nМодуль определяет:\n- базовые настройки проекта;\n- подключённые приложения и middleware;\n- шаблоны и context processors;\n- параметры базы данных;\n- статические и медиа-файлы;\n- мультидоменную конфигурацию через HOST_TO_DEPARTMENT_MAP.",
       "module_summary": "Настройки Django-проекта edu_multisite.",
@@ -1595,88 +1730,100 @@
           "lineno": 25
         },
         {
+          "name": "MAX_BOT_TOKEN",
+          "annotation": null,
+          "value_repr": "os.getenv('MAX_BOT_TOKEN', '')",
+          "lineno": 27
+        },
+        {
+          "name": "MAX_CHAT_ID",
+          "annotation": null,
+          "value_repr": "os.getenv('MAX_CHAT_ID', '')",
+          "lineno": 28
+        },
+        {
           "name": "ALLOWED_HOSTS",
           "annotation": null,
           "value_repr": "get_allowed_hosts_from_map(HOST_TO_DEPARTMENT_MAP)",
-          "lineno": 27
+          "lineno": 30
         },
         {
           "name": "INSTALLED_APPS",
           "annotation": null,
           "value_repr": "['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'content']",
-          "lineno": 29
+          "lineno": 32
         },
         {
           "name": "MIDDLEWARE",
           "annotation": null,
           "value_repr": "['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware']",
-          "lineno": 39
+          "lineno": 42
         },
         {
           "name": "ROOT_URLCONF",
           "annotation": null,
           "value_repr": "'edu_multisite.urls'",
-          "lineno": 49
+          "lineno": 52
         },
         {
           "name": "TEMPLATES",
           "annotation": null,
           "value_repr": "[{'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIRS': [BASE_DIR / 'templates'], 'APP_DIRS': True, 'OPTIONS': {'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request', 'django.contrib.auth.context_processors.auth', 'django.contrib.messages.context_processors.messages', 'content.context_processors.menu_processor', 'content.context_processors.static_version', 'content.context_processors.yandex_maps']}}]",
-          "lineno": 51
+          "lineno": 54
         },
         {
           "name": "WSGI_APPLICATION",
           "annotation": null,
           "value_repr": "'edu_multisite.wsgi.application'",
-          "lineno": 70
+          "lineno": 73
         },
         {
           "name": "DATABASES",
           "annotation": null,
           "value_repr": "{'default': {'ENGINE': 'django.db.backends.mysql', 'NAME': os.getenv('DB_NAME'), 'USER': os.getenv('DB_USER'), 'PASSWORD': os.getenv('DB_PASSWORD'), 'HOST': os.getenv('DB_HOST', '127.0.0.1'), 'PORT': os.getenv('DB_PORT', '3306'), 'OPTIONS': {'sql_mode': 'STRICT_TRANS_TABLES'}}}",
-          "lineno": 72
+          "lineno": 75
         },
         {
           "name": "AUTH_PASSWORD_VALIDATORS",
           "annotation": null,
           "value_repr": "[{'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'}, {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'}, {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'}, {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}]",
-          "lineno": 86
+          "lineno": 89
         },
         {
           "name": "LANGUAGE_CODE",
           "annotation": null,
           "value_repr": "'ru'",
-          "lineno": 93
+          "lineno": 96
         },
         {
           "name": "TIME_ZONE",
           "annotation": null,
           "value_repr": "'Asia/Irkutsk'",
-          "lineno": 94
+          "lineno": 97
         },
         {
           "name": "USE_I18N",
           "annotation": null,
           "value_repr": "True",
-          "lineno": 95
+          "lineno": 98
         },
         {
           "name": "USE_L10N",
           "annotation": null,
           "value_repr": "True",
-          "lineno": 96
+          "lineno": 99
         },
         {
           "name": "USE_TZ",
           "annotation": null,
           "value_repr": "True",
-          "lineno": 97
+          "lineno": 100
         },
         {
           "name": "DEFAULT_AUTO_FIELD",
           "annotation": null,
           "value_repr": "'django.db.models.BigAutoField'",
-          "lineno": 121
+          "lineno": 124
         }
       ],
       "stats": {
@@ -1684,7 +1831,7 @@
         "dataclasses": 0,
         "functions": 0,
         "methods": 0,
-        "constants": 19
+        "constants": 21
       }
     },
     {

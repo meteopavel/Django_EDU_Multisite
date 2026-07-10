@@ -1,16 +1,16 @@
 # API map: content, core, edu_multisite
 
-Просканировано Python-файлов: 18
-Включено в карту: 14
+Просканировано Python-файлов: 19
+Включено в карту: 15
 Пропущено без значимой API-информации: 4
 
 Сводная статистика:
-- модулей: 14
-- классов: 37
+- модулей: 15
+- классов: 40
 - dataclass: 0
-- функций: 22
-- методов: 45
-- констант: 23
+- функций: 24
+- методов: 48
+- констант: 28
 
 ---
 
@@ -127,6 +127,14 @@
   - `subject_display(self, obj: ClassSession) -> str`
     Нет докстринга.
   - `get_changeform_initial_data(self, request: HttpRequest) -> dict[str, Any]`
+    Нет докстринга.
+
+- `ClassScheduleAlertAdmin(admin.ModelAdmin)`
+  Список уже отправленных уведомлений об устаревшем расписании (только просмотр).
+  Методы:
+  - `has_add_permission(self, request: HttpRequest) -> bool`
+    Нет докстринга.
+  - `has_change_permission(self, request: HttpRequest, obj: ClassScheduleAlert | None = None) -> bool`
     Нет докстринга.
 
 - `PricingPlanAdmin(admin.ModelAdmin)`
@@ -333,6 +341,16 @@
   - `__str__(self) -> str`
     Нет докстринга.
 
+- `ClassScheduleAlert(models.Model)`
+  Отметка о том, что по подразделению/предмету уже отправлено уведомление
+  об отсутствии будущих занятий (чтобы не слать его повторно каждый день).
+  
+  Запись удаляется, как только в расписании снова появляется будущая дата —
+  следующее устаревание снова вызовет уведомление.
+  Методы:
+  - `__str__(self) -> str`
+    Нет докстринга.
+
 - `PricingPlan(models.Model)`
   Нет докстринга.
   Методы:
@@ -468,6 +486,40 @@ URL-маршруты контентного приложения.
 
 ---
 
+# core/max_bot.py
+
+Модуль:
+Минимальный клиент для MAX Bot API (https://dev.max.ru/docs-api).
+
+Используется для отправки уведомлений в чат заказчиков, например
+при устаревании расписания занятий (психология/медицина).
+
+Константы:
+- `MAX_API_BASE_URL = 'https://platform-api2.max.ru'`
+- `_RUSSIAN_TRUSTED_CA = Path(__file__).resolve().parent / 'certs' / 'russian_trusted_ca.pem'`
+- `_SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())`
+
+Классы:
+
+- `MaxBotError(Exception)`
+  Ошибка при обращении к MAX Bot API.
+
+Функции:
+
+- `send_message(text: str, chat_id: str | None = None) -> None`
+  Отправляет текстовое сообщение в чат MAX через бота.
+  
+  Токен берётся из settings.MAX_BOT_TOKEN, chat_id — из
+  settings.MAX_CHAT_ID, если не передан явно.
+
+- `get_updates(timeout: int = 20) -> dict`
+  Забирает накопленные события бота (long polling), в т.ч. chat_id
+  групп, куда бота недавно добавили или где ему написали.
+  
+  Разовый вызов для настройки — узнать MAX_CHAT_ID.
+
+---
+
 # edu_multisite/settings.py
 
 Модуль:
@@ -487,6 +539,8 @@ URL-маршруты контентного приложения.
 - `DEBUG = os.getenv('DEBUG_VALUE') == 'True'`
 - `HOST_TO_DEPARTMENT_MAP = os.getenv('HOST_TO_DEPARTMENT_MAP', '')`
 - `YANDEX_MAPS_API_KEY = os.getenv('YANDEX_MAPS_API_KEY', '')`
+- `MAX_BOT_TOKEN = os.getenv('MAX_BOT_TOKEN', '')`
+- `MAX_CHAT_ID = os.getenv('MAX_CHAT_ID', '')`
 - `ALLOWED_HOSTS = get_allowed_hosts_from_map(HOST_TO_DEPARTMENT_MAP)`
 - `INSTALLED_APPS = ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sess…`
 - `MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddle…`

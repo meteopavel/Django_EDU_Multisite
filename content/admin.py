@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.http import HttpRequest
 from django.utils.html import format_html
 
-from .models import Department, DepartmentDetails, HomePageSection, MenuItem, NewsImage, News, Document, DocumentCategory, Service, ContentBlock, Material, ExamInfo, Announcement, ClassSession, PricingPlan
+from .models import Department, DepartmentDetails, HomePageSection, MenuItem, NewsImage, News, Document, DocumentCategory, Service, ContentBlock, Material, ExamInfo, Announcement, ClassSession, ClassScheduleAlert, PricingPlan
 
 
 @admin.register(Department)
@@ -319,6 +319,20 @@ class ClassSessionAdmin(admin.ModelAdmin):
             initial.setdefault('time_start', SUBJECT_DEFAULTS[subject][0])
             initial.setdefault('time_end', SUBJECT_DEFAULTS[subject][1])
         return initial
+
+
+@admin.register(ClassScheduleAlert)
+class ClassScheduleAlertAdmin(admin.ModelAdmin):
+    """Список уже отправленных уведомлений об устаревшем расписании (только просмотр)."""
+    list_display = ['department', 'subject', 'notified_at']
+    list_filter = ['department', 'subject']
+    ordering = ['-notified_at']
+
+    def has_add_permission(self, request: HttpRequest) -> bool:
+        return False
+
+    def has_change_permission(self, request: HttpRequest, obj: ClassScheduleAlert | None = None) -> bool:
+        return False
 
 
 @admin.register(PricingPlan)
