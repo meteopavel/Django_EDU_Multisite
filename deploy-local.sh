@@ -12,12 +12,13 @@
 #
 # ⚙️  ТРЕБОВАНИЯ:
 #   1. Файл .env в корне проекта с переменными:
-#        - RSYNC_PASSWORD (обязательно)
-#        - RSYNC_USER (обязательно)
-#        - RSYNC_HOST (обязательно)
-#        - RSYNC_PATH (обязательно)
-#   2. Утилита sshpass: brew install sshpass
-#   3. Python, git, rsync — в PATH
+#        - RSYNC_USER, RSYNC_HOST, RSYNC_PATH (обязательно)
+#        - RSYNC_PASSWORD — тот же пароль, что от панели/FTP-доступа Timeweb;
+#          используется как резервный путь (FTPS), если SSH/rsync не сработает
+#   2. Python, git, rsync — в PATH
+#   3. lftp: brew install lftp (нужен только для резервного пути через FTPS)
+#   4. meteopavel/tools/deploy_helpers.sh — общий файл с хелперами, лежит
+#      в соседнем проекте meteopavel (../meteopavel/tools/)
 #
 # 🔐 БЕЗОПАСНОСТЬ:
 #   - .env должен быть в .gitignore
@@ -57,39 +58,9 @@ require_env() {
     fi
 }
 
-rsync_via_tunnel() {
-    # rsync_via_tunnel USER HOST SRC DEST [EXTRA_FLAGS]
-    local user="$1" host="$2" src="$3" dest="$4"
-    shift 4
-    local ctl="/tmp/ssh_ctl_${user}_${host}"
-    ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no -o ConnectTimeout=15 \
-        -o ControlMaster=yes -o ControlPath="$ctl" -o ControlPersist=60s \
-        -nNf "${user}@${host}"
-    run_with_heartbeat "синхронизация медиа" \
-        rsync -avz --progress --timeout=60 "$@" \
-            --rsh="ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no -o ControlMaster=no -o ControlPath=$ctl -o ServerAliveInterval=10 -o ServerAliveCountMax=3" \
-            "$src" "${user}@${host}:${dest}"
-    ssh -o ControlPath="$ctl" -O exit "${user}@${host}" 2>/dev/null || true
-}
-
-# Запускает команду в фоне и раз в 5 секунд печатает "прошло Nс", пока она не
-# завершится — чтобы зависание было видно, а не выглядело как тишина.
-run_with_heartbeat() {
-    local label="$1"; shift
-    local start=$SECONDS
-    "$@" &
-    local pid=$!
-    while kill -0 "$pid" 2>/dev/null; do
-        sleep 5
-        echo "   ⏳ ${label} — прошло $((SECONDS - start))с..."
-    done
-    wait "$pid"
-    local status=$?
-    if [[ $status -ne 0 ]]; then
-        echo "❌ ${label} — команда завершилась с ошибкой (код ${status})"
-        exit "$status"
-    fi
-}
+# Общие функции (run_with_heartbeat, timeout_run, rsync_via_tunnel,
+# rsync_or_ftps_fallback) — используются во всех проектах, см. сам файл.
+source "$(dirname "$(git rev-parse --show-toplevel)")/meteopavel/tools/deploy_helpers.sh"
 
 # ================= ЗАГРУЗКА ПЕРЕМЕННЫХ =================
 
@@ -184,10 +155,10 @@ run_with_heartbeat "деплой на сервере" \
         "cd /home/c/cj82062/DjangoVOA/public_html && bash deploy.sh"
 echo "✅ Сервер обновлён"
 
-# 4️⃣ Синхронизация медиа с авто-паролем
+# 4️⃣ Синхронизация медиа: SSH/rsync основной путь, FTPS — резерв на случай сбоя
 echo "📤 Этап 4/4: Синхронизация медиа..."
-rsync_via_tunnel "${RSYNC_USER}" "${RSYNC_HOST}" \
-    media/ "${RSYNC_PATH}"
+rsync_or_ftps_fallback "${RSYNC_USER}" "${RSYNC_HOST}" \
+    media/ "${RSYNC_PATH}" "${RSYNC_PASSWORD}"
 
 echo "----------------------------------------"
 echo "✅ Деплой завершён успешно!"
