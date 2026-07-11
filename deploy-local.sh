@@ -62,13 +62,33 @@ rsync_via_tunnel() {
     local user="$1" host="$2" src="$3" dest="$4"
     shift 4
     local ctl="/tmp/ssh_ctl_${user}_${host}"
-    ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no \
+    ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no -o ConnectTimeout=15 \
         -o ControlMaster=yes -o ControlPath="$ctl" -o ControlPersist=60s \
         -nNf "${user}@${host}"
-    rsync -avz --progress "$@" \
-        --rsh="ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no -o ControlMaster=no -o ControlPath=$ctl" \
-        "$src" "${user}@${host}:${dest}"
+    run_with_heartbeat "синхронизация медиа" \
+        rsync -avz --progress --timeout=60 "$@" \
+            --rsh="ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no -o ControlMaster=no -o ControlPath=$ctl -o ServerAliveInterval=10 -o ServerAliveCountMax=3" \
+            "$src" "${user}@${host}:${dest}"
     ssh -o ControlPath="$ctl" -O exit "${user}@${host}" 2>/dev/null || true
+}
+
+# Запускает команду в фоне и раз в 5 секунд печатает "прошло Nс", пока она не
+# завершится — чтобы зависание было видно, а не выглядело как тишина.
+run_with_heartbeat() {
+    local label="$1"; shift
+    local start=$SECONDS
+    "$@" &
+    local pid=$!
+    while kill -0 "$pid" 2>/dev/null; do
+        sleep 5
+        echo "   ⏳ ${label} — прошло $((SECONDS - start))с..."
+    done
+    wait "$pid"
+    local status=$?
+    if [[ $status -ne 0 ]]; then
+        echo "❌ ${label} — команда завершилась с ошибкой (код ${status})"
+        exit "$status"
+    fi
 }
 
 # ================= ЗАГРУЗКА ПЕРЕМЕННЫХ =================
@@ -157,9 +177,11 @@ fi
 
 # 3️⃣ Деплой на сервер по SSH
 echo "🖥️  Этап 3/4: Деплой на сервер..."
-ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no \
-    "${RSYNC_USER}@${RSYNC_HOST}" \
-    "cd /home/c/cj82062/DjangoVOA/public_html && bash deploy.sh"
+run_with_heartbeat "деплой на сервере" \
+    ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no \
+        -o ConnectTimeout=15 -o ServerAliveInterval=10 -o ServerAliveCountMax=3 \
+        "${RSYNC_USER}@${RSYNC_HOST}" \
+        "cd /home/c/cj82062/DjangoVOA/public_html && bash deploy.sh"
 echo "✅ Сервер обновлён"
 
 # 4️⃣ Синхронизация медиа с авто-паролем
