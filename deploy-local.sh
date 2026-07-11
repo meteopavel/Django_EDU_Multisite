@@ -14,9 +14,10 @@
 #   1. Файл .env в корне проекта с переменными:
 #        - RSYNC_USER, RSYNC_HOST, RSYNC_PATH (обязательно)
 #        - RSYNC_PASSWORD — тот же пароль, что от панели/FTP-доступа Timeweb;
-#          используется как резервный путь (FTPS), если SSH/rsync не сработает
+#          используется как резервный путь (обычный FTP, без шифрования —
+#          сервер отклоняет принудительный TLS), если SSH/rsync не сработает
 #   2. Python, git, rsync — в PATH
-#   3. lftp: brew install lftp (нужен только для резервного пути через FTPS)
+#   3. lftp: brew install lftp (нужен только для резервного пути через FTP)
 #   4. meteopavel/tools/deploy_helpers.sh — общий файл с хелперами, лежит
 #      в соседнем проекте meteopavel (../meteopavel/tools/)
 #
@@ -59,7 +60,7 @@ require_env() {
 }
 
 # Общие функции (run_with_heartbeat, timeout_run, rsync_via_tunnel,
-# rsync_or_ftps_fallback) — используются во всех проектах, см. сам файл.
+# rsync_or_ftp_fallback) — используются во всех проектах, см. сам файл.
 source "$(dirname "$(git rev-parse --show-toplevel)")/meteopavel/tools/deploy_helpers.sh"
 
 # ================= ЗАГРУЗКА ПЕРЕМЕННЫХ =================
@@ -155,9 +156,9 @@ run_with_heartbeat "деплой на сервере" \
         "cd /home/c/cj82062/DjangoVOA/public_html && bash deploy.sh"
 echo "✅ Сервер обновлён"
 
-# 4️⃣ Синхронизация медиа: SSH/rsync основной путь, FTPS — резерв на случай сбоя
+# 4️⃣ Синхронизация медиа: SSH/rsync основной путь, FTP — резерв на случай сбоя
 echo "📤 Этап 4/4: Синхронизация медиа..."
-rsync_or_ftps_fallback "${RSYNC_USER}" "${RSYNC_HOST}" \
+rsync_or_ftp_fallback "${RSYNC_USER}" "${RSYNC_HOST}" \
     media/ "${RSYNC_PATH}" "${RSYNC_PASSWORD}"
 
 echo "----------------------------------------"
