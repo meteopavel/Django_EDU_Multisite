@@ -13,12 +13,8 @@
 # ⚙️  ТРЕБОВАНИЯ:
 #   1. Файл .env в корне проекта с переменными:
 #        - RSYNC_USER, RSYNC_HOST, RSYNC_PATH (обязательно)
-#        - RSYNC_PASSWORD — тот же пароль, что от панели/FTP-доступа Timeweb;
-#          используется как резервный путь (обычный FTP, без шифрования —
-#          сервер отклоняет принудительный TLS), если SSH/rsync не сработает
 #   2. Python, git, rsync — в PATH
-#   3. lftp: brew install lftp (нужен только для резервного пути через FTP)
-#   4. meteopavel/tools/deploy_helpers.sh — общий файл с хелперами, лежит
+#   3. meteopavel/tools/deploy_helpers.sh — общий файл с хелперами, лежит
 #      в соседнем проекте meteopavel (../meteopavel/tools/)
 #
 # 🔐 БЕЗОПАСНОСТЬ:
@@ -59,8 +55,8 @@ require_env() {
     fi
 }
 
-# Общие функции (run_with_heartbeat, timeout_run, rsync_via_tunnel,
-# rsync_or_ftp_fallback) — используются во всех проектах, см. сам файл.
+# Общие функции (run_with_heartbeat, timeout_run, rsync_via_tunnel) —
+# используются во всех проектах, см. сам файл.
 source "$(dirname "$(git rev-parse --show-toplevel)")/meteopavel/tools/deploy_helpers.sh"
 
 # ================= ЗАГРУЗКА ПЕРЕМЕННЫХ =================
@@ -69,13 +65,11 @@ source "$(dirname "$(git rev-parse --show-toplevel)")/meteopavel/tools/deploy_he
 RSYNC_USER=$(get_env "RSYNC_USER" "$ENV_FILE")
 RSYNC_HOST=$(get_env "RSYNC_HOST" "$ENV_FILE")
 RSYNC_PATH=$(get_env "RSYNC_PATH" "$ENV_FILE")
-RSYNC_PASSWORD=$(get_env "RSYNC_PASSWORD" "$ENV_FILE")
 
 # Строгая проверка: если хоть одна переменная пустая — стоп
 require_env "RSYNC_USER" "$RSYNC_USER"
 require_env "RSYNC_HOST" "$RSYNC_HOST"
 require_env "RSYNC_PATH" "$RSYNC_PATH"
-require_env "RSYNC_PASSWORD" "$RSYNC_PASSWORD"
 
 # Сообщение коммита: аргумент или константа по умолчанию
 COMMIT_MSG="${1:-$DEFAULT_COMMIT_MSG}"
@@ -156,10 +150,10 @@ run_with_heartbeat "деплой на сервере" \
         "cd /home/c/cj82062/DjangoVOA/public_html && bash deploy.sh"
 echo "✅ Сервер обновлён"
 
-# 4️⃣ Синхронизация медиа: SSH/rsync основной путь, FTP — резерв на случай сбоя
+# 4️⃣ Синхронизация медиа по SSH/rsync
 echo "📤 Этап 4/4: Синхронизация медиа..."
-rsync_or_ftp_fallback "${RSYNC_USER}" "${RSYNC_HOST}" \
-    media/ "${RSYNC_PATH}" "${RSYNC_PASSWORD}"
+run_with_heartbeat "синхронизация медиа" \
+    rsync_via_tunnel "${RSYNC_USER}" "${RSYNC_HOST}" media/ "${RSYNC_PATH}"
 
 echo "----------------------------------------"
 echo "✅ Деплой завершён успешно!"

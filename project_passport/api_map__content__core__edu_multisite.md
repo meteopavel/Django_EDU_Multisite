@@ -6,10 +6,10 @@
 
 Сводная статистика:
 - модулей: 15
-- классов: 40
+- классов: 38
 - dataclass: 0
 - функций: 24
-- методов: 48
+- методов: 45
 - констант: 28
 
 ---
@@ -127,14 +127,6 @@
   - `subject_display(self, obj: ClassSession) -> str`
     Нет докстринга.
   - `get_changeform_initial_data(self, request: HttpRequest) -> dict[str, Any]`
-    Нет докстринга.
-
-- `ClassScheduleAlertAdmin(admin.ModelAdmin)`
-  Список уже отправленных уведомлений об устаревшем расписании (только просмотр).
-  Методы:
-  - `has_add_permission(self, request: HttpRequest) -> bool`
-    Нет докстринга.
-  - `has_change_permission(self, request: HttpRequest, obj: ClassScheduleAlert | None = None) -> bool`
     Нет докстринга.
 
 - `PricingPlanAdmin(admin.ModelAdmin)`
@@ -337,16 +329,6 @@
 
 - `ClassSession(models.Model)`
   Занятие по психологии или медицине для отображения в карточке расписания.
-  Методы:
-  - `__str__(self) -> str`
-    Нет докстринга.
-
-- `ClassScheduleAlert(models.Model)`
-  Отметка о том, что по подразделению/предмету уже отправлено уведомление
-  об отсутствии будущих занятий (чтобы не слать его повторно каждый день).
-  
-  Запись удаляется, как только в расписании снова появляется будущая дата —
-  следующее устаревание снова вызовет уведомление.
   Методы:
   - `__str__(self) -> str`
     Нет докстринга.

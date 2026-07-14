@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-13T10:29:29.606757+00:00",
+  "generated_at": "2026-07-14T08:24:24.290084+00:00",
   "generator": "tools/extract_api_map.py",
   "targets": [
     "content",
@@ -19,10 +19,10 @@
   ],
   "stats": {
     "modules": 15,
-    "classes": 40,
+    "classes": 38,
     "dataclasses": 0,
     "functions": 24,
-    "methods": 48,
+    "methods": 45,
     "constants": 28
   },
   "modules": [
@@ -517,44 +517,6 @@
           "end_lineno": 321
         },
         {
-          "name": "ClassScheduleAlertAdmin",
-          "signature": "ClassScheduleAlertAdmin(admin.ModelAdmin)",
-          "docstring": "Список уже отправленных уведомлений об устаревшем расписании (только просмотр).",
-          "summary": "Список уже отправленных уведомлений об устаревшем расписании (только просмотр).",
-          "kind": "class",
-          "bases": [
-            "admin.ModelAdmin"
-          ],
-          "decorators": [
-            "admin.register(ClassScheduleAlert)"
-          ],
-          "fields": [],
-          "methods": [
-            {
-              "name": "has_add_permission",
-              "signature": "has_add_permission(self, request: HttpRequest) -> bool",
-              "docstring": null,
-              "summary": null,
-              "kind": "method",
-              "decorators": [],
-              "lineno": 331,
-              "end_lineno": 332
-            },
-            {
-              "name": "has_change_permission",
-              "signature": "has_change_permission(self, request: HttpRequest, obj: ClassScheduleAlert | None = None) -> bool",
-              "docstring": null,
-              "summary": null,
-              "kind": "method",
-              "decorators": [],
-              "lineno": 334,
-              "end_lineno": 335
-            }
-          ],
-          "lineno": 325,
-          "end_lineno": 335
-        },
-        {
           "name": "PricingPlanAdmin",
           "signature": "PricingPlanAdmin(admin.ModelAdmin)",
           "docstring": "Администрирование прайс-планов подразделений.",
@@ -568,8 +530,8 @@
           ],
           "fields": [],
           "methods": [],
-          "lineno": 339,
-          "end_lineno": 353
+          "lineno": 325,
+          "end_lineno": 339
         }
       ],
       "functions": [],
@@ -582,10 +544,10 @@
         }
       ],
       "stats": {
-        "classes": 21,
+        "classes": 20,
         "dataclasses": 0,
         "functions": 0,
-        "methods": 18,
+        "methods": 16,
         "constants": 1
       }
     },
@@ -1241,32 +1203,6 @@
           "end_lineno": 503
         },
         {
-          "name": "ClassScheduleAlert",
-          "signature": "ClassScheduleAlert(models.Model)",
-          "docstring": "Отметка о том, что по подразделению/предмету уже отправлено уведомление\nоб отсутствии будущих занятий (чтобы не слать его повторно каждый день).\n\nЗапись удаляется, как только в расписании снова появляется будущая дата —\nследующее устаревание снова вызовет уведомление.",
-          "summary": "Отметка о том, что по подразделению/предмету уже отправлено уведомление",
-          "kind": "class",
-          "bases": [
-            "models.Model"
-          ],
-          "decorators": [],
-          "fields": [],
-          "methods": [
-            {
-              "name": "__str__",
-              "signature": "__str__(self) -> str",
-              "docstring": null,
-              "summary": null,
-              "kind": "method",
-              "decorators": [],
-              "lineno": 528,
-              "end_lineno": 529
-            }
-          ],
-          "lineno": 506,
-          "end_lineno": 529
-        },
-        {
           "name": "PricingPlan",
           "signature": "PricingPlan(models.Model)",
           "docstring": null,
@@ -1285,8 +1221,8 @@
               "summary": null,
               "kind": "method",
               "decorators": [],
-              "lineno": 561,
-              "end_lineno": 562
+              "lineno": 535,
+              "end_lineno": 536
             },
             {
               "name": "has_promo_theory",
@@ -1297,8 +1233,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 565,
-              "end_lineno": 566
+              "lineno": 539,
+              "end_lineno": 540
             },
             {
               "name": "effective_practice_price",
@@ -1309,8 +1245,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 569,
-              "end_lineno": 573
+              "lineno": 543,
+              "end_lineno": 547
             },
             {
               "name": "total_mkpp",
@@ -1321,8 +1257,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 576,
-              "end_lineno": 577
+              "lineno": 550,
+              "end_lineno": 551
             },
             {
               "name": "total_akpp",
@@ -1333,12 +1269,12 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 580,
-              "end_lineno": 581
+              "lineno": 554,
+              "end_lineno": 555
             }
           ],
-          "lineno": 532,
-          "end_lineno": 581
+          "lineno": 506,
+          "end_lineno": 555
         }
       ],
       "functions": [],
@@ -1351,10 +1287,10 @@
         }
       ],
       "stats": {
-        "classes": 17,
+        "classes": 16,
         "dataclasses": 0,
         "functions": 0,
-        "methods": 30,
+        "methods": 29,
         "constants": 1
       }
     },
@@ -1750,80 +1686,80 @@
         {
           "name": "INSTALLED_APPS",
           "annotation": null,
-          "value_repr": "['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'content']",
+          "value_repr": "['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'content', 'schedule_alerts']",
           "lineno": 32
         },
         {
           "name": "MIDDLEWARE",
           "annotation": null,
           "value_repr": "['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware']",
-          "lineno": 42
+          "lineno": 43
         },
         {
           "name": "ROOT_URLCONF",
           "annotation": null,
           "value_repr": "'edu_multisite.urls'",
-          "lineno": 52
+          "lineno": 53
         },
         {
           "name": "TEMPLATES",
           "annotation": null,
           "value_repr": "[{'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIRS': [BASE_DIR / 'templates'], 'APP_DIRS': True, 'OPTIONS': {'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request', 'django.contrib.auth.context_processors.auth', 'django.contrib.messages.context_processors.messages', 'content.context_processors.menu_processor', 'content.context_processors.static_version', 'content.context_processors.yandex_maps']}}]",
-          "lineno": 54
+          "lineno": 55
         },
         {
           "name": "WSGI_APPLICATION",
           "annotation": null,
           "value_repr": "'edu_multisite.wsgi.application'",
-          "lineno": 73
+          "lineno": 74
         },
         {
           "name": "DATABASES",
           "annotation": null,
           "value_repr": "{'default': {'ENGINE': 'django.db.backends.mysql', 'NAME': os.getenv('DB_NAME'), 'USER': os.getenv('DB_USER'), 'PASSWORD': os.getenv('DB_PASSWORD'), 'HOST': os.getenv('DB_HOST', '127.0.0.1'), 'PORT': os.getenv('DB_PORT', '3306'), 'OPTIONS': {'sql_mode': 'STRICT_TRANS_TABLES'}}}",
-          "lineno": 75
+          "lineno": 76
         },
         {
           "name": "AUTH_PASSWORD_VALIDATORS",
           "annotation": null,
           "value_repr": "[{'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'}, {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'}, {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'}, {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}]",
-          "lineno": 89
+          "lineno": 90
         },
         {
           "name": "LANGUAGE_CODE",
           "annotation": null,
           "value_repr": "'ru'",
-          "lineno": 96
+          "lineno": 97
         },
         {
           "name": "TIME_ZONE",
           "annotation": null,
           "value_repr": "'Asia/Irkutsk'",
-          "lineno": 97
+          "lineno": 98
         },
         {
           "name": "USE_I18N",
           "annotation": null,
           "value_repr": "True",
-          "lineno": 98
+          "lineno": 99
         },
         {
           "name": "USE_L10N",
           "annotation": null,
           "value_repr": "True",
-          "lineno": 99
+          "lineno": 100
         },
         {
           "name": "USE_TZ",
           "annotation": null,
           "value_repr": "True",
-          "lineno": 100
+          "lineno": 101
         },
         {
           "name": "DEFAULT_AUTO_FIELD",
           "annotation": null,
           "value_repr": "'django.db.models.BigAutoField'",
-          "lineno": 124
+          "lineno": 125
         }
       ],
       "stats": {

@@ -15,8 +15,9 @@ from __future__ import annotations
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
-from content.models import ClassScheduleAlert, ClassSession, Department
+from content.models import ClassSession, Department
 from core.max_bot import MaxBotError, send_message
+from schedule_alerts.models import ClassScheduleAlert
 
 NOTIFY_HOUR = 10  # по Asia/Irkutsk (settings.TIME_ZONE)
 

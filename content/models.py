@@ -503,32 +503,6 @@ class ClassSession(models.Model):
         return f'{self.get_subject_display()} {self.date} {self.time_start:%H:%M}–{self.time_end:%H:%M}'
 
 
-class ClassScheduleAlert(models.Model):
-    """Отметка о том, что по подразделению/предмету уже отправлено уведомление
-    об отсутствии будущих занятий (чтобы не слать его повторно каждый день).
-
-    Запись удаляется, как только в расписании снова появляется будущая дата —
-    следующее устаревание снова вызовет уведомление.
-    """
-
-    department = models.ForeignKey(
-        Department, on_delete=models.CASCADE, related_name='class_schedule_alerts',
-        verbose_name='Подразделение',
-    )
-    subject = models.CharField('Предмет', max_length=20, choices=ClassSession.Subject.choices)
-    notified_at = models.DateTimeField('Отправлено', auto_now_add=True)
-
-    class Meta:
-        verbose_name = 'Уведомление об устаревшем расписании'
-        verbose_name_plural = 'Уведомления об устаревшем расписании'
-        constraints = [
-            models.UniqueConstraint(fields=['department', 'subject'], name='unique_class_schedule_alert'),
-        ]
-
-    def __str__(self) -> str:
-        return f'{self.department.name} — {self.get_subject_display()} ({self.notified_at:%Y-%m-%d})'
-
-
 class PricingPlan(models.Model):
     department = models.OneToOneField(
         Department, on_delete=models.CASCADE, related_name='pricing_plan',
