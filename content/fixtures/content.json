@@ -13935,10 +13935,10 @@
   "pk": 2,
   "fields": {
     "department": 2,
-    "group_number": 211,
-    "theory_date": "2026-06-23",
-    "practice_date": "2026-06-24",
-    "gibdd_date": "2026-07-10",
+    "group_number": 213,
+    "theory_date": "2026-07-28",
+    "practice_date": "2026-07-29",
+    "gibdd_date": "2026-08-12",
     "gibdd_time": "08:45:00"
   }
 },
