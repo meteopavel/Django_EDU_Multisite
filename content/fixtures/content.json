@@ -13959,10 +13959,10 @@
   "pk": 4,
   "fields": {
     "department": 2,
-    "group_number": 212,
-    "theory_date": "2026-07-07",
-    "practice_date": "2026-07-08",
-    "gibdd_date": "2026-07-23",
+    "group_number": 214,
+    "theory_date": "2026-08-04",
+    "practice_date": "2026-08-05",
+    "gibdd_date": "2026-08-12",
     "gibdd_time": "08:45:00"
   }
 },
@@ -14077,7 +14077,7 @@
   "fields": {
     "department": 2,
     "subject": "psychology",
-    "date": "2026-07-19",
+    "date": "2026-08-30",
     "time_start": "09:00:00",
     "time_end": "12:00:00"
   }
@@ -14088,7 +14088,7 @@
   "fields": {
     "department": 2,
     "subject": "medicine",
-    "date": "2026-07-23",
+    "date": "2026-08-20",
     "time_start": "17:00:00",
     "time_end": "20:00:00"
   }
