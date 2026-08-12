@@ -50,6 +50,10 @@ Django-платформа для мультисайтового управлен
    DB_HOST=127.0.0.1
    DB_PORT=3306
    YANDEX_MAPS_API_KEY=your-api-key
+
+   # Production-only: деплой, мультисайтовость, MAX-бот, backup
+   # HOST_TO_DEPARTMENT_MAP, RSYNC_*, MAX_BOT_TOKEN, MAX_CHAT_ID,
+   # ARCHIVE_PASSWORD, SECURE_RSYNC_* — заполняются при настройке деплоя.
    ```
 
 3. Поднять базу данных:

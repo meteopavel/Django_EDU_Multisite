@@ -29,6 +29,11 @@ set -e  # Останавливать скрипт при любой ошибке
 DEFAULT_COMMIT_MSG="Update info"
 ENV_FILE="$(git rev-parse --show-toplevel)/.env"
 
+# Backup-бандл с приватными файлами (см. docs/deployment.md)
+ARCHIVE_DIR="$(git rev-parse --show-toplevel)/secure"
+ARCHIVE_NAME="sensitive_bundle.7z"
+ARCHIVE_PATH="${ARCHIVE_DIR}/${ARCHIVE_NAME}"
+
 # ================= ФУНКЦИИ =================
 
 # Чтение переменной из .env
@@ -71,6 +76,13 @@ require_env "RSYNC_USER" "$RSYNC_USER"
 require_env "RSYNC_HOST" "$RSYNC_HOST"
 require_env "RSYNC_PATH" "$RSYNC_PATH"
 
+# Backup-переменные (приватный бандл → отдельный backup-сервер). Опциональны:
+# если пустые или нет 7z — этап backup пропускается (см. ниже).
+ARCHIVE_PASSWORD=$(get_env "ARCHIVE_PASSWORD" "$ENV_FILE")
+SECURE_RSYNC_USER=$(get_env "SECURE_RSYNC_USER" "$ENV_FILE")
+SECURE_RSYNC_HOST=$(get_env "SECURE_RSYNC_HOST" "$ENV_FILE")
+SECURE_RSYNC_PATH=$(get_env "SECURE_RSYNC_PATH" "$ENV_FILE")
+
 # Сообщение коммита: аргумент или константа по умолчанию
 COMMIT_MSG="${1:-$DEFAULT_COMMIT_MSG}"
 
@@ -96,6 +108,47 @@ echo "🚀 Деплой: '$COMMIT_MSG'"
 echo "📁 Проект: $(git rev-parse --show-toplevel)"
 echo "----------------------------------------"
 
+# ================= BACKUP (этап 1/5) =================
+# Шифрует приватные файлы в secure/sensitive_bundle.7z и отправляет на
+# отдельный backup-сервер. Опционален: если переменные не заданы или нет 7z —
+# пропускается с предупреждением, деплой продолжается.
+
+BACKUP_OK=1
+if [[ -z "$ARCHIVE_PASSWORD" || -z "$SECURE_RSYNC_USER" || \
+      -z "$SECURE_RSYNC_HOST" || -z "$SECURE_RSYNC_PATH" ]]; then
+    echo "⚠️  Backup: переменные ARCHIVE_PASSWORD / SECURE_RSYNC_* не заданы — пропускаем"
+    BACKUP_OK=0
+fi
+
+if [[ "$BACKUP_OK" -eq 1 ]] && ! command -v 7z &> /dev/null; then
+    echo "⚠️  Backup: команда 7z не найдена — пропускаем (brew install p7zip)"
+    BACKUP_OK=0
+fi
+
+if [[ "$BACKUP_OK" -eq 1 ]]; then
+    echo "🔐 Этап 1/5: Backup приватных файлов..."
+    mkdir -p "${ARCHIVE_DIR}"
+    if [[ -f "${ARCHIVE_PATH}" ]]; then
+        rm -f "${ARCHIVE_PATH}"
+    fi
+
+    (
+        cd "$(git rev-parse --show-toplevel)"
+        # -mhe=on — шифрует и имена файлов внутри архива.
+        # || true — отдельные файлы могут отсутствовать (e.g. .claude/), это не ошибка.
+        7z a -p"${ARCHIVE_PASSWORD}" -mhe=on "${ARCHIVE_PATH}" \
+            ".env" "CLAUDE.md" "deploy.sh" ".claude/" "docs/" > /dev/null 2>&1 || true
+    )
+
+    run_with_heartbeat "отправка backup" \
+        rsync_via_tunnel "${SECURE_RSYNC_USER}" "${SECURE_RSYNC_HOST}" \
+            "${ARCHIVE_PATH}" "${SECURE_RSYNC_PATH}"
+    echo "✅ Backup отправлен"
+else
+    echo "⚠️  Этап 1/5: Backup пропущен"
+fi
+echo "----------------------------------------"
+
 # 🪪 Паспорт проекта
 echo "🪪 Обновляем паспорт проекта..."
 .venv/bin/python tools/extract_api_map.py content core edu_multisite \
@@ -104,7 +157,7 @@ echo "🪪 Обновляем паспорт проекта..."
 echo "✅ Паспорт проекта обновлён."
 
 # 1️⃣ Коммит и пуш кода
-echo "📦 Этап 1/3: Коммит изменений кода..."
+echo "📦 Этап 2/5: Коммит изменений кода..."
 git add .
 
 if ! git diff --staged --quiet; then
@@ -116,7 +169,7 @@ else
 fi
 
 # 2️⃣ Дамп контента и отдельный коммит фикстуры
-echo "💾 Этап 2/3: Обновление фикстур..."
+echo "💾 Этап 3/5: Обновление фикстур..."
 
 DB_HOST=$(get_env "DB_HOST" "$ENV_FILE")
 DB_PORT=$(get_env "DB_PORT" "$ENV_FILE")
@@ -142,7 +195,7 @@ else
 fi
 
 # 3️⃣ Деплой на сервер по SSH
-echo "🖥️  Этап 3/4: Деплой на сервер..."
+echo "🖥️  Этап 4/5: Деплой на сервер..."
 run_with_heartbeat "деплой на сервере" \
     ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no \
         -o ConnectTimeout=15 -o ServerAliveInterval=10 -o ServerAliveCountMax=3 \
@@ -151,7 +204,7 @@ run_with_heartbeat "деплой на сервере" \
 echo "✅ Сервер обновлён"
 
 # 4️⃣ Синхронизация медиа по SSH/rsync
-echo "📤 Этап 4/4: Синхронизация медиа..."
+echo "📤 Этап 5/5: Синхронизация медиа..."
 run_with_heartbeat "синхронизация медиа" \
     rsync_via_tunnel "${RSYNC_USER}" "${RSYNC_HOST}" media/ "${RSYNC_PATH}"
 

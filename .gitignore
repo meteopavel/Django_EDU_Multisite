@@ -10,9 +10,14 @@ media/
 deploy.sh
 TODO
 
-# Claude
+# Agent state (local tooling)
 CLAUDE.md
 .claude/
+.zcode/
+
+# Приватная дока и зашифрованный backup-бандл
+/docs/
+/secure/
 
 # Python
 __pycache__/
