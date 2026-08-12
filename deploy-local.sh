@@ -71,10 +71,19 @@ RSYNC_USER=$(get_env "RSYNC_USER" "$ENV_FILE")
 RSYNC_HOST=$(get_env "RSYNC_HOST" "$ENV_FILE")
 RSYNC_PATH=$(get_env "RSYNC_PATH" "$ENV_FILE")
 
+# Deploy-цель на сервере: путь для cd перед bash deploy.sh и SSH-ключ.
+# Не хардкодить — accountId/path/SSH-key должны быть в .env, не в коде.
+DEPLOY_REMOTE_DIR=$(get_env "DEPLOY_REMOTE_DIR" "$ENV_FILE")
+DEPLOY_SSH_KEY=$(get_env "DEPLOY_SSH_KEY" "$ENV_FILE")
+# get_env возвращает литерал — раскрываем ведущий ~ → $HOME
+DEPLOY_SSH_KEY="${DEPLOY_SSH_KEY/#\~/$HOME}"
+
 # Строгая проверка: если хоть одна переменная пустая — стоп
 require_env "RSYNC_USER" "$RSYNC_USER"
 require_env "RSYNC_HOST" "$RSYNC_HOST"
 require_env "RSYNC_PATH" "$RSYNC_PATH"
+require_env "DEPLOY_REMOTE_DIR" "$DEPLOY_REMOTE_DIR"
+require_env "DEPLOY_SSH_KEY" "$DEPLOY_SSH_KEY"
 
 # Backup-переменные (приватный бандл → отдельный backup-сервер). Опциональны:
 # если пустые или нет 7z — этап backup пропускается (см. ниже).
@@ -197,10 +206,10 @@ fi
 # 3️⃣ Деплой на сервер по SSH
 echo "🖥️  Этап 4/5: Деплой на сервер..."
 run_with_heartbeat "деплой на сервере" \
-    ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no \
+    ssh -i "$DEPLOY_SSH_KEY" -o StrictHostKeyChecking=no \
         -o ConnectTimeout=15 -o ServerAliveInterval=10 -o ServerAliveCountMax=3 \
         "${RSYNC_USER}@${RSYNC_HOST}" \
-        "cd /home/c/cj82062/DjangoVOA/public_html && bash deploy.sh"
+        "cd ${DEPLOY_REMOTE_DIR} && bash deploy.sh"
 echo "✅ Сервер обновлён"
 
 # 4️⃣ Синхронизация медиа по SSH/rsync
