@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-20T06:32:25.016047+00:00",
+  "generated_at": "2026-08-25T10:50:13.631928+00:00",
   "generator": "tools/extract_api_map.py",
   "targets": [
     "content",
