@@ -14077,7 +14077,7 @@
   "fields": {
     "department": 2,
     "subject": "psychology",
-    "date": "2026-08-30",
+    "date": "2026-09-13",
     "time_start": "09:00:00",
     "time_end": "12:00:00"
   }
@@ -14088,7 +14088,7 @@
   "fields": {
     "department": 2,
     "subject": "medicine",
-    "date": "2026-08-20",
+    "date": "2026-09-17",
     "time_start": "17:00:00",
     "time_end": "20:00:00"
   }
