@@ -62,7 +62,7 @@ def home_view(request: HttpRequest, department: Department) -> dict[str, Any]:
         context['services'] = services
         context['services_with_desc'] = [{'id': service.id, 'name': service.name, 'icon_name': service.icon_name} for service in services]
     if HomeSectionChoices.ANNOUNCEMENTS in enabled_section_keys:
-        today = timezone.now().date()
+        today = timezone.localtime().date()
         context['above_announcements'] = Announcement.objects.filter(
             department=department, is_active=True,
             card_type__in=['promo', 'announcement'],
@@ -73,7 +73,7 @@ def home_view(request: HttpRequest, department: Department) -> dict[str, Any]:
         )
     if HomeSectionChoices.EXAM_INFO in enabled_section_keys:
         exams = ExamInfo.objects.filter(department=department).order_by('gibdd_date', 'theory_date')
-        today = timezone.now().date()
+        today = timezone.localtime().date()
         visible_exams = [exam for exam in exams if exam.gibdd_date and exam.gibdd_date >= today]
         context['exam_preview'] = visible_exams
         context['has_exams'] = bool(visible_exams)
@@ -96,7 +96,7 @@ def home_view(request: HttpRequest, department: Department) -> dict[str, Any]:
         except PricingPlan.DoesNotExist:
             pass
         else:
-            today = timezone.now().date()
+            today = timezone.localtime().date()
             context['pricing_promo_active'] = Announcement.objects.filter(
                 department=department, is_active=True, card_type='promo',
             ).filter(
@@ -180,7 +180,7 @@ def ajax_material_description(request: HttpRequest, department: Department, **kw
 def ajax_exam_info(request: HttpRequest, department: Department) -> dict[str, Any]:
     """Возвращает контекст AJAX-блока с актуальными экзаменами подразделения."""
     exams = ExamInfo.objects.filter(department=department).order_by('group_number', 'gibdd_date')
-    today = timezone.now().date()
+    today = timezone.localtime().date()
     visible_exams = [exam for exam in exams if exam.gibdd_date and exam.gibdd_date >= today]
     month_range = get_exam_month_range(visible_exams)
     return {'exams': visible_exams, 'has_exams': bool(visible_exams), 'month_range': month_range}
