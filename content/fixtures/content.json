@@ -14062,12 +14062,12 @@
   "fields": {
     "department": 2,
     "card_type": "promo",
-    "title": "АКЦИЯ С 11 АВГУСТА: ТЕОРИЯ БЕСПЛАТНО!",
-    "text": "<p style=\"color: #666;\">\r\n    Поймайте последний летний драйв в Автошколе ВОА! <strong>Только с 11 августа по 1 сентября 2026 года</strong> мы полностью оплачиваем теоретический курс за вас.\r\n</p>\r\n\r\n<p style=\"color: #C30027; font-weight: bold; font-size: 1.3em;\">\r\n    Ваша выгода — 8000 рублей!\r\n</p>\r\n\r\n<ul>\r\n    <li><strong style=\"color: #28a745;\">Теория бесплатно</strong> — мы оплачиваем теоретический курс за вас</li>\r\n    <li><strong style=\"color: #28a745;\">Успейте до осени</strong> — начните обучение без лишних затрат</li>\r\n    <li><strong style=\"color: #28a745;\">Больше практики</strong> — сэкономленные деньги можно направить на дополнительные часы вождения</li>\r\n</ul>\r\n\r\n<p style=\"padding: 10px; background: #f8f9fa; border-left: 4px solid #C30027; border-radius: 4px;\">\r\n    <strong>Успейте записаться до 01.09.2026!</strong><br>\r\n    Количество мест по акции ограничено.\r\n</p>",
-    "image": "announcements/ads-irkutsk-4.jpg",
+    "title": "АКЦИЯ С 7 СЕНТЯБРЯ: ТЕОРИЯ БЕСПЛАТНО!",
+    "text": "<p style=\"color: #666;\">Сентябрь — время учиться, и мы дарим школьные скидки на права для всех! <strong>Только с 7 по 20 сентября 2026 года</strong> мы полностью оплачиваем теоретический курс за вас.</p><p style=\"color: #C30027; font-weight: bold; font-size: 1.3em;\">Ваша выгода — 8000 рублей!</p><ul><li><strong style=\"color: #28a745;\">Теория бесплатно</strong> — мы оплачиваем теоретический курс за вас</li><li><strong style=\"color: #28a745;\">Осенний старт</strong> — начните обучение без лишних затрат</li><li><strong style=\"color: #28a745;\">Больше практики</strong> — сэкономленные деньги можно направить на дополнительные часы вождения</li></ul><p style=\"padding: 10px; background: #f8f9fa; border-left: 4px solid #C30027; border-radius: 4px;\"><strong>Успейте записаться до 20.09.2026!</strong><br>Количество мест по акции ограничено.</p>",
+    "image": "announcements/ads-irkutsk-5.jpg",
     "is_active": true,
-    "starts_at": "2026-08-11",
-    "expires_at": "2026-09-01",
+    "starts_at": "2026-09-07",
+    "expires_at": "2026-09-20",
     "order": 0
   }
 },
