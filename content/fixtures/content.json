@@ -5102,6 +5102,56 @@
   }
 },
 {
+  "model": "content.newsimage",
+  "pk": 721,
+  "fields": {
+    "news": 198,
+    "image": "news/gallery/proftop-01.jpg",
+    "description": "Полоса препятствий с симуляцией нарушения координации",
+    "order": 1
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 722,
+  "fields": {
+    "news": 198,
+    "image": "news/gallery/proftop-02.jpg",
+    "description": "Знакомство школьников с учебным автомобилем Автошколы ВОА",
+    "order": 2
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 723,
+  "fields": {
+    "news": 198,
+    "image": "news/gallery/proftop-03.jpg",
+    "description": "Прохождение слалома с симуляцией состояния опьянения",
+    "order": 3
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 724,
+  "fields": {
+    "news": 198,
+    "image": "news/gallery/proftop-04.jpg",
+    "description": "VR-очки и программа «АвтоТрезвость» на стенде мероприятия",
+    "order": 4
+  }
+},
+{
+  "model": "content.newsimage",
+  "pk": 725,
+  "fields": {
+    "news": 198,
+    "image": "news/gallery/proftop-05.jpg",
+    "description": "Награждение участников мероприятия «ПрофТоп»",
+    "order": 5
+  }
+},
+{
   "model": "content.news",
   "pk": 66,
   "fields": {
@@ -7634,6 +7684,26 @@
     "is_partner_news": false,
     "is_active": true,
     "created_at": "2026-06-18T04:00:00Z",
+    "departments": [
+      1,
+      4
+    ]
+  }
+},
+{
+  "model": "content.news",
+  "pk": 198,
+  "fields": {
+    "joomla_id": null,
+    "title": "Автошкола ВОА приняла участие в профориентационном мероприятии «ПрофТоп»",
+    "slug": "proforientacionnoe-meropriyatie-proftop-dlya-starsheklassnikov",
+    "preview_text": "Представители автошколы ВОА познакомили старшеклассников Усть-Кута с подготовкой водителей: полоса препятствий, VR-очки и программа «АвтоТрезвость».",
+    "content": "Автошкола ВОА приняла участие в профориентационном мероприятии «ПрофТоп» для старшеклассников.\r\n\r\nВ рамках события представители автошколы познакомили учащихся с деятельностью организации и особенностями подготовки водителей. Ребята попробовали пройти полосу препятствий, а ещё заглянули в мир безопасного вождения с помощью VR-очков и программы «АвтоТрезвость».\r\n\r\nМероприятие позволило сформировать у старшеклассников реалистичное представление о навыках, необходимых водителю, и акцентировать внимание на культуре безопасного поведения на дороге.",
+    "main_image": "news/main/proftop-cover.jpg",
+    "video": "news/videos/proftop.mp4",
+    "is_partner_news": false,
+    "is_active": true,
+    "created_at": "2026-09-11T09:29:00Z",
     "departments": [
       1,
       4
