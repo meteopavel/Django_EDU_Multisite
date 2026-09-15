@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-15T09:32:34.151049+00:00",
+  "generated_at": "2026-09-15T09:50:59.520768+00:00",
   "generator": "tools/extract_api_map.py",
   "targets": [
     "content",
@@ -21,7 +21,7 @@
     "modules": 15,
     "classes": 38,
     "dataclasses": 0,
-    "functions": 24,
+    "functions": 25,
     "methods": 45,
     "constants": 28
   },
@@ -881,8 +881,8 @@
               "summary": null,
               "kind": "method",
               "decorators": [],
-              "lineno": 213,
-              "end_lineno": 243
+              "lineno": 250,
+              "end_lineno": 253
             },
             {
               "name": "__str__",
@@ -891,12 +891,12 @@
               "summary": "Возвращает описание изображения или его идентификатор.",
               "kind": "method",
               "decorators": [],
-              "lineno": 245,
-              "end_lineno": 247
+              "lineno": 255,
+              "end_lineno": 257
             }
           ],
-          "lineno": 200,
-          "end_lineno": 247
+          "lineno": 237,
+          "end_lineno": 257
         },
         {
           "name": "News",
@@ -917,8 +917,8 @@
               "summary": "Возвращает заголовок новости.",
               "kind": "method",
               "decorators": [],
-              "lineno": 272,
-              "end_lineno": 274
+              "lineno": 282,
+              "end_lineno": 284
             },
             {
               "name": "save",
@@ -927,12 +927,12 @@
               "summary": "Сохраняет новость и при необходимости заполняет дату публикации.",
               "kind": "method",
               "decorators": [],
-              "lineno": 276,
-              "end_lineno": 280
+              "lineno": 286,
+              "end_lineno": 292
             }
           ],
-          "lineno": 250,
-          "end_lineno": 280
+          "lineno": 260,
+          "end_lineno": 292
         },
         {
           "name": "DocumentCategory",
@@ -953,12 +953,12 @@
               "summary": "Возвращает название категории.",
               "kind": "method",
               "decorators": [],
-              "lineno": 295,
-              "end_lineno": 297
+              "lineno": 307,
+              "end_lineno": 309
             }
           ],
-          "lineno": 283,
-          "end_lineno": 297
+          "lineno": 295,
+          "end_lineno": 309
         },
         {
           "name": "Document",
@@ -975,7 +975,7 @@
               "name": "DOCUMENT_TYPE_CHOICES",
               "annotation": "list[tuple[str, str]]",
               "value_repr": "[('file', 'Файл (PDF/изображение)'), ('external', 'Внешняя ссылка'), ('info', 'Информационный пункт (без файла)')]",
-              "lineno": 303
+              "lineno": 315
             }
           ],
           "methods": [
@@ -986,8 +986,8 @@
               "summary": "Возвращает название документа и подразделение.",
               "kind": "method",
               "decorators": [],
-              "lineno": 328,
-              "end_lineno": 330
+              "lineno": 340,
+              "end_lineno": 342
             },
             {
               "name": "get_display_url",
@@ -996,8 +996,8 @@
               "summary": "Возвращает URL файла или внешней ссылки для отображения.",
               "kind": "method",
               "decorators": [],
-              "lineno": 332,
-              "end_lineno": 338
+              "lineno": 344,
+              "end_lineno": 350
             },
             {
               "name": "is_external",
@@ -1006,8 +1006,8 @@
               "summary": "Проверяет, является ли документ внешней ссылкой.",
               "kind": "method",
               "decorators": [],
-              "lineno": 340,
-              "end_lineno": 342
+              "lineno": 352,
+              "end_lineno": 354
             },
             {
               "name": "is_info_only",
@@ -1016,8 +1016,8 @@
               "summary": "Проверяет, является ли документ информационным пунктом без файла.",
               "kind": "method",
               "decorators": [],
-              "lineno": 344,
-              "end_lineno": 346
+              "lineno": 356,
+              "end_lineno": 358
             },
             {
               "name": "save",
@@ -1026,12 +1026,12 @@
               "summary": "Сохраняет документ и автоматически определяет тип загруженного файла.",
               "kind": "method",
               "decorators": [],
-              "lineno": 348,
-              "end_lineno": 360
+              "lineno": 360,
+              "end_lineno": 372
             }
           ],
-          "lineno": 300,
-          "end_lineno": 360
+          "lineno": 312,
+          "end_lineno": 372
         },
         {
           "name": "Material",
@@ -1052,12 +1052,12 @@
               "summary": "Возвращает заголовок материала.",
               "kind": "method",
               "decorators": [],
-              "lineno": 376,
-              "end_lineno": 378
+              "lineno": 388,
+              "end_lineno": 390
             }
           ],
-          "lineno": 363,
-          "end_lineno": 378
+          "lineno": 375,
+          "end_lineno": 390
         },
         {
           "name": "ContentBlock",
@@ -1074,7 +1074,7 @@
               "name": "BLOCK_TYPES",
               "annotation": "list[tuple[str, str]]",
               "value_repr": "[('heading', 'Заголовок'), ('paragraph', 'Абзац'), ('list', 'Список'), ('image', 'Изображение'), ('video', 'Видео'), ('quote', 'Цитата'), ('documents', 'Документы')]",
-              "lineno": 384
+              "lineno": 396
             }
           ],
           "methods": [
@@ -1085,12 +1085,12 @@
               "summary": "Возвращает краткое представление блока материала.",
               "kind": "method",
               "decorators": [],
-              "lineno": 402,
-              "end_lineno": 404
+              "lineno": 414,
+              "end_lineno": 416
             }
           ],
-          "lineno": 381,
-          "end_lineno": 404
+          "lineno": 393,
+          "end_lineno": 416
         },
         {
           "name": "ExamInfo",
@@ -1111,8 +1111,8 @@
               "summary": "Возвращает номер группы и дату экзамена в ГИБДД.",
               "kind": "method",
               "decorators": [],
-              "lineno": 423,
-              "end_lineno": 425
+              "lineno": 435,
+              "end_lineno": 437
             },
             {
               "name": "gathering_time",
@@ -1123,8 +1123,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 428,
-              "end_lineno": 434
+              "lineno": 440,
+              "end_lineno": 446
             },
             {
               "name": "is_expired",
@@ -1133,8 +1133,8 @@
               "summary": "Проверяет, прошла ли дата экзамена в ГИБДД.",
               "kind": "method",
               "decorators": [],
-              "lineno": 436,
-              "end_lineno": 441
+              "lineno": 448,
+              "end_lineno": 453
             },
             {
               "name": "should_be_visible",
@@ -1143,12 +1143,12 @@
               "summary": "Проверяет, должна ли запись отображаться как актуальная.",
               "kind": "method",
               "decorators": [],
-              "lineno": 443,
-              "end_lineno": 445
+              "lineno": 455,
+              "end_lineno": 457
             }
           ],
-          "lineno": 407,
-          "end_lineno": 445
+          "lineno": 419,
+          "end_lineno": 457
         },
         {
           "name": "Announcement",
@@ -1169,12 +1169,12 @@
               "summary": null,
               "kind": "method",
               "decorators": [],
-              "lineno": 477,
-              "end_lineno": 478
+              "lineno": 489,
+              "end_lineno": 490
             }
           ],
-          "lineno": 448,
-          "end_lineno": 478
+          "lineno": 460,
+          "end_lineno": 490
         },
         {
           "name": "ClassSession",
@@ -1195,12 +1195,12 @@
               "summary": null,
               "kind": "method",
               "decorators": [],
-              "lineno": 502,
-              "end_lineno": 503
+              "lineno": 514,
+              "end_lineno": 515
             }
           ],
-          "lineno": 481,
-          "end_lineno": 503
+          "lineno": 493,
+          "end_lineno": 515
         },
         {
           "name": "PricingPlan",
@@ -1221,8 +1221,8 @@
               "summary": null,
               "kind": "method",
               "decorators": [],
-              "lineno": 535,
-              "end_lineno": 536
+              "lineno": 547,
+              "end_lineno": 548
             },
             {
               "name": "has_promo_theory",
@@ -1233,8 +1233,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 539,
-              "end_lineno": 540
+              "lineno": 551,
+              "end_lineno": 552
             },
             {
               "name": "effective_practice_price",
@@ -1245,8 +1245,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 543,
-              "end_lineno": 547
+              "lineno": 555,
+              "end_lineno": 559
             },
             {
               "name": "total_mkpp",
@@ -1257,8 +1257,8 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 550,
-              "end_lineno": 551
+              "lineno": 562,
+              "end_lineno": 563
             },
             {
               "name": "total_akpp",
@@ -1269,15 +1269,26 @@
               "decorators": [
                 "property"
               ],
-              "lineno": 554,
-              "end_lineno": 555
+              "lineno": 566,
+              "end_lineno": 567
             }
           ],
-          "lineno": 506,
-          "end_lineno": 555
+          "lineno": 518,
+          "end_lineno": 567
         }
       ],
-      "functions": [],
+      "functions": [
+        {
+          "name": "process_news_image",
+          "signature": "process_news_image(field_file) -> bool",
+          "docstring": "Приводит изображение к размеру не более 1000 px по большей стороне, PNG конвертирует в JPEG.\n\nВозвращает True, если файл переименован (PNG → JPG) и поле нужно пересохранить в БД.",
+          "summary": "Приводит изображение к размеру не более 1000 px по большей стороне, PNG конвертирует в JPEG.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 200,
+          "end_lineno": 234
+        }
+      ],
       "constants": [
         {
           "name": "DEFAULT_HOME_SECTION_ORDER",
@@ -1289,7 +1300,7 @@
       "stats": {
         "classes": 16,
         "dataclasses": 0,
-        "functions": 0,
+        "functions": 1,
         "methods": 29,
         "constants": 1
       }

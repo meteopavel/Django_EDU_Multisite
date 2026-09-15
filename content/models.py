@@ -197,6 +197,43 @@ class MenuItem(models.Model):
         return f'{self.title} (все подразделения)'
 
 
+def process_news_image(field_file) -> bool:
+    """Приводит изображение к размеру не более 1000 px по большей стороне, PNG конвертирует в JPEG.
+
+    Возвращает True, если файл переименован (PNG → JPG) и поле нужно пересохранить в БД.
+    """
+    import io
+    import os
+    from PIL import Image as PilImage
+    path = field_file.path
+    img = PilImage.open(path)
+    orig_fmt = img.format or 'JPEG'
+    need_resize = max(img.width, img.height) > 1000
+    need_convert = orig_fmt.upper() == 'PNG'
+    if not (need_resize or need_convert):
+        return False
+    if need_resize:
+        ratio = 1000 / max(img.width, img.height)
+        img = img.resize(
+            (int(img.width * ratio), int(img.height * ratio)),
+            PilImage.LANCZOS,
+        )
+    if need_convert:
+        img = img.convert('RGB')
+        new_path = path.rsplit('.', 1)[0] + '.jpg'
+    else:
+        new_path = path
+    buf = io.BytesIO()
+    img.save(buf, format='JPEG', quality=90)
+    with open(new_path, 'wb') as f:
+        f.write(buf.getvalue())
+    if need_convert and new_path != path:
+        os.remove(path)
+        field_file.name = field_file.name.rsplit('.', 1)[0] + '.jpg'
+        return True
+    return False
+
+
 class NewsImage(models.Model):
     """Изображение галереи, связанное с новостью."""
 
@@ -211,36 +248,9 @@ class NewsImage(models.Model):
         verbose_name_plural = 'Изображения для галереи'
 
     def save(self, *args, **kwargs):
-        import io
-        from PIL import Image as PilImage
         super().save(*args, **kwargs)
-        if self.image:
-            path = self.image.path
-            img = PilImage.open(path)
-            orig_fmt = img.format or 'JPEG'
-            need_resize = min(img.width, img.height) > 1000
-            need_convert = orig_fmt.upper() == 'PNG'
-            if need_resize or need_convert:
-                if need_resize:
-                    ratio = 1000 / min(img.width, img.height)
-                    img = img.resize(
-                        (int(img.width * ratio), int(img.height * ratio)),
-                        PilImage.LANCZOS,
-                    )
-                if need_convert:
-                    img = img.convert('RGB')
-                    new_path = path.rsplit('.', 1)[0] + '.jpg'
-                else:
-                    new_path = path
-                buf = io.BytesIO()
-                img.save(buf, format='JPEG', quality=90)
-                with open(new_path, 'wb') as f:
-                    f.write(buf.getvalue())
-                if need_convert and new_path != path:
-                    import os
-                    os.remove(path)
-                    self.image.name = self.image.name.rsplit('.', 1)[0] + '.jpg'
-                    NewsImage.objects.filter(pk=self.pk).update(image=self.image.name)
+        if self.image and process_news_image(self.image):
+            NewsImage.objects.filter(pk=self.pk).update(image=self.image.name)
 
     def __str__(self) -> str:
         """Возвращает описание изображения или его идентификатор."""
@@ -278,6 +288,8 @@ class News(models.Model):
         if not self.created_at:
             self.created_at = timezone.now()
         super().save(*args, **kwargs)
+        if self.main_image and process_news_image(self.main_image):
+            News.objects.filter(pk=self.pk).update(main_image=self.main_image.name)
 
 
 class DocumentCategory(models.Model):
