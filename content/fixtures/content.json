@@ -14063,11 +14063,11 @@
     "department": 2,
     "card_type": "promo",
     "title": "АКЦИЯ С 7 СЕНТЯБРЯ: ТЕОРИЯ БЕСПЛАТНО!",
-    "text": "<p style=\"color: #666;\">Сентябрь — время учиться, и мы дарим школьные скидки на права для всех! <strong>Только с 7 по 20 сентября 2026 года</strong> мы полностью оплачиваем теоретический курс за вас.</p><p style=\"color: #C30027; font-weight: bold; font-size: 1.3em;\">Ваша выгода — 8000 рублей!</p><ul><li><strong style=\"color: #28a745;\">Теория бесплатно</strong> — мы оплачиваем теоретический курс за вас</li><li><strong style=\"color: #28a745;\">Осенний старт</strong> — начните обучение без лишних затрат</li><li><strong style=\"color: #28a745;\">Больше практики</strong> — сэкономленные деньги можно направить на дополнительные часы вождения</li></ul><p style=\"padding: 10px; background: #f8f9fa; border-left: 4px solid #C30027; border-radius: 4px;\"><strong>Успейте записаться до 20.09.2026!</strong><br>Количество мест по акции ограничено.</p>",
+    "text": "<p style=\"color: #666;\">Сентябрь — время учиться, и мы дарим школьные скидки на права для всех! <strong>Только с 7 по 30 сентября 2026 года</strong> мы полностью оплачиваем теоретический курс за вас.</p><p style=\"color: #C30027; font-weight: bold; font-size: 1.3em;\">Ваша выгода — 8000 рублей!</p><ul><li><strong style=\"color: #28a745;\">Теория бесплатно</strong> — мы оплачиваем теоретический курс за вас</li><li><strong style=\"color: #28a745;\">Осенний старт</strong> — начните обучение без лишних затрат</li><li><strong style=\"color: #28a745;\">Больше практики</strong> — сэкономленные деньги можно направить на дополнительные часы вождения</li></ul><p style=\"padding: 10px; background: #f8f9fa; border-left: 4px solid #C30027; border-radius: 4px;\"><strong>Успейте записаться до 30.09.2026!</strong><br>Количество мест по акции ограничено.</p>",
     "image": "announcements/ads-irkutsk-5.jpg",
     "is_active": true,
     "starts_at": "2026-09-07",
-    "expires_at": "2026-09-20",
+    "expires_at": "2026-09-30",
     "order": 0
   }
 },
