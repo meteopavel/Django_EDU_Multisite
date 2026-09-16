@@ -9,7 +9,7 @@
 @import '_components/common.css';
 @import '_components/header.css';
 @import '_components/header-banner.css';
-@import '_components/exam-info.css';
+@import '_components/exam-info.css?v=2026091601';
 @import '_components/nav.css';
 @import '_components/news.css';
 @import '_components/accordion.css';

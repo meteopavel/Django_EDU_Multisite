@@ -212,10 +212,10 @@
 
     .promo-card__image {
         max-width: none;
-        max-height: 250px;
     }
 
     .promo-card__image img {
+        height: auto;
         object-fit: contain;
     }
 
