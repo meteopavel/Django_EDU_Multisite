@@ -109,7 +109,9 @@ class Command(BaseCommand):
                     continue  # подразделение не пользуется этим расписанием
 
                 last_session = sessions.filter(date__gte=today).order_by('-date').first()
-                alert = ClassScheduleAlert.objects.filter(department=department, subject=subject).first()
+                alert = ClassScheduleAlert.objects.filter(
+                    department_slug=department.slug, subject=subject,
+                ).first()
 
                 if last_session:
                     if alert:
@@ -117,7 +119,7 @@ class Command(BaseCommand):
 
                     last_date = last_session.date
                     if is_last_weekday(last_date, today) and not ScheduleEndingAlert.objects.filter(
-                        department=department, subject=subject, last_date=last_date,
+                        department_slug=department.slug, subject=subject, last_date=last_date,
                     ).exists():
                         if last_date == today:
                             tail = f'сегодня ({last_date:%d.%m.%Y})'
@@ -129,7 +131,7 @@ class Command(BaseCommand):
                         )
                         if self.send(text):
                             ScheduleEndingAlert.objects.create(
-                                department=department, subject=subject, last_date=last_date,
+                                department_slug=department.slug, subject=subject, last_date=last_date,
                             )
                             self.stdout.write(
                                 f'Отправлено уведомление: расписание {department.name} / {subject_label} заканчивается'
@@ -144,7 +146,7 @@ class Command(BaseCommand):
                     f'по предмету «{subject_label}».'
                 )
                 if self.send(text):
-                    ClassScheduleAlert.objects.create(department=department, subject=subject)
+                    ClassScheduleAlert.objects.create(department_slug=department.slug, subject=subject)
                     self.stdout.write(f'Отправлено уведомление: {department.name} / {subject_label}')
 
     def check_passed_exams(self, today: date) -> None:
@@ -153,7 +155,10 @@ class Command(BaseCommand):
         exams = ExamInfo.objects.filter(gibdd_date__isnull=False, gibdd_date__lt=today)
 
         for exam in exams:
-            if ExamPassedAlert.objects.filter(exam=exam).exists():
+            if ExamPassedAlert.objects.filter(
+                department_slug=exam.department.slug,
+                group_number=exam.group_number, gibdd_date=exam.gibdd_date,
+            ).exists():
                 continue  # уже уведомляли
 
             # Экзамен «прошёл» начиная со дня, следующего за gibdd_date.
@@ -176,7 +181,10 @@ class Command(BaseCommand):
                 f'({exam.gibdd_date:%d.%m.%Y}). {remaining}'
             )
             if self.send(text):
-                ExamPassedAlert.objects.create(exam=exam)
+                ExamPassedAlert.objects.create(
+                    department_slug=exam.department.slug,
+                    group_number=exam.group_number, gibdd_date=exam.gibdd_date,
+                )
                 self.stdout.write(f'Отправлено уведомление: экзамен ГИБДД группы {exam.group_number} прошёл')
 
     def check_exam_endings(self, today: date) -> None:
@@ -192,7 +200,9 @@ class Command(BaseCommand):
             last_date = upcoming.last().gibdd_date
             if not is_last_weekday(last_date, today):
                 continue
-            if ExamEndingAlert.objects.filter(department=department, last_date=last_date).exists():
+            if ExamEndingAlert.objects.filter(
+                department_slug=department.slug, last_date=last_date,
+            ).exists():
                 continue  # уже уведомляли
 
             groups = ', '.join(
@@ -207,7 +217,7 @@ class Command(BaseCommand):
                 f'После этого предстоящих экзаменов на сайте не останется.'
             )
             if self.send(text):
-                ExamEndingAlert.objects.create(department=department, last_date=last_date)
+                ExamEndingAlert.objects.create(department_slug=department.slug, last_date=last_date)
                 self.stdout.write(
                     f'Отправлено уведомление: предстоящие экзамены {department.name} заканчиваются'
                 )
@@ -224,8 +234,8 @@ class Command(BaseCommand):
                 and promo.starts_at <= today
                 and is_first_weekday_after(promo.starts_at, today)
                 and not PromoEventAlert.objects.filter(
-                    announcement=promo, event_type=PromoEventAlert.EventType.STARTED,
-                    event_date=promo.starts_at,
+                    department_slug=promo.department.slug,
+                    event_type=PromoEventAlert.EventType.STARTED, event_date=promo.starts_at,
                 ).exists()
             ):
                 text = f'🚀 Стартовала отложенная акция: «{promo.title}»'
@@ -234,8 +244,8 @@ class Command(BaseCommand):
                 text += '.'
                 if self.send(text):
                     PromoEventAlert.objects.create(
-                        announcement=promo, event_type=PromoEventAlert.EventType.STARTED,
-                        event_date=promo.starts_at,
+                        department_slug=promo.department.slug, promo_title=promo.title,
+                        event_type=PromoEventAlert.EventType.STARTED, event_date=promo.starts_at,
                     )
                     self.stdout.write(f'Отправлено уведомление: акция стартовала — {promo.title}')
 
@@ -243,8 +253,8 @@ class Command(BaseCommand):
                 promo.expires_at is not None
                 and is_last_weekday(promo.expires_at, today)
                 and not PromoEventAlert.objects.filter(
-                    announcement=promo, event_type=PromoEventAlert.EventType.ENDING,
-                    event_date=promo.expires_at,
+                    department_slug=promo.department.slug,
+                    event_type=PromoEventAlert.EventType.ENDING, event_date=promo.expires_at,
                 ).exists()
             ):
                 if promo.expires_at == today:
@@ -258,7 +268,7 @@ class Command(BaseCommand):
                 )
                 if self.send(text):
                     PromoEventAlert.objects.create(
-                        announcement=promo, event_type=PromoEventAlert.EventType.ENDING,
-                        event_date=promo.expires_at,
+                        department_slug=promo.department.slug, promo_title=promo.title,
+                        event_type=PromoEventAlert.EventType.ENDING, event_date=promo.expires_at,
                     )
                     self.stdout.write(f'Отправлено уведомление: акция заканчивается — {promo.title}')

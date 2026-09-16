@@ -2,7 +2,13 @@ from __future__ import annotations
 
 from django.db import models
 
-from content.models import Announcement, ClassSession, Department, ExamInfo
+from content.models import ClassSession
+
+# Все отметки дедупа хранятся значениями (слаг подразделения, предмет,
+# номера групп, даты) — без FK на модели приложения content: при деплое
+# контент перезаливается фикстурой, и FK-связи каскадно удаляли бы отметки
+# вместе с контентом, из-за чего отправленные уведомления повторялись после
+# каждого деплоя.
 
 
 class ClassScheduleAlert(models.Model):
@@ -18,10 +24,7 @@ class ClassScheduleAlert(models.Model):
     редакционный контент.
     """
 
-    department = models.ForeignKey(
-        Department, on_delete=models.CASCADE, related_name='class_schedule_alerts',
-        verbose_name='Подразделение',
-    )
+    department_slug = models.CharField('Слаг подразделения', max_length=50)
     subject = models.CharField('Предмет', max_length=20, choices=ClassSession.Subject.choices)
     notified_at = models.DateTimeField('Отправлено', auto_now_add=True)
 
@@ -29,37 +32,35 @@ class ClassScheduleAlert(models.Model):
         verbose_name = 'Уведомление об устаревшем расписании'
         verbose_name_plural = 'Уведомления об устаревшем расписании'
         constraints = [
-            models.UniqueConstraint(fields=['department', 'subject'], name='unique_class_schedule_alert'),
+            models.UniqueConstraint(fields=['department_slug', 'subject'], name='unique_class_schedule_alert'),
         ]
 
     def __str__(self) -> str:
-        return f'{self.department.name} — {self.get_subject_display()} ({self.notified_at:%Y-%m-%d})'
+        return f'{self.department_slug} — {self.get_subject_display()} ({self.notified_at:%Y-%m-%d})'
 
 
 class ExamPassedAlert(models.Model):
     """Отметка об отправке уведомления «в группе прошёл экзамен в ГИБДД» по
-    конкретному экзамену (чтобы не слать его повторно на следующих запусках).
-
-    Живёт здесь по той же причине, что и ClassScheduleAlert: это рантайм-состояние
-    cron-команды, а не редакционный контент — приложение content при деплое
-    перезаливается фикстурой.
+    конкретному экзамену — группе с датой ГИБДД (чтобы не слать повторно).
     """
 
-    exam = models.ForeignKey(
-        ExamInfo, on_delete=models.CASCADE, related_name='passed_alerts',
-        verbose_name='Экзамен',
-    )
+    department_slug = models.CharField('Слаг подразделения', max_length=50)
+    group_number = models.PositiveSmallIntegerField('Номер группы')
+    gibdd_date = models.DateField('Дата экзамена в ГИБДД')
     notified_at = models.DateTimeField('Отправлено', auto_now_add=True)
 
     class Meta:
         verbose_name = 'Уведомление о прошедшем экзамене'
         verbose_name_plural = 'Уведомления о прошедших экзаменах'
         constraints = [
-            models.UniqueConstraint(fields=['exam'], name='unique_exam_passed_alert'),
+            models.UniqueConstraint(
+                fields=['department_slug', 'group_number', 'gibdd_date'],
+                name='unique_exam_passed_alert',
+            ),
         ]
 
     def __str__(self) -> str:
-        return f'Группа {self.exam.group_number} — ГИБДД {self.exam.gibdd_date} ({self.notified_at:%Y-%m-%d})'
+        return f'{self.department_slug} — группа {self.group_number}, ГИБДД {self.gibdd_date:%Y-%m-%d}'
 
 
 class PromoEventAlert(models.Model):
@@ -69,17 +70,16 @@ class PromoEventAlert(models.Model):
 
     Ключ уникальности включает дату события (starts_at или expires_at): запись
     акции (Announcement card_type='promo') правится на месте каждый месяц с новыми
-    датами, и по новым датам уведомления должны срабатывать заново.
+    датами, и по новым датам уведомления должны срабатывать заново. Название
+    акции хранится копией только для читаемости, в ключ не входит.
     """
 
     class EventType(models.TextChoices):
         STARTED = 'started', 'Акция стартовала'
         ENDING = 'ending', 'Акция заканчивается'
 
-    announcement = models.ForeignKey(
-        Announcement, on_delete=models.CASCADE, related_name='promo_event_alerts',
-        verbose_name='Акция',
-    )
+    department_slug = models.CharField('Слаг подразделения', max_length=50)
+    promo_title = models.CharField('Название акции', max_length=255)
     event_type = models.CharField('Событие', max_length=10, choices=EventType.choices)
     event_date = models.DateField('Дата события (starts_at / expires_at)')
     notified_at = models.DateTimeField('Отправлено', auto_now_add=True)
@@ -90,13 +90,13 @@ class PromoEventAlert(models.Model):
         ordering = ['-notified_at']
         constraints = [
             models.UniqueConstraint(
-                fields=['announcement', 'event_type', 'event_date'],
+                fields=['department_slug', 'event_type', 'event_date'],
                 name='unique_promo_event_alert',
             ),
         ]
 
     def __str__(self) -> str:
-        return f'{self.announcement.title} — {self.get_event_type_display()} {self.event_date:%Y-%m-%d}'
+        return f'{self.promo_title} — {self.get_event_type_display()} {self.event_date:%Y-%m-%d}'
 
 
 class ScheduleEndingAlert(models.Model):
@@ -107,10 +107,7 @@ class ScheduleEndingAlert(models.Model):
     снова подойдёт к концу, предупреждение придёт заново.
     """
 
-    department = models.ForeignKey(
-        Department, on_delete=models.CASCADE, related_name='schedule_ending_alerts',
-        verbose_name='Подразделение',
-    )
+    department_slug = models.CharField('Слаг подразделения', max_length=50)
     subject = models.CharField('Предмет', max_length=20, choices=ClassSession.Subject.choices)
     last_date = models.DateField('Дата последнего занятия')
     notified_at = models.DateTimeField('Отправлено', auto_now_add=True)
@@ -121,16 +118,13 @@ class ScheduleEndingAlert(models.Model):
         ordering = ['-notified_at']
         constraints = [
             models.UniqueConstraint(
-                fields=['department', 'subject', 'last_date'],
+                fields=['department_slug', 'subject', 'last_date'],
                 name='unique_schedule_ending_alert',
             ),
         ]
 
     def __str__(self) -> str:
-        return (
-            f'{self.department.name} — {self.get_subject_display()} '
-            f'заканчивается {self.last_date:%Y-%m-%d}'
-        )
+        return f'{self.department_slug} — {self.get_subject_display()} заканчивается {self.last_date:%Y-%m-%d}'
 
 
 class ExamEndingAlert(models.Model):
@@ -138,10 +132,7 @@ class ExamEndingAlert(models.Model):
     заканчиваются (в последний будний день последнего экзамена ГИБДД).
     """
 
-    department = models.ForeignKey(
-        Department, on_delete=models.CASCADE, related_name='exam_ending_alerts',
-        verbose_name='Подразделение',
-    )
+    department_slug = models.CharField('Слаг подразделения', max_length=50)
     last_date = models.DateField('Дата последнего экзамена ГИБДД')
     notified_at = models.DateTimeField('Отправлено', auto_now_add=True)
 
@@ -151,10 +142,10 @@ class ExamEndingAlert(models.Model):
         ordering = ['-notified_at']
         constraints = [
             models.UniqueConstraint(
-                fields=['department', 'last_date'],
+                fields=['department_slug', 'last_date'],
                 name='unique_exam_ending_alert',
             ),
         ]
 
     def __str__(self) -> str:
-        return f'{self.department.name} — экзамены заканчиваются {self.last_date:%Y-%m-%d}'
+        return f'{self.department_slug} — экзамены заканчиваются {self.last_date:%Y-%m-%d}'

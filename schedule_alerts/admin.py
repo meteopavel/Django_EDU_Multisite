@@ -26,8 +26,8 @@ class ReadOnlyAlertAdmin(admin.ModelAdmin):
 class ClassScheduleAlertAdmin(ReadOnlyAlertAdmin):
     """Список уже отправленных уведомлений об устаревшем расписании."""
 
-    list_display = ['department', 'subject', 'notified_at']
-    list_filter = ['department', 'subject']
+    list_display = ['department_slug', 'subject', 'notified_at']
+    list_filter = ['subject']
     ordering = ['-notified_at']
 
 
@@ -35,7 +35,7 @@ class ClassScheduleAlertAdmin(ReadOnlyAlertAdmin):
 class ExamPassedAlertAdmin(ReadOnlyAlertAdmin):
     """Список уже отправленных уведомлений о прошедших экзаменах ГИБДД."""
 
-    list_display = ['exam', 'notified_at']
+    list_display = ['department_slug', 'group_number', 'gibdd_date', 'notified_at']
     ordering = ['-notified_at']
 
 
@@ -44,7 +44,7 @@ class PromoEventAlertAdmin(ReadOnlyAlertAdmin):
     """Список уже отправленных уведомлений о старте акций и о том, что акция
     заканчивается."""
 
-    list_display = ['announcement', 'event_type', 'event_date', 'notified_at']
+    list_display = ['department_slug', 'promo_title', 'event_type', 'event_date', 'notified_at']
     list_filter = ['event_type']
     ordering = ['-notified_at']
 
@@ -53,8 +53,8 @@ class PromoEventAlertAdmin(ReadOnlyAlertAdmin):
 class ScheduleEndingAlertAdmin(ReadOnlyAlertAdmin):
     """Список уже отправленных предупреждений об окончании расписания."""
 
-    list_display = ['department', 'subject', 'last_date', 'notified_at']
-    list_filter = ['department', 'subject']
+    list_display = ['department_slug', 'subject', 'last_date', 'notified_at']
+    list_filter = ['subject']
     ordering = ['-notified_at']
 
 
@@ -62,5 +62,5 @@ class ScheduleEndingAlertAdmin(ReadOnlyAlertAdmin):
 class ExamEndingAlertAdmin(ReadOnlyAlertAdmin):
     """Список уже отправленных предупреждений об окончании экзаменов."""
 
-    list_display = ['department', 'last_date', 'notified_at']
+    list_display = ['department_slug', 'last_date', 'notified_at']
     ordering = ['-notified_at']

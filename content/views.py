@@ -87,8 +87,8 @@ def home_view(request: HttpRequest, department: Department) -> dict[str, Any]:
         has_any_sessions = ClassSession.objects.filter(department=department).exists()
         if has_any_sessions:
             upcoming_sessions = ClassSession.objects.filter(department=department, date__gte=today)
-            context['psych_sessions'] = upcoming_sessions.filter(subject='psychology')
-            context['med_sessions'] = upcoming_sessions.filter(subject='medicine')
+            context['psych_sessions'] = upcoming_sessions.filter(subject='psychology')[:1]
+            context['med_sessions'] = upcoming_sessions.filter(subject='medicine')[:1]
             context['show_exam_info_section'] = True
     if HomeSectionChoices.PRICING in enabled_section_keys:
         try:
