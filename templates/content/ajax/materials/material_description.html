@@ -1,3 +1,4 @@
+{% load document_tags %}
 {% for block in material.blocks.all %}
     {% if block.block_type == 'heading' %}
         <h3 class="section__subtitle">{{ block.text }}</h3>
@@ -11,12 +12,12 @@
         </ul>
     {% elif block.block_type == 'image' and block.image %}
         <figure>
-            <img src="{{ block.image.url }}" alt="{{ block.text }}" class="modal-image">
+            <img src="{{ block.image|versioned_url }}" alt="{{ block.text }}" class="modal-image">
             {% if block.text %}<figcaption>{{ block.text }}</figcaption>{% endif %}
         </figure>
     {% elif block.block_type == 'video' and block.video %}
         <video controls width="100%">
-            <source src="{{ block.video.url }}" type="video/mp4">
+            <source src="{{ block.video|versioned_url }}" type="video/mp4">
         </video>
     {% endif %}
 {% endfor %}

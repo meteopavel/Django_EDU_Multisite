@@ -8,7 +8,7 @@
             <!-- Карточка 1: Категория В -->
             <div class="pricing-card">
                 <div class="pricing-card-image">
-                    <img src="{% static 'img/red_car.png' %}" />
+                    <img src="{% static 'img/red_car.png' %}?v={{ STATIC_VERSION }}" />
                 </div>
                 <div class="pricing-card-content">
                     <h3>КАТЕГОРИЯ В</h3>
@@ -55,7 +55,7 @@
             {% if department.slug != 'bratsk' %}
                 <div class="pricing-card">
                     <div class="pricing-card-image">
-                        <img src="{% static 'img/ring_sing.png' %}" />
+                        <img src="{% static 'img/ring_sing.png' %}?v={{ STATIC_VERSION }}" />
                     </div>
                     <div class="pricing-card-content">
                         <h3>ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h3>

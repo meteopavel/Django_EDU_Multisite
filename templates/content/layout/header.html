@@ -2,7 +2,7 @@
 
 <header class="header">
     <div class="content__layout {% if department.slug == "irkutsk" %}header-special{% else %}header-default{% endif %}">
-        <a href="/"><img class="header_img" src="{% static 'img/logo.png' %}" /></a>
+        <a href="/"><img class="header_img" src="{% static 'img/logo.png' %}?v={{ STATIC_VERSION }}" /></a>
         {% if department.slug == "irkutsk" %}
             <div class="header__contacts_special">
                 {% include "content/partials/contacts/contact_links.html" %}
@@ -15,11 +15,11 @@
             <div class="header_main_part">
                 <a href="/"><h1 class="header__title">{{ department.details.meta_title }}<br>{{ department.details.meta_description }}</h1></a>
                 <div class="header_department_links">
-                    <a class="img_link" href="https://voa.ru"><img src="{% static 'img/icon_moscow.png' %}" />Центральный совет</a>
-                    {% if not department.slug == "region" %}<a class="img_link" href="https://voa-irkutsk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Региональное отделение</a>{% endif %}
-                    {% if not department.slug == "irkutsk" %}<a class="img_link" href="https://voa-irk.ru"><img src="{% static 'img/icon_irkutsk.png' %}" />Иркутская автошкола</a>{% endif %}
-                    {% if not department.slug == "ustkut" %}<a class="img_link" href="https://xn----7sbf8aruhbfd1h.xn--p1ai"><img src="{% static 'img/icon_ustkut.png' %}" />Усть-Кутское отделение</a>{% endif %}
-                    {% if not department.slug == "bratsk" %}<a class="img_link" href="https://xn----7sbbdc6cxatkj.xn--p1ai"><img src="{% static 'img/icon_bratsk.png' %}" />Братское отделение</a>{% endif %}
+                    <a class="img_link" href="https://voa.ru"><img src="{% static 'img/icon_moscow.png' %}?v={{ STATIC_VERSION }}" />Центральный совет</a>
+                    {% if not department.slug == "region" %}<a class="img_link" href="https://voa-irkutsk.ru"><img src="{% static 'img/icon_irkutsk.png' %}?v={{ STATIC_VERSION }}" />Региональное отделение</a>{% endif %}
+                    {% if not department.slug == "irkutsk" %}<a class="img_link" href="https://voa-irk.ru"><img src="{% static 'img/icon_irkutsk.png' %}?v={{ STATIC_VERSION }}" />Иркутская автошкола</a>{% endif %}
+                    {% if not department.slug == "ustkut" %}<a class="img_link" href="https://xn----7sbf8aruhbfd1h.xn--p1ai"><img src="{% static 'img/icon_ustkut.png' %}?v={{ STATIC_VERSION }}" />Усть-Кутское отделение</a>{% endif %}
+                    {% if not department.slug == "bratsk" %}<a class="img_link" href="https://xn----7sbbdc6cxatkj.xn--p1ai"><img src="{% static 'img/icon_bratsk.png' %}?v={{ STATIC_VERSION }}" />Братское отделение</a>{% endif %}
                 </div>
             </div>
             <div class="header__contacts">

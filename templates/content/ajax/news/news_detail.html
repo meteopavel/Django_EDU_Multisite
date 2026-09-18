@@ -1,8 +1,9 @@
+{% load document_tags %}
 <div class="news-detail">
     <h2 style="display: none">{{ news.title }}</h2>
     <p class="news-card__date">{{ news.created_at|date:"d.m.Y" }}</p>
     {% if news.main_image and news.content|striptags|length > 0 %}
-        <img src="{{ news.main_image.url }}"
+        <img src="{{ news.main_image|versioned_url }}"
              alt="{{ news.title }}"
              class="modal-image"
              style="width:50%; max-height:400px; object-fit:cover; cursor: pointer;">
@@ -14,7 +15,7 @@
         <br>
         <div class="media__container">
             {% for img in news.gallery_images.all %}
-                <img src="{{ img.image.url }}"
+                <img src="{{ img.image|versioned_url }}"
                      alt="{{ img.description }}"
                      class="modal-image"
                      style="max-height:150px; cursor: pointer;">
@@ -27,7 +28,7 @@
         <br>
         <div class="media__container">
             <video controls>
-                <source src="{{ news.video.url }}" type="video/mp4">
+                <source src="{{ news.video|versioned_url }}" type="video/mp4">
                 Ваш браузер не поддерживает видео.
             </video>
         </div>

@@ -1,4 +1,4 @@
-{% load static %}
+{% load static  document_tags %}
 
 {% if year_display_groups %}
     <div class="year-filter">
@@ -20,9 +20,9 @@
             <article class="news-card">
                 <div class="news-card__image">
                     {% if news.main_image %}
-                        <img src="{{ news.main_image.url }}" alt="{{ news.title }}">
+                        <img src="{{ news.main_image|versioned_url }}" alt="{{ news.title }}">
                     {% else %}
-                        <img src="{% static 'img/placeholder.jpg' %}" alt="Без изображения">
+                        <img src="{% static 'img/placeholder.jpg' %}?v={{ STATIC_VERSION }}" alt="Без изображения">
                     {% endif %}
                 </div>
                 <div class="news-card__content">

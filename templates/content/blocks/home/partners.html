@@ -1,3 +1,4 @@
+{% load document_tags %}
 <section id="partners" class="section partners">
     <div class="content__layout">
         <div class="section__header">
@@ -14,7 +15,7 @@
                            data-slug="{{ news_item.slug }}">
                             {% if news_item.main_image %}
                                 <div class="partner-card__image">
-                                    <img src="{{ news_item.main_image.url }}" alt="{{ news_item.title }}">
+                                    <img src="{{ news_item.main_image|versioned_url }}" alt="{{ news_item.title }}">
                                 </div>
                             {% endif %}
                             <div class="partner-card__content">
