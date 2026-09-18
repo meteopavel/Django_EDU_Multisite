@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-17T10:43:57.925125+00:00",
+  "generated_at": "2026-09-18T07:43:59.099904+00:00",
   "generator": "tools/extract_api_map.py",
   "targets": [
     "content",
@@ -21,7 +21,7 @@
     "modules": 15,
     "classes": 38,
     "dataclasses": 0,
-    "functions": 25,
+    "functions": 26,
     "methods": 45,
     "constants": 28
   },
@@ -1307,10 +1307,22 @@
     },
     {
       "path": "content/templatetags/document_tags.py",
-      "module_docstring": "Шаблонные теги для работы с документами.\n\nМодуль содержит inclusion tag для вывода документов подразделения\nпо выбранной секции с разделением на изображения и прочие документы.",
+      "module_docstring": "Шаблонные теги для работы с документами.\n\nМодуль содержит inclusion tag для вывода документов подразделения\nпо выбранной секции с разделением на изображения и прочие документы,\nи фильтр версионирования URL медиа-файлов.",
       "module_summary": "Шаблонные теги для работы с документами.",
       "classes": [],
       "functions": [
+        {
+          "name": "versioned_url",
+          "signature": "versioned_url(field_file) -> str",
+          "docstring": "URL файла из /media/ с версией по mtime файла.\n\nХостинг кэширует /media/ на год без ревалидации: при замене файла\nс тем же именем вернувшиеся посетители видят старую версию из кэша\nбраузера. Версия в URL принудительно пробивает кэш.",
+          "summary": "URL файла из /media/ с версией по mtime файла.",
+          "kind": "function",
+          "decorators": [
+            "register.filter"
+          ],
+          "lineno": 22,
+          "end_lineno": 36
+        },
         {
           "name": "documents_for_section",
           "signature": "documents_for_section(department: Department, section_slug: str) -> dict[str, Any]",
@@ -1320,15 +1332,15 @@
           "decorators": [
             "register.inclusion_tag('content/ajax/documents/documents_section.html')"
           ],
-          "lineno": 20,
-          "end_lineno": 37
+          "lineno": 40,
+          "end_lineno": 57
         }
       ],
       "constants": [],
       "stats": {
         "classes": 0,
         "dataclasses": 0,
-        "functions": 1,
+        "functions": 2,
         "methods": 0,
         "constants": 0
       }

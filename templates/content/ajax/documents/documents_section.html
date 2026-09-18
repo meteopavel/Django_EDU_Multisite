@@ -1,3 +1,4 @@
+{% load document_tags %}
 <div class="section-documents">
 
     <!-- 1. Сначала все изображения в строку -->
@@ -6,7 +7,7 @@
             {% for doc in image_documents %}
                 <div class="document-image-item">
                     <div class="document-image-caption">{{ doc.title }}</div>
-                    <img src="{{ doc.file.url }}" alt="{{ doc.title }}" class="modal-image">
+                    <img src="{{ doc.file|versioned_url }}" alt="{{ doc.title }}" class="modal-image">
                 </div>
             {% endfor %}
         </div>
@@ -23,7 +24,7 @@
                     {% elif doc.is_external %}
                         <a href="{{ doc.external_url }}" target="_blank" rel="noopener">{{ doc.title }}</a> (внешний ресурс)
                     {% elif doc.file_type == 'pdf' %}
-                        <a href="{{ doc.file.url }}" target="_blank" rel="noopener">{{ doc.title }}</a> (PDF)
+                        <a href="{{ doc.file|versioned_url }}" target="_blank" rel="noopener">{{ doc.title }}</a> (PDF)
                     {% endif %}
                 </li>
             {% endfor %}

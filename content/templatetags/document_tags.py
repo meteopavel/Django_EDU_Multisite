@@ -2,11 +2,13 @@
 Шаблонные теги для работы с документами.
 
 Модуль содержит inclusion tag для вывода документов подразделения
-по выбранной секции с разделением на изображения и прочие документы.
+по выбранной секции с разделением на изображения и прочие документы,
+и фильтр версионирования URL медиа-файлов.
 """
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 from django import template
@@ -14,6 +16,24 @@ from django import template
 from content.models import Document, DocumentCategory, Department
 
 register = template.Library()
+
+
+@register.filter
+def versioned_url(field_file) -> str:
+    """URL файла из /media/ с версией по mtime файла.
+
+    Хостинг кэширует /media/ на год без ревалидации: при замене файла
+    с тем же именем вернувшиеся посетители видят старую версию из кэша
+    браузера. Версия в URL принудительно пробивает кэш.
+    """
+    if not field_file:
+        return ''
+    url = field_file.url
+    try:
+        mtime = int(os.path.getmtime(field_file.path))
+    except (NotImplementedError, ValueError, OSError):
+        return url
+    return f'{url}?v={mtime}'
 
 
 @register.inclusion_tag('content/ajax/documents/documents_section.html')
