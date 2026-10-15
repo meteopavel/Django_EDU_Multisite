@@ -14530,12 +14530,12 @@
   "fields": {
     "department": 2,
     "card_type": "promo",
-    "title": "АКЦИЯ С 7 СЕНТЯБРЯ: ТЕОРИЯ БЕСПЛАТНО!",
-    "text": "<p style=\"color: #666;\">Сентябрь — время учиться, и мы дарим школьные скидки на права для всех! <strong>Только с 7 по 15 октября 2026 года</strong> мы полностью оплачиваем теоретический курс за вас.</p><p style=\"color: #C30027; font-weight: bold; font-size: 1.3em;\">Ваша выгода — 8000 рублей!</p><ul><li><strong style=\"color: #28a745;\">Теория бесплатно</strong> — мы оплачиваем теоретический курс за вас</li><li><strong style=\"color: #28a745;\">Осенний старт</strong> — начните обучение без лишних затрат</li><li><strong style=\"color: #28a745;\">Больше практики</strong> — сэкономленные деньги можно направить на дополнительные часы вождения</li></ul><p style=\"padding: 10px; background: #f8f9fa; border-left: 4px solid #C30027; border-radius: 4px;\"><strong>Успейте записаться до 15.10.2026!</strong><br>Количество мест по акции ограничено.</p>",
-    "image": "announcements/ads-irkutsk-5.jpg",
+    "title": "АКЦИЯ К ДНЮ РАБОТНИКА АВТОМОБИЛЬНОГО ТРАНСПОРТА!",
+    "text": "<p style=\"color: #666;\">В честь Дня работника автомобильного транспорта поздравляем всех, кто за рулём по долгу службы и по зову сердца! <strong>Только с 15 октября по 1 ноября 2026 года</strong> мы полностью оплачиваем теоретический курс за вас.</p><p style=\"color: #C30027; font-weight: bold; font-size: 1.3em;\">Ваша выгода — 8000 рублей!</p><ul><li><strong style=\"color: #28a745;\">Теория бесплатно</strong> — мы оплачиваем теоретический курс за вас</li><li><strong style=\"color: #28a745;\">Праздничный старт</strong> — начните обучение без лишних затрат</li><li><strong style=\"color: #28a745;\">Больше практики</strong> — сэкономленные деньги можно направить на дополнительные часы вождения</li></ul><p style=\"padding: 10px; background: #f8f9fa; border-left: 4px solid #C30027; border-radius: 4px;\"><strong>Успейте записаться до 01.11.2026 и сэкономить!</strong><br>Набор в группы ограничен.</p>",
+    "image": "announcements/ads-irkutsk-6.jpg",
     "is_active": true,
-    "starts_at": "2026-09-07",
-    "expires_at": "2026-10-15",
+    "starts_at": "2026-10-15",
+    "expires_at": "2026-11-01",
     "order": 0
   }
 },
@@ -14579,6 +14579,28 @@
     "department": 2,
     "subject": "medicine",
     "date": "2026-10-22",
+    "time_start": "17:00:00",
+    "time_end": "19:00:00"
+  }
+},
+{
+  "model": "content.classsession",
+  "pk": 5,
+  "fields": {
+    "department": 2,
+    "subject": "psychology",
+    "date": "2026-11-15",
+    "time_start": "09:00:00",
+    "time_end": "10:30:00"
+  }
+},
+{
+  "model": "content.classsession",
+  "pk": 6,
+  "fields": {
+    "department": 2,
+    "subject": "medicine",
+    "date": "2026-11-19",
     "time_start": "17:00:00",
     "time_end": "19:00:00"
   }
