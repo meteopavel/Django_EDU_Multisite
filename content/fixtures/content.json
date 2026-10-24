@@ -14500,7 +14500,19 @@
     "group_number": 220,
     "theory_date": "2026-10-27",
     "practice_date": "2026-10-28",
-    "gibdd_date": "2026-11-05",
+    "gibdd_date": "2026-11-07",
+    "gibdd_time": "07:45:00"
+  }
+},
+{
+  "model": "content.examinfo",
+  "pk": 8,
+  "fields": {
+    "department": 2,
+    "group_number": 221,
+    "theory_date": "2026-11-10",
+    "practice_date": "2026-11-11",
+    "gibdd_date": "2026-11-25",
     "gibdd_time": "08:45:00"
   }
 },
