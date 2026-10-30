@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-29T13:17:47.897363+00:00",
+  "generated_at": "2026-10-30T09:36:30.946633+00:00",
   "generated_by": "tools/build_project_passport.py",
   "id": "django-edu-multisite",
   "title": "Django Multisite Content Platform",
@@ -183,7 +183,7 @@
   },
   "source": {
     "api_map_schema_version": "1.0",
-    "api_map_generated_at": "2026-10-29T13:17:47.817742+00:00",
+    "api_map_generated_at": "2026-10-30T09:36:30.845672+00:00",
     "api_map_generator": "tools/extract_api_map.py",
     "meta_auto_generated": true,
     "meta_review_status": "draft"
