@@ -14626,6 +14626,18 @@
   }
 },
 {
+  "model": "content.examinfo",
+  "pk": 9,
+  "fields": {
+    "department": 2,
+    "group_number": 222,
+    "theory_date": "2026-11-24",
+    "practice_date": "2026-11-26",
+    "gibdd_date": "2026-12-02",
+    "gibdd_time": "07:45:00"
+  }
+},
+{
   "model": "content.announcement",
   "pk": 3,
   "fields": {
@@ -14792,6 +14804,28 @@
     "department": 2,
     "subject": "medicine",
     "date": "2026-11-19",
+    "time_start": "17:00:00",
+    "time_end": "19:00:00"
+  }
+},
+{
+  "model": "content.classsession",
+  "pk": 7,
+  "fields": {
+    "department": 2,
+    "subject": "psychology",
+    "date": "2026-12-20",
+    "time_start": "09:00:00",
+    "time_end": "10:30:00"
+  }
+},
+{
+  "model": "content.classsession",
+  "pk": 8,
+  "fields": {
+    "department": 2,
+    "subject": "medicine",
+    "date": "2026-12-24",
     "time_start": "17:00:00",
     "time_end": "19:00:00"
   }
