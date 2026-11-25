@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'css/main.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
-    <link href="{% static 'img/favicon.ico' %}?v={{ STATIC_VERSION }}?v={{ STATIC_VERSION }}" rel="icon" type="image/x-icon">
+    <link href="{% static 'img/favicon.ico' %}?v={{ STATIC_VERSION }}" rel="icon" type="image/x-icon">
     <title>{{ department.details.meta_title|default:department.name }}</title>
     {% if department.details.meta_description %}
         <meta name="description" content="{{ department.details.meta_description }}">
@@ -19,6 +19,18 @@
     <script src="https://lidrekon.ru/slep/js/uhpv-full.min.js"></script>
 </head>
 <body>
+    {% if department.slug == 'irkutsk' %}
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, 'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+        ym(34367970, 'init', {webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/34367970" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    {% endif %}
     <div class="page-wrapper">
         {% block header %}{% include "content/layout/header.html" %}{% endblock %}
         {% block navigation %}{% include "content/layout/navigation.html" %}{% endblock %}
