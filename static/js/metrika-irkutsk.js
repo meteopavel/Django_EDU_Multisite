@@ -1,10 +1,9 @@
-/* Яндекс.Метрика: загрузчик счётчика.
- * Номер счётчика берётся из window.APP_CONFIG.METRIKA_ID (задаётся в base.html
- * для нужного подразделения); без него скрипт ничего не делает.
- * Параметры — как в штатном снипете Метрики (webvisor, clickmap и т.д.). */
+/* Счётчик Яндекс.Метрики автошколы Иркутск (voa-irk.ru), №34367970 —
+ * перенесён со старого сайта на Джумле. Подключается только для
+ * department.slug == 'irkutsk' в base.html; параметры — как в штатном
+ * снипете Метрики (webvisor, clickmap и т.д.). */
 (function () {
-    var counterId = (window.APP_CONFIG && window.APP_CONFIG.METRIKA_ID) || null;
-    if (!counterId) return;
+    var counterId = 34367970;
 
     (function (m, e, t, r, i, k, a) {
         m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };

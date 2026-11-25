@@ -20,11 +20,7 @@
 </head>
 <body>
     {% if department.slug == 'irkutsk' %}
-    <script>
-        window.APP_CONFIG = window.APP_CONFIG || {};
-        window.APP_CONFIG.METRIKA_ID = 34367970;
-    </script>
-    <script src="{% static 'js/yandex-metrika.js' %}?v={{ STATIC_VERSION }}"></script>
+    <script src="{% static 'js/metrika-irkutsk.js' %}?v={{ STATIC_VERSION }}"></script>
     <noscript><div><img src="https://mc.yandex.ru/watch/34367970" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     {% endif %}
     <div class="page-wrapper">
